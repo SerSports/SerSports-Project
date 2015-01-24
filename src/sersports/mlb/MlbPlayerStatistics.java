@@ -1,14 +1,8 @@
 package sersports.mlb;
 
-import javax.xml.parsers.*;
-import java.net.*;
-import java.io.*;
-import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
-import java.io.File;
-import java.util.*;
 
 public class MlbPlayerStatistics {
 	String id;
@@ -264,7 +258,7 @@ public class MlbPlayerStatistics {
                         //Identifying the child tag
                         switch (c1Node.getNodeName())
                         {
-                        case "onbase":
+                        case "hitting":
                             loadHittingData(c1Node);
                             break;
                         case "pitching":
