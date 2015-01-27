@@ -1,4 +1,4 @@
-package sersports;
+package me;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -13,10 +13,16 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextPane;
 
 public class UserLoginGui extends JFrame {
 	private JTextField txtUsername;
-	private JTextField txtPassword;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -43,21 +49,34 @@ public class UserLoginGui extends JFrame {
 		getContentPane().setLayout(null);
 		
 		txtUsername = new JTextField();
-		txtUsername.setBounds(246, 122, 86, 20);
+		txtUsername.setBounds(212, 115, 154, 20);
 		getContentPane().add(txtUsername);
 		txtUsername.setColumns(10);
 		
-		txtPassword = new JTextField();
-		txtPassword.setBounds(246, 167, 86, 20);
-		getContentPane().add(txtPassword);
-		txtPassword.setColumns(10);
-		
 		JLabel lblUsername = new JLabel("username");
-		lblUsername.setBounds(246, 109, 53, 14);
+		lblUsername.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 12));
+		lblUsername.setBounds(261, 96, 56, 20);
 		getContentPane().add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("password");
-		lblPassword.setBounds(246, 155, 53, 14);
+		lblPassword.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 12));
+		lblPassword.setBounds(261, 155, 56, 15);
 		getContentPane().add(lblPassword);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(212, 171, 154, 20);
+		getContentPane().add(passwordField);
+		
+		JButton btnSignIn = new JButton("Sign In");
+		btnSignIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnSignIn.setBounds(245, 210, 89, 23);
+		getContentPane().add(btnSignIn);
+		
+		JButton btnCreateAccount = new JButton("Create Account");
+		btnCreateAccount.setBounds(233, 244, 112, 23);
+		getContentPane().add(btnCreateAccount);
 	}
 }
