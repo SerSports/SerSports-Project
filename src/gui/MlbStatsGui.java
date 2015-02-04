@@ -16,6 +16,10 @@ public class MlbStatsGui extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	
+	private String[] pitchingColumns = {"ERA", "Pitch Count", "Innings Pitched", "Balls", "Strike Outs", "Runs Earned", "On Base HR" };
+	private String[] battingColumns = new String[6];
+	private String[] fieldingColumns = new String[6];
 
 	/**
 	 * Launch the application.

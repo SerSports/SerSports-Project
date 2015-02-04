@@ -1,5 +1,7 @@
 package sersports.mlb;
 
+import java.util.ArrayList;
+
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
@@ -149,6 +151,10 @@ public class MlbPlayerStatistics {
         hitting_xbh      = Integer.parseInt(getNodesNamedItem(node, "xbh"));
     }
     
+    public void returnHittingStats()
+    {
+    }
+    
     private void loadPitchingData(Node node)
     {
         pitching_pcount = Integer.parseInt(getNodesNamedItem(node, "pcount"));
@@ -164,6 +170,18 @@ public class MlbPlayerStatistics {
         pitching_whip   = Float.parseFloat(getNodesNamedItem(node, "whip"));
         pitching_kbb    = Float.parseFloat(getNodesNamedItem(node, "kbb"));
     }
+    
+    // TO BE FINISHED
+    public ArrayList<Float> returnPitchingData()
+    {
+    	ArrayList<Float> pitchingData = new ArrayList<Float>();
+    	pitchingData.add(pitching_era);
+    	pitchingData.add((float)pitching_pcount);
+    	pitchingData.add((float)pitching_ip_1);
+    	pitchingData.add((float)pitching_bf);
+    	return pitchingData;
+    }
+    
     
     private void loadOnbaseData(Node node)
     {
