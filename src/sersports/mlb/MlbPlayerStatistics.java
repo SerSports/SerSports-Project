@@ -6,6 +6,7 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
+
 public class MlbPlayerStatistics {
 	String id;
     String first_name;
@@ -150,11 +151,7 @@ public class MlbPlayerStatistics {
         hitting_slg      = Float.parseFloat(getNodesNamedItem(node, "slg"));
         hitting_xbh      = Integer.parseInt(getNodesNamedItem(node, "xbh"));
     }
-    
-    public void returnHittingStats()
-    {
-    }
-    
+        
     private void loadPitchingData(Node node)
     {
         pitching_pcount = Integer.parseInt(getNodesNamedItem(node, "pcount"));
@@ -171,15 +168,50 @@ public class MlbPlayerStatistics {
         pitching_kbb    = Float.parseFloat(getNodesNamedItem(node, "kbb"));
     }
     
-    // TO BE FINISHED
-    public ArrayList<Float> returnPitchingData()
+    
+    public String returnFullName()
     {
-    	ArrayList<Float> pitchingData = new ArrayList<Float>();
-    	pitchingData.add(pitching_era);
-    	pitchingData.add((float)pitching_pcount);
-    	pitchingData.add((float)pitching_ip_1);
-    	pitchingData.add((float)pitching_bf);
-    	return pitchingData;
+    	return first_name + "\'" + preferred_name + "\'" + last_name;
+    }
+    
+    public Float[] returnData(String type)
+    {
+    	ArrayList<Float> returnData = new ArrayList<Float>();
+    	switch (type) {
+		case "PITCHING":
+	    	returnData.add(pitching_era);
+	    	returnData.add((float)pitching_pcount);
+	    	returnData.add((float)pitching_ip_1);
+	    	returnData.add((float)pitching_bf);
+	    	returnData.add((float)hitting_iso);
+	    	returnData.add((float)pitching_era);
+	    	returnData.add((float)onbase_hr);
+			break;
+		case "HITTING":
+	    	returnData.add((float)hitting_ab);
+	    	returnData.add((float)hitting_avg);
+	    	returnData.add((float)hitting_slg);
+	    	returnData.add((float)hitting_obp);
+	    	returnData.add((float)hitting_iso);
+	    	returnData.add((float)hitting_rbi);
+	    	returnData.add((float)hitting_abhr);
+			break;
+		
+		case "ONBASE":
+	    	returnData.add((float)onbase_hr);
+	    	returnData.add((float)onbase_s);
+	    	returnData.add((float)onbase_hbp);
+	    	returnData.add((float)onbase_h);
+	    	returnData.add((float)onbase_bb);
+	    	returnData.add((float)onbase_fc);
+	    	returnData.add((float)onbase_tb);
+			break;
+
+		default:
+			break;
+		}
+    	Float[] returnArray = returnData.toArray(new Float[0]);
+    	return returnArray;
     }
     
     
