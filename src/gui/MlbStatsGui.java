@@ -17,13 +17,12 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 import sersports.mlb.MlbPlayerStatistics;
 import sersports.mlb.SportsStatsApi;
+import javax.swing.JScrollPane;
 
 public class MlbStatsGui extends JFrame {
 
@@ -75,37 +74,72 @@ public class MlbStatsGui extends JFrame {
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 			
-			JButton btnNewButton = new JButton("Batting");
-			btnNewButton.setBounds(10, 11, 89, 23);
-			contentPane.add(btnNewButton);
+			JButton btnBatting = new JButton("Batting");
+			btnBatting.setBounds(10, 11, 89, 23);
+			contentPane.add(btnBatting);
 			
 			JButton btnFielding = new JButton("Fielding");
 			btnFielding.setBounds(174, 11, 89, 23);
 			contentPane.add(btnFielding);
 			
-			JButton btnBatting = new JButton("Pitching");
-			btnBatting.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					Object[][] pitchingData = new Object[0][6];
-					Float[] returnedData = player.returnData("PITCHING");
-					for (int i = 0; i < 6; i++) {
-						pitchingData[0][0] = returnedData[0];
-					}
-					tblStats.setModel(new DefaultTableModel(pitchingData, pitchingColumns));
-				}
-			});
-			btnBatting.setBounds(335, 11, 89, 23);
-			contentPane.add(btnBatting);
+			JButton btnPitching = new JButton("Pitching");
+
+			btnPitching.setBounds(335, 11, 89, 23);
+			contentPane.add(btnPitching);
 			
 			tblStats = new JTable();
-			tblStats.setBounds(10, 107, 414, 120);
+			tblStats.setBounds(10, 131, 414, 120);
 			contentPane.add(tblStats);
 			
 			JLabel lblPlayerName = new JLabel(player.returnFullName());
 			lblPlayerName.setFont(new Font("Tahoma", Font.BOLD, 13));
 			lblPlayerName.setHorizontalAlignment(SwingConstants.CENTER);
-			lblPlayerName.setBounds(174, 72, 89, 23);
+			lblPlayerName.setBounds(131, 97, 181, 23);
 			contentPane.add(lblPlayerName);
+			
+			JScrollPane jScroll = new JScrollPane(tblStats);
+			jScroll.setBounds(0, 131, 434, 131);
+			contentPane.add(jScroll);
+			
+			btnPitching.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Float[] returnedData = player.returnData("PITCHING");
+					DefaultTableModel newTable = new DefaultTableModel();
+					for (int i = 0; i < 7; i++)
+					{
+						newTable.addColumn(pitchingColumns[i]);
+					}
+					newTable.addRow(returnedData);
+					tblStats.setModel(newTable);
+				}
+			});
+			
+			btnFielding.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Float[] returnedData = player.returnData("ONBASE");
+					DefaultTableModel newTable = new DefaultTableModel();
+					for (int i = 0; i < 7; i++)
+					{
+						newTable.addColumn(fieldingColumns[i]);
+					}
+					newTable.addRow(returnedData);
+					tblStats.setModel(newTable);
+				}
+			});
+			
+			btnBatting.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Float[] returnedData = player.returnData("BATTING");
+					DefaultTableModel newTable = new DefaultTableModel();
+					for (int i = 0; i < 7; i++)
+					{
+						newTable.addColumn(battingColumns[i]);
+					}
+					newTable.addRow(returnedData);
+					tblStats.setModel(newTable);
+				}
+			});
+			
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
