@@ -33,21 +33,6 @@ public class MlbStatsGui extends JFrame {
 	private String[] battingColumns = {"At Bat", "AVG", "Slugging", "On Base Percentage", "ISO", "RBI", "AB/HR"};
 	private String[] fieldingColumns = {"Home Runs", "Stolen Bases", "HBP", "Hits", "Base on Balls" , "Fielders Choice", "Total bases"};
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MlbStatsGui frame = new MlbStatsGui();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
     public static int randInt(int min, int max)
     {
