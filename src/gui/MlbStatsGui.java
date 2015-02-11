@@ -18,7 +18,7 @@ import java.util.Random;
 import sersports.mlb.MlbPlayerStatistics;
 import javax.swing.JScrollPane;
 
-public class MlbStatsGui extends JFrame {
+public class MlbStatsGui extends JPanel {
 
 	private JPanel contentPane;
 	private JTable tblStats;
@@ -43,11 +43,9 @@ public class MlbStatsGui extends JFrame {
 		
 			final MlbPlayerStatistics player = iPlayer;
 			
-			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 450, 300);
 			contentPane = new JPanel();
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-			setContentPane(contentPane);
 			contentPane.setLayout(null);
 			
 			JButton btnBatting = new JButton("Batting");
@@ -74,7 +72,7 @@ public class MlbStatsGui extends JFrame {
 			contentPane.add(lblPlayerName);
 			
 			JScrollPane jScroll = new JScrollPane(tblStats);
-			jScroll.setBounds(0, 131, 434, 131);
+			jScroll.setBounds(10, 131, 434, 131);
 			contentPane.add(jScroll);
 			
 			btnPitching.addActionListener(new ActionListener() {
