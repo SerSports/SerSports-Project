@@ -21,6 +21,10 @@ public class SportsStatsApi
 	
 	public static List<MlbPlayerStatistics> getListOfMlbPlayerStatisticsForYear(int year) throws Exception
 	{   
+		// Validate Input
+		if (year <= 0)
+			return null;
+		
 	    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	    DocumentBuilder builder = factory.newDocumentBuilder();
 	    
