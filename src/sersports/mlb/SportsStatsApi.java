@@ -21,37 +21,43 @@ public class SportsStatsApi
 	
 	public static List<MlbPlayerStatistics> getListOfMlbPlayerStatisticsForYear(int year) throws Exception
 	{   
-		// Validate Input
-		if (year <= 0)
-			return null;
+		List<MlbPlayerStatistics> playerList = null;
 		
-	    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-	    DocumentBuilder builder = factory.newDocumentBuilder();
-	    
-	    //Load and Parse the XML document
-	    //document contains the complete XML as a Tree.
-	    URL url = new URL(getApiUrlString(year));
-	    Document document = builder.parse(url.openStream());
-	    
-	    // Create list of players
-	    List<MlbPlayerStatistics> playerList = new ArrayList<MlbPlayerStatistics>();
-	    
-	    //Iterating through the nodes and extracting the data.
-	    NodeList nodeList = document.getDocumentElement().getChildNodes();
-	    
-	    for (int i = 0; i < nodeList.getLength(); i++)
-	    {
-	        //We have encountered an <employee> tag.
-	        Node node = nodeList.item(i);
-	        if (node instanceof Element)
-	        {
-	            // Create the Player
-	            MlbPlayerStatistics player = new MlbPlayerStatistics(node);
-	            
-	            // Add the Player to the list
-	            playerList.add(player);
-	        }
-	    }
+		// Validate Input
+		if (year > 0)
+		{
+		    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		    DocumentBuilder builder = factory.newDocumentBuilder();
+		    
+		    //Load and Parse the XML document
+		    //document contains the complete XML as a Tree.
+		    URL url = new URL(getApiUrlString(year));
+		    Document document = builder.parse(url.openStream());
+		    
+		    //Iterating through the nodes and extracting the data.
+		    NodeList nodeList = document.getDocumentElement().getChildNodes();
+		    
+		    // Make sure an error hasn't occured.
+		    //if (nodeList.item(0).getAttributes().getNamedItem("error") == null)
+		    {
+			    // Create list of players
+			    playerList = new ArrayList<MlbPlayerStatistics>();
+			    
+			    for (int i = 0; i < nodeList.getLength(); i++)
+			    {
+			        //We have encountered an <employee> tag.
+			        Node node = nodeList.item(i);
+			        if (node instanceof Element)
+			        {
+			            // Create the Player
+			            MlbPlayerStatistics player = new MlbPlayerStatistics(node);
+			            
+			            // Add the Player to the list
+			            playerList.add(player);
+			        }
+			    }
+		    }
+		}
 	    
 	    return playerList;
 	}
