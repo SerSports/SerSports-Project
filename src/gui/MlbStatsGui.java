@@ -1,14 +1,10 @@
 package gui;
 
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JLabel;
@@ -17,11 +13,9 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.util.List;
 import java.util.Random;
 
 import sersports.mlb.MlbPlayerStatistics;
-import sersports.mlb.SportsStatsApi;
 import javax.swing.JScrollPane;
 
 public class MlbStatsGui extends JFrame {
@@ -43,14 +37,11 @@ public class MlbStatsGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MlbStatsGui() {
-		
-		List<MlbPlayerStatistics> players;
+	public MlbStatsGui(MlbPlayerStatistics iPlayer) {
 		
 		try {
-			players = SportsStatsApi.getListOfMlbPlayerStatisticsForYear(2013);
 		
-			final MlbPlayerStatistics player = players.get(randInt(0, players.size()));
+			final MlbPlayerStatistics player = iPlayer;
 			
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 450, 300);
