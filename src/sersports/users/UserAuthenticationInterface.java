@@ -1,6 +1,6 @@
 package sersports.users;
 
-public interface UserAuthenticationStrategy 
+public interface UserAuthenticationInterface 
 {
 	// Returns true if the user is authenticate
 	Boolean authenticateUser(String userName, String password);

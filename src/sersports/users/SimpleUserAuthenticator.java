@@ -5,7 +5,7 @@ package sersports.users;
 //		userName = "profgary"
 //		password = "thebest"
 //
-public class SimpleUserAuthenticator implements UserAuthenticationStrategy 
+public class SimpleUserAuthenticator implements UserAuthenticationInterface 
 {
 	@Override
 	public Boolean authenticateUser(String userName, String password) 
