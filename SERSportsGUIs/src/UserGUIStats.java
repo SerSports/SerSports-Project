@@ -1,38 +1,15 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-
-import java.awt.TextField;
-
-import javax.swing.JTextField;
-
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
 import java.awt.Image;
-import java.awt.Insets;
-
-import javax.swing.JLabel;
-
-import java.awt.Font;
-
-import javax.swing.JFormattedTextField;
-import javax.swing.JPasswordField;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JTextPane;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JButton;
 
-public class UserGUIStats extends JFrame {
-	private JTextField txtUsername;
+
+public class UserGUIStats extends JPanel {
+	private JTextField txtDate;
 	private JTextField txtAverage;
 	private JTextField txtAb;
 	private JTextField txtb;
@@ -42,171 +19,97 @@ public class UserGUIStats extends JFrame {
 	private JTextField txtSo;
 	private JTextField txtSos;
 	private JTextField txtBb;
-	private JTextField txtNeedToAdd;
-	private JLabel label;
+	private JTextField txtDisplaySqlTable;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UserGUIStats frame = new UserGUIStats();
-					frame.setVisible(true);
-					//frame.setExtendedState(frame.MAXIMIZED_BOTH);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
+	 * Create the panel.
 	 */
 	public UserGUIStats() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 754, 517);
-		getContentPane().setLayout(null);
+		setBackground(Color.PINK);
+		setLayout(null);
 		
-		txtUsername = new JTextField();
-		txtUsername.setText("Date");
-		txtUsername.setBounds(120, 128, 52, 20);
-		getContentPane().add(txtUsername);
-		txtUsername.setColumns(10);
+		JLabel logo = new JLabel("New label");
+		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
+		logo.setIcon(new ImageIcon(img));
+		logo.setBounds(465, 6, 100, 100);
+		add(logo);
 		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 738, 20);
-		getContentPane().add(menuBar);
+		JLabel lblYouAre = new JLabel("Enter a new game:");
+		lblYouAre.setForeground(Color.BLACK);
+		lblYouAre.setBounds(6, 124, 119, 16);
+		add(lblYouAre);
 		
-		JMenu mnContactUs = new JMenu("Home");
-		menuBar.add(mnContactUs);
-		
-		JMenuItem mntmContactUs = new JMenuItem("Home");
-		mnContactUs.add(mntmContactUs);
-		
-		JMenu mnUserStats = new JMenu("User Stats");
-		menuBar.add(mnUserStats);
-		
-		JMenuItem mntmUserStats = new JMenuItem("User Stats");
-		mnUserStats.add(mntmUserStats);
-		
-		JMenu mnBrowseLocalStats = new JMenu("Browse Local Players");
-		menuBar.add(mnBrowseLocalStats);
-		
-		JMenuItem mntmBrowseLocalPlayers = new JMenuItem("Browse Local Players");
-		mnBrowseLocalStats.add(mntmBrowseLocalPlayers);
-		
-		JMenu mnChooseMlbPlayers = new JMenu("Choose MLB Players");
-		menuBar.add(mnChooseMlbPlayers);
-		
-		JMenuItem mntmChooseMlbPlayers = new JMenuItem("Choose MLB Players");
-		mnChooseMlbPlayers.add(mntmChooseMlbPlayers);
-		
-		JMenu menu = new JMenu("Contact Us");
-		menuBar.add(menu);
-		
-		JMenuItem menuItem = new JMenuItem("Contact Us");
-		menu.add(menuItem);
-		
-		JMenu mnHelp = new JMenu("Help");
-		menuBar.add(mnHelp);
-		
-		JMenuItem mntmHelp = new JMenuItem("Help");
-		mnHelp.add(mntmHelp);
-		
-		JMenu mnSingOut = new JMenu("Logout");
-		menuBar.add(mnSingOut);
-		
-		JMenuItem mntmLogout = new JMenuItem("Logout");
-		mnSingOut.add(mntmLogout);
-		
-		JLabel lblUserStats = new JLabel("User Stats");
-		lblUserStats.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 24));
-		lblUserStats.setBounds(318, 45, 112, 20);
-		getContentPane().add(lblUserStats);
-		
-		JLabel lblEnterDateStats = new JLabel("Enter Date Stats:");
-		lblEnterDateStats.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 12));
-		lblEnterDateStats.setBounds(10, 130, 98, 17);
-		getContentPane().add(lblEnterDateStats);
+		txtDate = new JTextField();
+		txtDate.setText("01/20/1992");
+		txtDate.setBounds(126, 118, 92, 28);
+		add(txtDate);
+		txtDate.setColumns(10);
 		
 		txtAverage = new JTextField();
 		txtAverage.setText("Average");
 		txtAverage.setColumns(10);
-		txtAverage.setBounds(184, 128, 64, 20);
-		getContentPane().add(txtAverage);
+		txtAverage.setBounds(230, 118, 77, 28);
+		add(txtAverage);
 		
 		txtAb = new JTextField();
 		txtAb.setText("AB");
 		txtAb.setColumns(10);
-		txtAb.setBounds(260, 128, 31, 20);
-		getContentPane().add(txtAb);
+		txtAb.setBounds(319, 118, 77, 28);
+		add(txtAb);
 		
 		txtb = new JTextField();
 		txtb.setText("1B");
 		txtb.setColumns(10);
-		txtb.setBounds(303, 128, 31, 20);
-		getContentPane().add(txtb);
+		txtb.setBounds(408, 118, 77, 28);
+		add(txtb);
 		
 		txtb_1 = new JTextField();
 		txtb_1.setText("2B");
 		txtb_1.setColumns(10);
-		txtb_1.setBounds(346, 128, 31, 20);
-		getContentPane().add(txtb_1);
+		txtb_1.setBounds(497, 118, 77, 28);
+		add(txtb_1);
 		
 		txtb_2 = new JTextField();
 		txtb_2.setText("3B");
 		txtb_2.setColumns(10);
-		txtb_2.setBounds(389, 128, 31, 20);
-		getContentPane().add(txtb_2);
+		txtb_2.setBounds(586, 118, 77, 28);
+		add(txtb_2);
 		
 		txtRuns = new JTextField();
 		txtRuns.setText("Runs");
 		txtRuns.setColumns(10);
-		txtRuns.setBounds(432, 128, 52, 20);
-		getContentPane().add(txtRuns);
+		txtRuns.setBounds(675, 118, 77, 28);
+		add(txtRuns);
 		
 		txtSo = new JTextField();
 		txtSo.setText("SO");
 		txtSo.setColumns(10);
-		txtSo.setBounds(493, 128, 31, 20);
-		getContentPane().add(txtSo);
+		txtSo.setBounds(764, 118, 77, 28);
+		add(txtSo);
 		
 		txtSos = new JTextField();
 		txtSos.setText("SOS");
 		txtSos.setColumns(10);
-		txtSos.setBounds(536, 128, 31, 20);
-		getContentPane().add(txtSos);
+		txtSos.setBounds(853, 118, 77, 28);
+		add(txtSos);
 		
 		txtBb = new JTextField();
 		txtBb.setText("BB");
 		txtBb.setColumns(10);
-		txtBb.setBounds(579, 126, 31, 23);
-		getContentPane().add(txtBb);
+		txtBb.setBounds(942, 118, 77, 28);
+		add(txtBb);
 		
-		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.setBounds(622, 128, 89, 23);
-		getContentPane().add(btnSubmit);
+		JButton btnNewButton = new JButton("Submit");
+		btnNewButton.setBounds(457, 181, 117, 29);
+		add(btnNewButton);
 		
-		txtNeedToAdd = new JTextField();
-		txtNeedToAdd.setText("Need to add SQL TABLE");
-		txtNeedToAdd.setColumns(10);
-		txtNeedToAdd.setBounds(316, 295, 125, 20);
-		getContentPane().add(txtNeedToAdd);
+		txtDisplaySqlTable = new JTextField();
+		txtDisplaySqlTable.setText("Display SQL Table");
+		txtDisplaySqlTable.setColumns(10);
+		txtDisplaySqlTable.setBounds(372, 286, 289, 59);
+		add(txtDisplaySqlTable);
 		
-		//http://www.tutorialspoint.com/javaexamples/jdbc_resultset.htm
-		
-		JButton btnDone = new JButton("Done");
-		btnDone.setBounds(648, 449, 89, 23);
-		getContentPane().add(btnDone);
-		
-		label = new JLabel("");
-		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
-		label.setIcon(new ImageIcon(img));
-		label.setBounds(0, 18, 100, 100);
-		getContentPane().add(label);
+
+
 	}
 }
