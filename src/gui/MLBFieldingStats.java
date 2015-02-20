@@ -4,7 +4,6 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 
 import java.awt.Color;
 
@@ -15,14 +14,23 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
-public class BrowseLocalPlayers extends JPanel {
-	private JTextField txtEnterNameteamPosition;
+public class MLBFieldingStats extends JPanel {
+	private JTextField txtDate;
+	private JTextField txtAverage;
+	private JTextField txtAb;
+	private JTextField txtb;
+	private JTextField txtb_1;
+	private JTextField txtb_2;
+	private JTextField txtRuns;
+	private JTextField txtSo;
+	private JTextField txtSos;
+	private JTextField txtBb;
 	private JTable table;
 
 	/**
 	 * Create the panel.
 	 */
-	public BrowseLocalPlayers() {
+	public MLBFieldingStats() {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
@@ -32,24 +40,19 @@ public class BrowseLocalPlayers extends JPanel {
 		logo.setBounds(589, 6, 100, 100);
 		add(logo);
 		
-		JButton btnNewButton = new JButton("Submit");
-		btnNewButton.setBounds(581, 181, 117, 29);
-		add(btnNewButton);
-		
-		txtEnterNameteamPosition = new JTextField();
-		txtEnterNameteamPosition.setText("Enter name,team or position");
-		txtEnterNameteamPosition.setBounds(479, 118, 320, 28);
-		add(txtEnterNameteamPosition);
-		txtEnterNameteamPosition.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(399, 222, 480, 181);
+		scrollPane.setBounds(293, 235, 691, 235);
 		add(scrollPane);
 		
-		table = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name", "Team", "Position" }));
+
+		table = new JTable(new DefaultTableModel(null, new Object[]{"Date", "Average", "AB","1B","2B","3B","Runs","SO","SOS","BB"}));
 		scrollPane.setViewportView(table);
+
 		
 		
 
+
 	}
 }
+

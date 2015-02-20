@@ -8,35 +8,23 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 
-public class Help extends JPanel {
+public class ContactUs extends JPanel {
 	private JTextField txtTypeQuestion;
 
 	/**
 	 * Create the panel.
 	 */
-	public Help() {
+	public ContactUs() {
 		setLayout(null);
 		setBackground(new Color(107, 185, 240));
-		
+
 		JLabel logo = new JLabel("New label");
 		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		logo.setBounds(590, 6, 100, 100);
 		add(logo);
 		
-		JLabel lblYouAre = new JLabel("FAQ & Help");
-		lblYouAre.setBounds(600, 118, 80, 16);
-		add(lblYouAre);
 		
-		txtTypeQuestion = new JTextField();
-		txtTypeQuestion.setText("Enter Search here..");
-		txtTypeQuestion.setBounds(573, 136, 134, 28);
-		add(txtTypeQuestion);
-		txtTypeQuestion.setColumns(10);
-		
-		JButton btnNewButton = new JButton("Submit");
-		btnNewButton.setBounds(581, 177, 117, 29);
-		add(btnNewButton);
 		
 	}
 }

@@ -1,3 +1,5 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,24 +12,28 @@ import javax.swing.border.EmptyBorder;
 public class MainGUI extends JFrame {
     
     public MainGUI() {
-        
         setTitle("SERSports");
         JTabbedPane jtp = new JTabbedPane();
-        getContentPane().add(jtp);
+        getContentPane().add(jtp,BorderLayout.CENTER);
         
+        JTabbedPane MultipleStats = new JTabbedPane();
+        MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
         HomePageGUI jp1 = new HomePageGUI();
-        UserGUIStats jp2 = new UserGUIStats();
+        JPanel jp2 = new JPanel();
         BrowseLocalPlayers jp3 = new BrowseLocalPlayers();
         MlbStatsGui jp4 = new MlbStatsGui();
         Help jp5 = new Help();
-        JPanel jp6 = new JPanel();
-        JLabel label2 = new JLabel();
-        label2.setText("You are in area of Tab2");
-        jp2.add(label2);
+        ContactUs jp6 = new ContactUs();
+        UserBattingStats batting = new UserBattingStats();
+        UserFieldingStats fielding = new UserFieldingStats();
+        UserPitchingStats pitching = new UserPitchingStats();
         jtp.addTab("Home", jp1);
-        jtp.addTab("User Stats", jp2);
+        MultipleStats.add("Batting", batting);
+        MultipleStats.add("Fielding", fielding);
+        MultipleStats.add("Pitching", pitching);
+        jtp.add("User Stats", MultipleStats);
         jtp.addTab("Browse Local Players", jp3);
         jtp.addTab("Choose MLB Players", jp4);
         jtp.addTab("Help", jp5);
