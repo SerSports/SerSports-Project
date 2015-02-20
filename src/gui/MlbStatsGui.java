@@ -57,7 +57,7 @@ public class MlbStatsGui extends JPanel {
 		btnSeePlayerStats.setBounds(351, 530, 200, 50);
 		add(btnSeePlayerStats);
 		
-		JButton btnComapreToPlayer = new JButton("Comapre to Player");
+		JButton btnComapreToPlayer = new JButton("Compare to Player");
 		btnComapreToPlayer.setBounds(578, 530, 200, 50);
 		add(btnComapreToPlayer);
 
