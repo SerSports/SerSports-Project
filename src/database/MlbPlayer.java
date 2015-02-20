@@ -5,6 +5,7 @@ package database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * @author graydonsvendson
@@ -128,5 +129,28 @@ public class MlbPlayer {
 					this.team + ", " +
 					this.number + ", " +
 					this.position + ";";
+	}
+	
+	// Static Methods
+	public static ArrayList<MlbPlayer> getListOfPlayersFromDatabase() {
+		ArrayList<MlbPlayer> resultList = new ArrayList<MlbPlayer>();
+		
+		// Get the Result Set containing every Player
+		ResultSet rs = Database.getResultSetFromSQL("SELECT * FROM " + TABLE_NAME);
+		if (rs != null)
+		{
+			// Loop through the Result Set and Add Each MlbPlayer to the ArrayList
+			try {
+				while(rs.next()){
+					MlbPlayer player = new MlbPlayer(rs);
+					resultList.add(player);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return resultList;
 	}
 }
