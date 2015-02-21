@@ -1,0 +1,45 @@
+<project name="Architecture Demo" default="targets" basedir=".">
+
+   <!-- set global properties for this build -->
+   <property name="src" value="src" />
+   <property name="build" value="classes" />
+   <property name="jars" value="jars"/>
+
+   <path id="compile.classpath">
+      <pathelement location="${build}"/>
+	  
+	  <fileset dir="${jars}">
+		<include name="**/*.jar"/>
+      </fileset>  
+   </path>
+
+   <target name="targets">
+      <echo message="targets are clean, prepare, compile, execute"/>
+   </target>
+
+   <target name="prepare">
+      <mkdir dir="${build}" />
+   </target>
+
+   <target name="compile" depends="prepare"
+           description="Compile Java sources">
+      <javac srcdir="${src}"
+             includeantruntime="false"
+             destdir="${build}">
+         <classpath refid="compile.classpath"/>
+      </javac>
+   </target>
+
+   <target name="execute" depends="compile"
+           description="Start Software">
+         <java classname="client.Client" fork="yes">
+           <classpath refid="compile.classpath"/>
+         </java>
+   </target>
+
+   <target name="clean">
+     <!-- Delete the ${build} directory tree -->
+     <delete dir="${build}" />
+   </target>
+
+</project>
