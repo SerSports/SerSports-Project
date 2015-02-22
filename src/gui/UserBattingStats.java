@@ -105,9 +105,9 @@ public class UserBattingStats extends JPanel {
 		txtBb.setBounds(1110, 118, 77, 28);
 		add(txtBb);
 		
-		JButton btnNewButton = new JButton("Submit");
-		btnNewButton.setBounds(580, 181, 117, 29);
-		add(btnNewButton);
+		JButton SubmitBattingStats = new JButton("Submit");
+		SubmitBattingStats.setBounds(580, 181, 117, 29);
+		add(SubmitBattingStats);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(293, 235, 691, 235);

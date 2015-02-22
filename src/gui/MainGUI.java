@@ -17,7 +17,7 @@ public class MainGUI extends JFrame {
         getContentPane().add(jtp,BorderLayout.CENTER);
         
         JTabbedPane MultipleStats = new JTabbedPane();
-        MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+        //MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         HomePageGUI jp1 = new HomePageGUI();

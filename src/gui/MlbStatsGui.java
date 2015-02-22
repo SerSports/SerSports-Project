@@ -35,9 +35,11 @@ public class MlbStatsGui extends JPanel {
 		logo.setBounds(589, 6, 100, 100);
 		add(logo);
 		
-		JButton btnNewButton = new JButton("Submit");
-		btnNewButton.setBounds(581, 159, 117, 29);
-		add(btnNewButton);
+		JButton SubmitPlayerSearchButton = new JButton("Submit");
+		SubmitPlayerSearchButton.setBounds(581, 159, 117, 29);
+		add(SubmitPlayerSearchButton);
+		SubmitPlayerSearchButton.setActionCommand("SubmitPlayerSearchButton");
+	    //getContentPane().add(SubmitPlayerSearchButton);
 		
 		txtEnterNameteamPosition = new JTextField();
 		txtEnterNameteamPosition.setText("Enter name,team, position ");

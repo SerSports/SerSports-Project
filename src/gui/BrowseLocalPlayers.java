@@ -32,9 +32,9 @@ public class BrowseLocalPlayers extends JPanel {
 		logo.setBounds(589, 6, 100, 100);
 		add(logo);
 		
-		JButton btnNewButton = new JButton("Submit");
-		btnNewButton.setBounds(581, 181, 117, 29);
-		add(btnNewButton);
+		JButton SubmitLocalSearch = new JButton("Submit");
+		SubmitLocalSearch.setBounds(581, 181, 117, 29);
+		add(SubmitLocalSearch);
 		
 		txtEnterNameteamPosition = new JTextField();
 		txtEnterNameteamPosition.setText("Enter name,team or position");
