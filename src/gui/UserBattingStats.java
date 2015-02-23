@@ -15,17 +15,19 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class UserBattingStats extends JPanel {
-	private JTextField txtDate;
-	private JTextField txtAverage;
-	private JTextField txtAb;
-	private JTextField txtb;
+	private JTextField txtGP;
+	private JTextField txtAB;
+	private JTextField txtH;
+	private JTextField txtRBI;
 	private JTextField txtb_1;
 	private JTextField txtb_2;
+	private JTextField txtb_3;
 	private JTextField txtRuns;
-	private JTextField txtSo;
-	private JTextField txtSos;
-	private JTextField txtBb;
+	private JTextField txtSB;
+	private JTextField txtHR;
+	private JTextField txtSO;
 	private JTable table;
+	private JTextField textDate;
 
 	/**
 	 * Create the panel.
@@ -42,68 +44,74 @@ public class UserBattingStats extends JPanel {
 		
 		JLabel lblYouAre = new JLabel("Enter a new game:");
 		lblYouAre.setForeground(Color.BLACK);
-		lblYouAre.setBounds(90, 124, 119, 16);
+		lblYouAre.setBounds(21, 124, 119, 16);
 		add(lblYouAre);
 		
-		txtDate = new JTextField();
-		txtDate.setText("01/20/1992");
-		txtDate.setBounds(221, 118, 92, 28);
-		add(txtDate);
-		txtDate.setColumns(10);
+		txtGP = new JTextField();
+		txtGP.setText("Games Played");
+		txtGP.setBounds(245, 121, 111, 22);
+		add(txtGP);
+		txtGP.setColumns(10);
 		
-		txtAverage = new JTextField();
-		txtAverage.setText("Average");
-		txtAverage.setColumns(10);
-		txtAverage.setBounds(325, 118, 77, 28);
-		add(txtAverage);
+		txtAB = new JTextField();
+		txtAB.setText("AB");
+		txtAB.setColumns(10);
+		txtAB.setBounds(368, 118, 77, 28);
+		add(txtAB);
 		
-		txtAb = new JTextField();
-		txtAb.setText("AB");
-		txtAb.setColumns(10);
-		txtAb.setBounds(414, 118, 77, 28);
-		add(txtAb);
+		txtH = new JTextField();
+		txtH.setText("H");
+		txtH.setColumns(10);
+		txtH.setBounds(456, 118, 77, 28);
+		add(txtH);
 		
-		txtb = new JTextField();
-		txtb.setText("1B");
-		txtb.setColumns(10);
-		txtb.setBounds(515, 118, 77, 28);
-		add(txtb);
+		txtRBI = new JTextField();
+		txtRBI.setText("RBI");
+		txtRBI.setColumns(10);
+		txtRBI.setBounds(545, 118, 77, 28);
+		add(txtRBI);
 		
 		txtb_1 = new JTextField();
-		txtb_1.setText("2B");
+		txtb_1.setText("1B");
 		txtb_1.setColumns(10);
-		txtb_1.setBounds(609, 118, 77, 28);
+		txtb_1.setBounds(640, 118, 77, 28);
 		add(txtb_1);
 		
 		txtb_2 = new JTextField();
-		txtb_2.setText("3B");
+		txtb_2.setText("2B");
 		txtb_2.setColumns(10);
-		txtb_2.setBounds(704, 118, 77, 28);
+		txtb_2.setBounds(740, 118, 77, 28);
 		add(txtb_2);
+		
+		txtb_3 = new JTextField();
+		txtb_3.setText("3B");
+		txtb_3.setColumns(10);
+		txtb_3.setBounds(829, 118, 77, 28);
+		add(txtb_3);
 		
 		txtRuns = new JTextField();
 		txtRuns.setText("Runs");
 		txtRuns.setColumns(10);
-		txtRuns.setBounds(805, 118, 77, 28);
+		txtRuns.setBounds(918, 118, 77, 28);
 		add(txtRuns);
 		
-		txtSo = new JTextField();
-		txtSo.setText("SO");
-		txtSo.setColumns(10);
-		txtSo.setBounds(907, 118, 77, 28);
-		add(txtSo);
+		txtSB = new JTextField();
+		txtSB.setText("SB");
+		txtSB.setColumns(10);
+		txtSB.setBounds(1010, 118, 51, 28);
+		add(txtSB);
 		
-		txtSos = new JTextField();
-		txtSos.setText("SOS");
-		txtSos.setColumns(10);
-		txtSos.setBounds(1008, 118, 77, 28);
-		add(txtSos);
+		txtHR = new JTextField();
+		txtHR.setText("HR");
+		txtHR.setColumns(10);
+		txtHR.setBounds(1073, 118, 51, 28);
+		add(txtHR);
 		
-		txtBb = new JTextField();
-		txtBb.setText("BB");
-		txtBb.setColumns(10);
-		txtBb.setBounds(1110, 118, 77, 28);
-		add(txtBb);
+		txtSO = new JTextField();
+		txtSO.setText("SO");
+		txtSO.setColumns(10);
+		txtSO.setBounds(1147, 118, 51, 28);
+		add(txtSO);
 		
 		JButton SubmitBattingStats = new JButton("Submit");
 		SubmitBattingStats.setBounds(580, 181, 117, 29);
@@ -114,9 +122,14 @@ public class UserBattingStats extends JPanel {
 		add(scrollPane);
 		
 
-		table = new JTable(new DefaultTableModel(null, new Object[]{"Date", "Average", "AB","1B","2B","3B","Runs","SO","SOS","BB"}));
+		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
 		scrollPane.setViewportView(table);
-
+		
+		textDate = new JTextField();
+		textDate.setText("Date");
+		textDate.setColumns(10);
+		textDate.setBounds(140, 118, 92, 28);
+		add(textDate);
 		
 		
 

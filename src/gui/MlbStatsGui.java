@@ -39,6 +39,7 @@ public class MlbStatsGui extends JPanel {
 		SubmitPlayerSearchButton.setBounds(581, 159, 117, 29);
 		add(SubmitPlayerSearchButton);
 		SubmitPlayerSearchButton.setActionCommand("SubmitPlayerSearchButton");
+		SubmitPlayerSearchButton.setBackground(new Color(255,237,203));
 	    //getContentPane().add(SubmitPlayerSearchButton);
 		
 		txtEnterNameteamPosition = new JTextField();
@@ -62,8 +63,12 @@ public class MlbStatsGui extends JPanel {
 		JButton btnComapreToPlayer = new JButton("Compare to Player");
 		btnComapreToPlayer.setBounds(653, 517, 200, 50);
 		add(btnComapreToPlayer);
-
 		
+		/*JLabel rectangle = new JLabel("ADD RECTANNGLE");
+		Image img2 = new ImageIcon(this.getClass().getResource("/Rectangle.png")).getImage();
+		rectangle.setIcon(new ImageIcon(img2));
+		rectangle.setBounds(0, 200, 1280, 23);
+		add(rectangle);*/
 
 
 	}

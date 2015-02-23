@@ -14,24 +14,23 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
-public class MLBBattingStats extends JPanel {
-	private JTextField txtGP;
-	private JTextField txtAB;
-	private JTextField txtH;
-	private JTextField txtRBI;
+public class LocalFieldingStats extends JPanel {
+	private JTextField txtDate;
+	private JTextField txtAverage;
+	private JTextField txtAb;
+	private JTextField txtb;
 	private JTextField txtb_1;
 	private JTextField txtb_2;
-	private JTextField txtb_3;
 	private JTextField txtRuns;
-	private JTextField txtSB;
-	private JTextField txtHR;
-	private JTextField txtSO;
+	private JTextField txtSo;
+	private JTextField txtSos;
+	private JTextField txtBb;
 	private JTable table;
 
 	/**
 	 * Create the panel.
 	 */
-	public MLBBattingStats() {
+	public LocalFieldingStats() {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
@@ -47,7 +46,7 @@ public class MLBBattingStats extends JPanel {
 		add(scrollPane);
 		
 
-		table = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
+		table = new JTable(new DefaultTableModel(null, new Object[]{"GP", "INN","A","E","F%","SB","CS","PO"}));
 		scrollPane.setViewportView(table);
 
 		

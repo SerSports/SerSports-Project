@@ -14,7 +14,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
-public class MLBBattingStats extends JPanel {
+public class LocalBattingStats extends JPanel {
 	private JTextField txtGP;
 	private JTextField txtAB;
 	private JTextField txtH;
@@ -31,7 +31,7 @@ public class MLBBattingStats extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public MLBBattingStats() {
+	public LocalBattingStats() {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		

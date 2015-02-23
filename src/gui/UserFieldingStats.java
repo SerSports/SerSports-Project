@@ -15,16 +15,16 @@ import javax.swing.table.DefaultTableModel;
 
 public class UserFieldingStats extends JPanel {
 	private JTextField txtDate;
-	private JTextField txtAverage;
-	private JTextField txtAb;
-	private JTextField txtb;
-	private JTextField txtb_1;
-	private JTextField txtb_2;
-	private JTextField txtRuns;
-	private JTextField txtSo;
-	private JTextField txtSos;
-	private JTextField txtBb;
+	private JTextField txtGP;
+	private JTextField txtINN;
+	private JTextField txtA;
+	private JTextField txtE;
+	private JTextField txtFpct;
+	private JTextField txtSB;
+	private JTextField txtCS;
+
 	private JTable table;
+	private JTextField txtPo;
 
 	/**
 	 * Create the panel.
@@ -45,64 +45,61 @@ public class UserFieldingStats extends JPanel {
 		add(lblYouAre);
 		
 		txtDate = new JTextField();
-		txtDate.setText("01/20/1992");
+		txtDate.setText("Date");
 		txtDate.setBounds(221, 118, 92, 28);
 		add(txtDate);
 		txtDate.setColumns(10);
 		
-		txtAverage = new JTextField();
-		txtAverage.setText("Average");
-		txtAverage.setColumns(10);
-		txtAverage.setBounds(325, 118, 77, 28);
-		add(txtAverage);
+		txtGP = new JTextField();
+		txtGP.setText("GP");
+		txtGP.setColumns(10);
+		txtGP.setBounds(325, 118, 77, 28);
+		add(txtGP);
 		
-		txtAb = new JTextField();
-		txtAb.setText("AB");
-		txtAb.setColumns(10);
-		txtAb.setBounds(414, 118, 77, 28);
-		add(txtAb);
+		txtPo = new JTextField();
+		txtPo.setText("PO");
+		txtPo.setColumns(10);
+		txtPo.setBounds(414, 118, 77, 28);
+		add(txtPo);
+
 		
-		txtb = new JTextField();
-		txtb.setText("1B");
-		txtb.setColumns(10);
-		txtb.setBounds(515, 118, 77, 28);
-		add(txtb);
+		txtINN = new JTextField();
+		txtINN.setText("INN");
+		txtINN.setColumns(10);
+		txtINN.setBounds(511, 118, 77, 28);
+		add(txtINN);
 		
-		txtb_1 = new JTextField();
-		txtb_1.setText("2B");
-		txtb_1.setColumns(10);
-		txtb_1.setBounds(609, 118, 77, 28);
-		add(txtb_1);
+		txtA = new JTextField();
+		txtA.setText("A");
+		txtA.setColumns(10);
+		txtA.setBounds(620, 118, 77, 28);
+		add(txtA);
 		
-		txtb_2 = new JTextField();
-		txtb_2.setText("3B");
-		txtb_2.setColumns(10);
-		txtb_2.setBounds(704, 118, 77, 28);
-		add(txtb_2);
+		txtE = new JTextField();
+		txtE.setText("E");
+		txtE.setColumns(10);
+		txtE.setBounds(709, 118, 77, 28);
+		add(txtE);
 		
-		txtRuns = new JTextField();
-		txtRuns.setText("Runs");
-		txtRuns.setColumns(10);
-		txtRuns.setBounds(805, 118, 77, 28);
-		add(txtRuns);
+		txtFpct = new JTextField();
+		txtFpct.setText("Fpct");
+		txtFpct.setColumns(10);
+		txtFpct.setBounds(798, 118, 77, 28);
+		add(txtFpct);
 		
-		txtSo = new JTextField();
-		txtSo.setText("SO");
-		txtSo.setColumns(10);
-		txtSo.setBounds(907, 118, 77, 28);
-		add(txtSo);
+		txtSB = new JTextField();
+		txtSB.setText("SB");
+		txtSB.setColumns(10);
+		txtSB.setBounds(887, 118, 77, 28);
+		add(txtSB);
 		
-		txtSos = new JTextField();
-		txtSos.setText("SOS");
-		txtSos.setColumns(10);
-		txtSos.setBounds(1008, 118, 77, 28);
-		add(txtSos);
+		txtCS = new JTextField();
+		txtCS.setText("CS");
+		txtCS.setColumns(10);
+		txtCS.setBounds(976, 118, 77, 28);
+		add(txtCS);
 		
-		txtBb = new JTextField();
-		txtBb.setText("BB");
-		txtBb.setColumns(10);
-		txtBb.setBounds(1110, 118, 77, 28);
-		add(txtBb);
+
 		
 		JButton SubmitFieldingStats = new JButton("Submit");
 		SubmitFieldingStats.setBounds(580, 181, 117, 29);
@@ -113,9 +110,8 @@ public class UserFieldingStats extends JPanel {
 		add(scrollPane);
 		
 
-		table = new JTable(new DefaultTableModel(null, new Object[]{"Date", "Average", "AB","1B","2B","3B","Runs","SO","SOS","BB"}));
+		table = new JTable(new DefaultTableModel(null, new Object[]{"Date", "GP", "INN","A","E","F%","SB","CS","PO"}));
 		scrollPane.setViewportView(table);
-
 		
 		
 

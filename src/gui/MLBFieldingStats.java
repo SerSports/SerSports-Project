@@ -46,7 +46,7 @@ public class MLBFieldingStats extends JPanel {
 		add(scrollPane);
 		
 
-		table = new JTable(new DefaultTableModel(null, new Object[]{"Date", "Average", "AB","1B","2B","3B","Runs","SO","SOS","BB"}));
+		table = new JTable(new DefaultTableModel(null, new Object[]{"GP", "INN","A","E","F%","SB","CS","PO"}));
 		scrollPane.setViewportView(table);
 
 		

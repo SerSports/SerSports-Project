@@ -15,17 +15,17 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class UserPitchingStats extends JPanel {
-	private JTextField txtDate;
-	private JTextField txtAverage;
-	private JTextField txtAb;
-	private JTextField txtb;
-	private JTextField txtb_1;
-	private JTextField txtb_2;
+	private JTextField txtGP;
+	private JTextField txtW;
+	private JTextField txtL;
+	private JTextField txtERA;
+	private JTextField txtSaves;
+	private JTextField txtHits;
+	private JTextField txtHolds;
 	private JTextField txtRuns;
-	private JTextField txtSo;
-	private JTextField txtSos;
-	private JTextField txtBb;
+	private JTextField txtHBP;
 	private JTable table;
+	private JTextField txtDate;
 
 	/**
 	 * Create the panel.
@@ -42,81 +42,80 @@ public class UserPitchingStats extends JPanel {
 		
 		JLabel lblYouAre = new JLabel("Enter a new game:");
 		lblYouAre.setForeground(Color.BLACK);
-		lblYouAre.setBounds(90, 124, 119, 16);
+		lblYouAre.setBounds(20, 124, 119, 16);
 		add(lblYouAre);
 		
-		txtDate = new JTextField();
-		txtDate.setText("01/20/1992");
-		txtDate.setBounds(221, 118, 92, 28);
-		add(txtDate);
-		txtDate.setColumns(10);
+		txtGP = new JTextField();
+		txtGP.setText("Games Played");
+		txtGP.setBounds(302, 121, 109, 22);
+		add(txtGP);
+		txtGP.setColumns(10);
 		
-		txtAverage = new JTextField();
-		txtAverage.setText("Average");
-		txtAverage.setColumns(10);
-		txtAverage.setBounds(325, 118, 77, 28);
-		add(txtAverage);
+		txtW = new JTextField();
+		txtW.setText("Wins");
+		txtW.setColumns(10);
+		txtW.setBounds(423, 121, 51, 22);
+		add(txtW);
 		
-		txtAb = new JTextField();
-		txtAb.setText("AB");
-		txtAb.setColumns(10);
-		txtAb.setBounds(414, 118, 77, 28);
-		add(txtAb);
+		txtL = new JTextField();
+		txtL.setText("Loss");
+		txtL.setColumns(10);
+		txtL.setBounds(486, 121, 51, 22);
+		add(txtL);
 		
-		txtb = new JTextField();
-		txtb.setText("1B");
-		txtb.setColumns(10);
-		txtb.setBounds(515, 118, 77, 28);
-		add(txtb);
+		txtERA = new JTextField();
+		txtERA.setText("ERA");
+		txtERA.setColumns(10);
+		txtERA.setBounds(549, 118, 77, 28);
+		add(txtERA);
 		
-		txtb_1 = new JTextField();
-		txtb_1.setText("2B");
-		txtb_1.setColumns(10);
-		txtb_1.setBounds(609, 118, 77, 28);
-		add(txtb_1);
+		txtSaves = new JTextField();
+		txtSaves.setText("Saves");
+		txtSaves.setColumns(10);
+		txtSaves.setBounds(638, 118, 77, 28);
+		add(txtSaves);
 		
-		txtb_2 = new JTextField();
-		txtb_2.setText("3B");
-		txtb_2.setColumns(10);
-		txtb_2.setBounds(704, 118, 77, 28);
-		add(txtb_2);
+		txtHits = new JTextField();
+		txtHits.setText("Hits");
+		txtHits.setColumns(10);
+		txtHits.setBounds(735, 118, 77, 28);
+		add(txtHits);
+		
+		txtHolds = new JTextField();
+		txtHolds.setText("Holds");
+		txtHolds.setColumns(10);
+		txtHolds.setBounds(824, 118, 77, 28);
+		add(txtHolds);
 		
 		txtRuns = new JTextField();
 		txtRuns.setText("Runs");
 		txtRuns.setColumns(10);
-		txtRuns.setBounds(805, 118, 77, 28);
+		txtRuns.setBounds(930, 118, 77, 28);
 		add(txtRuns);
 		
-		txtSo = new JTextField();
-		txtSo.setText("SO");
-		txtSo.setColumns(10);
-		txtSo.setBounds(907, 118, 77, 28);
-		add(txtSo);
-		
-		txtSos = new JTextField();
-		txtSos.setText("SOS");
-		txtSos.setColumns(10);
-		txtSos.setBounds(1008, 118, 77, 28);
-		add(txtSos);
-		
-		txtBb = new JTextField();
-		txtBb.setText("BB");
-		txtBb.setColumns(10);
-		txtBb.setBounds(1110, 118, 77, 28);
-		add(txtBb);
+		txtHBP = new JTextField();
+		txtHBP.setText("HBP");
+		txtHBP.setColumns(10);
+		txtHBP.setBounds(1040, 118, 77, 28);
+		add(txtHBP);
 		
 		JButton SubmitPitchingStats = new JButton("Submit");
 		SubmitPitchingStats.setBounds(580, 181, 117, 29);
 		add(SubmitPitchingStats);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(293, 235, 691, 235);
+		scrollPane.setBounds(293, 235, 691, 239);
 		add(scrollPane);
 		
 
-		table = new JTable(new DefaultTableModel(null, new Object[]{"Date", "Average", "AB","1B","2B","3B","Runs","SO","SOS","BB"}));
+		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
 		scrollPane.setViewportView(table);
-
+		
+		txtDate = new JTextField();
+		txtDate.setText("Date");
+		txtDate.setColumns(10);
+		txtDate.setBounds(166, 121, 109, 22);
+		add(txtDate);
 		
 		
 

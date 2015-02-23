@@ -23,9 +23,9 @@ public class MLBPlayerProfile extends JFrame {
         MLBFieldingStats fielding = new MLBFieldingStats();
         MLBPitchingStats pitching = new MLBPitchingStats();
       
-        jtp.add("Batting", batting);
-        jtp.add("Fielding", fielding);
-        jtp.add("Pitching", pitching);
+        jtp.addTab("Batting", batting);
+        jtp.addTab("Fielding", fielding);
+        jtp.addTab("Pitching", pitching);
 
         
     }

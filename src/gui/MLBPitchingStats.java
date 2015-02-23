@@ -15,16 +15,15 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class MLBPitchingStats extends JPanel {
-	private JTextField txtDate;
-	private JTextField txtAverage;
-	private JTextField txtAb;
-	private JTextField txtb;
-	private JTextField txtb_1;
-	private JTextField txtb_2;
+	private JTextField txtGP;
+	private JTextField txtW;
+	private JTextField txtL;
+	private JTextField txtERA;
+	private JTextField txtSaves;
+	private JTextField txtHits;
+	private JTextField txtHolds;
 	private JTextField txtRuns;
-	private JTextField txtSo;
-	private JTextField txtSos;
-	private JTextField txtBb;
+	private JTextField txtHBP;
 	private JTable table;
 
 	/**
@@ -46,7 +45,7 @@ public class MLBPitchingStats extends JPanel {
 		add(scrollPane);
 		
 
-		table = new JTable(new DefaultTableModel(null, new Object[]{"Date", "Average", "AB","1B","2B","3B","Runs","SO","SOS","BB"}));
+		table = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
 		scrollPane.setViewportView(table);
 
 		
