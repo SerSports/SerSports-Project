@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 
+import misc.LocalFieldingStats;
+
 
 public class LocalPlayerProfile extends JFrame {
     
@@ -24,7 +26,7 @@ public class LocalPlayerProfile extends JFrame {
         LocalPitchingStats pitching = new LocalPitchingStats();
       
         jtp.addTab("Batting", batting);
-        jtp.addTab("Fielding", fielding);
+        //jtp.addTab("Fielding", fielding);
         jtp.addTab("Pitching", pitching);
 
         

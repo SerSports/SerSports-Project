@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 
+import misc.UserFieldingStats;
+
 
 public class MainGUI extends JFrame {
     
@@ -27,11 +29,11 @@ public class MainGUI extends JFrame {
         Help jp5 = new Help();
         ContactUs jp6 = new ContactUs();
         UserBattingStats batting = new UserBattingStats();
-        UserFieldingStats fielding = new UserFieldingStats();
+        //UserFieldingStats fielding = new UserFieldingStats();
         UserPitchingStats pitching = new UserPitchingStats();
         jtp.addTab("Home", jp1);
         MultipleStats.add("Batting", batting);
-        MultipleStats.add("Fielding", fielding);
+        //MultipleStats.add("Fielding", fielding);
         MultipleStats.add("Pitching", pitching);
         jtp.add("User Stats", MultipleStats);
         jtp.addTab("Browse Local Players", jp3);
