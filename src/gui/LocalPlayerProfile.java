@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 
-import misc.LocalFieldingStats;
 
 
 public class LocalPlayerProfile extends JFrame {
@@ -22,7 +21,7 @@ public class LocalPlayerProfile extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         LocalBattingStats batting = new LocalBattingStats();
-        LocalFieldingStats fielding = new LocalFieldingStats();
+        //LocalFieldingStats fielding = new LocalFieldingStats();
         LocalPitchingStats pitching = new LocalPitchingStats();
       
         jtp.addTab("Batting", batting);

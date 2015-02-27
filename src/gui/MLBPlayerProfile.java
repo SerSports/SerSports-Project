@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 
-import misc.MLBFieldingStats;
 
 
 public class MLBPlayerProfile extends JFrame {

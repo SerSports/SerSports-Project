@@ -8,8 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 
-import misc.UserFieldingStats;
-
 
 public class MainGUI extends JFrame {
     
