@@ -3,6 +3,10 @@ import java.util.List;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.SQLException;
+
+import database.Database;
+import database.MlbPlayer;
 
 /* Possible libraries for future use
 import java.util.Arrays;
@@ -13,7 +17,6 @@ import java.util.TreeSet;
 import java.util.Map;
 import java.sql.DriverManager;
 import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.sql.Types;
 */
 
@@ -26,8 +29,8 @@ public class MLBPlayerSearch {
 	public MLBPlayerSearch(){
 	}
 	
-	//constructor with 4 parameters
-	public MLBPlayerSearch(String fName, String lName, String position, String team) {
+	//constructor with 3 parameters
+	public MLBPlayerSearch(String fName, String lName, String team) {
 	}
 	
 	//GETTER: Takes a query, returns a result set
@@ -44,58 +47,43 @@ public class MLBPlayerSearch {
 	      
 	    return rs;  
 	}
-
-	//If request only by first name
-	public List<String> playerSearchByFirstName(String fName){
-		
-		String query = "SELECT player_name FROM name_of_table WHERE player_name=\""+fName+"\"";
-		
-		ResultSet rs = getRS(query);
-		
-		List<String> playerList = convertToListString(rs, "player_name");
-		
-		return playerList;
-		
-	}
 	
-	//if request only by last name
-	public List<String> playerSearchByLastName(String lName){
+	// Static Methods
+	public static ArrayList<MlbPlayer> getListOfPlayersFromDatabase() {
 		
-		String query = "SELECT player_name FROM name_of_table WHERE player_name=\""+lName+"\"";
+		ArrayList<MlbPlayer> resultList = new ArrayList<MlbPlayer>();
 		
-		ResultSet rs = getRS(query);
-		
-		List<String> playerList = convertToListString(rs, "player_name");
-		
-		return playerList;
-		
-	}
-	
-	//if request a list of players that play a certain position
-	public List<String> playerSearchByPosition(String position){
-		
-		String query = "SELECT player_name FROM name_of_table WHERE player_name=\""+position+"\"";
-		
-		ResultSet rs = getRS(query);
-		
-		List<String> playerList = convertToListString(rs, "player_name");
-		
-		return playerList;
-		
+		// Get the Result Set containing every Player
+		ResultSet rs = Database.getResultSetFromSQL("SELECT * FROM " + MlbPlayer.TABLE_NAME);
+		if (rs != null)
+		{
+			// Loop through the Result Set and Add Each MlbPlayer to the ArrayList
+			try {
+				while(rs.next()){
+					MlbPlayer player = new MlbPlayer(rs);
+					resultList.add(player);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+			
+		return resultList;
 	}
 
-	//if request a list of players within a certain team
-	public List<String> playerSearchByTeamName(String team){
-	
-		String query = "SELECT player_name FROM name_of_table WHERE player_name=\""+team+"\"";
-	
+/*
+	public List<String> professionalPlayerSearch(String str){
+		String table_name = "";
+		String team_name = "name";
+		String query = "SELECT "+team_name+" FROM"+table_name+"WHERE first_name=\""+str+"\"";
 		ResultSet rs = getRS(query);
-	
-		List<String> playerList = convertToListString(rs, "player_name");
-	
+		List<String> playerList = convertToListString(rs, "player");
 		return playerList;
-	
 	}
+*/
+
+
 	
 	//CONVERSION: ResultSet to a List<String>
 	private List<String> convertToListString(ResultSet rs, String label) { 
