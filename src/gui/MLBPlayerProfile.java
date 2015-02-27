@@ -9,6 +9,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 
 
+
 public class MLBPlayerProfile extends JFrame {
     
     public MLBPlayerProfile() {
@@ -20,11 +21,11 @@ public class MLBPlayerProfile extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         MLBBattingStats batting = new MLBBattingStats();
-        MLBFieldingStats fielding = new MLBFieldingStats();
+        //MLBFieldingStats fielding = new MLBFieldingStats();
         MLBPitchingStats pitching = new MLBPitchingStats();
       
         jtp.addTab("Batting", batting);
-        jtp.addTab("Fielding", fielding);
+        //jtp.addTab("Fielding", fielding);
         jtp.addTab("Pitching", pitching);
 
         
