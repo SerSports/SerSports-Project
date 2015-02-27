@@ -31,11 +31,11 @@ public class MlbStatsGui extends JPanel {
 		getDBconnection();
 		getResultsSet();
 		
-		JLabel logo = new JLabel("New label");
+		/*JLabel logo = new JLabel("New label");
 		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		logo.setBounds(589, 6, 100, 100);
-		add(logo);
+		add(logo);*/
 		
 		JButton SubmitPlayerSearchButton = new JButton("Submit");
 		SubmitPlayerSearchButton.setBounds(581, 234, 117, 29);

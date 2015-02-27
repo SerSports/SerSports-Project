@@ -36,11 +36,11 @@ public class UserBattingStats extends JPanel {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
-		JLabel logo = new JLabel("New label");
+		/*JLabel logo = new JLabel("New label");
 		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		logo.setBounds(589, 6, 100, 100);
-		add(logo);
+		add(logo);*/
 		
 		JLabel lblYouAre = new JLabel("Enter a new game:");
 		lblYouAre.setForeground(Color.BLACK);
