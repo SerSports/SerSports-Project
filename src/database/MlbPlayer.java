@@ -3,15 +3,19 @@
  */
 package database;
 
+import java.rmi.server.*;
+import java.rmi.*;
+import java.text.NumberFormat;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
  * @author graydonsvendson
+ * @author Kristel Basra - Added getPlayersFromDatabase method
  *
  */
-public class MlbPlayer {
+public class MlbPlayer extends Object implements java.io.Serializable {
 	
 	// Constants
 	private static final String TABLE_NAME = "MlbPlayers";  
@@ -151,6 +155,30 @@ public class MlbPlayer {
 			}
 		}
 		
+		return resultList;
+	}
+	
+	// Static Methods
+	public static ArrayList<MlbPlayer> getPlayersFromDatabase(String fName, String lName, String team) {
+		ArrayList<MlbPlayer> resultList = new ArrayList<MlbPlayer>();
+		
+		// Get the Result Set containing every Player
+		ResultSet rs = Database.getResultSetFromSQL(
+				"SELECT * FROM " + TABLE_NAME + " WHERE " + fName + ", " + lName + ", " + team);
+		if (rs != null)
+		{
+			// Loop through the Result Set and Add Each MlbPlayer to the ArrayList
+			try {
+				while(rs.next()){
+					MlbPlayer player = new MlbPlayer(rs);
+					resultList.add(player);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+			
 		return resultList;
 	}
 }
