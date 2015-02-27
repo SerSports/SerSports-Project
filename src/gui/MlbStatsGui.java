@@ -18,6 +18,8 @@ import javax.swing.table.DefaultTableModel;
 public class MlbStatsGui extends JPanel {
 	private JTextField txtEnterNameteamPosition;
 	private JTable table;
+	private JTextField txtLastName;
+	private JTextField txtTeam;
 
 
 	/**
@@ -36,39 +38,46 @@ public class MlbStatsGui extends JPanel {
 		add(logo);
 		
 		JButton SubmitPlayerSearchButton = new JButton("Submit");
-		SubmitPlayerSearchButton.setBounds(581, 159, 117, 29);
+		SubmitPlayerSearchButton.setBounds(581, 234, 117, 29);
 		add(SubmitPlayerSearchButton);
 		SubmitPlayerSearchButton.setActionCommand("SubmitPlayerSearchButton");
 		SubmitPlayerSearchButton.setBackground(new Color(255,237,203));
 	    //getContentPane().add(SubmitPlayerSearchButton);
 		
 		txtEnterNameteamPosition = new JTextField();
-		txtEnterNameteamPosition.setText("Enter name,team, position ");
-		txtEnterNameteamPosition.setBounds(479, 118, 320, 28);
+		txtEnterNameteamPosition.setText("First Name");
+		txtEnterNameteamPosition.setBounds(549, 118, 180, 29);
 		add(txtEnterNameteamPosition);
 		txtEnterNameteamPosition.setColumns(10);
 
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(400, 259, 478, 246);
+		scrollPane.setBounds(400, 288, 478, 246);
 		add(scrollPane);
 		
-		table = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name", "Team", "Position" }));
+		table = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name", "Team"/* "Position" */}));
 		scrollPane.setViewportView(table);
 		
 		JButton btnSeePlayerStats = new JButton("See Player Stats");
-		btnSeePlayerStats.setBounds(422, 517, 200, 50);
+		btnSeePlayerStats.setBounds(421, 594, 200, 50);
 		add(btnSeePlayerStats);
 		
 		JButton btnComapreToPlayer = new JButton("Compare to Player");
-		btnComapreToPlayer.setBounds(653, 517, 200, 50);
+		btnComapreToPlayer.setBounds(656, 594, 200, 50);
 		add(btnComapreToPlayer);
 		
-		/*JLabel rectangle = new JLabel("ADD RECTANNGLE");
+		txtLastName = new JTextField();
+		txtLastName.setText("Last Name");
+		txtLastName.setColumns(10);
+		txtLastName.setBounds(549, 153, 180, 28);
+		add(txtLastName);
+		
+		txtTeam = new JTextField();
+		txtTeam.setText("Team");
+		txtTeam.setColumns(10);
+		txtTeam.setBounds(549, 193, 180, 28);
+		add(txtTeam);
 		Image img2 = new ImageIcon(this.getClass().getResource("/Rectangle.png")).getImage();
-		rectangle.setIcon(new ImageIcon(img2));
-		rectangle.setBounds(0, 200, 1280, 23);
-		add(rectangle);*/
 
 
 	}

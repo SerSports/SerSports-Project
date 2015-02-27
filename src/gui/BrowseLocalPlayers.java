@@ -49,11 +49,7 @@ public class BrowseLocalPlayers extends JPanel {
 		JButton btnSeePlayerStats = new JButton("See Player Stats");
 		btnSeePlayerStats.setBounds(422, 517, 200, 50);
 		add(btnSeePlayerStats);
-		
-		JButton btnComapreToPlayer = new JButton("Compare to Player");
-		btnComapreToPlayer.setBounds(653, 517, 200, 50);
-		add(btnComapreToPlayer);
-		
+	
 		table = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name", "Team", "Position" }));
 		scrollPane.setViewportView(table);
 		

@@ -109,7 +109,7 @@ public class MlbPlayerStatistics {
     float steal_pct;
     
     int games_start;
-    int games_play;// GP games played //Fielding//Pitching//Batting
+    int games_play;// GP games played //Fielding//Pitching//Batting hitting_games_play
     int games_finish;
     int games_complete;
     int games_win;//Pitching: W
