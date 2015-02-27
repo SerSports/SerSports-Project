@@ -20,25 +20,24 @@ public class HomePageGUI extends JPanel {
 		JLabel logo = new JLabel("New label");
 		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(589, 6, 100, 100);
+		logo.setBounds(6, 6, 100, 100);
 		add(logo);
 		
 		JLabel lblYouAre = new JLabel("You are");
-		lblYouAre.setBounds(616, 118, 47, 16);
+		lblYouAre.setBounds(616, 189, 47, 16);
 		add(lblYouAre);
 		
 		JLabel label = new JLabel("20");
-		label.setBounds(589, 146, 16, 16);
+		label.setBounds(675, 189, 16, 16);
 		add(label);
 		
 		JLabel lblPercent = new JLabel("percent like");
-		lblPercent.setBounds(615, 146, 74, 16);
+		lblPercent.setBounds(588, 217, 74, 16);
 		add(lblPercent);
 		
 		JLabel lblInsertPlayersName = new JLabel("Insert Players name");
-		lblInsertPlayersName.setBounds(578, 176, 122, 16);
+		lblInsertPlayersName.setBounds(669, 217, 122, 16);
 		add(lblInsertPlayersName);
 		
 	}
-
 }

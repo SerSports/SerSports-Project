@@ -47,7 +47,7 @@ public class LocalBattingStats extends JPanel {
 		add(scrollPane);
 		
 
-		table = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
+		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
 		scrollPane.setViewportView(table);
 
 		
