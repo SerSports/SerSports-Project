@@ -158,13 +158,18 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		return resultList;
 	}
 	
-	// Static Methods
+	/*
+	 * getPlayersFromDatabase provides a user to search by one, a combination, or all parameters and
+	 * 		return an ArrayList of MLB player names
+	 */
 	public static ArrayList<MlbPlayer> getPlayersFromDatabase(String fName, String lName, String team) {
 		ArrayList<MlbPlayer> resultList = new ArrayList<MlbPlayer>();
 		
 		// Get the Result Set containing every Player
 		ResultSet rs = Database.getResultSetFromSQL(
-				"SELECT * FROM " + TABLE_NAME + " WHERE " + fName + ", " + lName + ", " + team);
+				"SELECT * FROM " + TABLE_NAME + 
+				" WHERE first_name=" + fName + " AND last_name=" + lName + " AND name=" + team);
+		
 		if (rs != null)
 		{
 			// Loop through the Result Set and Add Each MlbPlayer to the ArrayList
