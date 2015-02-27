@@ -77,8 +77,6 @@ public class MlbStatsGui extends JPanel {
 		txtTeam.setColumns(10);
 		txtTeam.setBounds(549, 193, 180, 28);
 		add(txtTeam);
-		Image img2 = new ImageIcon(this.getClass().getResource("/Rectangle.png")).getImage();
-
 
 	}
 
