@@ -1,6 +1,5 @@
-<project name="Architecture Demo" default="targets" basedir=".">
+<project name="Ser-Sports" default="targets" basedir=".">
 
-<<<<<<< HEAD
 	<!-- set global properties for this build -->
 	<property name="src" value="src" />
 	<property name="build" value="classes" />
@@ -60,47 +59,5 @@
 				</fileset>
 			</batchtest>
 		</junit>
-	</target>   
-=======
-   <!-- set global properties for this build -->
-   <property name="src" value="src" />
-   <property name="build" value="classes" />
-
-   <path id="compile.classpath">
-      <pathelement location="${build}"/>
-   </path>
-
-   <target name="targets" depends="checkos">
-      <echo message="targets are clean, prepare, compile, execute"/>
-   </target>
-
-   <target name="prepare">
-      <mkdir dir="${build}" />
-   </target>
-
-   <target name="compile" depends="prepare"
-           description="Compile Java sources">
-      <javac srcdir="${src}"
-             includeantruntime="false"
-             destdir="${build}">
-         <classpath refid="compile.classpath"/>
-      </javac>
-   </target>
-
-   <target name="execute.client" depends="compile"
-           description="Start client">
-         <echo message="user.dir is: ${user.dir}"/>
-         <java classname="client.Client" fork="yes">
-           <classpath refid="compile.classpath"/>
-           <arg value="${hostId}"/> 
-           <arg value="${regPort}"/> 
-         </java>
-   </target>
-
-   <target name="clean">
-     <!-- Delete the ${build} directory tree -->
-     <delete dir="${build}" />
-   </target>
->>>>>>> master
-
+	</target>
 </project>
