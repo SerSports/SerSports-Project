@@ -105,11 +105,9 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
                 // access Player stats
                 //make new Jpanel pop up (MLBPlayerProfile.java)
 				debug("you clicked See Player Stats");
-				String fName = txtFirstName.getText().toString();
-				String lName = txtLastName.getText().toString();
-				String team = txtTeam.getText().toString();
-		        frame.remove(secondPanel);
-		        frame.add(firstPanel);
+				
+		        frame.remove(firstPanel);
+		        frame.add(secondPanel);
 		        frame.revalidate(); // For Java 1.7 or above.
           // frame.getContentPane().validate(); // For Java 1.6 or below.
 		        frame.repaint();
