@@ -51,6 +51,10 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		}
 	}
 
+	public int getId() {
+		return id;
+	}
+
 	// Getters / Setters
 	public String getFirstName() {
 		return firstName;
