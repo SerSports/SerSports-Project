@@ -70,16 +70,18 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 				String lName = txtLastName.getText().toString();
 				String team = txtTeam.getText().toString();
 				
-				DefaultTableModel newTable = new DefaultTableModel(new Object[]{"First Name", "Last Name", "Team"/* "Position" */}, 0);
+				DefaultTableModel newTable = new DefaultTableModel(new Object[]{"ID" ,"First Name", "Last Name", "Team"/* "Position" */}, 0);
 				
 				ArrayList<MlbPlayer> players = MlbPlayer.getPlayersFromDatabase(fName, lName, team);
 				
 				for(MlbPlayer m: players) {
-					Object[] row = {m.getFirstName(), m.getLastName(), m.getTeam()};
+					Object[] row = {m.getId() ,m.getFirstName(), m.getLastName(), m.getTeam()};
 					newTable.addRow(row);
 				}
 				
 				table.setModel(newTable);
+				
+				table.removeColumn(table.getColumnModel().getColumn(0));
 				
 				
 			} catch (Exception ex) {
