@@ -1,51 +1,45 @@
 package gui;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
 
-
-
-public class MLBPlayerProfile extends JFrame {
+public class MLBPlayerProfile extends JPanel {
+    private MainGUI frame;
+    private MLBPlayerProfile firstPanel;
+    private MlbStatsGui secondPanel;
+    private MLBPlayerProfile thirdPanel;
+    public JButton btnbtnBackButton;
+    MLBBattingStats batting = new MLBBattingStats();
+    MLBPitchingStats pitching = new MLBPitchingStats();
+    MLBFieldingStats fielding = new MLBFieldingStats();
     
     public MLBPlayerProfile() {
-        setTitle("MLB Player Profile");
-        JTabbedPane jtp = new JTabbedPane();
-        getContentPane().add(jtp,BorderLayout.CENTER);
+        setLayout(null);
         
-
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        JButton btnBack = new JButton("Back");
+        btnBack.setBounds(6, 6, 117, 29);
+        add(btnBack);
+        
+        JTabbedPane jtp = new JTabbedPane(JTabbedPane.BOTTOM);
+        jtp.setBounds(6, 47, 933, 642);
+        add(jtp);
+        
         MLBBattingStats batting = new MLBBattingStats();
-        //MLBFieldingStats fielding = new MLBFieldingStats();
         MLBPitchingStats pitching = new MLBPitchingStats();
-      
+        MLBFieldingStats fielding = new MLBFieldingStats();
+        
         jtp.addTab("Batting", batting);
-        //jtp.addTab("Fielding", fielding);
+        jtp.addTab("Fielding", fielding);
         jtp.addTab("Pitching", pitching);
-
-        
-    }
-    public static void main(String[] args) {
-        
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MLBPlayerProfile frame = new MLBPlayerProfile();
-					frame.setVisible(true);
-					frame.setExtendedState(frame.MAXIMIZED_BOTH);
-					
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-        
     }
 }
