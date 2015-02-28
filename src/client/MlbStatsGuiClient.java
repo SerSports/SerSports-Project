@@ -68,6 +68,9 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 			}
 		} else if (e.getActionCommand().equals("SeePlayerStats")) {
 			try {
+                // when user highlighted in the table
+                // access Player stats
+                //make new Jpanel pop up (MLBPlayerProfile.java)
 				debug("you clicked See Player Stats");
 				String fName = txtFirstName.getText().toString();
 				String lName = txtLastName.getText().toString();
