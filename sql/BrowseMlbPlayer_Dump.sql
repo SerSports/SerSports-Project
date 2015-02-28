@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `ser_sports` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `ser_sports`;
 -- MySQL dump 10.13  Distrib 5.6.19, for osx10.7 (i386)
 --
 -- Host: 127.0.0.1    Database: ser_sports
@@ -44,4 +42,4 @@ CREATE TABLE `mlbPlayers` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-23 17:59:07
+-- Dump completed on 2015-02-28 11:10:45
