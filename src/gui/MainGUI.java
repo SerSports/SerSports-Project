@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 
+import client.MlbStatsGuiClient;
+
 
 public class MainGUI extends JFrame {
     
@@ -24,7 +26,7 @@ public class MainGUI extends JFrame {
         HomePageGUI jp1 = new HomePageGUI();
         JPanel jp2 = new JPanel();
         BrowseLocalPlayers jp3 = new BrowseLocalPlayers();
-        MlbStatsGui jp4 = new MlbStatsGui();
+        MlbStatsGui jp4 = new MlbStatsGuiClient();
         Help jp5 = new Help();
         ContactUs jp6 = new ContactUs();
         UserBattingStats batting = new UserBattingStats();
