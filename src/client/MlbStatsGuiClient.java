@@ -1,9 +1,15 @@
 package client;
 
+import gui.MlbStatsGui;
+import database.MlbPlayer;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
+
+import javax.swing.table.DefaultTableModel;
 /*import javax.swing.*;
 import java.io.*;
 import javax.swing.event.*;
@@ -63,6 +69,19 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 				String fName = txtFirstName.getText().toString();
 				String lName = txtLastName.getText().toString();
 				String team = txtTeam.getText().toString();
+				
+				DefaultTableModel newTable = new DefaultTableModel(new Object[]{"First Name", "Last Name", "Team"/* "Position" */}, 0);
+				
+				ArrayList<MlbPlayer> players = MlbPlayer.getPlayersFromDatabase(fName, lName, team);
+				
+				for(MlbPlayer m: players) {
+					Object[] row = {m.getFirstName(), m.getLastName(), m.getTeam()};
+					newTable.addRow(row);
+				}
+				
+				table.setModel(newTable);
+				
+				
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
