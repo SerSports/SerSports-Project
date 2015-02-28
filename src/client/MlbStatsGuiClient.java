@@ -94,12 +94,25 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
             }
         } else if (e.getActionCommand().equals("SeePlayerStats")) {
             try {
-                MainGUI frame = new MainGUI();
-                MlbStatsGui firstPanel = new MlbStatsGui();
-                firstPanel.setOpaque(true);
-                
-                MLBPlayerProfile secondPanel = new MLBPlayerProfile();
-                secondPanel.setOpaque(true);
+				MainGUI frame = new MainGUI();
+				MlbStatsGui firstPanel = new MlbStatsGui();
+		        firstPanel.setOpaque(true);
+
+		        MLBPlayerProfile secondPanel = new MLBPlayerProfile();
+		        secondPanel.setOpaque(true);
+
+                // when user highlighted in the table
+                // access Player stats
+                //make new Jpanel pop up (MLBPlayerProfile.java)
+				debug("you clicked See Player Stats");
+				String fName = txtFirstName.getText().toString();
+				String lName = txtLastName.getText().toString();
+				String team = txtTeam.getText().toString();
+		        frame.remove(secondPanel);
+		        frame.add(firstPanel);
+		        frame.revalidate(); // For Java 1.7 or above.
+          // frame.getContentPane().validate(); // For Java 1.6 or below.
+		        frame.repaint();
             } catch (Exception ex) {
             	ex.printStackTrace();
             }
