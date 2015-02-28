@@ -31,7 +31,7 @@ public class MLBPlayerProfile extends JPanel {
         add(btnBack);
         
         JTabbedPane jtp = new JTabbedPane(JTabbedPane.BOTTOM);
-        jtp.setBounds(6, 47, 933, 642);
+        jtp.setBounds(6, 47, 1274, 569);
         add(jtp);
         
         MLBBattingStats batting = new MLBBattingStats();

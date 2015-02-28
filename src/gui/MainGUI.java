@@ -29,6 +29,7 @@ public class MainGUI extends JFrame {
         MlbStatsGui jp4 = new MlbStatsGuiClient();
         Help jp5 = new Help();
         ContactUs jp6 = new ContactUs();
+        MLBPlayerProfile jp7 = new MLBPlayerProfile();
         UserBattingStats batting = new UserBattingStats();
         //UserFieldingStats fielding = new UserFieldingStats();
         UserPitchingStats pitching = new UserPitchingStats();
@@ -41,6 +42,7 @@ public class MainGUI extends JFrame {
         jtp.addTab("Choose MLB Players", jp4);
         jtp.addTab("Help", jp5);
         jtp.addTab("Contact Us", jp6);
+        jtp.addTab("PlayerProfile", jp7);
         
     }
     public static void main(String[] args) {
