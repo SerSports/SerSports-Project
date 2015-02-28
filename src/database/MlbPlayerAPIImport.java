@@ -25,7 +25,7 @@ public class MlbPlayerAPIImport {
     int pitching_onbase_t;//Batting 3B triple
     int pitching_onbase_hr;//Batting HR homeruns
     int pitching_onbase_bb;//Pitching BB
-    int pitching_runs_earned; //Batting R //Pitching ER 
+    int pitching_runs_earned; //Pitching ER 
     int pitching_runs_total; //Pitching R
     int pitching_outs_ktotal; //Batting outs SO
     int pitching_steal_stolen; // steals Stolen SB
@@ -113,7 +113,6 @@ public class MlbPlayerAPIImport {
 	        pitching_onbase_t     = Integer.parseInt(getNodesNamedItem(node, "t"));
 	        pitching_onbase_hr    = Integer.parseInt(getNodesNamedItem(node, "hr"));
 	        pitching_onbase_bb    = Integer.parseInt(getNodesNamedItem(node, "bb"));
- 
     	}
     }
     

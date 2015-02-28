@@ -51,8 +51,18 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		}
 	}
 
+<<<<<<< HEAD
 	public int getId() {
 		return id;
+=======
+	public MlbPlayer(MlbPlayerAPIImport playerApi) {
+		this.id = 0;
+		this.firstName = playerApi.first_name;
+		this.lastName = playerApi.last_name;
+		this.team = playerApi.team_name;
+		this.number = 1;
+		this.position = "temp";
+>>>>>>> 896a657ce6a738d467f8921d247483edeee7c2fb
 	}
 
 	// Getters / Setters
@@ -170,9 +180,8 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		ArrayList<MlbPlayer> resultList = new ArrayList<MlbPlayer>();
 		
 		// Get the Result Set containing every Player
-		ResultSet rs = Database.getResultSetFromSQL(
-				"SELECT * FROM " + TABLE_NAME + 
-				" WHERE first_name=" + fName + " AND last_name=" + lName + " AND name=" + team);
+		String sql = "SELECT * FROM " + TABLE_NAME + genereateWhereClause(fName, lName, team);
+		ResultSet rs = Database.getResultSetFromSQL(sql);
 		
 		if (rs != null)
 		{
@@ -187,7 +196,42 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 				e.printStackTrace();
 			}
 		}
+		
+		// Clean up
+		Database.close();
 			
 		return resultList;
+	}
+
+	private static String genereateWhereClause(String fName, String lName, String team) {
+		StringBuilder whereClause = new StringBuilder();
+		
+		// See if anything was passed in
+		if (fName != null || lName != null || team != null) {
+			Boolean fieldsAdded = false;
+			
+			// Initialize
+			whereClause.append(" WHERE ");
+			
+			// Add the fields we need
+			if (fName != null) {
+				whereClause.append(FIELD_FIRSTNAME + " \"" + fName + "\"");
+				fieldsAdded = true;
+			} else if (lName != null) {
+				if (fieldsAdded)
+					whereClause.append(" AND ");
+				
+				whereClause.append(FIELD_LASTNAME + " \"" + lName + "\"");
+				fieldsAdded = true;
+			} else if (team != null) {
+				if (fieldsAdded)
+					whereClause.append(" AND ");
+				
+				whereClause.append(FIELD_TEAM + " \"" + team + "\"");
+				fieldsAdded = true;
+			}
+		}
+		
+		return whereClause.toString();
 	}
 }

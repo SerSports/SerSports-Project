@@ -27,6 +27,17 @@ public class Database {
 	
 	// Methods
 	
+	public static void close() {
+		// Clean-up environment
+		try {
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	// Returns a ResultSet - WARNING, this ReturnSet needs to be closed when done!
 	public static ResultSet getResultSetFromSQL(String sql) {
 		ResultSet result = null;
@@ -44,11 +55,7 @@ public class Database {
 	
 				// Execute a query - Get the Result Set
 				stmt = conn.createStatement();
-				result = stmt.executeQuery(sql); 
-				
-				// Clean-up environment
-				stmt.close();
-				conn.close();
+				result = stmt.executeQuery(sql); 	
 				
 			} catch (SQLException se) {
 				// Handle errors for JDBC
@@ -56,19 +63,6 @@ public class Database {
 			} catch (Exception e) {
 				// Handle errors for Class.forName
 				e.printStackTrace();
-			} finally {
-				// finally block used to close resources
-				try {
-					if (stmt != null)
-						stmt.close();
-				} catch (SQLException se2) {
-				}// nothing we can do
-				try {
-					if (conn != null)
-						conn.close();
-				} catch (SQLException se) {
-					se.printStackTrace();
-				}// end finally try
 			}// end try
 		}
 		
