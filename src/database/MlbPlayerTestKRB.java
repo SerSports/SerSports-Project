@@ -18,8 +18,6 @@ public class MlbPlayerTestKRB {
 
 	@Test
 	public void testGetPlayersFromDatabase(){
-		assertNotNull(MlbPlayer.getPlayersFromDatabase("", "", ""));
+		assertNotNull(MlbPlayer.getPlayersFromDatabase("", "", "", ""));
 	}
-	
-	
 }

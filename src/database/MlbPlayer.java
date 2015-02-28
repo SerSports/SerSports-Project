@@ -23,49 +23,46 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	private static final String FIELD_FIRSTNAME = "firstName";  
 	private static final String FIELD_LASTNAME = "lastName";  
 	private static final String FIELD_TEAM = "team";  
-	private static final String FIELD_NUMBER = "number";  
-	private static final String FIELD_POSITION = "position";  
+	//private static final String FIELD_NUMBER = "number";  
+	//private static final String FIELD_POSITION = "position";  
 	
 	// Members
-	private int id;
+	private String id;
 	private String firstName;
 	private String lastName;
 	private String team;
-	private int number;
-	private String position;
+	//private int number;
+	//private String position;
 	
 	// Constructors
 	public MlbPlayer(ResultSet rs)
 	{
 		try {
 			// Load the rs's information
-			this.id = rs.getInt(FIELD_ID);
+			this.id = rs.getString(FIELD_ID);
 			this.firstName = rs.getString(FIELD_FIRSTNAME);
 			this.lastName = rs.getString(FIELD_LASTNAME);
 			this.team = rs.getString(FIELD_TEAM);
-			this.number = rs.getInt(FIELD_NUMBER);
-			this.position = rs.getString(FIELD_POSITION);
+			//this.number = rs.getInt(FIELD_NUMBER);
+			//this.position = rs.getString(FIELD_POSITION);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-<<<<<<< HEAD
-	public int getId() {
-		return id;
-=======
 	public MlbPlayer(MlbPlayerAPIImport playerApi) {
-		this.id = 0;
+		this.id = playerApi.id;
 		this.firstName = playerApi.first_name;
 		this.lastName = playerApi.last_name;
 		this.team = playerApi.team_name;
-		this.number = 1;
-		this.position = "temp";
->>>>>>> 896a657ce6a738d467f8921d247483edeee7c2fb
 	}
 
 	// Getters / Setters
+	public String getId() {
+		return id;
+	}
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -90,7 +87,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		this.team = team;
 	}
 
-	public int getNumber() {
+	/*public int getNumber() {
 		return number;
 	}
 
@@ -104,18 +101,15 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 
 	public void setPosition(String position) {
 		this.position = position;
-	}
+	}*/
 	
 	// Methods
 	public boolean saveMlbPlayerToDatabase() {
 		boolean result = false;
 		String sql = null;
 		
-		// See if this is a new record, or are we updating a record?
-		if (this.id > 0)
-			sql = buildUpdateSql();
-		else
-			sql = buildInsertSql();
+		// Save this is a new record
+		sql = buildInsertSql();
 		
 		// Execute the command
 		result = Database.executeSQL(sql);
@@ -123,7 +117,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		return result;
 	}
 	
-	private String buildUpdateSql() {
+	/*private String buildUpdateSql() {
 		return "UPDATE " + TABLE_NAME + " " +
 			   "SET " + 
 					FIELD_FIRSTNAME + " = \"" + this.firstName + "\" " +
@@ -132,21 +126,18 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 					FIELD_NUMBER + " = " + this.number + " " +
 					FIELD_POSITION + " = \"" + this.position + "\" " +
 				"WHERE " + FIELD_ID + " = " + this.id;
-	}
+	}*/
 	
 	private String buildInsertSql() {
 		return "INSERT INTO " + TABLE_NAME + 
-				"(" + FIELD_FIRSTNAME + "," +  
+				"(" + FIELD_ID + ", " +
+					FIELD_FIRSTNAME + "," +  
 					FIELD_LASTNAME + "," + 
-					FIELD_TEAM + "," + 
-					FIELD_NUMBER + "," + 
-					FIELD_POSITION + ") " + 
-				"VALUES (" + 
-					this.firstName + ", " +
-					this.lastName + ", " +
-					this.team + ", " +
-					this.number + ", " +
-					this.position + ";";
+					FIELD_TEAM + ") " + 
+				"VALUES (\"" + this.id + "\", " +
+					"\"" + this.firstName + "\", " +
+					"\"" + this.lastName + "\", " +
+					"\"" + this.team + "\");";
 	}
 	
 	// Static Methods
@@ -176,11 +167,11 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	 * getPlayersFromDatabase provides a user to search by one, a combination, or all parameters and
 	 * 		return an ArrayList of MLB player names
 	 */
-	public static ArrayList<MlbPlayer> getPlayersFromDatabase(String fName, String lName, String team) {
+	public static ArrayList<MlbPlayer> getPlayersFromDatabase(String id_in, String fName_in, String lName_in, String team_in) {
 		ArrayList<MlbPlayer> resultList = new ArrayList<MlbPlayer>();
 		
 		// Get the Result Set containing every Player
-		String sql = "SELECT * FROM " + TABLE_NAME + genereateWhereClause(fName, lName, team);
+		String sql = "SELECT * FROM " + TABLE_NAME + genereateWhereClause(id_in, fName_in, lName_in, team_in);
 		ResultSet rs = Database.getResultSetFromSQL(sql);
 		
 		if (rs != null)
@@ -192,7 +183,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 					resultList.add(player);
 				}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				// TODO Auto-generated catch blocks
 				e.printStackTrace();
 			}
 		}
@@ -203,31 +194,37 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		return resultList;
 	}
 
-	private static String genereateWhereClause(String fName, String lName, String team) {
+	private static String genereateWhereClause(String id_in, String fName_in, String lName_in, String team_in) {
 		StringBuilder whereClause = new StringBuilder();
 		
 		// See if anything was passed in
-		if (fName != null || lName != null || team != null) {
+		if (id_in != null || fName_in != null || lName_in != null || team_in != null) {
 			Boolean fieldsAdded = false;
 			
 			// Initialize
 			whereClause.append(" WHERE ");
 			
 			// Add the fields we need
-			if (fName != null) {
-				whereClause.append(FIELD_FIRSTNAME + " \"" + fName + "\"");
+			if (id_in != null) {
+				whereClause.append(FIELD_ID + " \"" + id_in + "\"");
 				fieldsAdded = true;
-			} else if (lName != null) {
+			} else if (fName_in != null) {
 				if (fieldsAdded)
 					whereClause.append(" AND ");
 				
-				whereClause.append(FIELD_LASTNAME + " \"" + lName + "\"");
+				whereClause.append(FIELD_FIRSTNAME + " \"" + fName_in + "\"");
 				fieldsAdded = true;
-			} else if (team != null) {
+			} else if (lName_in != null) {
 				if (fieldsAdded)
 					whereClause.append(" AND ");
 				
-				whereClause.append(FIELD_TEAM + " \"" + team + "\"");
+				whereClause.append(FIELD_LASTNAME + " \"" + lName_in + "\"");
+				fieldsAdded = true;
+			} else if (team_in != null) {
+				if (fieldsAdded)
+					whereClause.append(" AND ");
+				
+				whereClause.append(FIELD_TEAM + " \"" + team_in + "\"");
 				fieldsAdded = true;
 			}
 		}

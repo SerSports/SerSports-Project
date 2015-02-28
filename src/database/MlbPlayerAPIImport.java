@@ -68,6 +68,40 @@ public class MlbPlayerAPIImport {
         return returnVal;
     }
     
+    private float getNodesNamedFloat(Node node, String namedItem)
+    {
+    	float result = 0f;
+    	
+    	// Get the Value as a String first
+    	String value = getNodesNamedItem(node, namedItem);
+    	
+    	// Validate it is in fact a float
+    	try {
+    		result = Float.parseFloat(value);
+    	} catch (NumberFormatException e) {
+    		result = 0f;
+    	}
+    	
+    	return result;
+    }
+    
+    private int getNodesNamedInt(Node node, String namedItem)
+    {
+    	int result = 0;
+    	
+    	// Get the Value as a String first
+    	String value = getNodesNamedItem(node, namedItem);
+    	
+    	// Validate it is in fact a float
+    	try {
+    		result = Integer.parseInt(value);
+    	} catch (NumberFormatException e) {
+    		result = 0;
+    	}
+    	
+    	return result;
+    }
+    
     private void loadPlayerData(Node node)
     {
         // Get "player" data
@@ -86,13 +120,14 @@ public class MlbPlayerAPIImport {
     private void loadHittingData(Node node)
     {
         // Get the "hitting" data
-        hitting_ab       = Integer.parseInt(getNodesNamedItem(node, "ab"));
-        hitting_rbi      = Integer.parseInt(getNodesNamedItem(node, "rbi"));
+        hitting_ab       = getNodesNamedInt(node, "ab");
+        hitting_rbi      = getNodesNamedInt(node, "rbi");
     }
     
     private void loadPitchingData(Node node)
     {
-        pitching_era    = Float.parseFloat(getNodesNamedItem(node, "era"));
+    	System.out.println(node.getTextContent());
+        pitching_era    = getNodesNamedFloat(node, "era");
     }
     
     private void loadOnbaseData(Node node, String parentNodeName)
@@ -100,19 +135,19 @@ public class MlbPlayerAPIImport {
         // Load "onbase" data
     	if (parentNodeName.equals("hitting"))
     	{
-	        hitting_onbase_h     = Integer.parseInt(getNodesNamedItem(node, "h"));
-	        hitting_onbase_s     = Integer.parseInt(getNodesNamedItem(node, "s"));
-	        hitting_onbase_d     = Integer.parseInt(getNodesNamedItem(node, "d"));
-	        hitting_onbase_t     = Integer.parseInt(getNodesNamedItem(node, "t"));
-	        hitting_onbase_hr    = Integer.parseInt(getNodesNamedItem(node, "hr"));
-	        hitting_onbase_bb    = Integer.parseInt(getNodesNamedItem(node, "bb"));
+	        hitting_onbase_h     = getNodesNamedInt(node, "h");
+	        hitting_onbase_s     = getNodesNamedInt(node, "s");
+	        hitting_onbase_d     = getNodesNamedInt(node, "d");
+	        hitting_onbase_t     = getNodesNamedInt(node, "t");
+	        hitting_onbase_hr    = getNodesNamedInt(node, "hr");
+	        hitting_onbase_bb    = getNodesNamedInt(node, "bb");
     	} else if (parentNodeName.equals("pitching")) {
-	        pitching_onbase_h     = Integer.parseInt(getNodesNamedItem(node, "h"));
-	        pitching_onbase_s     = Integer.parseInt(getNodesNamedItem(node, "s"));
-	        pitching_onbase_d     = Integer.parseInt(getNodesNamedItem(node, "d"));
-	        pitching_onbase_t     = Integer.parseInt(getNodesNamedItem(node, "t"));
-	        pitching_onbase_hr    = Integer.parseInt(getNodesNamedItem(node, "hr"));
-	        pitching_onbase_bb    = Integer.parseInt(getNodesNamedItem(node, "bb"));
+	        pitching_onbase_h     = getNodesNamedInt(node, "h");
+	        pitching_onbase_s     = getNodesNamedInt(node, "s");
+	        pitching_onbase_d     = getNodesNamedInt(node, "d");
+	        pitching_onbase_t     = getNodesNamedInt(node, "t");
+	        pitching_onbase_hr    = getNodesNamedInt(node, "hr");
+	        pitching_onbase_bb    = getNodesNamedInt(node, "bb");
     	}
     }
     
@@ -120,11 +155,11 @@ public class MlbPlayerAPIImport {
     {
         // Load "runs" data
     	if (parentNodeName.equals("hitting")) {
-	        hitting_runs_earned      = Integer.parseInt(getNodesNamedItem(node, "earned"));
-	        hitting_runs_total       = Integer.parseInt(getNodesNamedItem(node, "total"));
+	        hitting_runs_earned      = getNodesNamedInt(node, "earned");
+	        hitting_runs_total       = getNodesNamedInt(node, "total");
     	} else if (parentNodeName.equals("pitching")) {
-	        pitching_runs_earned      = Integer.parseInt(getNodesNamedItem(node, "earned"));
-	        pitching_runs_total       = Integer.parseInt(getNodesNamedItem(node, "total"));
+	        pitching_runs_earned      = getNodesNamedInt(node, "earned");
+	        pitching_runs_total       = getNodesNamedInt(node, "total");
     	}
     }
     
@@ -133,9 +168,9 @@ public class MlbPlayerAPIImport {
     {
         // Load "outs" data
     	if (parentNodeName.equals("hitting")) {
-    		hitting_outs_ktotal  = Integer.parseInt(getNodesNamedItem(node, "ktotal"));
+    		hitting_outs_ktotal  = getNodesNamedInt(node, "ktotal");
     	} else if (parentNodeName.equals("pitching")) {
-    		pitching_outs_ktotal  = Integer.parseInt(getNodesNamedItem(node, "ktotal"));
+    		pitching_outs_ktotal  = getNodesNamedInt(node, "ktotal");
     	}
     }
     
@@ -143,9 +178,9 @@ public class MlbPlayerAPIImport {
     {
         // Load "steal" data
     	if (parentNodeName.equals("hitting")) {
-    		hitting_steal_stolen = Integer.parseInt(getNodesNamedItem(node, "stolen"));
+    		hitting_steal_stolen = getNodesNamedInt(node, "stolen");
     	} else if (parentNodeName.equals("pitching")) {
-    		pitching_steal_stolen = Integer.parseInt(getNodesNamedItem(node, "stolen"));
+    		pitching_steal_stolen = getNodesNamedInt(node, "stolen");
     	}
     }
     
@@ -153,9 +188,9 @@ public class MlbPlayerAPIImport {
     {
         // Load "games" data
     	if (parentNodeName.equals("hitting")) {
-    		hitting_games_play       = Integer.parseInt(getNodesNamedItem(node, "play"));
+    		hitting_games_play       = getNodesNamedInt(node, "play");
     	} else if (parentNodeName.equals("pitching")) {
-    		pitching_games_play       = Integer.parseInt(getNodesNamedItem(node, "play"));
+    		pitching_games_play       = getNodesNamedInt(node, "play");
     	}
     }
     

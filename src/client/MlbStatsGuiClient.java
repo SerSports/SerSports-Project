@@ -22,7 +22,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, ItemListener {
     
-    
     private static final long serialVersionUID = 1L;
     
     private static final boolean debugOn = true;
@@ -80,7 +79,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
                 
                 DefaultTableModel newTable = new DefaultTableModel(new Object[]{"First Name", "Last Name", "Team"/* "Position" */}, 0);
                 
-                ArrayList<MlbPlayer> players = MlbPlayer.getPlayersFromDatabase(fName, lName, team);
+                ArrayList<MlbPlayer> players = MlbPlayer.getPlayersFromDatabase(null, fName, lName, team);
                 
                 for(MlbPlayer m: players) {
                     Object[] row = {m.getFirstName(), m.getLastName(), m.getTeam()};
@@ -101,32 +100,9 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
                 
                 MLBPlayerProfile secondPanel = new MLBPlayerProfile();
                 secondPanel.setOpaque(true);
-                
-                // when user highlighted in the table
-                // access Player stats
-                //make new Jpanel pop up (MLBPlayerProfile.java)
-                debug("you clicked See Player Stats");
-                String fName = txtFirstName.getText().toString();
-                String lName = txtLastName.getText().toString();
-                String team = txtTeam.getText().toString();
-                frame.remove(secondPanel);
-                frame.add(firstPanel);
-                frame.revalidate(); // For Java 1.7 or above.
-                // frame.getContentPane().validate(); // For Java 1.6 or below.
-                frame.repaint();
-                
             } catch (Exception ex) {
-                ex.printStackTrace();
+            	ex.printStackTrace();
             }
-        } else if (e.getActionCommand().equals("CompareToPlayer")) {
-            try {
-                debug("you clicked Compare to Player");
-                String fName = txtFirstName.getText().toString();
-                String lName = txtLastName.getText().toString();
-                String team = txtTeam.getText().toString();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }		
+        }
     }
 }
