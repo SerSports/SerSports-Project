@@ -26,9 +26,9 @@ public class DatabaseTest {
 		assertFalse(Database.executeSQL("SELECT * FROM mlbPlayers WHERE incorrectfield = 123"));
 		
 		// Valid Inputs
-		assertTrue(Database.executeSQL("INSERT INTO mlbPlayers(firstName, lastName, team, number, position) VALUES(\"Bob\", \"Dole\", \"Bears\", 23, \"Belly Itcher\");"));
-		assertTrue(Database.executeSQL("INSERT INTO mlbPlayers(firstName, lastName, team, number, position) VALUES(\"Bob\", \"Dole\", \"Bears\", 23, \"Belly Itcher\");"));
-		assertTrue(Database.executeSQL("INSERT INTO mlbPlayers(firstName, lastName, team, number, position) VALUES(\"Bob\", \"Dole\", \"Bears\", 23, \"Belly Itcher\");"));
+		assertTrue(Database.executeSQL("INSERT INTO mlbPlayers(firstName, lastName, team) VALUES(\"Bob\", \"Dole\", \"Bears\");"));
+		assertTrue(Database.executeSQL("INSERT INTO mlbPlayers(firstName, lastName, team) VALUES(\"Bob\", \"Dole\", \"Bears\");"));
+		assertTrue(Database.executeSQL("INSERT INTO mlbPlayers(firstName, lastName, team) VALUES(\"Bob\", \"Dole\", \"Bears\");"));
 	}
 
 	@Test
