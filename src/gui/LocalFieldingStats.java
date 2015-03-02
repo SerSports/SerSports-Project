@@ -47,7 +47,7 @@ public class LocalFieldingStats extends JPanel {
 		add(scrollPane);
 		
 
-		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "INN","A","E","F%","SB","CS","PO"}));
+		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "Wins","Losses","PO","Err","Assist", "F%"}));
 		scrollPane.setViewportView(table);
 
 		

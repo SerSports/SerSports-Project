@@ -51,25 +51,22 @@ public class MlbPlayerAPIImport {
     int hitting_games_save;//Pitching: Saves
     int hitting_games_hold; //Pitching:Hold
     
-    public MlbPlayerAPIImport(Node node)
-    {
+    public MlbPlayerAPIImport(Node node) {
         // Initialize from XML Node
         loadDataFromNode(node);
     }
     
-    private String getNodesNamedItem(Node node, String namedItem)
-    {
+    private String getNodesNamedItem(Node node, String namedItem) {
         String returnVal = new String("0");
         
         // Check the attribute exists
-        if (node.getAttributes().getNamedItem(namedItem) != null)
+        if (node.getAttributes().getNamedItem(namedItem) != null) {
             returnVal = node.getAttributes().getNamedItem(namedItem).getNodeValue();
-
+        }
         return returnVal;
     }
     
-    private float getNodesNamedFloat(Node node, String namedItem)
-    {
+    private float getNodesNamedFloat(Node node, String namedItem) {
     	float result = 0f;
     	
     	// Get the Value as a String first
@@ -85,8 +82,7 @@ public class MlbPlayerAPIImport {
     	return result;
     }
     
-    private int getNodesNamedInt(Node node, String namedItem)
-    {
+    private int getNodesNamedInt(Node node, String namedItem) {
     	int result = 0;
     	
     	// Get the Value as a String first
@@ -102,39 +98,33 @@ public class MlbPlayerAPIImport {
     	return result;
     }
     
-    private void loadPlayerData(Node node)
-    {
+    private void loadPlayerData(Node node) {
         // Get "player" data
         id               = getNodesNamedItem(node, "id");
         first_name       = getNodesNamedItem(node, "first_name");
         last_name        = getNodesNamedItem(node, "last_name");
     }
     
-    private void loadTeamData(Node node)
-    {
+    private void loadTeamData(Node node) {
         // Get "team" data
         team_id      = getNodesNamedItem(node, "id");
         team_name    = getNodesNamedItem(node, "name");
     }
     
-    private void loadHittingData(Node node)
-    {
+    private void loadHittingData(Node node) {
         // Get the "hitting" data
         hitting_ab       = getNodesNamedInt(node, "ab");
         hitting_rbi      = getNodesNamedInt(node, "rbi");
     }
     
-    private void loadPitchingData(Node node)
-    {
+    private void loadPitchingData(Node node) {
     	System.out.println(node.getTextContent());
         pitching_era    = getNodesNamedFloat(node, "era");
     }
     
-    private void loadOnbaseData(Node node, String parentNodeName)
-    {
+    private void loadOnbaseData(Node node, String parentNodeName) {
         // Load "onbase" data
-    	if (parentNodeName.equals("hitting"))
-    	{
+    	if (parentNodeName.equals("hitting")) {
 	        hitting_onbase_h     = getNodesNamedInt(node, "h");
 	        hitting_onbase_s     = getNodesNamedInt(node, "s");
 	        hitting_onbase_d     = getNodesNamedInt(node, "d");
@@ -151,8 +141,7 @@ public class MlbPlayerAPIImport {
     	}
     }
     
-    private void loadRunsData(Node node, String parentNodeName)
-    {
+    private void loadRunsData(Node node, String parentNodeName) {
         // Load "runs" data
     	if (parentNodeName.equals("hitting")) {
 	        hitting_runs_earned      = getNodesNamedInt(node, "earned");
@@ -164,8 +153,7 @@ public class MlbPlayerAPIImport {
     }
     
 
-    private void loadOutsData(Node node, String parentNodeName)
-    {
+    private void loadOutsData(Node node, String parentNodeName) {
         // Load "outs" data
     	if (parentNodeName.equals("hitting")) {
     		hitting_outs_ktotal  = getNodesNamedInt(node, "ktotal");
@@ -174,8 +162,7 @@ public class MlbPlayerAPIImport {
     	}
     }
     
-    private void loadStealData(Node node, String parentNodeName)
-    {
+    private void loadStealData(Node node, String parentNodeName) {
         // Load "steal" data
     	if (parentNodeName.equals("hitting")) {
     		hitting_steal_stolen = getNodesNamedInt(node, "stolen");
@@ -184,8 +171,7 @@ public class MlbPlayerAPIImport {
     	}
     }
     
-    private void loadGamesData(Node node, String parentNodeName)
-    {
+    private void loadGamesData(Node node, String parentNodeName) {
         // Load "games" data
     	if (parentNodeName.equals("hitting")) {
     		hitting_games_play       = getNodesNamedInt(node, "play");
@@ -194,31 +180,25 @@ public class MlbPlayerAPIImport {
     	}
     }
     
-    public void loadDataFromNode(Node node)
-    {
+    public void loadDataFromNode(Node node) {
         // Get "player" data
         loadPlayerData(node);
         
         NodeList child1Nodes = node.getChildNodes();
-        for (int j = 0; j < child1Nodes.getLength(); j++)
-        {
+        for (int j = 0; j < child1Nodes.getLength(); j++) {
             Node teamNode = child1Nodes.item(j);
-            if (teamNode instanceof Element)
-            {
+            if (teamNode instanceof Element) {
                 // Get "team" data
                 loadTeamData(teamNode);
                 
                 NodeList child2Nodes = teamNode.getChildNodes();
-                for (int k = 0; k < child2Nodes.getLength(); k++)
-                {
+                for (int k = 0; k < child2Nodes.getLength(); k++) {
                     Node c1Node = child2Nodes.item(k);
-                    if (c1Node instanceof Element)
-                    {
+                    if (c1Node instanceof Element) {
                     	String parentNodeName = null;
 
                         //Identifying the child tag
-                        switch (c1Node.getNodeName())
-                        {
+                        switch (c1Node.getNodeName()) {
                         case "hitting":
                             loadHittingData(c1Node);
                             break;
@@ -232,14 +212,11 @@ public class MlbPlayerAPIImport {
                         
                         // Load the Node data
                         NodeList child3Nodes = c1Node.getChildNodes();
-                        for (int l = 0; l < child3Nodes.getLength(); l++)
-                        {
+                        for (int l = 0; l < child3Nodes.getLength(); l++) {
                             Node c2Node = child3Nodes.item(l);
-                            if (c2Node instanceof Element)
-                            {
+                            if (c2Node instanceof Element) {
                                 //Identifying the child tag
-                                switch (c2Node.getNodeName())
-                                {
+                                switch (c2Node.getNodeName()) {
                                     case "onbase":
                                         loadOnbaseData(c2Node, parentNodeName);
                                         break;
