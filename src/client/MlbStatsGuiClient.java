@@ -96,7 +96,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
             try {
 				MainGUI frame = new MainGUI();
 				
-				MlbStatsGui firstPanel = new MlbStatsGui(new CardLayout());
+				MlbStatsGui firstPanel = new MlbStatsGui();
 		        firstPanel.setOpaque(true);
 
 		        MLBPlayerProfile secondPanel = new MLBPlayerProfile();
