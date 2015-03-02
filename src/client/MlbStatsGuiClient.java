@@ -30,6 +30,8 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
     private static final byte COLUMN_VALUE = 0;
     private static final boolean debugOn = true;
     
+    private ArrayList<MlbPlayer> arrListWithSelectedPlayer;
+    
     /**
 	  Method: MlbStatsGuiClient
 	  Inputs: none
@@ -133,7 +135,12 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 				//use that value to find the player in the database and return the player in a list
 				if(rowSelected >= 0){
 					String selectedPlayer = (String) table.getModel().getValueAt(rowSelected, COLUMN_VALUE);
-					ArrayList<MlbPlayer> arrListWithSelectedPlayer = MlbPlayer.getPlayersFromDatabase(selectedPlayer, null, null, null);
+					
+					//will get the mlb player from database, can delete later
+					//ArrayList<MlbPlayer> arrListWithSelectedPlayer = MlbPlayer.getPlayersFromDatabase(selectedPlayer, null, null, null);
+					//arrListWithSelectedPlayer = MlbPlayer.getPlayersFromDatabase(selectedPlayer, null, null, null);
+					
+					MLBBattingStats temp = new MLBBattingStats(selectedPlayer);
 					
 				} else {
 					debug("ERROR: An MLB player has NOT been selected!");

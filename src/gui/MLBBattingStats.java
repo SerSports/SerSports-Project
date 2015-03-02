@@ -32,7 +32,7 @@ public class MLBBattingStats extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public MLBBattingStats() {
+	public MLBBattingStats(String player) {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
