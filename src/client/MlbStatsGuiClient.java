@@ -27,7 +27,7 @@ Description:
 public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, ItemListener {
     
     private static final long serialVersionUID = 1L;
-    
+    private static final byte COLUMN_VALUE = 0;
     private static final boolean debugOn = true;
     
     /**
@@ -123,16 +123,29 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 		        MLBPlayerProfile secondPanel = new MLBPlayerProfile();
 		        secondPanel.setOpaque(true);
 
-                // when user highlighted in the table
-                // access Player stats
-                //make new Jpanel pop up (MLBPlayerProfile.java)
-				debug("you clicked See Player Stats");
+		        //check to see if this method gets called when SeePlayerStats button is pushed 
+				debug("you clicked SeePlayerStats");
+
+				//get the row number in which the user highlighted
+				int rowSelected = table.getSelectedRow();
 				
+				//get the id value number in the hidden column of the selected (highlighted) row (player)
+				//use that value to find the player in the database and return the player in a list
+				if(rowSelected >= 0){
+					String selectedPlayer = (String) table.getModel().getValueAt(rowSelected, COLUMN_VALUE);
+					ArrayList<MlbPlayer> arrListWithSelectedPlayer = MlbPlayer.getPlayersFromDatabase(selectedPlayer, null, null, null);
+					
+				} else {
+					debug("ERROR: An MLB player has NOT been selected!");
+				}
+		        
+		        /*
 		        frame.remove(firstPanel);
 		        frame.add(secondPanel);
 		        frame.revalidate(); // For Java 1.7 or above.
-          //      frame.getContentPane().validate(); // For Java 1.6 or below.
+          		//frame.getContentPane().validate(); // For Java 1.6 or below.
 		        frame.repaint();
+		        */
             } catch (Exception ex) {
             	ex.printStackTrace();
             }
