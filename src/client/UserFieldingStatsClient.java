@@ -3,7 +3,7 @@ File: UserFieldingStatsClient.java
 Author:	
 Date:	
 
-Description: ActionListeners and ItemListeners for the MLB Batting Stats GUI (MLBBattingStats.java)
+Description: ActionListeners and ItemListeners for the User Fielding Stats GUI (UserFieldingStats.java)
 
 */
 package client;
@@ -16,7 +16,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 /**
-Class:	
+Class: UserFieldingStatsClient
 
 Description:
 */
@@ -47,5 +47,4 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		// TODO Auto-generated method stub
 		
 	}
-
 }

@@ -3,7 +3,7 @@ File: UserBattingStatsClient.java
 Author:	
 Date:	
 
-Description: ActionListeners and ItemListeners for the MLB Batting Stats GUI (MLBBattingStats.java)
+Description: ActionListeners and ItemListeners for the User Batting Stats GUI (UserBattingStats.java)
 
 */
 package client;
@@ -48,5 +48,4 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		// TODO Auto-generated method stub
 		
 	}
-
 }

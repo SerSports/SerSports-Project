@@ -3,7 +3,7 @@ File: MlbStatsGuiClient.java
 Author:	
 Date:	
 
-Description: ActionListeners and ItemListeners for the MLB Batting Stats GUI (MLBBattingStats.java)
+Description: ActionListeners and ItemListeners for the MLB Stats GUI (MlbStatsGui.java)
 
 */
 package client;

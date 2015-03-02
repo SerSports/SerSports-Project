@@ -1,9 +1,9 @@
 /*
-File: MLBBattingsStatsClient.java
+File: UserPitchingStatsClient.java
 Author:	
 Date:	
 
-Description: ActionListeners and ItemListeners for the MLB Batting Stats GUI (MLBBattingStats.java)
+Description: ActionListeners and ItemListeners for the User Pitching Stats GUI (UserPitchingStats.java)
 
 */
 package client;
@@ -17,7 +17,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 /**
-Class:	
+Class: UserPitchingStatsClient
 
 Description:
 */
