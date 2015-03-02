@@ -1,4 +1,5 @@
-package database;
+package Testing;
+import database.Database;
 
 import static org.junit.Assert.*;
 

@@ -1,5 +1,6 @@
-package database;
+package Testing;
 
+import database.MlbPlayer;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -38,5 +39,10 @@ public class MlbPlayerTest {
 	@Test
 	public void testGetListOfPlayersFromDatabase() {
 		assertNotNull(MlbPlayer.getListOfPlayersFromDatabase()); 
+	}
+
+	@Test
+	public void testGetPlayersFromDatabase() {
+		assertNotNull(MlbPlayer.getPlayersFromDatabase("", "", "", ""));
 	}
 }

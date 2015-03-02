@@ -1,5 +1,6 @@
-package database;
+package Testing;
 
+import database.SportsStatsApi;
 import static org.junit.Assert.*;
 
 import java.util.List;
@@ -12,10 +13,11 @@ public class SportsStatsApiTest {
 
 	@Test
 	public void testGetListOfMlbPlayerAPIImportForYear() {
-		assertNull(SportsStatsApi.getListOfMlbPlayerAPIImportForYear(-1));
-		assertNull(SportsStatsApi.getListOfMlbPlayerAPIImportForYear(0));
-		//assertNull(SportsStatsApi.getListOfMlbPlayerAPIImportForYear(5000));
-		assertNotNull(SportsStatsApi.getListOfMlbPlayerAPIImportForYear(2013));
+		assertNull(SportsStatsApi.getListOfMlbPlayerForYear(-1));
+		assertNull(SportsStatsApi.getListOfMlbPlayerForYear(0));
+		//assertNull(SportsStatsApi.getListOfMlbPlayerForYear(5000));
+		assertNotNull(SportsStatsApi.getListOfMlbPlayerForYear(2013));
+		assertNotNull(SportsStatsApi.getListOfMlbPlayerForYear(2014));
 	}
 	
 	@Test

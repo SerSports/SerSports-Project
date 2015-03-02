@@ -17,8 +17,8 @@ public class SportsStatsApi {
 	private static final String apiUrlPrefix = "https://api.sportsdatallc.org/mlb-t4/seasontd/players/";
 	private static final String apiUrlSuffix = ".xml?api_key=";
 
-	public static List<MlbPlayerAPIImport> getListOfMlbPlayerAPIImportForYear(int year) {
-		List<MlbPlayerAPIImport> playerList = null;
+	public static List<MlbPlayer> getListOfMlbPlayerForYear(int year) {
+		List<MlbPlayer> playerList = null;
 		
 		// Validate Input
 		if (year > 0) {
@@ -39,13 +39,13 @@ public class SportsStatsApi {
 				// if (nodeList.item(0).getAttributes().getNamedItem("error") == null)
 				{
 					// Create list of players
-					playerList = new ArrayList<MlbPlayerAPIImport>();
+					playerList = new ArrayList<MlbPlayer>();
 					for (int i = 0; i < nodeList.getLength(); i++) {
 						// We have encountered an <employee> tag.
 						Node node = nodeList.item(i);
 						if (node instanceof Element) {
 							// Create the Player
-							MlbPlayerAPIImport player = new MlbPlayerAPIImport(node);
+							MlbPlayer player = new MlbPlayer(node);
 							// Add the Player to the list
 							playerList.add(player);
 						}
@@ -62,12 +62,11 @@ public class SportsStatsApi {
 	public static void loadNewestStatsIntoDatabase() {
 		
 		// Load 2014's season's statistics
-		List<MlbPlayerAPIImport> playerList = getListOfMlbPlayerAPIImportForYear(2014);
+		List<MlbPlayer> playerList = getListOfMlbPlayerForYear(2014);
 		
 		// Add each player to the database
-		for (MlbPlayerAPIImport playerApi : playerList) {
-			MlbPlayer player = new MlbPlayer(playerApi);
-			player.saveMlbPlayerToDatabase();
+		for (MlbPlayer playerApi : playerList) {
+			playerApi.saveMlbPlayerToDatabase();
 		}
 	}
 
