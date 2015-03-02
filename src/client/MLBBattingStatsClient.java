@@ -10,6 +10,7 @@ package client;
 
 import gui.MLBBattingStats;
 import gui.MlbStatsGui;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -22,6 +23,11 @@ Class:	MLBBattingStatsClient
 Description:
 */
 public class MLBBattingStatsClient extends MLBBattingStats implements ActionListener, ItemListener {
+
+	public MLBBattingStatsClient(String player) {
+		super(player);
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	  Method: itemStateChanged
