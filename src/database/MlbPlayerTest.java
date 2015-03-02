@@ -12,10 +12,12 @@ public class MlbPlayerTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+	
 	}
 
 	@Before
 	public void setUp() throws Exception {
+	
 	}
 
 	@Test

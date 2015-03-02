@@ -10,10 +10,12 @@ public class DatabaseTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+	
 	}
 
 	@Before
 	public void setUp() throws Exception {
+	
 	}
 	
 	@Test
@@ -33,8 +35,7 @@ public class DatabaseTest {
 
 	@Test
 	public void testgetResultSetFromSQL() {
-		
-		// Invalid Inputs
+				// Invalid Inputs
 		assertNull(Database.getResultSetFromSQL(null));
 		assertNull(Database.getResultSetFromSQL(""));
 		assertNull(Database.getResultSetFromSQL("2131"));
@@ -47,5 +48,4 @@ public class DatabaseTest {
 		assertNotNull(Database.getResultSetFromSQL("SELECT * FROM mlbPlayers WHERE firstName = \"Paul\""));
 		assertNotNull(Database.getResultSetFromSQL("SELECT lastName FROM mlbPlayers WHERE firstName = \"Paul\""));
 	}
-
 }

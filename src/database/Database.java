@@ -9,8 +9,7 @@ import java.sql.*;
  * @author graydonsvendson
  *
  */
-public class Database {
-	
+public class Database {	
 	// Constants
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
@@ -43,8 +42,7 @@ public class Database {
 		ResultSet result = null;
 		
 		// Validate the input
-		if (isValidSelectSql(sql))
-		{
+		if (isValidSelectSql(sql)) {
 			try {
 
 				// Register JDBC driver
@@ -76,20 +74,19 @@ public class Database {
 		if (sql != null) {
 		
 			// Check that it at least contains SELECT and FROM
-			if (sql.indexOf("SELECT") != -1 && sql.indexOf("FROM") != -1)
+			if (sql.indexOf("SELECT") != -1 && sql.indexOf("FROM") != -1) {
 				result = true;
+			}
 		}
 		
 		return result;
 	}
 	
-	public static boolean executeSQL(String sql)
-	{
+	public static boolean executeSQL(String sql) {
 		boolean result = false;
 		
 		// Validate the input
-		if (sql != null)
-		{
+		if (sql != null) {
 			try {
 	
 				// Register JDBC driver
@@ -115,13 +112,15 @@ public class Database {
 			} finally {
 				// finally block used to close resources
 				try {
-					if (stmt != null)
+					if (stmt != null) {
 						stmt.close();
+					}
 				} catch (SQLException se2) {
 				}// nothing we can do
 				try {
-					if (conn != null)
+					if (conn != null) {
 						conn.close();
+					}
 				} catch (SQLException se) {
 					se.printStackTrace();
 				}// end finally try

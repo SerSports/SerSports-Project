@@ -35,8 +35,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	//private String position;
 	
 	// Constructors
-	public MlbPlayer(ResultSet rs)
-	{
+	public MlbPlayer(ResultSet rs) {
 		try {
 			// Load the rs's information
 			this.id = rs.getString(FIELD_ID);
@@ -146,8 +145,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		
 		// Get the Result Set containing every Player
 		ResultSet rs = Database.getResultSetFromSQL("SELECT * FROM " + TABLE_NAME);
-		if (rs != null)
-		{
+		if (rs != null) {
 			// Loop through the Result Set and Add Each MlbPlayer to the ArrayList
 			try {
 				while(rs.next()){
@@ -174,8 +172,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		String sql = "SELECT * FROM " + TABLE_NAME + genereateWhereClause(id_in, fName_in, lName_in, team_in);
 		ResultSet rs = Database.getResultSetFromSQL(sql);
 		
-		if (rs != null)
-		{
+		if (rs != null) {
 			// Loop through the Result Set and Add Each MlbPlayer to the ArrayList
 			try {
 				while(rs.next()){
@@ -209,26 +206,27 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 				whereClause.append(FIELD_ID + " \"" + id_in + "\"");
 				fieldsAdded = true;
 			} else if (fName_in != null) {
-				if (fieldsAdded)
+				if (fieldsAdded) {
 					whereClause.append(" AND ");
+				}
 				
 				whereClause.append(FIELD_FIRSTNAME + " \"" + fName_in + "\"");
 				fieldsAdded = true;
 			} else if (lName_in != null) {
-				if (fieldsAdded)
+				if (fieldsAdded) {
 					whereClause.append(" AND ");
-				
+				}
 				whereClause.append(FIELD_LASTNAME + " \"" + lName_in + "\"");
 				fieldsAdded = true;
 			} else if (team_in != null) {
-				if (fieldsAdded)
+				if (fieldsAdded) {
 					whereClause.append(" AND ");
+				}
 				
 				whereClause.append(FIELD_TEAM + " \"" + team_in + "\"");
 				fieldsAdded = true;
 			}
 		}
-		
 		return whereClause.toString();
 	}
 }
