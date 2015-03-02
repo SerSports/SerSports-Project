@@ -23,7 +23,7 @@ public class MlbStatsGui extends JPanel {
 	protected JTextField txtLastName;
 	protected JTextField txtTeam;
 	protected JButton btnSeePlayerStats;
-	protected JButton btnCompareToPlayer;
+	//protected JButton btnCompareToPlayer;
 	protected JButton SubmitPlayerSearchButton;
 
 
@@ -68,10 +68,10 @@ public class MlbStatsGui extends JPanel {
 		btnSeePlayerStats.setActionCommand("SeePlayerStats");
 		add(btnSeePlayerStats);
 		
-		btnCompareToPlayer = new JButton("Compare to Player");
+		/*(btnCompareToPlayer = new JButton("Compare to Player");
 		btnCompareToPlayer.setBounds(656, 594, 200, 50);
 		btnCompareToPlayer.setActionCommand("CompareToPlayer");
-		add(btnCompareToPlayer);
+		add(btnCompareToPlayer);*/
 		
 		txtLastName = new JTextField();
 		txtLastName.setText("Last Name");
