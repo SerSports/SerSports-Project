@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-public class MLBBattingStatsClient extends MLBBattingStats implements ActionListener, ItemListener{
+public class MLBBattingStatsClient extends MLBBattingStats implements ActionListener, ItemListener {
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
