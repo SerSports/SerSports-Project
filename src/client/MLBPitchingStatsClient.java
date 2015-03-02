@@ -47,5 +47,4 @@ public class MLBPitchingStatsClient extends MLBPitchingStats implements ActionLi
 		// TODO Auto-generated method stub
 		
 	}
-
 }

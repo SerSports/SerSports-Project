@@ -23,7 +23,7 @@ Description:
 
 public class MLBFieldingStatsClient extends MLBFieldingStats implements ActionListener, ItemListener {
 
-	public void MLBFieldingStatsClient(String PlayerID){
+	public void MLBFieldingStatsClient(String PlayerID) {
 		
 	};
 	
