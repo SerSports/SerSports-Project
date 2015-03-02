@@ -19,7 +19,7 @@ public class MLBPlayerProfile extends JPanel {
     private MlbStatsGui secondPanel;
     private MLBPlayerProfile thirdPanel;
     public JButton btnbtnBackButton;
-    MLBBattingStats batting = new MLBBattingStats();
+    MLBBattingStats batting = new MLBBattingStats(null);
     MLBPitchingStats pitching = new MLBPitchingStats();
     MLBFieldingStats fielding = new MLBFieldingStats();
     
@@ -34,7 +34,7 @@ public class MLBPlayerProfile extends JPanel {
         jtp.setBounds(6, 47, 1274, 569);
         add(jtp);
         
-        MLBBattingStats batting = new MLBBattingStats();
+        MLBBattingStats batting = new MLBBattingStats(null);
         MLBPitchingStats pitching = new MLBPitchingStats();
         MLBFieldingStats fielding = new MLBFieldingStats();
         
