@@ -1,7 +1,16 @@
+/*
+File: SportsStatsApi.java
+Author:	XML Code adapted from 
+		http://www.javacodegeeks.com/2013/05/parsing-xml-using-dom-sax-and-stax-parser-in-java.html
+Date:	
+
+Description: API for pulling the MLB stats from Sports Data LLC
+
+ */
 package database;
 
 /*
- XML Code adapted from http://www.javacodegeeks.com/2013/05/parsing-xml-using-dom-sax-and-stax-parser-in-java.html
+ 
  API for http://www.sportsdatallc.com/
  */
 import javax.xml.parsers.*;
@@ -16,13 +25,19 @@ public class SportsStatsApi {
 	private static final String apiKey = "enwf769pmzvpjr57jurvexqz";
 	private static final String apiUrlPrefix = "https://api.sportsdatallc.org/mlb-t4/seasontd/players/";
 	private static final String apiUrlSuffix = ".xml?api_key=";
+	
+	/**
+	  Method: getListOfMlbPlayerForYear
+	  Inputs: Int year
+	  Returns: List<MlbPlayer> playerList
 
+	  Description:
+	*/
 	public static List<MlbPlayer> getListOfMlbPlayerForYear(int year) {
 		List<MlbPlayer> playerList = null;
 		
 		// Validate Input
-		if (year > 0) {
-			
+		if (year > 0) {			
 			try {
 				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder builder = factory.newDocumentBuilder();
@@ -50,15 +65,20 @@ public class SportsStatsApi {
 							playerList.add(player);
 						}
 					}
-				}
-				
+				}			
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 		return playerList;
 	}
-	
+	/**
+	  Method: Constructor
+	  Inputs: None
+	  Returns:
+
+	  Description: Loads the Newest stats into the database
+	*/
 	public static void loadNewestStatsIntoDatabase() {
 		
 		// Load 2014's season's statistics

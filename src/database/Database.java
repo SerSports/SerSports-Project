@@ -11,6 +11,12 @@ package database;
 
 import java.sql.*;
 
+
+/**
+Class:	Database
+
+Description: 
+*/
 public class Database {	
 	// Constants
 	// JDBC driver name and database URL
@@ -28,6 +34,13 @@ public class Database {
 	
 	// Methods
 	
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	public static void close() {
 		// Clean-up environment
 		try {
@@ -39,6 +52,13 @@ public class Database {
 		}
 	}
 	
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	// Returns a ResultSet - WARNING, this ReturnSet needs to be closed when done!
 	public static ResultSet getResultSetFromSQL(String sql) {
 		ResultSet result = null;
@@ -84,6 +104,13 @@ public class Database {
 		return result;
 	}
 	
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	public static boolean executeSQL(String sql) {
 		boolean result = false;
 		
@@ -132,6 +159,13 @@ public class Database {
 		return result;
 	}
 
+	 /**
+	  Method: Constructor
+	  Inputs: 
+	  Returns:
+
+	  Description: 
+	*/
 	// Default Constructor
 	private Database() {
 	}

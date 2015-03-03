@@ -1,5 +1,10 @@
-/**
- * 
+/*
+File: MLBPlayer.java
+Author:	
+Date:	
+
+Description: Creates a MLB Player Object with player stats and info
+
  */
 package database;
 
@@ -14,11 +19,12 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+
 /**
- * @author graydonsvendson
- * @author Kristel Basra - Added getPlayersFromDatabase method
- *
- */
+Class:	MLBPlayer
+
+Description: Creates MLBPlayer Object
+*/
 public class MlbPlayer extends Object implements java.io.Serializable {
 	
 	// Constants
@@ -122,7 +128,13 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     private int fielding_games_win;		//Fielding: W
     private int fielding_games_loss;	//Fielding: L
 	
-	// Constructors
+    /**
+	  Method: Constructor
+	  Inputs: ResultSet rs
+	  Returns:
+
+	  Description: 
+	*/
 	public MlbPlayer(ResultSet rs) {
 		try {
 			// Load the rs's information
@@ -403,7 +415,13 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 					this.fielding_games_win + ", " + this.fielding_games_loss  +
 					");";
 	}
-	
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	// Static Methods
 	public static ArrayList<MlbPlayer> getListOfPlayersFromDatabase() {
 		ArrayList<MlbPlayer> resultList = new ArrayList<MlbPlayer>();
@@ -425,7 +443,14 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		
 		return resultList;
 	}
-	
+
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	/*
 	 * getPlayersFromDatabase provides a user to search by one, a combination, or all parameters and
 	 * 		return an ArrayList of MLB player names
@@ -494,6 +519,14 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		}
 		return whereClause.toString();
 	}
+	
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	public MlbPlayer(Node node) {
         // Initialize from XML Node
         loadDataFromNode(node);
@@ -642,6 +675,13 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		}
     }
     
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
     public void loadDataFromNode(Node node) {
         // Get "player" data
         loadPlayerData(node);
