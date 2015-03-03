@@ -1,3 +1,11 @@
+/*
+File: 
+Author:	
+Date:	
+
+Description: 
+
+*/
 package gui;
 
 import java.awt.Image;
@@ -15,6 +23,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
+/**
+Class:
+
+Description:
+*/
 public class MLBPitchingStats extends JPanel {
 	private JTextField txtGP;
 	private JTextField txtW;
@@ -28,6 +41,13 @@ public class MLBPitchingStats extends JPanel {
 	private JTable table;
 
 	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
+	/**
 	 * Create the panel.
 	 */
 	public MLBPitchingStats() {
@@ -38,21 +58,13 @@ public class MLBPitchingStats extends JPanel {
 		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		logo.setBounds(589, 6, 100, 100);
-		add(logo);*/
-		
+		add(logo);*/		
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(293, 235, 691, 235);
 		add(scrollPane);
 		
-
 		table = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
 		scrollPane.setViewportView(table);
-
-		
-		
-
-
 	}
 }
-

@@ -15,7 +15,14 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
+/**
+Class:
+
+Description:
+*/
 public class LocalPitchingStats extends JPanel {
+	
+	private static final long serialVersionUID = 1L;
 	private JTextField txtGP;
 	private JTextField txtW;
 	private JTextField txtL;
@@ -28,6 +35,13 @@ public class LocalPitchingStats extends JPanel {
 	private JTable table;
 
 	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
+	/**
 	 * Create the panel.
 	 */
 	public LocalPitchingStats() {
@@ -39,20 +53,12 @@ public class LocalPitchingStats extends JPanel {
 		logo.setIcon(new ImageIcon(img));
 		logo.setBounds(589, 6, 100, 100);
 		add(logo);*/
-		
-		
+			
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(293, 235, 691, 235);
 		add(scrollPane);
-		
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date", "Average", "AB","1B","2B","3B","Runs","SO","SOS","BB"}));
 		scrollPane.setViewportView(table);
-
-		
-		
-
-
 	}
 }
-

@@ -1,19 +1,30 @@
+/*
+File: 
+Author:	
+Date:	
+
+Description: 
+
+*/
 package gui;
 
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
 import java.awt.Color;
-
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+
+/**
+Class:
+
+Description:
+*/
 public class UserFieldingStats extends JPanel {
 	private JTextField txtDate;
 	private JTextField txtGP;
@@ -27,6 +38,13 @@ public class UserFieldingStats extends JPanel {
 	private JTable table;
 	private JTextField txtPo;
 
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	/**
 	 * Create the panel.
 	 */
@@ -100,7 +118,6 @@ public class UserFieldingStats extends JPanel {
 		txtCS.setBounds(976, 118, 77, 28);
 		add(txtCS);
 		
-
 		
 		JButton SubmitFieldingStats = new JButton("Submit");
 		SubmitFieldingStats.setBounds(580, 181, 117, 29);
@@ -113,10 +130,5 @@ public class UserFieldingStats extends JPanel {
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "Wins","Losses","PO","Err","Assist", "F%"}));
 		scrollPane.setViewportView(table);
-		
-		
-
-
 	}
 }
-

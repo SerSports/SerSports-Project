@@ -1,3 +1,12 @@
+/*
+File: 
+Author:	
+Date:	
+
+Description: 
+
+*/
+
 package gui;
 import java.awt.Image;
 
@@ -15,10 +24,22 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
+/**
+Class:
+
+Description:
+*/
 public class BrowseLocalPlayers extends JPanel {
 	private JTextField txtEnterNameteamPosition;
 	private JTable table;
 
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	/**
 	 * Create the panel.
 	 */
@@ -52,8 +73,5 @@ public class BrowseLocalPlayers extends JPanel {
 	
 		table = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name", "Team", "Position" }));
 		scrollPane.setViewportView(table);
-		
-		
-
 	}
 }

@@ -1,3 +1,11 @@
+/*
+File: 
+Author:	
+Date:	
+
+Description: 
+
+*/
 package gui;
 
 import java.awt.Image;
@@ -15,6 +23,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
+/**
+Class:
+
+Description:
+*/
 public class UserGUIStats extends JPanel {
 	private JTextField txtDate;
 	private JTextField txtAverage;
@@ -28,6 +41,13 @@ public class UserGUIStats extends JPanel {
 	private JTextField txtBb;
 	private JTable table;
 
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	/**
 	 * Create the panel.
 	 */
@@ -117,10 +137,5 @@ public class UserGUIStats extends JPanel {
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date", "Average", "AB","1B","2B","3B","Runs","SO","SOS","BB"}));
 		scrollPane.setViewportView(table);
-
-		
-		
-
-
 	}
 }

@@ -1,3 +1,11 @@
+/*
+File: 
+Author:	
+Date:	
+
+Description: 
+
+*/
 package gui;
 
 import java.awt.Image;
@@ -15,6 +23,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
+/**
+Class:
+
+Description:
+*/
 public class UserPitchingStats extends JPanel {
 	private JTextField txtGP;
 	private JTextField txtW;

@@ -1,3 +1,11 @@
+/*
+File: 
+Author:	
+Date:	
+
+Description: 
+
+*/
 package gui;
 
 import java.awt.BorderLayout;
@@ -33,10 +41,23 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
+
+/**
+Class:
+
+Description:
+*/
 public class UserLoginGUI extends JFrame {
 	private JTextField txtUsername;
 	private JPasswordField passwordField;
 
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	/**
 	 * Launch the application.
 	 */
@@ -53,6 +74,13 @@ public class UserLoginGUI extends JFrame {
 		});
 	}
 
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	/**
 	 * Create the frame.
 	 */

@@ -1,3 +1,11 @@
+/*
+File: 
+Author:	
+Date:	
+
+Description: 
+
+*/
 package gui;
 import java.awt.Container;
 import java.awt.Image;
@@ -8,15 +16,26 @@ import javax.swing.JPanel;
 import java.awt.Color;
 
 
+/**
+Class:
+
+Description:
+*/
 public class HomePageGUI extends JPanel {
 
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	/**
 	 * Create the panel.
 	 */
 	public HomePageGUI() {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
-
 		
 		/*JLabel logo = new JLabel("New label");
 		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
@@ -38,7 +57,6 @@ public class HomePageGUI extends JPanel {
 		
 		JLabel lblInsertPlayersName = new JLabel("Insert Players name");
 		lblInsertPlayersName.setBounds(669, 217, 122, 16);
-		add(lblInsertPlayersName);
-		
+		add(lblInsertPlayersName);		
 	}
 }

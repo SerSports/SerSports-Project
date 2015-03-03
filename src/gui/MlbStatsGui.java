@@ -1,3 +1,11 @@
+/*
+File: 
+Author:	
+Date:	
+
+Description: 
+
+*/
 package gui;
 
 
@@ -17,6 +25,11 @@ import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
 
+/**
+Class:
+
+Description:
+*/
 public class MlbStatsGui extends JPanel {
 	protected JTextField txtFirstName;
 	protected JTable table;
@@ -27,6 +40,13 @@ public class MlbStatsGui extends JPanel {
 	protected JButton SubmitPlayerSearchButton;
 
 
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	/**
 	 * Create the panel.
 	 */
@@ -84,17 +104,12 @@ public class MlbStatsGui extends JPanel {
 		txtTeam.setColumns(10);
 		txtTeam.setBounds(549, 193, 180, 28);
 		add(txtTeam);
-
-
-
 	}
-
 
 	private void getResultsSet() {
 		// TODO Auto-generated method stub
 		
 	}
-
 
 	private void getDBconnection() {
 		// TODO Auto-generated method stub

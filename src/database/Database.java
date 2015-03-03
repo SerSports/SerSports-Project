@@ -1,14 +1,16 @@
-/**
- *  Adapted from http://www.tutorialspoint.com/jdbc/jdbc-sample-code.htm
+/*
+File: 
+Author:	@graydonsvendson
+   **Adapted from http://www.tutorialspoint.com/jdbc/jdbc-sample-code.htm**
+Date:	
+
+Description: 
+
  */
 package database;
 
 import java.sql.*;
 
-/**
- * @author graydonsvendson
- *
- */
 public class Database {	
 	// Constants
 	// JDBC driver name and database URL

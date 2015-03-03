@@ -1,3 +1,11 @@
+/*
+File: 
+Author:	
+Date:	
+
+Description: 
+
+*/
 package gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,6 +20,11 @@ import javax.swing.border.EmptyBorder;
 import client.MlbStatsGuiClient;
 
 
+/**
+Class:
+
+Description:
+*/
 public class MainGUI extends JFrame {
     
     public MainGUI() {

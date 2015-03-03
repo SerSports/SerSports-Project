@@ -1,3 +1,11 @@
+/*
+File: 
+Author:	
+Date:	
+
+Description: 
+
+*/
 package gui;
 
 import java.awt.Image;
@@ -15,6 +23,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
+/**
+Class:
+
+Description:
+*/
 public class MLBFieldingStats extends JPanel {
 	private JTextField txtDate;
 	private JTextField txtAverage;
@@ -29,6 +42,13 @@ public class MLBFieldingStats extends JPanel {
 	private JTable table;
 
 	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
+	/**
 	 * Create the panel.
 	 */
 	public MLBFieldingStats() {
@@ -41,19 +61,11 @@ public class MLBFieldingStats extends JPanel {
 		logo.setBounds(589, 6, 100, 100);
 		add(logo);*/
 		
-		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(293, 235, 691, 235);
 		add(scrollPane);
-		
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}));
 		scrollPane.setViewportView(table);
-
-		
-		
-
-
 	}
 }
-

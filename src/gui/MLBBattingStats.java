@@ -1,3 +1,11 @@
+/*
+File: 
+Author:	
+Date:	
+
+Description: 
+
+*/
 package gui;
 
 import java.awt.Image;
@@ -15,6 +23,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
+/**
+Class:
+
+Description:
+*/
 public class MLBBattingStats extends JPanel {
 	private JTextField txtGP;
 	private JTextField txtAB;
@@ -30,6 +43,13 @@ public class MLBBattingStats extends JPanel {
 	private JTable table;
 
 	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
+	/**
 	 * Create the panel.
 	 */
 	public MLBBattingStats(String player) {
@@ -42,19 +62,11 @@ public class MLBBattingStats extends JPanel {
 		logo.setBounds(589, 6, 100, 100);
 		add(logo);*/
 		
-		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(293, 235, 691, 235);
-		add(scrollPane);
-		
+		add(scrollPane);	
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
 		scrollPane.setViewportView(table);
-
-		
-		
-
-
 	}
 }
-

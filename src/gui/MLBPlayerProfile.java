@@ -1,3 +1,11 @@
+/*
+File: 
+Author:	
+Date:	
+
+Description: 
+
+*/
 package gui;
 
 import java.awt.BorderLayout;
@@ -13,6 +21,12 @@ import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
+
+/**
+Class:
+
+Description:
+*/
 public class MLBPlayerProfile extends JPanel {
     private MainGUI frame;
     private MLBPlayerProfile firstPanel;
@@ -23,6 +37,13 @@ public class MLBPlayerProfile extends JPanel {
     MLBPitchingStats pitching = new MLBPitchingStats();
     MLBFieldingStats fielding = new MLBFieldingStats();
     
+    /**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
     public MLBPlayerProfile() {
         setLayout(null);
         

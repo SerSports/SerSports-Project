@@ -1,3 +1,11 @@
+/*
+File: 
+Author:	
+Date:	
+
+Description: 
+
+*/
 package gui;
 import java.awt.Color;
 import java.awt.Image;
@@ -9,9 +17,21 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 
+/**
+Class:
+
+Description:
+*/
 public class Help extends JPanel {
 	private JTextField txtTypeQuestion;
 
+	/**
+	  Method: 
+	  Inputs: 
+	  Returns:
+
+	  Description:
+	*/
 	/**
 	 * Create the panel.
 	 */
@@ -38,6 +58,5 @@ public class Help extends JPanel {
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.setBounds(581, 177, 117, 29);
 		add(btnNewButton);
-		
 	}
 }
