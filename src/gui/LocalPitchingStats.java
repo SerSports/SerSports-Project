@@ -1,3 +1,11 @@
+/*
+File: LocalPitcchingStats.java
+Author:	
+Date:	
+
+Description: GUI for displaying the Local Player's Pitching Stats
+
+*/
 package gui;
 
 import java.awt.Image;
@@ -16,9 +24,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
-Class:
+Class: LocalPitchingStats
 
-Description:
+Description: GUI for displaying the Local Player's Pitching stats
 */
 public class LocalPitchingStats extends JPanel {
 	
@@ -35,15 +43,12 @@ public class LocalPitchingStats extends JPanel {
 	private JTable table;
 
 	/**
-	  Method: 
-	  Inputs: 
+	  Method: Constructor
+	  Inputs: None
 	  Returns:
 
-	  Description:
+	  Description: Creates the panel
 	*/
-	/**
-	 * Create the panel.
-	 */
 	public LocalPitchingStats() {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);

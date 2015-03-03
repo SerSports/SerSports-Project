@@ -1,9 +1,9 @@
 /*
-File: 
+File: UserPitchingStats.java
 Author:	
 Date:	
 
-Description: 
+Description: GUI for User input of Pitching Stats
 
 */
 package gui;
@@ -24,9 +24,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
-Class:
+Class: UserPitchingStats
 
-Description:
+Description: Creates a panel for the User Batting Stats
 */
 public class UserPitchingStats extends JPanel {
 	private JTextField txtGP;
@@ -42,8 +42,12 @@ public class UserPitchingStats extends JPanel {
 	private JTextField txtDate;
 
 	/**
-	 * Create the panel.
-	 */
+	  Method: Constructor
+	  Inputs: None
+	  Returns:
+
+	  Description: Create the panel.
+	*/
 	public UserPitchingStats() {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
@@ -119,8 +123,7 @@ public class UserPitchingStats extends JPanel {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(293, 235, 691, 239);
-		add(scrollPane);
-		
+		add(scrollPane);		
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
 		scrollPane.setViewportView(table);
@@ -130,10 +133,5 @@ public class UserPitchingStats extends JPanel {
 		txtDate.setColumns(10);
 		txtDate.setBounds(166, 121, 109, 22);
 		add(txtDate);
-		
-		
-
-
 	}
 }
-

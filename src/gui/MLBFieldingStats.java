@@ -1,9 +1,9 @@
 /*
-File: 
+File: MLBFieldingStats.java
 Author:	
 Date:	
 
-Description: 
+Description: GUI for displaying the MLB Player's Fielding stats
 
 */
 package gui;
@@ -24,9 +24,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
-Class:
+Class: MLBFieldingStats
 
-Description:
+Description: GUI for displaying MLB Player Fielding Stats
 */
 public class MLBFieldingStats extends JPanel {
 	private JTextField txtDate;
@@ -42,15 +42,12 @@ public class MLBFieldingStats extends JPanel {
 	private JTable table;
 
 	/**
-	  Method: 
-	  Inputs: 
+	  Method: Constructor
+	  Inputs: None
 	  Returns:
 
-	  Description:
+	  Description: Creates the panel.
 	*/
-	/**
-	 * Create the panel.
-	 */
 	public MLBFieldingStats() {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);

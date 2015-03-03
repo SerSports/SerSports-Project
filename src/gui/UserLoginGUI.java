@@ -43,24 +43,21 @@ import javax.swing.JMenuItem;
 
 
 /**
-Class:
+Class: UserLoginGUI
 
-Description:
+Description: GUI for UserLogin
 */
 public class UserLoginGUI extends JFrame {
 	private JTextField txtUsername;
 	private JPasswordField passwordField;
 
 	/**
-	  Method: 
-	  Inputs: 
-	  Returns:
+	  Method: main
+	  Inputs: String[] args
+	  Returns: NA
 
-	  Description:
+	  Description: Launch the application.
 	*/
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -75,15 +72,12 @@ public class UserLoginGUI extends JFrame {
 	}
 
 	/**
-	  Method: 
-	  Inputs: 
+	  Method: Constructor
+	  Inputs: None
 	  Returns:
 
-	  Description:
+	  Description: Create the frame.
 	*/
-	/**
-	 * Create the frame.
-	 */
 	public UserLoginGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 754, 517);

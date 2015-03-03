@@ -1,9 +1,9 @@
 /*
-File: 
+File: Help.java
 Author:	
 Date:	
 
-Description: 
+Description: GUI for the help page
 
 */
 package gui;
@@ -18,23 +18,20 @@ import javax.swing.JButton;
 
 
 /**
-Class:
+Class: Help
 
-Description:
+Description: GUI for the help page
 */
 public class Help extends JPanel {
 	private JTextField txtTypeQuestion;
 
 	/**
-	  Method: 
-	  Inputs: 
+	  Method: Constructor
+	  Inputs: None
 	  Returns:
 
-	  Description:
+	  Description: Creates the panel
 	*/
-	/**
-	 * Create the panel.
-	 */
 	public Help() {
 		setLayout(null);
 		setBackground(new Color(107, 185, 240));

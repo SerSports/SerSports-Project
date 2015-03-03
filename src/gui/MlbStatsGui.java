@@ -1,9 +1,9 @@
 /*
-File: 
+File: MlbStatsGui.java
 Author:	
 Date:	
 
-Description: 
+Description: GUI for displaying/searching the MLB Stats database
 
 */
 package gui;
@@ -26,9 +26,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
-Class:
+Class: MlbStatsGui
 
-Description:
+Description: GUI for Mlb Stats database
 */
 public class MlbStatsGui extends JPanel {
 	protected JTextField txtFirstName;
@@ -39,17 +39,13 @@ public class MlbStatsGui extends JPanel {
 	//protected JButton btnCompareToPlayer;
 	protected JButton SubmitPlayerSearchButton;
 
-
 	/**
-	  Method: 
-	  Inputs: 
+	  Method: Constructor
+	  Inputs: None
 	  Returns:
 
-	  Description:
+	  Description: Creates the panel
 	*/
-	/**
-	 * Create the panel.
-	 */
 	public MlbStatsGui() {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
@@ -74,7 +70,6 @@ public class MlbStatsGui extends JPanel {
 		txtFirstName.setBounds(549, 118, 180, 29);
 		add(txtFirstName);
 		txtFirstName.setColumns(10);
-
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(400, 288, 478, 246);

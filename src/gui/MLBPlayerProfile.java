@@ -1,9 +1,9 @@
 /*
-File: 
+File: MLBPlayerProfile.java
 Author:	
 Date:	
 
-Description: 
+Description: GUI for displaying the MLB Player's profile/stats
 
 */
 package gui;
@@ -23,9 +23,9 @@ import javax.swing.JButton;
 
 
 /**
-Class:
+Class: MLBPlayerProfile
 
-Description:
+Description: GUI for displaying MLB Player Profiles
 */
 public class MLBPlayerProfile extends JPanel {
     private MainGUI frame;
@@ -38,11 +38,11 @@ public class MLBPlayerProfile extends JPanel {
     MLBFieldingStats fielding = new MLBFieldingStats();
     
     /**
-	  Method: 
-	  Inputs: 
+	  Method: Constructor
+	  Inputs: None
 	  Returns:
 
-	  Description:
+	  Description: Creates the panel.
 	*/
     public MLBPlayerProfile() {
         setLayout(null);

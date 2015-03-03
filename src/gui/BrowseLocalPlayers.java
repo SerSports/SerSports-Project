@@ -1,9 +1,9 @@
 /*
-File: 
+File: BrowseLocalPlayers.java
 Author:	
 Date:	
 
-Description: 
+Description: GUI for displaying/searching the Local Players database
 
 */
 
@@ -25,24 +25,21 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
-Class:
+Class: BrowseLocalPlayers
 
-Description:
+Description: GUI for displaying/searching Local Players database
 */
 public class BrowseLocalPlayers extends JPanel {
 	private JTextField txtEnterNameteamPosition;
 	private JTable table;
 
 	/**
-	  Method: 
-	  Inputs: 
+	  Method: Constructor
+	  Inputs: None
 	  Returns:
 
-	  Description:
+	  Description: Creates the panel
 	*/
-	/**
-	 * Create the panel.
-	 */
 	public BrowseLocalPlayers() {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);

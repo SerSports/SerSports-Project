@@ -1,9 +1,9 @@
 /*
-File: 
+File: MainGUI.java
 Author:	
 Date:	
 
-Description: 
+Description: Main GUI (the brain, the tabs)
 
 */
 package gui;
@@ -21,12 +21,19 @@ import client.MlbStatsGuiClient;
 
 
 /**
-Class:
+Class: MainGUI
 
-Description:
+Description: GUI for main navigation of site
 */
 public class MainGUI extends JFrame {
     
+	/**
+	  Method: Constructor
+	  Inputs: None
+	  Returns:
+
+	  Description: Creates the panel
+	*/
     public MainGUI() {
         setTitle("SERSports");
         JTabbedPane jtp = new JTabbedPane();
@@ -55,24 +62,27 @@ public class MainGUI extends JFrame {
         jtp.addTab("Choose MLB Players", jp4);
         jtp.addTab("Help", jp5);
         jtp.addTab("Contact Us", jp6);
-        jtp.addTab("PlayerProfile", jp7);
-        
+        jtp.addTab("PlayerProfile", jp7);      
     }
-    public static void main(String[] args) {
-        
+    
+    /**
+	  Method: main
+	  Inputs: String[] args
+	  Returns: NA
+
+	  Description: 
+	*/
+    public static void main(String[] args) { 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					MainGUI frame = new MainGUI();
 					frame.setVisible(true);
-					frame.setExtendedState(frame.MAXIMIZED_BOTH);
-					
-					
+					frame.setExtendedState(frame.MAXIMIZED_BOTH);		
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
-		});
-        
+		});     
     }
 }

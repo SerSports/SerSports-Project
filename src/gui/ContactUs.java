@@ -1,9 +1,9 @@
 /*
-File: 
+File: ContactUs.java
 Author:	
 Date:	
 
-Description: 
+Description: GUI for the Contact Us page
 
 */
 package gui;
@@ -18,23 +18,20 @@ import javax.swing.JButton;
 
 
 /**
-Class:
+Class: ContactUs
 
-Description:
+Description: GUI for the Contact Us Page
 */
 public class ContactUs extends JPanel {
 	private JTextField txtTypeQuestion;
 
 	/**
-	  Method: 
-	  Inputs: 
+	  Method: Constructor
+	  Inputs: None
 	  Returns:
 
-	  Description:
+	  Description: Creates the panel
 	*/
-	/**
-	 * Create the panel.
-	 */
 	public ContactUs() {
 		setLayout(null);
 		setBackground(new Color(107, 185, 240));

@@ -1,9 +1,9 @@
 /*
-File: 
+File: HomePageGUI.java		
 Author:	
 Date:	
 
-Description: 
+Description: GUI for the Home Page 
 
 */
 package gui;
@@ -17,22 +17,19 @@ import java.awt.Color;
 
 
 /**
-Class:
+Class: HomePageGUI
 
-Description:
+Description: GUI for the home page
 */
 public class HomePageGUI extends JPanel {
 
 	/**
-	  Method: 
-	  Inputs: 
+	  Method: Constructor
+	  Inputs: None
 	  Returns:
 
-	  Description:
+	  Description: Creates the panel
 	*/
-	/**
-	 * Create the panel.
-	 */
 	public HomePageGUI() {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);

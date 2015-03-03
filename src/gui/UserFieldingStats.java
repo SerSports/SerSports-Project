@@ -1,9 +1,9 @@
 /*
-File: 
+File: UserFieldingStats.java
 Author:	
 Date:	
 
-Description: 
+Description: GUI for handling the User Fielding stats input
 
 */
 package gui;
@@ -21,9 +21,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
-Class:
+Class: UserFieldingStats
 
-Description:
+Description: GUI for the User Fielding Stats
 */
 public class UserFieldingStats extends JPanel {
 	private JTextField txtDate;

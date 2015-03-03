@@ -1,9 +1,9 @@
 /*
-File: 
+File: MLBBattingStats.java
 Author:	
 Date:	
 
-Description: 
+Description: GUI for handling the MLB Batting Stats Display
 
 */
 package gui;
@@ -24,9 +24,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
-Class:
+Class: MLBBAttingStats
 
-Description:
+Description: GUI for MLB Batting Stats
 */
 public class MLBBattingStats extends JPanel {
 	private JTextField txtGP;
@@ -43,15 +43,12 @@ public class MLBBattingStats extends JPanel {
 	private JTable table;
 
 	/**
-	  Method: 
-	  Inputs: 
+	  Method: MLBBattingStats
+	  Inputs: String Player
 	  Returns:
 
-	  Description:
+	  Description: Creates the panel
 	*/
-	/**
-	 * Create the panel.
-	 */
 	public MLBBattingStats(String player) {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);

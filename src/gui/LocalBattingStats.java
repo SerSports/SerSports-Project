@@ -1,11 +1,11 @@
-/**
-File: 
+/*
+File: LocalBattingStats.java	
 Author:	
 Date:	
 
-Description: 
+Description: GUI for displaying the Local Player's Batting Stats
 
-**/
+*/
 package gui;
 
 import java.awt.Image;
@@ -24,9 +24,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
-Class:
+Class: LocalBattingStats
 
-Description:
+Description: GUI for displaying Local Player's Batting Stats
 */
 public class LocalBattingStats extends JPanel {
 	private JTextField txtGP;
@@ -43,15 +43,12 @@ public class LocalBattingStats extends JPanel {
 	private JTable table;
 
 	/**
-	  Method: 
-	  Inputs: 
+	  Method: Constructor
+	  Inputs: None
 	  Returns:
 
-	  Description:
+	  Description: Creates the panel
 	*/
-	/**
-	 * Create the panel.
-	 */
 	public LocalBattingStats() {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);

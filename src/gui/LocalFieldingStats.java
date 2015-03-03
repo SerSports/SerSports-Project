@@ -1,9 +1,9 @@
 /*
-File: 
+File: LocalFieldingStats.java
 Author:	
 Date:	
 
-Description: 
+Description: GUI for displaying the Local Player's Fielding Stats
 
 */
 package gui;
@@ -24,9 +24,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
-Class:
+Class: LocalFieldingStats
 
-Description:
+Description: GUI for displaying Local Player Fielding stats
 */
 public class LocalFieldingStats extends JPanel {
 	private JTextField txtDate;
@@ -42,15 +42,12 @@ public class LocalFieldingStats extends JPanel {
 	private JTable table;
 
 	/**
-	  Method: 
-	  Inputs: 
+	  Method: Constructor
+	  Inputs: None
 	  Returns:
 
-	  Description:
+	  Description: Creates the panel
 	*/
-	/**
-	 * Create the panel.
-	 */
 	public LocalFieldingStats() {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);

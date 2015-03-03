@@ -1,9 +1,9 @@
 /*
-File: 
+File: LocalPlayerProfile.java
 Author:	
 Date:	
 
-Description: 
+Description: GUI for displaying the Local Player's Profile and stats
 
 */
 package gui;
@@ -20,18 +20,18 @@ import javax.swing.border.EmptyBorder;
 
 
 /**
-Class:
+Class: LocalPlayerProfile
 
-Description:
+Description: GUI for displaying Local Player Stats
 */
 public class LocalPlayerProfile extends JFrame {
     
 	/**
-	  Method: 
-	  Inputs: 
+	  Method: Constructor
+	  Inputs: None
 	  Returns:
 
-	  Description:
+	  Description: Creates the panel
 	*/
     public LocalPlayerProfile() {
         setTitle("Local Player Profile");
@@ -50,8 +50,8 @@ public class LocalPlayerProfile extends JFrame {
     }
     
     /**
-	  Method: 
-	  Inputs: 
+	  Method: main
+	  Inputs: String[] args
 	  Returns:
 
 	  Description:

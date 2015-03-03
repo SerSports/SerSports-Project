@@ -24,9 +24,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
-Class:
+Class: UserGUIStats
 
-Description:
+Description: GUI for UserStats
 */
 public class UserGUIStats extends JPanel {
 	private JTextField txtDate;
@@ -42,15 +42,12 @@ public class UserGUIStats extends JPanel {
 	private JTable table;
 
 	/**
-	  Method: 
-	  Inputs: 
+	  Method: Constructor
+	  Inputs: None
 	  Returns:
 
-	  Description:
+	  Description: Create the panel
 	*/
-	/**
-	 * Create the panel.
-	 */
 	public UserGUIStats() {
 		setBackground(Color.PINK);
 		setLayout(null);
@@ -132,8 +129,7 @@ public class UserGUIStats extends JPanel {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(161, 235, 691, 235);
-		add(scrollPane);
-		
+		add(scrollPane);		
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date", "Average", "AB","1B","2B","3B","Runs","SO","SOS","BB"}));
 		scrollPane.setViewportView(table);
