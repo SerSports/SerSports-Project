@@ -78,12 +78,12 @@ public class MlbStatsGui extends JPanel {
 		table = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name", "Team"/* "Position" */}));
 		scrollPane.setViewportView(table);
 		
-		btnSeePlayerStats = new JButton("See Player Stats");
+		/*btnSeePlayerStats = new JButton("See Player Stats");
 		btnSeePlayerStats.setBounds(421, 594, 200, 50);
 		btnSeePlayerStats.setActionCommand("SeePlayerStats");
 		add(btnSeePlayerStats);
 		
-		/*(btnCompareToPlayer = new JButton("Compare to Player");
+		(btnCompareToPlayer = new JButton("Compare to Player");
 		btnCompareToPlayer.setBounds(656, 594, 200, 50);
 		btnCompareToPlayer.setActionCommand("CompareToPlayer");
 		add(btnCompareToPlayer);*/
