@@ -35,7 +35,7 @@ public class MlbStatsGui extends JPanel {
 	protected JTable table;
 	protected JTextField txtLastName;
 	protected JTextField txtTeam;
-	protected JButton btnSeePlayerStats;
+	//protected JButton btnSeePlayerStats;
 	//protected JButton btnCompareToPlayer;
 	protected JButton SubmitPlayerSearchButton;
 

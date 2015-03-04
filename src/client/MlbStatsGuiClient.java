@@ -41,7 +41,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 	*/
     public MlbStatsGuiClient() {
         //btnCompareToPlayer.addActionListener(this);
-        btnSeePlayerStats.addActionListener(this);
+        //btnSeePlayerStats.addActionListener(this);
         SubmitPlayerSearchButton.addActionListener(this);
     }
     
