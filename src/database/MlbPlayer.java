@@ -493,27 +493,27 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 			
 			// Add the fields we need
 			if (id_in != null) {
-				whereClause.append(FIELD_ID + " \"" + id_in + "\"");
+				whereClause.append(FIELD_ID + " = \"" + id_in + "\"");
 				fieldsAdded = true;
 			} else if (fName_in != null) {
 				if (fieldsAdded) {
 					whereClause.append(" AND ");
 				}
 				
-				whereClause.append(FIELD_FIRSTNAME + " \"" + fName_in + "\"");
+				whereClause.append(FIELD_FIRSTNAME + " = \"" + fName_in + "\"");
 				fieldsAdded = true;
 			} else if (lName_in != null) {
 				if (fieldsAdded) {
 					whereClause.append(" AND ");
 				}
-				whereClause.append(FIELD_LASTNAME + " \"" + lName_in + "\"");
+				whereClause.append(FIELD_LASTNAME + " = \"" + lName_in + "\"");
 				fieldsAdded = true;
 			} else if (team_in != null) {
 				if (fieldsAdded) {
 					whereClause.append(" AND ");
 				}
 				
-				whereClause.append(FIELD_TEAM_NAME + " \"" + team_in + "\"");
+				whereClause.append(FIELD_TEAM_NAME + " = \"" + team_in + "\"");
 				fieldsAdded = true;
 			}
 		}
