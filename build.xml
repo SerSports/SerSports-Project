@@ -7,7 +7,7 @@
 	<!-- set global properties for this build -->
 	<property name="src" value="src" />
 	<property name="build" value="classes" />
-	<property name="src.testing" value="src/testing" />
+	<property name="src.testing" value="src/Testing" />
 	<property name="build.test" value="classes/testing"/>
 	<property name="jars" value="jars"/>
 
