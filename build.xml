@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+
 <project name="Ser-Sports" default="targets" basedir=".">
-=======
-<project name="Architecture Demo" default="targets" basedir=".">
->>>>>>> BrowseMLB
 
 	<!-- set global properties for this build -->
 	<property name="src" value="src" />
@@ -63,10 +60,7 @@
 				</fileset>
 			</batchtest>
 		</junit>
-<<<<<<< HEAD
-	</target>
-=======
-	</target>   
 
->>>>>>> BrowseMLB
+	</target>
+
 </project>
