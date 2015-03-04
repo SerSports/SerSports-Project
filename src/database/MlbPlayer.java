@@ -459,7 +459,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		ArrayList<MlbPlayer> resultList = new ArrayList<MlbPlayer>();
 		
 		// Get the Result Set containing every Player
-		String sql = "SELECT * FROM " + TABLE_NAME + genereateWhereClause(id_in, fName_in, lName_in, team_in);
+		String sql = "SELECT * FROM " + TABLE_NAME + genereateWhereClause(id_in, fName_in, lName_in, team_in) + " ORDER BY " + FIELD_TEAM_NAME + ", " + FIELD_FIRSTNAME + ", " + FIELD_LASTNAME;
 		ResultSet rs = Database.getResultSetFromSQL(sql);
 		
 		if (rs != null) {
@@ -495,20 +495,23 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 			if (id_in != null) {
 				whereClause.append(FIELD_ID + " = \"" + id_in + "\"");
 				fieldsAdded = true;
-			} else if (fName_in != null) {
+			} 
+			if (fName_in != null) {
 				if (fieldsAdded) {
 					whereClause.append(" AND ");
 				}
 				
 				whereClause.append(FIELD_FIRSTNAME + " = \"" + fName_in + "\"");
 				fieldsAdded = true;
-			} else if (lName_in != null) {
+			} 
+			if (lName_in != null) {
 				if (fieldsAdded) {
 					whereClause.append(" AND ");
 				}
 				whereClause.append(FIELD_LASTNAME + " = \"" + lName_in + "\"");
 				fieldsAdded = true;
-			} else if (team_in != null) {
+			} 
+			if (team_in != null) {
 				if (fieldsAdded) {
 					whereClause.append(" AND ");
 				}
