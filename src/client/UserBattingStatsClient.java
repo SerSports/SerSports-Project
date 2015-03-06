@@ -33,7 +33,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	  Description:
 	*/
     public UserBattingStatsClient() {
-        SubmitBattingStats.addActionListener(this);
+        //SubmitBattingStats.addActionListener(this);
     }
 	
     /**
@@ -73,7 +73,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("SubmitBattingStats")) {
 			try {
-				debug("you clicked SubmitBattingStats in UserBattingStatsClient");
+				debug("you clicked Submit in User Stats/Batting page");
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}

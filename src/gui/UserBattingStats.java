@@ -138,6 +138,7 @@ public class UserBattingStats extends JPanel {
 		SubmitBattingStats.setBounds(580, 181, 117, 29);
 		add(SubmitBattingStats);
 		SubmitBattingStats.setActionCommand("SubmitBattingStats");
+		//SubmitBattingStats.setBackground(new Color(255,237,203));
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(293, 235, 691, 235);
