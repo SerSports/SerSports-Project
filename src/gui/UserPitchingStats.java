@@ -29,18 +29,20 @@ Class: UserPitchingStats
 Description: Creates a panel for the User Batting Stats
 */
 public class UserPitchingStats extends JPanel {
-	private JTextField txtGP;
-	private JTextField txtW;
-	private JTextField txtL;
-	private JTextField txtERA;
-	private JTextField txtSaves;
-	private JTextField txtHits;
-	private JTextField txtHolds;
-	private JTextField txtRuns;
-	private JTextField txtHBP;
 	private JTable table;
-	private JTextField txtDate;
+	protected JTextField txtGP;
+	protected JTextField txtW;
+	protected JTextField txtL;
+	protected JTextField txtERA;
+	protected JTextField txtSaves;
+	protected JTextField txtHits;
+	protected JTextField txtHolds;
+	protected JTextField txtRuns;
+	protected JTextField txtHBP;
+	protected JTextField txtDate;
 
+	protected JButton SubmitPitchingStats;
+	
 	/**
 	  Method: Constructor
 	  Inputs: None
@@ -117,9 +119,11 @@ public class UserPitchingStats extends JPanel {
 		txtHBP.setBounds(1040, 118, 77, 28);
 		add(txtHBP);
 		
-		JButton SubmitPitchingStats = new JButton("Submit");
+		//JButton
+		SubmitPitchingStats = new JButton("Submit");
 		SubmitPitchingStats.setBounds(580, 181, 117, 29);
 		add(SubmitPitchingStats);
+		SubmitPitchingStats.setActionCommand("SubmitPitchingStats");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(293, 235, 691, 239);
