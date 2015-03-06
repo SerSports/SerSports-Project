@@ -23,6 +23,32 @@ Description:
 */
 public class UserBattingStatsClient extends UserBattingStats implements ActionListener, ItemListener {
 
+	private static final boolean debugOn = true;
+	
+    /**
+	  Method: MlbStatsGuiClient
+	  Inputs: none
+	  Returns:
+
+	  Description:
+	*/
+    public UserBattingStatsClient() {
+        SubmitBattingStats.addActionListener(this);
+    }
+	
+    /**
+	  Method: debug
+	  Inputs: String message
+	  Returns:
+
+	  Description:
+	*/
+    private void debug(String message) {
+        if (debugOn){
+            System.out.println("debug: " + message);
+        }
+    }
+	
 	/**
 	  Method: itemStateChanged
 	  Inputs: ItemEvent e
@@ -45,7 +71,12 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	*/
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		if (e.getActionCommand().equals("SubmitBattingStats")) {
+			try {
+				debug("you clicked SubmitBattingStats in UserBattingStatsClient");
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 }

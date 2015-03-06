@@ -29,19 +29,21 @@ Class: UserBattingStats
 Description: GUI for User Batting stats
 */
 public class UserBattingStats extends JPanel {
-	private JTextField txtGP;
-	private JTextField txtAB;
-	private JTextField txtH;
-	private JTextField txtRBI;
-	private JTextField txtb_1;
-	private JTextField txtb_2;
-	private JTextField txtb_3;
-	private JTextField txtRuns;
-	private JTextField txtSB;
-	private JTextField txtHR;
-	private JTextField txtSO;
 	private JTable table;
-	private JTextField textDate;
+	protected JTextField txtGP;
+	protected JTextField txtAB;
+	protected JTextField txtH;
+	protected JTextField txtRBI;
+	protected JTextField txtb_1;
+	protected JTextField txtb_2;
+	protected JTextField txtb_3;
+	protected JTextField txtRuns;
+	protected JTextField txtSB;
+	protected JTextField txtHR;
+	protected JTextField txtSO;
+	protected JTextField textDate;
+	
+	protected JButton SubmitBattingStats;
 	
 	/**
 	  Method: Constructor
@@ -131,9 +133,11 @@ public class UserBattingStats extends JPanel {
 		txtSO.setBounds(1147, 118, 51, 28);
 		add(txtSO);
 		
-		JButton SubmitBattingStats = new JButton("Submit");
+		//JButton 
+		SubmitBattingStats = new JButton("Submit");
 		SubmitBattingStats.setBounds(580, 181, 117, 29);
 		add(SubmitBattingStats);
+		SubmitBattingStats.setActionCommand("SubmitBattingStats");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(293, 235, 691, 235);
