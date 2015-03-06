@@ -30,6 +30,7 @@ Description: Creates a panel for the User Batting Stats
 */
 public class UserPitchingStats extends JPanel {
 	private JTable table;
+	protected JTextField txtDate;
 	protected JTextField txtGP;
 	protected JTextField txtW;
 	protected JTextField txtL;
@@ -39,7 +40,6 @@ public class UserPitchingStats extends JPanel {
 	protected JTextField txtHolds;
 	protected JTextField txtRuns;
 	protected JTextField txtHBP;
-	protected JTextField txtDate;
 
 	protected JButton SubmitPitchingStats;
 	
