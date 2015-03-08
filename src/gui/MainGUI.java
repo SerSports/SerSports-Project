@@ -39,13 +39,18 @@ public class MainGUI extends JFrame {
 	  Description: Creates the panel
 	*/
     public MainGUI() {
-		getContentPane().setBackground(Color.WHITE);
+    	//JFrame title
         setTitle("SERSports");
+        //JFrame exit
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //Content Pane of Jframe
+		getContentPane().setBackground(Color.WHITE);
         getContentPane().setLayout(new BorderLayout(0, 0));    
+        //ApplicationgGUI
         ApplicationGUI panel = new ApplicationGUI();
-        panel.setBackground(Color.WHITE);
         getContentPane().add(panel);
+        
+        //need to add user login panel if statement 
 
     }
     

@@ -18,6 +18,7 @@ import javax.swing.border.LineBorder;
 public class ApplicationGUI extends JTabbedPane {
 
 	public ApplicationGUI() {
+		//Layout and creation of TabbedPane
 		setLayout(new BorderLayout(0, 0));
 		JTabbedPane jtp = new JTabbedPane();
 		jtp.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -27,25 +28,39 @@ public class ApplicationGUI extends JTabbedPane {
 		JTabbedPane MultipleStats = new JTabbedPane();
 		MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		
+		//Calling Jpanel classes and putting them into tabbedPanes
+		
+		//Home Page
 		HomePageGUI jp1 = new HomePageGUI();
-		JPanel jp2 = new JPanel();
-		BrowseLocalPlayers jp3 = new BrowseLocalPlayers();
-		MlbStatsGui jp4 = new MlbStatsGuiClient();
-		Help jp5 = new Help();
-		ContactUs jp6 = new ContactUs();
-		MLBPlayerProfile jp7 = new MLBPlayerProfile();
+		jtp.addTab("Home", jp1);
+		
+		//UserStats
+		jtp.add("User Stats", MultipleStats);
 		UserBattingStats batting = new UserBattingStats();
 		UserFieldingStats fielding = new UserFieldingStats();
 		UserPitchingStats pitching = new UserPitchingStats();
-		jtp.addTab("Home", jp1);
 		MultipleStats.add("Batting", batting);
 		MultipleStats.add("Fielding", fielding);
 		MultipleStats.add("Pitching", pitching);
-		jtp.add("User Stats", MultipleStats);
+
+		//Browse Local Players
+		BrowseLocalPlayers jp3 = new BrowseLocalPlayers();
 		jtp.addTab("Browse Local Players", jp3);
+		
+		//MlbStats Browse
+		MlbStatsGui jp4 = new MlbStatsGuiClient();
 		jtp.addTab("Choose MLB Players", jp4);
+		
+		//Help
+		Help jp5 = new Help();
 		jtp.addTab("Help", jp5);
+		
+		//Contact Us
+		ContactUs jp6 = new ContactUs();
 		jtp.addTab("Contact Us", jp6);
+		
+		//Temp PlayerProfile
+		MLBPlayerProfile jp7 = new MLBPlayerProfile();
 		jtp.addTab("PlayerProfile", jp7);
 	}
 
