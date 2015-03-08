@@ -21,6 +21,7 @@ import javax.swing.border.EmptyBorder;
 //import client.MlbStatsGuiClient;
 //import client.UserBattingStatsClient;
 import client.*;
+import javax.swing.border.BevelBorder;
 
 
 /**
@@ -39,7 +40,14 @@ public class MainGUI extends JFrame {
 	*/
     public MainGUI() {
         setTitle("SERSports");
-        JTabbedPane jtp = new JTabbedPane();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new BorderLayout(0, 0));
+        
+        ApplicationGUI panel = new ApplicationGUI();
+ 
+        getContentPane().add(panel);
+
+        /*JTabbedPane jtp = new JTabbedPane();
         getContentPane().add(jtp,BorderLayout.CENTER);
         
         JTabbedPane MultipleStats = new JTabbedPane();
@@ -65,7 +73,7 @@ public class MainGUI extends JFrame {
         jtp.addTab("Choose MLB Players", jp4);
         jtp.addTab("Help", jp5);
         jtp.addTab("Contact Us", jp6);
-        jtp.addTab("PlayerProfile", jp7);      
+        jtp.addTab("PlayerProfile", jp7);   */   
     }
     
     /**
@@ -81,7 +89,7 @@ public class MainGUI extends JFrame {
 				try {
 					MainGUI frame = new MainGUI();
 					frame.setVisible(true);
-					frame.setExtendedState(frame.MAXIMIZED_BOTH);		
+					frame.setExtendedState(frame.MAXIMIZED_BOTH);	
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
