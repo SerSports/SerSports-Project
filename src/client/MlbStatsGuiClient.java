@@ -120,7 +120,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
             try {
 				MainGUI frame = new MainGUI();
 				
-				MlbStatsGui firstPanel = new MlbStatsGui();
+				ApplicationGUI firstPanel = new ApplicationGUI();
 		        firstPanel.setOpaque(true);
 
 		        MLBPlayerProfile secondPanel = new MLBPlayerProfile();
@@ -142,18 +142,17 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 					//arrListWithSelectedPlayer = MlbPlayer.getPlayersFromDatabase(selectedPlayer, null, null, null);
 					
 					MLBBattingStats temp = new MLBBattingStats(selectedPlayer);
+			        frame.remove(firstPanel);
+			        frame.add(secondPanel);
+			        frame.revalidate(); // For Java 1.7 or above.
+	          		//frame.getContentPane().validate(); // For Java 1.6 or below.
+			        frame.repaint();
 					
 				} else {
 					debug("ERROR: An MLB player has NOT been selected!");
 				}
-		        
-		        /*
-		        frame.remove(firstPanel);
-		        frame.add(secondPanel);
-		        frame.revalidate(); // For Java 1.7 or above.
-          		//frame.getContentPane().validate(); // For Java 1.6 or below.
-		        frame.repaint();
-		        */
+
+		       
             } catch (Exception ex) {
             	ex.printStackTrace();
             }
