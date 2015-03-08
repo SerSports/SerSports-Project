@@ -34,11 +34,11 @@ public class HomePageGUI extends JPanel {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
-		/*JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
+		JLabel logo = new JLabel("New label");
+		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		logo.setBounds(6, 6, 100, 100);
-		add(logo);*/
+		add(logo);
 		
 		JLabel lblYouAre = new JLabel("You are");
 		lblYouAre.setBounds(616, 189, 47, 16);

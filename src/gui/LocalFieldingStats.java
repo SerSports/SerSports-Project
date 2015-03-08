@@ -53,7 +53,7 @@ public class LocalFieldingStats extends JPanel {
 		setLayout(null);
 		
 		JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		logo.setBounds(589, 6, 100, 100);
 		add(logo);		

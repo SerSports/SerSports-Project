@@ -44,11 +44,11 @@ public class BrowseLocalPlayers extends JPanel {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
-		/*JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
+		JLabel logo = new JLabel("New label");
+		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		logo.setBounds(589, 6, 100, 100);
-		add(logo);*/
+		add(logo);
 		
 		JButton SubmitLocalSearch = new JButton("Submit");
 		SubmitLocalSearch.setBounds(581, 181, 117, 29);

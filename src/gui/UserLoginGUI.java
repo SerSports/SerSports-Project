@@ -131,7 +131,7 @@ public class UserLoginGUI extends JFrame {
 		mnContactUs.add(mntmContactUs);
 		
 		JLabel label = new JLabel("");
-		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		label.setIcon(new ImageIcon(img));
 		label.setBounds(327, 32, 100, 100);
 		getContentPane().add(label);
