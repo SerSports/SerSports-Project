@@ -18,18 +18,15 @@ import javax.swing.border.LineBorder;
 public class ApplicationGUI extends JTabbedPane {
 
 	public ApplicationGUI() {
-		setLayout(null);
+		setLayout(new BorderLayout(0, 0));
 		JTabbedPane jtp = new JTabbedPane();
 		jtp.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
-
-		// jtp.setBorder(new LineBorder(new Color(0, 0, 0)));
-		jtp.setTabPlacement(JTabbedPane.BOTTOM);
+		jtp.setTabPlacement(JTabbedPane.TOP);
 		add(jtp);
-		jtp.setBounds(1, 1, 1300, 500);
-		// getRootPane().add(jtp,BorderLayout.CENTER);
+		jtp.setBounds(2, 2, 1200, 650);
 		JTabbedPane MultipleStats = new JTabbedPane();
 		MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
-
+		
 		HomePageGUI jp1 = new HomePageGUI();
 		JPanel jp2 = new JPanel();
 		BrowseLocalPlayers jp3 = new BrowseLocalPlayers();

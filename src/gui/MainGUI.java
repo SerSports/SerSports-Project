@@ -39,41 +39,14 @@ public class MainGUI extends JFrame {
 	  Description: Creates the panel
 	*/
     public MainGUI() {
+		getContentPane().setBackground(Color.WHITE);
         setTitle("SERSports");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new BorderLayout(0, 0));
-        
+        getContentPane().setLayout(new BorderLayout(0, 0));    
         ApplicationGUI panel = new ApplicationGUI();
- 
+        panel.setBackground(Color.WHITE);
         getContentPane().add(panel);
 
-        /*JTabbedPane jtp = new JTabbedPane();
-        getContentPane().add(jtp,BorderLayout.CENTER);
-        
-        JTabbedPane MultipleStats = new JTabbedPane();
-        MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
-
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        HomePageGUI jp1 = new HomePageGUI();
-        JPanel jp2 = new JPanel();
-        BrowseLocalPlayers jp3 = new BrowseLocalPlayers();
-        MlbStatsGui jp4 = new MlbStatsGuiClient();
-        Help jp5 = new Help();
-        ContactUs jp6 = new ContactUs();
-        MLBPlayerProfile jp7 = new MLBPlayerProfile();
-        UserBattingStats batting = new UserBattingStatsClient();
-        //UserFieldingStats fielding = new UserFieldingStats();
-        UserPitchingStats pitching = new UserPitchingStatsClient();
-        jtp.addTab("Home", jp1);
-        MultipleStats.add("Batting", batting);
-        //MultipleStats.add("Fielding", fielding);
-        MultipleStats.add("Pitching", pitching);
-        jtp.add("User Stats", MultipleStats);
-        jtp.addTab("Browse Local Players", jp3);
-        jtp.addTab("Choose MLB Players", jp4);
-        jtp.addTab("Help", jp5);
-        jtp.addTab("Contact Us", jp6);
-        jtp.addTab("PlayerProfile", jp7);   */   
     }
     
     /**
