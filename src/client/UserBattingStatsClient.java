@@ -34,8 +34,9 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 
 	  Description:
 	*/
-    public void UserBattingStatsClient() {
-        //SubmitBattingStats.addActionListener(this);
+    public UserBattingStatsClient() {
+        //debug("Test in UserBattingStatsClient method");
+    	SubmitBattingStats.addActionListener(this);
     }
 	
     /**
@@ -127,8 +128,13 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
                 if (so.length() == 0 || so.equals("SO")) {
                     so = null;
                 }
-				
-				
+			
+                /*
+				debug("Your entry:");
+				debug("Date: "+date+" Games Played: "+gp+" AB: "+ab+" H: "+h+" RBI: "+rbi+" 1B: "+b1);
+				debug(" 2B: "+b2+" 3B: "+b3+" Runs: "+runs+" SB: "+sb+" HR: "+hr+" SO: "+so);
+                 */
+                
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}

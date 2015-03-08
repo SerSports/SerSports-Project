@@ -8,6 +8,7 @@ Description: Main GUI (the brain, the tabs)
 */
 package gui;
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 
@@ -17,7 +18,9 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 
-import client.MlbStatsGuiClient;
+//import client.MlbStatsGuiClient;
+//import client.UserBattingStatsClient;
+import client.*;
 
 
 /**
@@ -50,9 +53,9 @@ public class MainGUI extends JFrame {
         Help jp5 = new Help();
         ContactUs jp6 = new ContactUs();
         MLBPlayerProfile jp7 = new MLBPlayerProfile();
-        UserBattingStats batting = new UserBattingStats();
+        UserBattingStats batting = new UserBattingStatsClient();
         //UserFieldingStats fielding = new UserFieldingStats();
-        UserPitchingStats pitching = new UserPitchingStats();
+        UserPitchingStats pitching = new UserPitchingStatsClient();
         jtp.addTab("Home", jp1);
         MultipleStats.add("Batting", batting);
         //MultipleStats.add("Fielding", fielding);
