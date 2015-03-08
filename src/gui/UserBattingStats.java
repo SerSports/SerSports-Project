@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -138,6 +139,7 @@ public class UserBattingStats extends JPanel {
 		SubmitBattingStats.setBounds(580, 181, 117, 29);
 		add(SubmitBattingStats);
 		SubmitBattingStats.setActionCommand("SubmitBattingStats");
+		//SubmitBattingStats.addActionListener((ActionListener) this);
 		//SubmitBattingStats.setBackground(new Color(255,237,203));
 		
 		JScrollPane scrollPane = new JScrollPane();

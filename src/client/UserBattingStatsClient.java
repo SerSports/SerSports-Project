@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+import javax.swing.JButton;
+
 /**
 Class: UserBattingStatsClient
 
@@ -32,7 +34,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 
 	  Description:
 	*/
-    public UserBattingStatsClient() {
+    public void UserBattingStatsClient() {
         //SubmitBattingStats.addActionListener(this);
     }
 	
@@ -71,6 +73,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	*/
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//debug("Test");
 		if (e.getActionCommand().equals("SubmitBattingStats")) {
 			try {
 				debug("you clicked Submit in User Stats/Batting page");

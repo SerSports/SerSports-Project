@@ -63,7 +63,7 @@ public class MlbStatsGui extends JPanel {
 		add(SubmitPlayerSearchButton);
 		SubmitPlayerSearchButton.setActionCommand("SubmitPlayerSearchButton");
 		SubmitPlayerSearchButton.setBackground(new Color(255,237,203));
-	    //getContentPane().add(SubmitPlayerSearchButton);
+	    //getContentPane().add(SubmitPlatayerSearchButton);
 		
 		txtFirstName = new JTextField();
 		txtFirstName.setText("First Name");
