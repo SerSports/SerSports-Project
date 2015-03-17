@@ -30,7 +30,7 @@ Class: MainGUI
 Description: GUI for main navigation of site
 */
 public class MainGUI extends JFrame {
-    
+	
 	/**
 	  Method: Constructor
 	  Inputs: None
@@ -38,6 +38,7 @@ public class MainGUI extends JFrame {
 
 	  Description: Creates the panel
 	*/
+	
     public MainGUI() {
     	//JFrame title
         setTitle("SERSports");
