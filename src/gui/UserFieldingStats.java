@@ -26,18 +26,20 @@ Class: UserFieldingStats
 Description: GUI for the User Fielding Stats
 */
 public class UserFieldingStats extends JPanel {
-	private JTextField txtDate;
-	private JTextField txtGP;
-	private JTextField txtINN;
-	private JTextField txtA;
-	private JTextField txtE;
-	private JTextField txtFpct;
-	private JTextField txtSB;
-	private JTextField txtCS;
+	protected JTextField txtDate;
+	protected JTextField txtGP;
+	protected JTextField txtINN;
+	protected JTextField txtA;
+	protected JTextField txtE;
+	protected JTextField txtFpct;
+	protected JTextField txtSB;
+	protected JTextField txtCS;
 
 	private JTable table;
-	private JTextField txtPo;
+	protected JTextField txtPo;
 
+	protected JButton SubmitFieldingStats;
+	
 	/**
 	  Method: 
 	  Inputs: 
@@ -113,9 +115,10 @@ public class UserFieldingStats extends JPanel {
 		add(txtSB);
 		
 		
-		JButton SubmitFieldingStats = new JButton("Submit");
+		SubmitFieldingStats = new JButton("Submit");
 		SubmitFieldingStats.setBounds(580, 181, 117, 29);
 		add(SubmitFieldingStats);
+		SubmitFieldingStats.setActionCommand("SubmitFieldingStats");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(293, 235, 691, 235);
