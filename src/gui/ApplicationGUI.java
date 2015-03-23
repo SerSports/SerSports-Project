@@ -11,7 +11,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import client.MlbStatsGuiClient;
+//import client.MlbStatsGuiClient;
+import client.*;
 
 import javax.swing.border.LineBorder;
 
@@ -19,7 +20,7 @@ public class ApplicationGUI extends JTabbedPane {
 
 	public ApplicationGUI() {
 		//Layout and creation of TabbedPane
-		setLayout(new BorderLayout(0, 0));
+		//setLayout(new BorderLayout(0, 0));
 		JTabbedPane jtp = new JTabbedPane();
 		jtp.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		jtp.setTabPlacement(JTabbedPane.TOP);
@@ -36,9 +37,9 @@ public class ApplicationGUI extends JTabbedPane {
 		
 		//UserStats
 		jtp.add("User Stats", MultipleStats);
-		UserBattingStats batting = new UserBattingStats();
-		UserFieldingStats fielding = new UserFieldingStats();
-		UserPitchingStats pitching = new UserPitchingStats();
+		UserBattingStats batting = new UserBattingStatsClient();
+		UserFieldingStats fielding = new UserFieldingStatsClient();
+		UserPitchingStats pitching = new UserPitchingStatsClient();
 		MultipleStats.add("Batting", batting);
 		MultipleStats.add("Fielding", fielding);
 		MultipleStats.add("Pitching", pitching);
