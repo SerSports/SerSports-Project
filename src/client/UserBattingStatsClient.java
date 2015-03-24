@@ -15,8 +15,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;
+
+import database.MlbPlayer;
 
 /**
 Class: UserBattingStatsClient
@@ -78,6 +82,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		if (e.getActionCommand().equals("SubmitBattingStats")) {
 			try {
 				debug("you clicked Submit in User Stats/Batting page");
+				
 				String date = textDate.getText().toString();
 				String gp = txtGP.getText().toString();
 				String ab = txtAB.getText().toString();
@@ -129,6 +134,26 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
                     so = null;
                 }
 			
+                /*
+                 * Add input into user database, then display all game statistics
+                 * 
+                DefaultTableModel newTable = new DefaultTableModel(new Object[]{"Date", "GP", "AB", "H", "RBI",
+                		"1B", "2B", "3B", "Runs", "SB", "HR", "SO"}, 0);
+                		
+                //add above info into user's database before display here
+                
+                ArrayList<UserPlayer> players = UserPlayer.getPlayersFromDatabase(txtDate, txtGP, txtAB, txtH, txtRBI,
+                		txtb_1, txtb_2, txtb_3, txtRuns, txtSB, txtHR, txtSO);
+                
+                for(UserPlayer m: players) {
+                    Object[] row = {m.getDate(), m.getGamesPlayed(), m.getAB(), m.getH(), m.getRBI(),
+                    		m.get1B(), m.get2B(), m.get3B(), m.getRuns(), m.getSB(), m.getHR(), m.getSO()};
+                    newTable.addRow(row); 
+                }
+                
+                table.setModel(newTable);
+                */
+                
                 /*
 				debug("Your entry:");
 				debug("Date: "+date+" Games Played: "+gp+" AB: "+ab+" H: "+h+" RBI: "+rbi+" 1B: "+b1);
