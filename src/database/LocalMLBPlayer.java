@@ -3,7 +3,7 @@ package database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserPlayer {
+public class LocalMLBPlayer {
 
 	// Members
 	private String id;
@@ -13,7 +13,7 @@ public class UserPlayer {
 	private String team_id;				//Team ID
 	private String team_name;			//Team name
 	
-	public UserPlayer(ResultSet rs) {
+	public LocalMLBPlayer(ResultSet rs) {
 		/*
 		try {
 			// Load the rs's information
