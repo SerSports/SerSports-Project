@@ -1,0 +1,19 @@
+Server 
+
+ip: 107.170.229.233
+
+
+login
+
+username: root
+password: Sersports
+
+
+
+SQL Server 
+
+login
+
+username: root
+password: Sersports
+
