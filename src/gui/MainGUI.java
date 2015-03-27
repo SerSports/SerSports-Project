@@ -48,12 +48,15 @@ public class MainGUI extends JFrame {
 		getContentPane().setBackground(Color.WHITE);
         getContentPane().setLayout(new BorderLayout(0, 0));    
         //ApplicationgGUI
-        ApplicationGUI panel = new ApplicationGUI();
-        getContentPane().add(panel);
+       
+        JPanel panelContainer = new JPanel();
+        ApplicationGUI panelApplication = new ApplicationGUI();
+        getContentPane().add(panelApplication);
         
         //User login panel
-        //UserLoginGUI Login = new UserLoginGUI();
-        //getContentPane().add(Login);
+        UserLoginGUI Login = new UserLoginGUI();
+        getContentPane().add(Login);
+ 
         
         //need to add user login panel if statement 
 

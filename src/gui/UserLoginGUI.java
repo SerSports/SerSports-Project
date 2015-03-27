@@ -25,10 +25,10 @@ Class: UserLoginGUI
 Description: GUI for UserLogin
 */
 public class UserLoginGUI extends JPanel {
-	private JTextField txtUserName;
-	private JTextField txtUserName_1;
-	private JTextField textField;
-	private JTextField textField_1;
+	protected JTextField txtUserName;
+	protected JTextField txtUserName_1;
+	protected JTextField textField;
+	protected JTextField textField_1;
 
 
 
