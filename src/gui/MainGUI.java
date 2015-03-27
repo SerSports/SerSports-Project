@@ -99,41 +99,6 @@ public class MainGUI {
     	mainFrame.setExtendedState(mainFrame.MAXIMIZED_BOTH);
     }
 
-	
-	/**
-	  Method: Constructor
-	  Inputs: None
-	  Returns:
-
-	  Description: Creates the panel
-	*/
-	
-   /* public MainGUI() {
-    	//JFrame title
-        setTitle("SERSports");
-        //JFrame exit
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //Content Pane of Jframe
-		getContentPane().setBackground(Color.WHITE);
-        getContentPane().setLayout(new BorderLayout(0, 0));    
-        //ApplicationgGUI
-       
-        JPanel panelContainer = new JPanel();
-        ApplicationGUI panelApplication = new ApplicationGUI();
-        getContentPane().add(panelApplication);
-        
-        //User login panel
-        UserLoginGUI Login = new UserLoginGUI();
-        getContentPane().add(Login);
-        
-        //CardLayout
-        CardLayout c1 = new CardLayout();
-     
-        //need to add user login panel if statement 
-
-    }*/
-    
-
     
     /**
 	  Method: main
