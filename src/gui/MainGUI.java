@@ -40,8 +40,7 @@ Description: GUI for main navigation of site
 public class MainGUI {
 	protected JTextField txtUserName;
 	protected JTextField txtUserName_1;
-	protected JTextField textField;
-	protected JTextField textField_1;
+	protected JTextField txtUserName_2;
 	protected JButton btnSubmit ;
 	protected JButton btnCreateAccount;
 	JFrame mainFrame = new JFrame("SERSports");	
@@ -51,21 +50,18 @@ public class MainGUI {
     CreateAccount createAccountGUI = new CreateAccount();
 
     CardLayout c1 = new CardLayout();
+    private final JPasswordField pwdPassword = new JPasswordField();
    
     public MainGUI(){
-		JLabel lblUserName = new JLabel("User Name");
-		Login.add(lblUserName);
 		
-		JLabel lblPassword = new JLabel("Password");
-		Login.add(lblPassword);
+		txtUserName_2 = new JTextField();
+		txtUserName_2.setText("User Name");
+		Login.add(txtUserName_2);
+		txtUserName_2.setColumns(10);
+		pwdPassword.setColumns(10);
+		pwdPassword.setText("Password");
 		
-		textField = new JTextField();
-		Login.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		Login.add(textField_1);
-		textField_1.setColumns(10);
+		Login.add(pwdPassword);
 		
 		JButton btnSubmit = new JButton("Submit");
 		Login.add(btnSubmit);
@@ -92,7 +88,7 @@ public class MainGUI {
     		}
     	});
     	
-    	mainFrame.add(panelContainer);
+    	mainFrame.getContentPane().add(panelContainer);
     	mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     	mainFrame.pack();
     	mainFrame.setVisible(true);
