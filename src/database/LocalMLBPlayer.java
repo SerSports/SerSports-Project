@@ -6,6 +6,7 @@ import java.sql.SQLException;
 public class LocalMLBPlayer {
 
 	// Members
+	private String username;			//Player's username
 	private String id;
 	private String first_name; 			//Player First Name
 	private String last_name; 			//Player Last Name
