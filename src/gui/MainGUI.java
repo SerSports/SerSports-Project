@@ -79,6 +79,7 @@ public class MainGUI {
     	btnSubmit.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
     			c1.show(panelContainer, "2");
+    			//add push user name and password for authentication
     		}
     	});
     	
