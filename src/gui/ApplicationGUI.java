@@ -59,10 +59,7 @@ public class ApplicationGUI extends JTabbedPane {
 		//Contact Us
 		ContactUs jp6 = new ContactUs();
 		jtp.addTab("Contact Us", jp6);
-		
-		//Temp PlayerProfile
-		MLBPlayerProfile jp7 = new MLBPlayerProfile();
-		jtp.addTab("PlayerProfile", jp7);
+
 	}
 
 }
