@@ -29,6 +29,8 @@ public class UserLoginGUI extends JPanel {
 	protected JTextField txtUserName_1;
 	protected JTextField textField;
 	protected JTextField textField_1;
+	protected JButton btnSubmit ;
+	protected JButton btnCreateAccount;
 
 
 
@@ -61,13 +63,13 @@ public class UserLoginGUI extends JPanel {
 		add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Submit");
-		btnNewButton.setBounds(88, 236, 117, 29);
-		add(btnNewButton);
+		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.setBounds(88, 236, 117, 29);
+		add(btnSubmit);
 		
-		JButton btnNewButton_1 = new JButton("Create Account");
-		btnNewButton_1.setBounds(226, 236, 134, 28);
-		add(btnNewButton_1);
+		JButton btnCreateAccount = new JButton("Create Account");
+		btnCreateAccount.setBounds(226, 236, 134, 28);
+		add(btnCreateAccount);
 
 
 
