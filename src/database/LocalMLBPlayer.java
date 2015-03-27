@@ -6,13 +6,23 @@ import java.sql.SQLException;
 public class LocalMLBPlayer {
 
 	// Members
-	private String username;			//Player's username
-	private String id;
-	private String first_name; 			//Player First Name
-	private String last_name; 			//Player Last Name
+	private String username;		
+	private String user_id;
+	private String first_name; 		
+	private String last_name; 		
+	private String user_age;
+	private String user_sex;
+	private String user_city;
+	private String user_state;
+	private String user_zip;
+	private String user_email;
+	
 
-	private String team_id;				//Team ID
-	private String team_name;			//Team name
+	private String user_team_id;	
+	private String user_team_name;	
+	private String user_league_name;
+	private String [] position = new String[11];
+	
 	
 	public LocalMLBPlayer(ResultSet rs) {
 		/*
@@ -31,7 +41,7 @@ public class LocalMLBPlayer {
 
 	// Getters / Setters
 	public String getId() {
-		return id;
+		return user_id;
 	}
 	public String getFirstName() {
 		return first_name;
@@ -50,11 +60,11 @@ public class LocalMLBPlayer {
 	}
 
 	public String getTeam() {
-		return team_name;
+		return user_team_name;
 	}
 
 	public void setTeam(String team) {
-		this.team_name = team;
+		this.user_team_name = team;
 	}
 	public String getFirst_name() {
 		return first_name;
@@ -65,11 +75,115 @@ public class LocalMLBPlayer {
 	}
 
 	public String getTeam_id() {
-		return team_id;
+		return user_team_id;
 	}
 
 	public String getTeam_name() {
-		return team_name;
+		return user_team_name;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public String getUser_age() {
+		return user_age;
+	}
+
+	public void setUser_age(String user_age) {
+		this.user_age = user_age;
+	}
+
+	public String getUser_sex() {
+		return user_sex;
+	}
+
+	public void setUser_sex(String user_sex) {
+		this.user_sex = user_sex;
+	}
+
+	public String getUser_city() {
+		return user_city;
+	}
+
+	public void setUser_city(String user_city) {
+		this.user_city = user_city;
+	}
+
+	public String getUser_state() {
+		return user_state;
+	}
+
+	public void setUser_state(String user_state) {
+		this.user_state = user_state;
+	}
+
+	public String getUser_zip() {
+		return user_zip;
+	}
+
+	public void setUser_zip(String user_zip) {
+		this.user_zip = user_zip;
+	}
+
+	public String getUser_email() {
+		return user_email;
+	}
+
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
+	}
+
+	public String getUser_team_id() {
+		return user_team_id;
+	}
+
+	public void setUser_team_id(String user_team_id) {
+		this.user_team_id = user_team_id;
+	}
+
+	public String getUser_team_name() {
+		return user_team_name;
+	}
+
+	public void setUser_team_name(String user_team_name) {
+		this.user_team_name = user_team_name;
+	}
+
+	public String getUser_league_name() {
+		return user_league_name;
+	}
+
+	public void setUser_league_name(String user_league_name) {
+		this.user_league_name = user_league_name;
+	}
+
+	public String [] getPosition() {
+		return position;
+	}
+	
+	public String getPosition(int number){
+		return position[number];
+	}
+
+	public void setPosition(String [] position) {
+		this.position = position;
+	}
+	
+	public void setPosition(String position, int number){
+		this.position[number] = position;
 	}
 
 }
