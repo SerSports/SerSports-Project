@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.BorderLayout;
 
 
 /**
@@ -24,6 +25,10 @@ Class: UserLoginGUI
 Description: GUI for UserLogin
 */
 public class UserLoginGUI extends JPanel {
+	private JTextField txtUserName;
+	private JTextField txtUserName_1;
+	private JTextField textField;
+	private JTextField textField_1;
 
 
 
@@ -36,6 +41,36 @@ public class UserLoginGUI extends JPanel {
 	  Description: Create the frame.
 	*/
 	public UserLoginGUI() {
+		setLayout(null);
+		
+		JLabel lblUserName = new JLabel("User Name");
+		lblUserName.setBounds(184, 88, 82, 16);
+		add(lblUserName);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setBounds(184, 150, 61, 16);
+		add(lblPassword);
+		
+		textField = new JTextField();
+		textField.setBounds(154, 110, 134, 28);
+		add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(154, 178, 134, 28);
+		add(textField_1);
+		textField_1.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Submit");
+		btnNewButton.setBounds(88, 236, 117, 29);
+		add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Create Account");
+		btnNewButton_1.setBounds(226, 236, 134, 28);
+		add(btnNewButton_1);
 
+
+
+	
 	}
 }

@@ -51,6 +51,10 @@ public class MainGUI extends JFrame {
         ApplicationGUI panel = new ApplicationGUI();
         getContentPane().add(panel);
         
+        //User login panel
+        //UserLoginGUI Login = new UserLoginGUI();
+        //getContentPane().add(Login);
+        
         //need to add user login panel if statement 
 
     }
