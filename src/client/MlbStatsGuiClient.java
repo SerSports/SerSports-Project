@@ -141,12 +141,12 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 					//ArrayList<MlbPlayer> arrListWithSelectedPlayer = MlbPlayer.getPlayersFromDatabase(selectedPlayer, null, null, null);
 					//arrListWithSelectedPlayer = MlbPlayer.getPlayersFromDatabase(selectedPlayer, null, null, null);
 					
-					MLBBattingStats temp = new MLBBattingStats(selectedPlayer);
-			        frame.remove(firstPanel);
-			        frame.add(secondPanel);
-			        frame.revalidate(); // For Java 1.7 or above.
+					//MLBBattingStats temp = new MLBBattingStats(selectedPlayer);
+			        //frame.remove(firstPanel);
+			       // frame.add(secondPanel);
+			        //frame.revalidate(); // For Java 1.7 or above.
 	          		//frame.getContentPane().validate(); // For Java 1.6 or below.
-			        frame.repaint();
+			        //frame.repaint();
 					
 				} else {
 					debug("ERROR: An MLB player has NOT been selected!");
