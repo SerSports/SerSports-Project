@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class LocalPlayer {
 
 	// Constants
-	private static final String TABLE_NAME = "users";  
+	private static final String TABLE_NAME = "localPlayers";  
 	private static final String FIELD_ID = "localPlayerId"; 
 	private static final String FIELD_FIRST_NAME = "firstName";
 	private static final String FIELD_LAST_NAME = "lastName";
@@ -71,10 +71,20 @@ public class LocalPlayer {
 		Database.executeSQL(buildInsertSql(firstName, lastName, age));
 		
 		// Find the newly created Local Player
-		ResultSet rs = Database.getResultSetFromSQL("SELECT * FROM " + TABLE_NAME + genereateWhereClause(firstName, lastName, age) + "ORDER BY " + FIELD_ID + "DESC");
+		String sql = "SELECT * FROM " + TABLE_NAME + genereateWhereClause(firstName, lastName, age) + " ORDER BY " + FIELD_ID + " DESC";
+		ResultSet rs = Database.getResultSetFromSQL(sql);
 		
 		// Create the Local Player Object
-		result = new LocalPlayer(rs);
+		if (rs != null) {
+			try {
+				if (rs.next()){
+					result = new LocalPlayer(rs);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch blocks
+				e.printStackTrace();
+			}
+		}
 		
 		return result;
 	}
@@ -90,8 +100,8 @@ public class LocalPlayer {
 	}
 	
 	private static String genereateWhereClause(String firstName, String lastName, int age) {
-		return new String("WHERE " + FIELD_FIRST_NAME + " = \"" + firstName + "\" AND " + 
-									 FIELD_LAST_NAME + " = \"" + lastName + "\' AND " + 
+		return new String(" WHERE " + FIELD_FIRST_NAME + " = \"" + firstName + "\" AND " + 
+									 FIELD_LAST_NAME + " = \"" + lastName + "\" AND " + 
 									 FIELD_AGE + " = " + age);
 	}
 }

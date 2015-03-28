@@ -81,17 +81,26 @@ public class User {
 		Database.executeSQL(buildInsertSql(player.getLocalPlayerId(), userName, password));
 		
 		// Find the newly created Local Player
-		ResultSet rs = Database.getResultSetFromSQL("SELECT * FROM " + TABLE_NAME + "WHERE " + FIELD_USER_NAME + " = \"" + userName + "\"");
+		ResultSet rs = Database.getResultSetFromSQL("SELECT * FROM " + TABLE_NAME + " WHERE " + FIELD_USER_NAME + " = \"" + userName + "\"");
 		
 		// Create the Local Player Object
-		result = new User(rs);
+		if (rs != null) {
+			try {
+				if (rs.next()){
+					result = new User(rs);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch blocks
+				e.printStackTrace();
+			}
+		}
 		
 		return result;
 	}
 
 	private static String buildInsertSql(int localPlayerId, String userName, String password) {
 		return new String("INSERT INTO " + TABLE_NAME + 
-						 	"(" + FIELD_LOCAL_PLAYER_ID + ", " + FIELD_USER_NAME + ", " + FIELD_PASSWORD + ", ) " + 
+						 	" (" + FIELD_LOCAL_PLAYER_ID + ", " + FIELD_USER_NAME + ", " + FIELD_PASSWORD + ") " + 
 					      "VALUES("+ localPlayerId + ", \"" + userName + "\", \"" + password + "\")");
 	}
 }

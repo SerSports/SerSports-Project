@@ -1,9 +1,15 @@
 package gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+
+import database.User;
 
 public class CreateAccount extends JPanel {
 	private JTextField textUsername;
@@ -66,6 +72,19 @@ public class CreateAccount extends JPanel {
 		JButton btnCreateAccount = new JButton("Create Account");
 		btnCreateAccount.setBounds(151, 327, 140, 28);
 		add(btnCreateAccount);
-
+		
+		btnCreateAccount.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    			// Authenticate User
+    			User user = User.newUser(textUsername.getText(), textPassword.getText(), 
+    									 textFirstName.getText(), textLastname.getText(), 
+    									 Integer.valueOf(textAge.getText()));
+    			if (user != null) {
+    				// The GUI Queen, Gabby's code here
+    			} else {
+    		        JOptionPane.showMessageDialog(null, "Unable to create user!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+    			}
+    		}
+    	});
 	}
 }
