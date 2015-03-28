@@ -42,6 +42,7 @@ public class MlbStatsGui extends JPanel {
 	private JLabel mlbBatting;
 	private JLabel mlbPitching;
 	private JTable mlbfieldingTable;
+	private JTable mlbpitchingTable;
 	/**
 	  Method: Constructor
 	  Inputs: None
@@ -123,7 +124,7 @@ public class MlbStatsGui extends JPanel {
 		scrollPane_1.setViewportView(battingTable);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(621, 313, 363, 186);
+		scrollPane_2.setBounds(621, 453, 480, 85);
 		add(scrollPane_2);
 
 		mlbfieldingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}));
@@ -136,6 +137,17 @@ public class MlbStatsGui extends JPanel {
 		mlbPitching = new JLabel("Pitching");
 		mlbPitching.setBounds(621, 289, 61, 16);
 		add(mlbPitching);
+		
+		JScrollPane scrollPane_3 = new JScrollPane();
+		scrollPane_3.setBounds(621, 317, 480, 85);
+		add(scrollPane_3);
+		
+		mlbpitchingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
+		scrollPane_3.setViewportView(mlbpitchingTable);
+		
+		JLabel mlbFielding = new JLabel("Fielding");
+		mlbFielding.setBounds(621, 429, 61, 16);
+		add(mlbFielding);
 	}
 
 	private void getResultsSet() {
