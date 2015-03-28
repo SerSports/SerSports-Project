@@ -17,17 +17,14 @@ import client.*;
 import javax.swing.border.LineBorder;
 
 public class ApplicationGUI extends JTabbedPane {
-
-	public ApplicationGUI() {
-		//Layout and creation of TabbedPane
-		//setLayout(new BorderLayout(0, 0));
 		JTabbedPane jtp = new JTabbedPane();
+	public ApplicationGUI() {
 		jtp.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		jtp.setTabPlacement(JTabbedPane.TOP);
 		add(jtp);
 		jtp.setBounds(2, 2, 1200, 650);
 		JTabbedPane MultipleStats = new JTabbedPane();
-		MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+		//MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		
 		//Calling Jpanel classes and putting them into tabbedPanes
 		
