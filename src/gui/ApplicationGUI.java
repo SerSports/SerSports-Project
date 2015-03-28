@@ -20,13 +20,14 @@ public class ApplicationGUI extends JTabbedPane{
 	
 		
 	public ApplicationGUI() {
-		//jtp.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		JTabbedPane jtp = new JTabbedPane();
+
+		jtp.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		jtp.setTabPlacement(JTabbedPane.TOP);
 		add(jtp);
 		//jtp.setBounds(2, 2, 1200, 650);
 		JTabbedPane MultipleStats = new JTabbedPane();
-		//MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+		MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		
 		//Calling Jpanel classes and putting them into tabbedPanes
 		
