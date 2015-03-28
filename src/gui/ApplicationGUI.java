@@ -16,13 +16,15 @@ import client.*;
 
 import javax.swing.border.LineBorder;
 
-public class ApplicationGUI extends JTabbedPane {
-		JTabbedPane jtp = new JTabbedPane();
+public class ApplicationGUI extends JTabbedPane{
+	
+		
 	public ApplicationGUI() {
-		jtp.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+		//jtp.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+		JTabbedPane jtp = new JTabbedPane();
 		jtp.setTabPlacement(JTabbedPane.TOP);
 		add(jtp);
-		jtp.setBounds(2, 2, 1200, 650);
+		//jtp.setBounds(2, 2, 1200, 650);
 		JTabbedPane MultipleStats = new JTabbedPane();
 		//MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		
