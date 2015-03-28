@@ -31,6 +31,8 @@ import client.*;
 
 import javax.swing.border.BevelBorder;
 
+import database.User;
+
 
 /**
 Class: MainGUI
@@ -78,8 +80,14 @@ public class MainGUI {
     
     	btnSubmit.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
-    			c1.show(panelContainer, "2");
-    			//add push user name and password for authentication
+    			
+    			// Authenticate User
+    			User user = User.authenticateUser(txtUserName_2.getText(), new String(pwdPassword.getPassword()));
+    			if (user != null) {
+    				c1.show(panelContainer, "2");
+    			} else {
+    		        JOptionPane.showMessageDialog(null, "Invalid Username / Password!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+    			}
     		}
     	});
     	
