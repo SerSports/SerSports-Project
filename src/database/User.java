@@ -30,6 +30,10 @@ public class User {
 		return localPlayerId;
 	}
 	
+	public String getUserName(){
+		return userName;
+	}
+	
 	public static User getCurrentUser() {
 		return currentUser;
 	}
