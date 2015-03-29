@@ -1,8 +1,10 @@
 package gui;
 
+import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -17,13 +19,32 @@ public class CreateAccount extends JPanel {
 	private JTextField textFirstName;
 	private JTextField textLastname;
 	private JTextField textAge;
+	protected JButton btnCreateNewAccount;
+	private static final boolean debugOn = true;
+	//JFrame mainFrame = new JFrame("SERSports");	
+	//JPanel panelContainer = new JPanel();
+    //ApplicationGUI panelApplication = new ApplicationGUI();
+    //JPanel Login = new JPanel();
+    //CreateAccount createAccountGUI = new CreateAccount();
 
+    CardLayout c1 = new CardLayout();
 	/**
 	 * Create the panel.
 	 */
-	public CreateAccount() {
+    
+    private void debug(String message) {
+        if (debugOn){
+            System.out.println("debug: " + message);
+        }
+    }
+	public CreateAccount() {	
 		setLayout(null);
-		
+    	//panelContainer.setLayout(c1);
+    	//panelContainer.add(Login, "1");
+    	//panelContainer.add(panelApplication,"2");
+    	//panelContainer.add(createAccountGUI, "3");
+    	//c1.show(panelContainer, "1");
+    	
 		textUsername = new JTextField();
 		textUsername.setBounds(135, 65, 134, 28);
 		add(textUsername);
@@ -69,18 +90,29 @@ public class CreateAccount extends JPanel {
 		add(textAge);
 		textAge.setColumns(10);
 		
-		JButton btnCreateAccount = new JButton("Create Account");
-		btnCreateAccount.setBounds(151, 327, 140, 28);
-		add(btnCreateAccount);
+		JButton btnCreateNewAccount = new JButton("Create Account");
+		btnCreateNewAccount.setBounds(151, 327, 140, 28);
+		add(btnCreateNewAccount);
+		btnCreateNewAccount.setActionCommand("btnCreateNewAccount");
 		
-		btnCreateAccount.addActionListener(new ActionListener(){
+		btnCreateNewAccount.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
+    			debug("you clicked Create New Account");
     			// Authenticate User
     			User user = User.newUser(textUsername.getText(), textPassword.getText(), 
     									 textFirstName.getText(), textLastname.getText(), 
     									 Integer.valueOf(textAge.getText()));
     			if (user != null) {
     				// The GUI Queen, Gabby's code here
+    				debug("you're information is submitted");
+    				JPanel panelContainer = new JPanel();
+    			    ApplicationGUI panelApplication = new ApplicationGUI();
+    			    CardLayout c1 = new CardLayout();
+    			    panelContainer.setLayout(c1);
+    			    panelContainer.add(panelApplication,"2");
+    				c1.show(panelContainer, "2");
+    				debug("new application window should pop up");
+    				
     			} else {
     		        JOptionPane.showMessageDialog(null, "Unable to create user!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
     			}
