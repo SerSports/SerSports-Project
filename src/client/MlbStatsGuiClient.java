@@ -83,7 +83,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 	*/
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("SubmitPlayerSearchButton")) {
+        if (e.getActionCommand().equals("submitPlayerSearchButton")) {
             try {
                 debug("you clicked Submit Search");
                 String fName = txtFirstName.getText().toString();
@@ -140,19 +140,11 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 					//will get the mlb player from database, can delete later
 					//ArrayList<MlbPlayer> arrListWithSelectedPlayer = MlbPlayer.getPlayersFromDatabase(selectedPlayer, null, null, null);
 					//arrListWithSelectedPlayer = MlbPlayer.getPlayersFromDatabase(selectedPlayer, null, null, null);
-					
-					//MLBBattingStats temp = new MLBBattingStats(selectedPlayer);
-			        //frame.remove(firstPanel);
-			       // frame.add(secondPanel);
-			        //frame.revalidate(); // For Java 1.7 or above.
-	          		//frame.getContentPane().validate(); // For Java 1.6 or below.
-			        //frame.repaint();
-					
+
 				} else {
 					debug("ERROR: An MLB player has NOT been selected!");
 				}
-
-		       
+	       
             } catch (Exception ex) {
             	ex.printStackTrace();
             }
