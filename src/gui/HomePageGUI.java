@@ -62,7 +62,7 @@ public class HomePageGUI extends JPanel {
 		add(lblWelcome);
 		
 		currentUser = User.getCurrentUser();
-		JLabel userFirstName = new JLabel(currentUser.);
+		JLabel userFirstName = new JLabel("User Name");
 		userFirstName.setBounds(217, 59, 89, 16);
 		add(userFirstName);
 	}
