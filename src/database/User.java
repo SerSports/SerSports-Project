@@ -72,6 +72,8 @@ public class User {
 				if (rs.next()){
 					result = new User(rs);
 					currentUser = result;
+					//System.out.println("Username: " + result.getUserName());
+					//System.out.println("UserName: " + currentUser.getUserName());
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch blocks

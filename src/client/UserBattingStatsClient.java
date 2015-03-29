@@ -9,6 +9,7 @@ Description: ActionListeners and ItemListeners for the User Batting Stats GUI (U
 package client;
 
 import gui.MlbStatsGui;
+import database.LocalPlayer;
 import gui.UserBattingStats;
 
 import java.awt.event.ActionEvent;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 
-import database.MlbPlayer;
+import database.*;
 
 /**
 Class: UserBattingStatsClient
@@ -29,6 +30,8 @@ Description:
 */
 public class UserBattingStatsClient extends UserBattingStats implements ActionListener, ItemListener {
 
+	//private User currentUser = null;
+	
 	private static final boolean debugOn = true;
 	
     /**
@@ -135,30 +138,27 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
                 }
 			
                 /*
-                 * Add input into user database, then display all game statistics
-                 * 
-                DefaultTableModel newTable = new DefaultTableModel(new Object[]{"Date", "GP", "AB", "H", "RBI",
-                		"1B", "2B", "3B", "Runs", "SB", "HR", "SO"}, 0);
-                		
-                //add above info into user's database before display here
-                
-                ArrayList<UserPlayer> players = UserPlayer.getPlayersFromDatabase(txtDate, txtGP, txtAB, txtH, txtRBI,
-                		txtb_1, txtb_2, txtb_3, txtRuns, txtSB, txtHR, txtSO);
-                
-                for(UserPlayer m: players) {
-                    Object[] row = {m.getDate(), m.getGamesPlayed(), m.getAB(), m.getH(), m.getRBI(),
-                    		m.get1B(), m.get2B(), m.get3B(), m.getRuns(), m.getSB(), m.getHR(), m.getSO()};
-                    newTable.addRow(row); 
-                }
-                
-                table.setModel(newTable);
-                */
-                
-                /*
 				debug("Your entry:");
 				debug("Date: "+date+" Games Played: "+gp+" AB: "+ab+" H: "+h+" RBI: "+rbi+" 1B: "+b1);
 				debug(" 2B: "+b2+" 3B: "+b3+" Runs: "+runs+" SB: "+sb+" HR: "+hr+" SO: "+so);
                  */
+                
+                /*
+                 * Add input into user database, then display all game statistics
+                 */ 
+                DefaultTableModel newTable = new DefaultTableModel(new Object[]{"Date", "GP", "AB", "H", "RBI",
+                		"1B", "2B", "3B", "Runs", "SB", "HR", "SO"}, 0);
+                		
+                //add above info into user's database before displaying
+                
+                //get username/id
+                User currentUser = User.getCurrentUser();
+                System.out.println(currentUser.getUserName());
+                
+                //add stats to user's db
+                //display for user
+                                
+                
                 
 			} catch (Exception ex) {
 				ex.printStackTrace();
