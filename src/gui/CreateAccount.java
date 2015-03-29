@@ -21,6 +21,7 @@ public class CreateAccount extends JPanel {
 	private JTextField textAge;
 	protected JButton btnCreateNewAccount;
 	private static final boolean debugOn = true;
+	MainGUI main = null;
 	//JFrame mainFrame = new JFrame("SERSports");	
 	//JPanel panelContainer = new JPanel();
     //ApplicationGUI panelApplication = new ApplicationGUI();
@@ -37,7 +38,7 @@ public class CreateAccount extends JPanel {
             System.out.println("debug: " + message);
         }
     }
-	public CreateAccount() {	
+	public CreateAccount(MainGUI main) {	
 		setLayout(null);
     	//panelContainer.setLayout(c1);
     	//panelContainer.add(Login, "1");
@@ -45,6 +46,7 @@ public class CreateAccount extends JPanel {
     	//panelContainer.add(createAccountGUI, "3");
     	//c1.show(panelContainer, "1");
     	
+		this.main = main;
 		textUsername = new JTextField();
 		textUsername.setBounds(135, 65, 134, 28);
 		add(textUsername);
@@ -90,6 +92,8 @@ public class CreateAccount extends JPanel {
 		add(textAge);
 		textAge.setColumns(10);
 		
+		//
+		
 		JButton btnCreateNewAccount = new JButton("Create Account");
 		btnCreateNewAccount.setBounds(151, 327, 140, 28);
 		add(btnCreateNewAccount);
@@ -105,12 +109,7 @@ public class CreateAccount extends JPanel {
     			if (user != null) {
     				// The GUI Queen, Gabby's code here
     				debug("you're information is submitted");
-    				JPanel panelContainer = new JPanel();
-    			    ApplicationGUI panelApplication = new ApplicationGUI();
-    			    CardLayout c1 = new CardLayout();
-    			    panelContainer.setLayout(c1);
-    			    panelContainer.add(panelApplication,"2");
-    				c1.show(panelContainer, "2");
+    				main.ShowMainGUI();
     				debug("new application window should pop up");
     				
     			} else {
