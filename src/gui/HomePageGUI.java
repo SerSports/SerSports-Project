@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Color;
+import database.*;
 
 
 /**
@@ -22,7 +23,7 @@ Class: HomePageGUI
 Description: GUI for the home page
 */
 public class HomePageGUI extends JPanel {
-
+	private User currentUser = null;
 	/**
 	  Method: Constructor
 	  Inputs: None
@@ -55,5 +56,14 @@ public class HomePageGUI extends JPanel {
 		JLabel lblInsertPlayersName = new JLabel("Insert Players name");
 		lblInsertPlayersName.setBounds(669, 217, 122, 16);
 		add(lblInsertPlayersName);		
+		
+		JLabel lblWelcome = new JLabel("Welcome,");
+		lblWelcome.setBounds(153, 59, 66, 16);
+		add(lblWelcome);
+		
+		currentUser = User.getCurrentUser();
+		JLabel userFirstName = new JLabel(currentUser.);
+		userFirstName.setBounds(217, 59, 89, 16);
+		add(userFirstName);
 	}
 }
