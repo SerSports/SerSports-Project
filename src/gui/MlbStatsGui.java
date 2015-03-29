@@ -37,7 +37,7 @@ public class MlbStatsGui extends JPanel {
 	protected JTextField txtTeam;
 	protected JButton btnSeePlayerStats;
 	protected JButton btnCompareToPlayer;
-	protected JButton SubmitPlayerSearchButton;
+	protected JButton submitPlayerSearchButton;
 	private JTable battingTable;
 	private JLabel mlbBatting;
 	private JLabel mlbPitching;
@@ -62,11 +62,11 @@ public class MlbStatsGui extends JPanel {
 		logo.setBounds(20, 20, 100, 100);
 		add(logo);
 		
-		SubmitPlayerSearchButton = new JButton("Submit");
-		SubmitPlayerSearchButton.setBounds(50, 284, 117, 29);
-		add(SubmitPlayerSearchButton);
-		SubmitPlayerSearchButton.setActionCommand("SubmitPlayerSearchButton");
-		SubmitPlayerSearchButton.setBackground(new Color(255,237,203));
+		submitPlayerSearchButton = new JButton("Submit");
+		submitPlayerSearchButton.setBounds(50, 284, 117, 29);
+		add(submitPlayerSearchButton);
+		submitPlayerSearchButton.setActionCommand("SubmitPlayerSearchButton");
+		submitPlayerSearchButton.setBackground(new Color(255,237,203));
 	    //getContentPane().add(SubmitPlatayerSearchButton);
 		
 		txtFirstName = new JTextField();
