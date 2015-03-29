@@ -23,7 +23,8 @@ Class: HomePageGUI
 Description: GUI for the home page
 */
 public class HomePageGUI extends JPanel {
-	private User currentUser = null;
+	User currentUser = null;
+	
 	/**
 	  Method: Constructor
 	  Inputs: None
@@ -32,6 +33,9 @@ public class HomePageGUI extends JPanel {
 	  Description: Creates the panel
 	*/
 	public HomePageGUI() {
+		
+		User currentUser = User.getCurrentUser();
+		//String name = currentUser.getUserName();
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
@@ -61,9 +65,12 @@ public class HomePageGUI extends JPanel {
 		lblWelcome.setBounds(153, 59, 66, 16);
 		add(lblWelcome);
 		
-		currentUser = User.getCurrentUser();
-		JLabel userFirstName = new JLabel("User Name");
+		//String userName = currentUser.getUserName();	
+		//System.out.println(userName);
+		JLabel userFirstName = new JLabel("name");
 		userFirstName.setBounds(217, 59, 89, 16);
 		add(userFirstName);
 	}
+	
+	
 }

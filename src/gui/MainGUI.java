@@ -75,6 +75,8 @@ public class MainGUI{
     			User user = User.authenticateUser(txtUserName.getText(), new String(pwdPassword.getPassword()));
     			if (user != null) {
     				c1.show(panelContainer, "2");
+    				//HomePageGUI.addLabel();
+    				
     			} else {
     		        JOptionPane.showMessageDialog(null, "Invalid Username / Password!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
     			}
