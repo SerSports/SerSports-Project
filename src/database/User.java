@@ -10,6 +10,8 @@ Description: User Object, handles user authentication
 */
 public class User {
 	
+	private static User currentUser = null;
+	
 	// Constants
 	private static final String TABLE_NAME = "users";  
 	private static final String FIELD_ID = "userId"; 
@@ -26,6 +28,10 @@ public class User {
 	// Getters / Setters
 	public int getLocalPlayerId() {
 		return localPlayerId;
+	}
+	
+	public static User getCurrentUser() {
+		return currentUser;
 	}
 	
 	/**
@@ -61,12 +67,14 @@ public class User {
 			try {
 				if (rs.next()){
 					result = new User(rs);
+					currentUser = result;
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch blocks
 				e.printStackTrace();
 			}
 		}
+		
 		
 		return result;
 	}
@@ -88,6 +96,7 @@ public class User {
 			try {
 				if (rs.next()){
 					result = new User(rs);
+					currentUser = result;
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch blocks
