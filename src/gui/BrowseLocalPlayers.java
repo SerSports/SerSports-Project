@@ -49,21 +49,21 @@ public class BrowseLocalPlayers extends JPanel {
 		JLabel logo = new JLabel("New label");
 		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(589, 6, 100, 100);
+		logo.setBounds(20, 20, 100, 100);
 		add(logo);
 		
 		JButton SubmitLocalSearch = new JButton("Submit");
-		SubmitLocalSearch.setBounds(589, 248, 117, 29);
+		SubmitLocalSearch.setBounds(38, 255, 117, 29);
 		add(SubmitLocalSearch);
 		
 		txtLastEnterNameteamPosition = new JTextField();
 		txtLastEnterNameteamPosition.setText("First Name");
-		txtLastEnterNameteamPosition.setBounds(479, 118, 320, 28);
+		txtLastEnterNameteamPosition.setBounds(30, 134, 176, 29);
 		add(txtLastEnterNameteamPosition);
 		txtLastEnterNameteamPosition.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(400, 289, 480, 181);
+		scrollPane.setBounds(38, 294, 480, 181);
 		add(scrollPane);
 		
 		JButton btnSeePlayerStats = new JButton("See Player Stats");
@@ -76,13 +76,13 @@ public class BrowseLocalPlayers extends JPanel {
 		txtLocalLastName = new JTextField();
 		txtLocalLastName.setText("Last Name");
 		txtLocalLastName.setColumns(10);
-		txtLocalLastName.setBounds(479, 158, 320, 28);
+		txtLocalLastName.setBounds(30, 174, 176, 29);
 		add(txtLocalLastName);
 		
 		txtLocalTeam = new JTextField();
 		txtLocalTeam.setText("Team");
 		txtLocalTeam.setColumns(10);
-		txtLocalTeam.setBounds(479, 198, 320, 28);
+		txtLocalTeam.setBounds(30, 214, 176, 29);
 		add(txtLocalTeam);
 	}
 }
