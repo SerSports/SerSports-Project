@@ -146,16 +146,17 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
                 /*
                  * Add input into user database, then display all game statistics
                  */ 
-                DefaultTableModel newTable = new DefaultTableModel(new Object[]{"Date", "GP", "AB", "H", "RBI",
-                		"1B", "2B", "3B", "Runs", "SB", "HR", "SO"}, 0);
-                		
-                //add above info into user's database before displaying
-                
                 //get username/id
                 User currentUser = User.getCurrentUser();
-                System.out.println(currentUser.getUserName());
+                //add batting statistics to database
+                String currentLocalPlayerId = Integer.toString(currentUser.getLocalPlayerId());
+                String [] battingStatistics = {currentLocalPlayerId, date, gp, ab, h, rbi,
+                		b1, b2, b3, runs, sb, hr, so}; 
                 
-                //add stats to user's db
+                
+                //add batting statistics to user's db
+                //LocalPlayerStatistics.setLocalUserBattingStatistics(battingStatistics);
+                
                 //display for user
                                 
                 

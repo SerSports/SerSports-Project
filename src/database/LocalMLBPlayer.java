@@ -61,8 +61,6 @@ public class LocalMLBPlayer {
 	private String team_name; // Team name
 	private String position;
 	private String game_date;
-	private int hitting_ab; // Batting AB
-	private int hitting_rbi; // Batting RBI
 	private float pitching_era; // Pitching ERA
 	private int pitching_onbase_h; // Batting H
 	private int pitching_onbase_s; // Batting 1B single
@@ -80,6 +78,8 @@ public class LocalMLBPlayer {
 	private int pitching_games_loss; // Pitching: L
 	private int pitching_games_save; // Pitching: Saves
 	private int pitching_games_hold; // Pitching:Hold
+	private int hitting_ab; // Batting AB
+	private int hitting_rbi; // Batting RBI
 	private int hitting_onbase_h; // Hitting H
 	private int hitting_onbase_s; // Hitting 1B single
 	private int hitting_onbase_d; // Hitting 2B double
@@ -102,6 +102,16 @@ public class LocalMLBPlayer {
 	private int fielding_games_win; // Fielding: W
 	private int fielding_games_loss; // Fielding: L
 
+
+	/**
+	 * Method: Constructor Inputs: Returns:
+	 * 
+	 * Description:
+	 */
+	public LocalMLBPlayer() {
+		currentUser = User.getCurrentUser();
+	}
+	
 	// Getters / Setters
 	public String getTeam() {
 		return team_name;
@@ -110,7 +120,63 @@ public class LocalMLBPlayer {
 	public void setTeam(String team) {
 		this.team_name = team;
 	}
+	
+	public void setHitting_onbase_h(String h){
+		this.hitting_onbase_h = Integer.parseInt(h);
+	}
 
+	public void setHitting_onbase_s(String s){
+		this.hitting_onbase_s = Integer.parseInt(s);
+	}
+	
+	public void setHitting_onbase_d(String d){
+		this.hitting_onbase_d = Integer.parseInt(d);
+	}
+	
+	public void setHitting_onbase_t(String t){
+		this.hitting_onbase_t = Integer.parseInt(t);
+	}
+	
+	public void setHitting_onbase_hr(String hr){
+		this.hitting_onbase_hr = Integer.parseInt(hr);
+	}
+	
+	public void setHitting_outs_ktotal(String so){
+		this.hitting_outs_ktotal = Integer.parseInt(so);
+	}
+	
+	public void setHitting_steal_stolen(String sb){
+		this.hitting_steal_stolen = Integer.parseInt(sb);
+	}
+	
+	public void setHitting_games_play(String gp){
+		this.hitting_games_play = Integer.parseInt(gp);
+	}
+	
+	public void setHitting_games_win(String w){
+		this.hitting_games_win = Integer.parseInt(w);
+	}
+	
+	public void setHitting_games_loss(String l){
+		this.hitting_games_loss = Integer.parseInt(l);
+	}
+	
+	public void setHitting_ab(String ab){
+		this.hitting_ab = Integer.parseInt(ab);
+	}
+	
+	public void setHitting_rbi(String rbi){
+		this.hitting_rbi = Integer.parseInt(rbi);
+	}
+	
+	public void setId(String id){
+		this.id = Integer.parseInt(id);
+	}
+	
+	public void setHitting_runs_total(String r){
+		this.hitting_runs_total = Integer.parseInt(r);
+	}
+	
 	public String getTeam_name() {
 		return team_name;
 	}
@@ -274,6 +340,10 @@ public class LocalMLBPlayer {
 	public int getFielding_games_loss() {
 		return fielding_games_loss;
 	}
+	
+	public int getId(){
+		return id;
+	}
 
 	public int getLocal_player_statistics() {
 		return local_player_statistics;
@@ -297,15 +367,6 @@ public class LocalMLBPlayer {
 
 	public void setGame_date(String game_date) {
 		this.game_date = game_date;
-	}
-
-	/**
-	 * Method: Constructor Inputs: ResultSet rs Returns:
-	 * 
-	 * Description:
-	 */
-	public LocalMLBPlayer() {
-		currentUser = User.getCurrentUser();
 	}
 
 	// Methods
