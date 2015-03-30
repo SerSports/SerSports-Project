@@ -30,8 +30,10 @@ Class: BrowseLocalPlayers
 Description: GUI for displaying/searching Local Players database
 */
 public class BrowseLocalPlayers extends JPanel {
-	private JTextField txtEnterNameteamPosition;
+	private JTextField txtLastEnterNameteamPosition;
 	private JTable table;
+	private JTextField txtLocalLastName;
+	private JTextField txtLocalTeam;
 
 	/**
 	  Method: Constructor
@@ -51,17 +53,17 @@ public class BrowseLocalPlayers extends JPanel {
 		add(logo);
 		
 		JButton SubmitLocalSearch = new JButton("Submit");
-		SubmitLocalSearch.setBounds(581, 181, 117, 29);
+		SubmitLocalSearch.setBounds(589, 248, 117, 29);
 		add(SubmitLocalSearch);
 		
-		txtEnterNameteamPosition = new JTextField();
-		txtEnterNameteamPosition.setText("Enter name,team or position");
-		txtEnterNameteamPosition.setBounds(479, 118, 320, 28);
-		add(txtEnterNameteamPosition);
-		txtEnterNameteamPosition.setColumns(10);
+		txtLastEnterNameteamPosition = new JTextField();
+		txtLastEnterNameteamPosition.setText("First Name");
+		txtLastEnterNameteamPosition.setBounds(479, 118, 320, 28);
+		add(txtLastEnterNameteamPosition);
+		txtLastEnterNameteamPosition.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(399, 222, 480, 181);
+		scrollPane.setBounds(400, 289, 480, 181);
 		add(scrollPane);
 		
 		JButton btnSeePlayerStats = new JButton("See Player Stats");
@@ -70,5 +72,17 @@ public class BrowseLocalPlayers extends JPanel {
 	
 		table = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name", "Team", "Position" }));
 		scrollPane.setViewportView(table);
+		
+		txtLocalLastName = new JTextField();
+		txtLocalLastName.setText("Last Name");
+		txtLocalLastName.setColumns(10);
+		txtLocalLastName.setBounds(479, 158, 320, 28);
+		add(txtLocalLastName);
+		
+		txtLocalTeam = new JTextField();
+		txtLocalTeam.setText("Team");
+		txtLocalTeam.setColumns(10);
+		txtLocalTeam.setBounds(479, 198, 320, 28);
+		add(txtLocalTeam);
 	}
 }
