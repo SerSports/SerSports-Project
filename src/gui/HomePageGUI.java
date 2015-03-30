@@ -35,6 +35,7 @@ public class HomePageGUI extends JPanel {
 	public HomePageGUI() {
 		
 		User currentUser = User.getCurrentUser();
+		System.out.println(currentUser.getUserName());
 		//String name = currentUser.getUserName();
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
@@ -67,7 +68,8 @@ public class HomePageGUI extends JPanel {
 		
 		//String userName = currentUser.getUserName();	
 		//System.out.println(userName);
-		JLabel userFirstName = new JLabel("name");
+		//System.out.println(currentUser.getUserName());
+		JLabel userFirstName = new JLabel(currentUser.getUserName());
 		userFirstName.setBounds(217, 59, 89, 16);
 		add(userFirstName);
 	}

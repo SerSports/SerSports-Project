@@ -24,29 +24,26 @@ Class: MainGUI
 Description: GUI for main navigation of site
 */
 public class MainGUI{
+	protected ApplicationGUI panelApplication = null;
 	private static final boolean debugOn = true;
-	
 	protected JTextField txtUserName;
-	JFrame mainFrame = new JFrame("SERSports");	
+	private final JPasswordField pwdPassword = new JPasswordField();
 	
+	
+	JFrame mainFrame = new JFrame("SERSports");	
     JPanel panelContainer = new JPanel();
-    ApplicationGUI panelApplication = new ApplicationGUI();
+    
+    
+    //ApplicationGUI panelApplication = new ApplicationGUI();
     JPanel login = new JPanel();
     CreateAccount createAccountGUI = new CreateAccount(this);
-    CardLayout c1 = new CardLayout();
-    private final JPasswordField pwdPassword = new JPasswordField();
-   
+    CardLayout c1 = new CardLayout(); 
+    
     public void ShowMainGUI(){
     	c1.show(panelContainer, "2");
     }    
-    
-    private void debug(String message) {
-        if (debugOn){
-            System.out.println("debug: " + message);
-        }
-    }
        
-    public MainGUI(){
+    public MainGUI(){    	
 		txtUserName = new JTextField();
 		txtUserName.setText("User Name");
 		login.add(txtUserName);
@@ -62,6 +59,7 @@ public class MainGUI{
 		login.add(btnCreateAccount);
 
 		//create and index the Panels
+		ApplicationGUI panelApplication = new ApplicationGUI();
     	panelContainer.setLayout(c1);
     	panelContainer.add(login, "1");
     	panelContainer.add(panelApplication,"2");
@@ -118,5 +116,9 @@ public class MainGUI{
 			}
 		});     
     }
-
+    private void debug(String message) {
+        if (debugOn){
+            System.out.println("debug: " + message);
+        }
+    }
 }
