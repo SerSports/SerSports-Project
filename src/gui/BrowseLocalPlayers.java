@@ -34,6 +34,11 @@ public class BrowseLocalPlayers extends JPanel {
 	private JTable table;
 	private JTextField txtLocalLastName;
 	private JTextField txtLocalTeam;
+	private JTable battingTable;
+	private JLabel mlbBatting;
+	private JLabel mlbPitching;
+	private JTable fieldingTable;
+	private JTable pitchingTable;
 
 	/**
 	  Method: Constructor
@@ -67,7 +72,7 @@ public class BrowseLocalPlayers extends JPanel {
 		add(scrollPane);
 		
 		JButton btnSeePlayerStats = new JButton("See Player Stats");
-		btnSeePlayerStats.setBounds(422, 517, 200, 50);
+		btnSeePlayerStats.setBounds(205, 498, 200, 50);
 		add(btnSeePlayerStats);
 	
 		table = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name", "Team", "Position" }));
@@ -84,5 +89,39 @@ public class BrowseLocalPlayers extends JPanel {
 		txtLocalTeam.setColumns(10);
 		txtLocalTeam.setBounds(30, 214, 176, 29);
 		add(txtLocalTeam);
+		
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(621, 173, 480, 85);
+		add(scrollPane_1);
+		
+		battingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
+		scrollPane_1.setViewportView(battingTable);
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(621, 453, 480, 85);
+		add(scrollPane_2);
+
+		fieldingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}));
+		scrollPane_2.setViewportView(fieldingTable);
+		
+		JScrollPane scrollPane_3 = new JScrollPane();
+		scrollPane_3.setBounds(621, 317, 480, 85);
+		add(scrollPane_3);
+		
+		pitchingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
+		scrollPane_3.setViewportView(pitchingTable);
+		
+		JLabel lblBatting = new JLabel("Batting");
+		lblBatting.setBounds(621, 140, 61, 16);
+		add(lblBatting);
+		
+		JLabel lblPitching = new JLabel("Pitching");
+		lblPitching.setBounds(621, 295, 61, 16);
+		add(lblPitching);
+		
+		JLabel lblFielding = new JLabel("Fielding");
+		lblFielding.setBounds(621, 431, 61, 16);
+		add(lblFielding);
 	}
 }
