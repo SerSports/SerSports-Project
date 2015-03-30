@@ -57,7 +57,7 @@ public class MainGUI{
 		login.add(btnCreateAccount);
 
 		//create and index the Panels
-		ApplicationGUI panelApplication = new ApplicationGUI();
+		panelApplication = new ApplicationGUI();
     	panelContainer.setLayout(c1);
     	panelContainer.add(login, "1");
     	panelContainer.add(panelApplication,"2");
@@ -69,6 +69,7 @@ public class MainGUI{
     			// Authenticate User
     			User user = User.authenticateUser(txtUserName.getText(), new String(pwdPassword.getPassword()));
     			if (user != null) {
+    				loadUserInfoIntoControls();
     				c1.show(panelContainer, "2");
     			} else {
     		        JOptionPane.showMessageDialog(null, "Invalid Username / Password!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
@@ -114,5 +115,9 @@ public class MainGUI{
         if (debugOn){
             System.out.println("debug: " + message);
         }
+    }
+    
+    public void loadUserInfoIntoControls() {
+    	panelApplication.loadUserInfoIntoControls();
     }
 }

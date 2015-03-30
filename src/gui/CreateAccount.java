@@ -32,9 +32,9 @@ public class CreateAccount extends JPanel {
             System.out.println("debug: " + message);
         }
     }
-	public CreateAccount(MainGUI main) {	
+	public CreateAccount(MainGUI mainGuiObj) {	
 		setLayout(null);
-		this.main = main;
+		this.main = mainGuiObj;
 		textUsername = new JTextField();
 		textUsername.setBounds(135, 65, 134, 28);
 		add(textUsername);
@@ -94,6 +94,7 @@ public class CreateAccount extends JPanel {
     									 Integer.valueOf(textAge.getText()));
     			if (user != null) {
     				debug("you're information is submitted");
+    				main.loadUserInfoIntoControls();
     				main.ShowMainGUI();
     				debug("new application window should pop up");
     				
