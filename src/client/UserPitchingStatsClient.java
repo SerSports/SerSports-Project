@@ -118,7 +118,8 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
                     hbp = null;
             	}
 				
-				
+			} catch (RuntimeException ex){
+				throw ex;	
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}

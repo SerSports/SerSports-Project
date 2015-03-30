@@ -160,7 +160,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
                 //display for user
                                 
                 
-                
+			} catch (RuntimeException ex){
+				throw ex;
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}

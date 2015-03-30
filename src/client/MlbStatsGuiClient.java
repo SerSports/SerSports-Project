@@ -83,9 +83,9 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
         if (e.getActionCommand().equals("submitPlayerSearchButton")) {
             try {
                 debug("you clicked Submit Search");
-                String fName = txtFirstName.getText().toString();
-                String lName = txtLastName.getText().toString();
-                String team = txtTeam.getText().toString();
+                String fName = txtFirstName.getText();
+                String lName = txtLastName.getText();
+                String team = txtTeam.getText();
                 
                 // Check for empty or invalid String
                 if (fName.length() == 0 || fName.equals("First Name")) {
@@ -110,13 +110,16 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
                 table.setModel(newTable);
                 table.removeColumn(table.getColumnModel().getColumn(0));
                 
+            } catch (RuntimeException ex){
+				throw ex;    
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
         } else if (e.getActionCommand().equals("SeePlayerStats")) {
             try {
-				MainGUI frame = new MainGUI();
-				
+				//MainGUI frame = new MainGUI();
+				new MainGUI();
+            	
 				ApplicationGUI firstPanel = new ApplicationGUI();
 		        firstPanel.setOpaque(true);
 
