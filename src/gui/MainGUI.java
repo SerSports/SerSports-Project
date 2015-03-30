@@ -24,17 +24,15 @@ Class: MainGUI
 Description: GUI for main navigation of site
 */
 public class MainGUI{
+	JFrame mainFrame = new JFrame("SERSports");	
 	protected ApplicationGUI panelApplication = null;
 	private static final boolean debugOn = true;
 	protected JTextField txtUserName;
 	private final JPasswordField pwdPassword = new JPasswordField();
-	
-	
-	JFrame mainFrame = new JFrame("SERSports");	
+	protected JButton btnSubmit;
+	protected JButton btnCreateAccount;
+
     JPanel panelContainer = new JPanel();
-    
-    
-    //ApplicationGUI panelApplication = new ApplicationGUI();
     JPanel login = new JPanel();
     CreateAccount createAccountGUI = new CreateAccount(this);
     CardLayout c1 = new CardLayout(); 
@@ -65,21 +63,19 @@ public class MainGUI{
     	panelContainer.add(panelApplication,"2");
     	panelContainer.add(createAccountGUI, "3");
     	c1.show(panelContainer, "1");
-
-    
+ 
     	btnSubmit.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
     			// Authenticate User
     			User user = User.authenticateUser(txtUserName.getText(), new String(pwdPassword.getPassword()));
     			if (user != null) {
     				c1.show(panelContainer, "2");
-    				//HomePageGUI.addLabel();
-    				
     			} else {
     		        JOptionPane.showMessageDialog(null, "Invalid Username / Password!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
     			}
     		}
     	});
+    	
     	
     	btnCreateAccount.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
@@ -88,16 +84,12 @@ public class MainGUI{
     		}
     	});
     	
-    	
-    	
     	mainFrame.getContentPane().add(panelContainer);
     	mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     	mainFrame.pack();
     	mainFrame.setVisible(true);
     	mainFrame.setExtendedState(mainFrame.MAXIMIZED_BOTH);
-    }
-
-    
+    }    
     /**
 	  Method: main
 	  Inputs: String[] args
@@ -105,6 +97,7 @@ public class MainGUI{
 
 	  Description: 
 	*/
+    
     public static void main(String[] args) { 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -116,6 +109,7 @@ public class MainGUI{
 			}
 		});     
     }
+    
     private void debug(String message) {
         if (debugOn){
             System.out.println("debug: " + message);
