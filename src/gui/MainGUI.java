@@ -24,6 +24,7 @@ Class: MainGUI
 Description: GUI for main navigation of site
 */
 public class MainGUI{
+
 	JFrame mainFrame = new JFrame("SERSports");	
 	protected ApplicationGUI panelApplication = null;
 	private static final boolean debugOn = true;

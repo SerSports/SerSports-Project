@@ -22,12 +22,12 @@ public class ApplicationGUI extends JTabbedPane{
 	
 		
 	public ApplicationGUI() {
-		JTabbedPane jtp = new JTabbedPane();
-
-		jtp.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
-		jtp.setTabPlacement(JTabbedPane.TOP);
-		add(jtp);
-		//jtp.setBounds(2, 2, 1200, 650);
+		//JTabbedPane jtp = new JTabbedPane();
+		
+		//jtp.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+		this.setTabPlacement(JTabbedPane.TOP);
+		//add(this);
+		//this.setBounds(2, 2, 1200, 650);
 		JTabbedPane MultipleStats = new JTabbedPane();
 		MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		
@@ -35,10 +35,10 @@ public class ApplicationGUI extends JTabbedPane{
 		
 		//Home Page
 		jp1 = new HomePageGUI();
-		jtp.addTab("Home", jp1);
+		this.addTab("Home", jp1);
 		
 		//UserStats
-		jtp.add("User Stats", MultipleStats);
+		this.add("User Stats", MultipleStats);
 		UserBattingStats batting = new UserBattingStatsClient();
 		UserFieldingStats fielding = new UserFieldingStatsClient();
 		UserPitchingStats pitching = new UserPitchingStatsClient();
@@ -48,19 +48,19 @@ public class ApplicationGUI extends JTabbedPane{
 
 		//Browse Local Players
 		BrowseLocalPlayers jp3 = new BrowseLocalPlayersClient();
-		jtp.addTab("Browse Local Players", jp3);
+		this.addTab("Browse Local Players", jp3);
 		
 		//MlbStats Browse
 		MlbStatsGui jp4 = new MlbStatsGuiClient();
-		jtp.addTab("Choose MLB Players", jp4);
+		this.addTab("Choose MLB Players", jp4);
 		
 		//Help
 		Help jp5 = new Help();
-		jtp.addTab("Help", jp5);
+		this.addTab("Help", jp5);
 		
 		//Contact Us
 		ContactUs jp6 = new ContactUs();
-		jtp.addTab("Contact Us", jp6);
+		this.addTab("Contact Us", jp6);
 
 	}
 
