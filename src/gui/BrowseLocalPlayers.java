@@ -38,13 +38,13 @@ public class BrowseLocalPlayers extends JPanel {
 	protected JButton SubmitLocalSearch;
 	protected JButton btnSeePlayerStats;
 	protected JTable table;
+	protected JTable fieldingTable;
+	protected JTable pitchingTable;
+	protected JTable battingTable;
 	
 	// Private Members
-	private JTable battingTable;
 	private JLabel mlbBatting;
 	private JLabel mlbPitching;
-	private JTable fieldingTable;
-	private JTable pitchingTable;
 
 	/**
 	  Method: Constructor
@@ -101,7 +101,7 @@ public class BrowseLocalPlayers extends JPanel {
 		scrollPane_1.setBounds(621, 173, 480, 85);
 		add(scrollPane_1);
 		
-		battingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
+		battingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","Runs","SB","HR","SO"}));
 		scrollPane_1.setViewportView(battingTable);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
