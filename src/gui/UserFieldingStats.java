@@ -35,7 +35,7 @@ public class UserFieldingStats extends JPanel {
 	protected JTextField txtSB;
 	protected JTextField txtCS;
 
-	private JTable table;
+	protected JTable table;
 	protected JTextField txtPo;
 	protected JTextField txtWins;
 	protected JTextField txtLoss;

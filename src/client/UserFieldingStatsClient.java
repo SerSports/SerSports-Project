@@ -14,11 +14,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import database.LocalPlayerFieldingStatistics;
+import database.*;
+import gui.*;
 
 /**
 Class: UserFieldingStatsClient
@@ -123,10 +125,47 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
                 
                 //Add input into user database, then display all game statistics
                 LocalPlayerFieldingStatistics.addLocalPlayerFieldingStatistics(date, gp, wins, loss, po, error, assist, fpct);
-				
+			
+                //reload statistics into table
+                loadUserInfoIntoControls();
+                
+            } catch (RuntimeException ex){
+				throw ex;
             } catch (Exception ex){
                 ex.printStackTrace();
             }
         }
+	}
+	
+	public void populateLocalPlayersFieldingTable() {
+		
+		// Set up the table
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "ID", "Date", "GP", "Wins",
+				"Losses", "PO", "Err", "Assist", "F%"}, 0);
+
+		if(User.getCurrentUser() != null){
+			User currentLoggedInUser = User.getCurrentUser();
+			Integer id_in = currentLoggedInUser.getLocalPlayerId();
+			
+			// Get a list of Local Players
+			ArrayList<LocalPlayerFieldingStatistics> currentPlayerFieldingStatistics = 
+					LocalPlayerFieldingStatistics.getStatisticsFromDatabase(id_in); 
+			
+			// Add the Local Players to the List
+			for (LocalPlayerFieldingStatistics m : currentPlayerFieldingStatistics) {
+				Object[] row = { m.getLocalPlayerId(), m.getGame_date(), m.getFielding_games_play(),
+						m.getFielding_games_win(), m.getFielding_games_loss(), m.getFielding_po(),
+						m.getFielding_error(), m.getFielding_fpct()};
+				newTable.addRow(row);
+			}
+
+			table.setModel(newTable);
+			table.removeColumn(table.getColumnModel().getColumn(0));
+		}		
+	}
+
+	public void loadUserInfoIntoControls(){
+		// Reload the Local Players Fielding Statistics Table
+		populateLocalPlayersFieldingTable();
 	}
 }

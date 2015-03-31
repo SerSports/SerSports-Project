@@ -29,7 +29,7 @@ Class: UserPitchingStats
 Description: Creates a panel for the User Batting Stats
 */
 public class UserPitchingStats extends JPanel {
-	private JTable table;
+	protected JTable table;
 	protected JTextField txtDate;
 	protected JTextField txtGP;
 	protected JTextField txtW;

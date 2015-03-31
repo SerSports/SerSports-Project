@@ -66,6 +66,8 @@ public class ApplicationGUI extends JTabbedPane{
 	public void loadUserInfoIntoControls() {
 		jp1.loadUserInfoIntoControls();
 		batting.loadUserInfoIntoControls();
+		fielding.loadUserInfoIntoControls();
+		pitching.loadUserInfoIntoControls();
 	}
 
 }

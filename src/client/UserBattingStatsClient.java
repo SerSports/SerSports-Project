@@ -144,8 +144,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
                 //Add input into user database, then display all game statistics
                 LocalPlayerBattingStatistics.addLocalPlayerBattingStatistics(date, gp, ab, h, rbi, b1, b2, b3, runs, sb, hr, so);
                 
-                //display for user
-                //loadUserInfoIntoCotrol();
+                //reload statistics into table
+                loadUserInfoIntoControls();
                 
 			} catch (RuntimeException ex){
 				throw ex;
@@ -166,7 +166,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			Integer id_in = currentLoggedInUser.getLocalPlayerId();
 			
 			// Get a list of Local Players
-			//ArrayList<LocalPlayer> players = LocalPlayer.getLocalPlayersStatisticsFromDatabase(currentLoggedInUser.getLocalPlayerId());
 			ArrayList<LocalPlayerBattingStatistics> currentPlayerBattingStatistics = LocalPlayerBattingStatistics.getStatisticsFromDatabase(id_in); 
 			
 			// Add the Local Players to the List
