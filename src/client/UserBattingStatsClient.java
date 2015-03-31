@@ -161,8 +161,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "ID", "Date", "Games Played",
 				"AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO"}, 0);
 
-		if(LocalPlayer.getCurrentLoggedInUser() != null){
-			LocalPlayer currentLoggedInUser = LocalPlayer.getCurrentLoggedInUser();
+		if(User.getCurrentUser() != null){
+			User currentLoggedInUser = User.getCurrentUser();
 			Integer id_in = currentLoggedInUser.getLocalPlayerId();
 			
 			// Get a list of Local Players
@@ -181,5 +181,10 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			table.setModel(newTable);
 			table.removeColumn(table.getColumnModel().getColumn(0));
 		}		
+	}
+	
+	public void loadUserInfoIntoControls(){
+		// Reload the Local Players Batting Statistics Table
+		populateLocalPlayersBattingTable();
 	}
 }

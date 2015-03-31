@@ -20,7 +20,9 @@ import javax.swing.border.LineBorder;
 
 public class ApplicationGUI extends JTabbedPane{
 	HomePageGUI jp1;
-	UserBattingStats batting;
+	UserBattingStatsClient batting;
+	UserFieldingStatsClient fielding;
+	UserPitchingStatsClient pitching;
 	User currentUser;
 	
 	public ApplicationGUI() {
@@ -36,9 +38,9 @@ public class ApplicationGUI extends JTabbedPane{
 		
 		//UserStats
 		this.add("User Stats", MultipleStats);
-		UserBattingStats batting = new UserBattingStatsClient();
-		UserFieldingStats fielding = new UserFieldingStatsClient();
-		UserPitchingStats pitching = new UserPitchingStatsClient();
+		batting = new UserBattingStatsClient();
+		fielding = new UserFieldingStatsClient();
+		pitching = new UserPitchingStatsClient();
 		MultipleStats.add("Batting", batting);
 		MultipleStats.add("Fielding", fielding);
 		MultipleStats.add("Pitching", pitching);
@@ -63,11 +65,7 @@ public class ApplicationGUI extends JTabbedPane{
 
 	public void loadUserInfoIntoControls() {
 		jp1.loadUserInfoIntoControls();
-		currentUser = User.getCurrentUser();
-		if(currentUser != null){
-			System.out.println("username in ApplicationGUI: "+currentUser.getUserName());
-			//batting.localUserInfoIntoControl(); <--does not like this line
-		}
+		batting.loadUserInfoIntoControls();
 	}
 
 }

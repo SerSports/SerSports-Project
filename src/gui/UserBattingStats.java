@@ -32,8 +32,6 @@ Class: UserBattingStats
 Description: GUI for User Batting stats
 */
 public class UserBattingStats extends JPanel {	
-	private User currentUser = null;
-	private UserBattingStatsClient batting;
 	
 	protected JTable table;
 	protected JTextField txtGP;
@@ -159,13 +157,5 @@ public class UserBattingStats extends JPanel {
 		textDate.setColumns(10);
 		textDate.setBounds(140, 118, 92, 28);
 		add(textDate);
-	}
-	
-	public void localUserInfoIntoControl(){
-		currentUser = User.getCurrentUser();
-		if(currentUser != null){
-			System.out.println("username in UserBattingStats"+currentUser.getUserName());
-			//batting.populateLocalPlayersBattingTable();
-		}
 	}
 }

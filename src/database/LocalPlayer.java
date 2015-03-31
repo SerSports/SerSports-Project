@@ -5,8 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class LocalPlayer {
-
-	private static LocalPlayer currentLocalPlayer = null;
 	
 	// Constants
 	private static final String TABLE_NAME = "localPlayers";  
@@ -24,9 +22,6 @@ public class LocalPlayer {
 	private String teamName;
 	
 	// Getters / Setters
-	public static LocalPlayer getCurrentLoggedInUser() {
-		return currentLocalPlayer;
-	}
 	
 	public int getLocalPlayerId() {
 		return localPlayerId;
@@ -97,7 +92,6 @@ public class LocalPlayer {
 			try {
 				if (rs.next()){
 					result = new LocalPlayer(rs);
-					currentLocalPlayer = result;
 					//System.out.println("currentLocalPlayer: "+currentLocalPlayer.getLocalPlayerId());
 				}
 			} catch (SQLException e) {
