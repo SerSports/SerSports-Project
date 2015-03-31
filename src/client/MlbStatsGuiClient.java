@@ -150,4 +150,51 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
             }
         }
     }
+private void populateMlbPlayersTable() {
+		
+		// Set up the table
+		DefaultTableModel newTable = new DefaultTableModel(new Object[]{"ID", "First Name", "Last Name", "Team"/* "Position" */}, 0);
+		
+		// Get the search values
+		String firstName = txtFirstName.getText();
+		String lastName = txtLastName.getText();
+		String team = txtTeam.getText();
+
+		// Check for empty or invalid String
+        if (firstName.length() == 0 || firstName.equals("First Name")) {
+        	firstName = null;
+    	}
+        if (lastName.length() == 0 || lastName.equals("Last Name")) {
+        	lastName = null;
+    	}
+        if (team.length() == 0 || team.equals("Team")) {
+            team = null;
+        }
+     
+        // Get a list of Mlb Players
+        ArrayList<MlbPlayer> players = MlbPlayer.getPlayersFromDatabase("", firstName, lastName, team);
+        
+        // Add the Mlb Players to the List
+        for(MlbPlayer m: players) {
+            Object[] row = {m.getId() ,m.getFirstName(), m.getLastName(), m.getTeam()};
+            newTable.addRow(row);
+        }
+        table.setModel(newTable);
+        table.removeColumn(table.getColumnModel().getColumn(0));
+	}
+	
+	private void loadSelectedPlayer() {
+		
+		// Get the value from the table - Key is in first hidden row
+		int selectedRow = table.getSelectedRow();
+		if (selectedRow >= 0) {
+			int mlbPlayerId = (Integer) table.getModel().getValueAt(selectedRow, 0);	
+	
+			// Get the Selected Player
+			ArrayList<MlbPlayer> playerList = MlbPlayer.getPlayersFromDatabase(Integer.toString(mlbPlayerId), "", "", "");
+			if (playerList != null) {
+				MlbPlayer selectedPlayer = playerList.get(0);
+			}
+		}
+	}
 }
