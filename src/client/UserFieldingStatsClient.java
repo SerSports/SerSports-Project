@@ -18,7 +18,7 @@ import java.awt.event.ItemListener;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import database.LocalPlayerStatistics;
+import database.LocalPlayerFieldingStatistics;
 
 /**
 Class: UserFieldingStatsClient
@@ -122,7 +122,7 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
                  */
                 
                 //Add input into user database, then display all game statistics
-                LocalPlayerStatistics.setLocalPlayerFieldingStatistics(date, gp, wins, loss, po, error, assist, fpct);
+                LocalPlayerFieldingStatistics.addLocalPlayerFieldingStatistics(date, gp, wins, loss, po, error, assist, fpct);
 				
             } catch (Exception ex){
                 ex.printStackTrace();

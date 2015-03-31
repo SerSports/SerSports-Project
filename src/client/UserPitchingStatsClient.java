@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import database.LocalPlayerStatistics;
+import database.LocalPlayerPitchingStatistics;
 import database.User;
 
 /**
@@ -128,7 +128,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
                  */
                 
                 //Add input into user database, then display all game statistics
-                LocalPlayerStatistics.setLocalPlayerPitchingStatistics(date, gp, w, l, era, saves, hits, holds, runs, hbp);
+                LocalPlayerPitchingStatistics.addLocalPlayerPitchingStatistics(date, gp, w, l, era, saves, hits, holds, runs, hbp);
                 
                 
 			} catch (RuntimeException ex){

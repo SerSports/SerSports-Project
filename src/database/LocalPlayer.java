@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class LocalPlayer {
 
+	private static LocalPlayer currentLocalPlayer = null;
+	
 	// Constants
 	private static final String TABLE_NAME = "localPlayers";  
 	private static final String FIELD_ID = "localPlayerId"; 
@@ -22,6 +24,10 @@ public class LocalPlayer {
 	private String teamName;
 	
 	// Getters / Setters
+	public static LocalPlayer getCurrentLoggedInUser() {
+		return currentLocalPlayer;
+	}
+	
 	public int getLocalPlayerId() {
 		return localPlayerId;
 	}
@@ -91,6 +97,8 @@ public class LocalPlayer {
 			try {
 				if (rs.next()){
 					result = new LocalPlayer(rs);
+					currentLocalPlayer = result;
+					//System.out.println("currentLocalPlayer: "+currentLocalPlayer.getLocalPlayerId());
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch blocks
@@ -169,6 +177,32 @@ public class LocalPlayer {
 		// Get the Result Set containing every Player
 		String sql = "SELECT * FROM " + TABLE_NAME + genereateWhereClause(id_in, fName_in, lName_in, 0, team_in) + 
 								" ORDER BY " + FIELD_TEAM_NAME + ", " + FIELD_FIRST_NAME + ", " + FIELD_LAST_NAME;
+		ResultSet rs = Database.getResultSetFromSQL(sql);
+		
+		if (rs != null) {
+			// Loop through the Result Set and Add Each MlbPlayer to the ArrayList
+			try {
+				while(rs.next()){
+					LocalPlayer player = new LocalPlayer(rs);
+					resultList.add(player);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// Clean up
+		Database.close();
+			
+		return resultList;
+	}
+
+	public static ArrayList<LocalPlayer> getLocalPlayersStatisticsFromDatabase(int id_in) {
+		ArrayList<LocalPlayer> resultList = new ArrayList<LocalPlayer>();
+		
+		// Get the Result Set containing every Player
+		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + FIELD_ID + " = \"" + id_in + "\"" +
+								" ORDER BY " + FIELD_ID;
 		ResultSet rs = Database.getResultSetFromSQL(sql);
 		
 		if (rs != null) {

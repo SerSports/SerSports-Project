@@ -145,7 +145,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
                 
                 
                 //Add input into user database, then display all game statistics
-                LocalPlayerStatistics.setLocalPlayerBattingStatistics(date, gp, ab, h, rbi, b1, b2, b3, runs, sb, hr, so);
+                LocalPlayerBattingStatistics.addLocalPlayerBattingStatistics(date, gp, ab, h, rbi, b1, b2, b3, runs, sb, hr, so);
                 
                 //display for user
                                 
