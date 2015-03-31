@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+import database.User;
+
 /**
 Class: UserPitchingStatsClient
 
@@ -75,16 +77,16 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
 		if (e.getActionCommand().equals("SubmitPitchingStats")) {
 			try {
 				debug("you clicked Submit in User Stats/Pitching page");
-				String date = txtDate.getText().toString();
-				String gp = txtGP.getText().toString();
-				String w = txtW.getText().toString();
-				String l = txtL.getText().toString();
-				String era = txtERA.getText().toString();
-				String saves = txtSaves.getText().toString();
-				String hits = txtHits.getText().toString();
-				String holds = txtHolds.getText().toString();
-				String runs = txtRuns.getText().toString();
-				String hbp = txtHBP.getText().toString();
+				String date = txtDate.getText();
+				String gp = txtGP.getText();
+				String w = txtW.getText();
+				String l = txtL.getText();
+				String era = txtERA.getText();
+				String saves = txtSaves.getText();
+				String hits = txtHits.getText();
+				String holds = txtHolds.getText();
+				String runs = txtRuns.getText();
+				String hbp = txtHBP.getText();
 				
 				// Check for empty or invalid String
                 if (date.length() == 0 || date.equals("Date")) {
@@ -118,6 +120,12 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
                     hbp = null;
             	}
 				
+                User currentUser = User.getCurrentUser();
+                //add pitching statistics to database
+                String currentLocalPlayerId = Integer.toString(currentUser.getLocalPlayerId());
+                String [] pitchingStatistics = {currentLocalPlayerId, date, gp, w, l, era,
+                		saves, hits, holds, runs, hbp};
+                
 			} catch (RuntimeException ex){
 				throw ex;	
 			} catch (Exception ex) {

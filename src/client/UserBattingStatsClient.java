@@ -86,18 +86,18 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			try {
 				debug("you clicked Submit in User Stats/Batting page");
 				
-				String date = textDate.getText().toString();
-				String gp = txtGP.getText().toString();
-				String ab = txtAB.getText().toString();
-				String h = txtH.getText().toString();
-				String rbi = txtRBI.getText().toString();
-				String b1 = txtb_1.getText().toString();
-				String b2 = txtb_2.getText().toString();
-				String b3 = txtb_3.getText().toString();
-				String runs = txtRuns.getText().toString();
-				String sb = txtSB.getText().toString();
-				String hr = txtHR.getText().toString();
-				String so = txtSO.getText().toString();
+				String date = textDate.getText();
+				String gp = txtGP.getText();
+				String ab = txtAB.getText();
+				String h = txtH.getText();
+				String rbi = txtRBI.getText();
+				String b1 = txtb_1.getText();
+				String b2 = txtb_2.getText();
+				String b3 = txtb_3.getText();
+				String runs = txtRuns.getText();
+				String sb = txtSB.getText();
+				String hr = txtHR.getText();
+				String so = txtSO.getText();
 				
 				// Check for empty or invalid String
                 if (date.length() == 0 || date.equals("Date")) {
