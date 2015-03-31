@@ -46,150 +46,77 @@ public class LocalPlayerBattingStatistics {
 	private int hitting_steal_stolen; 
 	private int hitting_games_play; 
 	private int hitting_games_loss; 
-	
+
 	public int getLocalPlayersHittingStatisticsID() {
 		return localPlayersHittingStatisticsID;
-	}
-
-	public void setLocalPlayersHittingStatisticsID(
-			int localPlayersHittingStatisticsID) {
-		this.localPlayersHittingStatisticsID = localPlayersHittingStatisticsID;
 	}
 
 	public int getLocalPlayerId() {
 		return localPlayerId;
 	}
 
-	public void setLocalPlayerId(int localPlayerId) {
-		this.localPlayerId = localPlayerId;
-	}
-
 	public String getTeam_name() {
 		return team_name;
-	}
-
-	public void setTeam_name(String team_name) {
-		this.team_name = team_name;
 	}
 
 	public String getPosition() {
 		return position;
 	}
 
-	public void setPosition(String position) {
-		this.position = position;
-	}
-
 	public String getGame_date() {
 		return game_date;
-	}
-
-	public void setGame_date(String game_date) {
-		this.game_date = game_date;
 	}
 
 	public int getHitting_ab() {
 		return hitting_ab;
 	}
 
-	public void setHitting_ab(int hitting_ab) {
-		this.hitting_ab = hitting_ab;
-	}
-
 	public int getHitting_rbi() {
 		return hitting_rbi;
-	}
-
-	public void setHitting_rbi(int hitting_rbi) {
-		this.hitting_rbi = hitting_rbi;
 	}
 
 	public int getHitting_onbase_h() {
 		return hitting_onbase_h;
 	}
 
-	public void setHitting_onbase_h(int hitting_onbase_h) {
-		this.hitting_onbase_h = hitting_onbase_h;
-	}
-
 	public int getHitting_onbase_s() {
 		return hitting_onbase_s;
-	}
-
-	public void setHitting_onbase_s(int hitting_onbase_s) {
-		this.hitting_onbase_s = hitting_onbase_s;
 	}
 
 	public int getHitting_onbase_d() {
 		return hitting_onbase_d;
 	}
 
-	public void setHitting_onbase_d(int hitting_onbase_d) {
-		this.hitting_onbase_d = hitting_onbase_d;
-	}
-
 	public int getHitting_onbase_t() {
 		return hitting_onbase_t;
-	}
-
-	public void setHitting_onbase_t(int hitting_onbase_t) {
-		this.hitting_onbase_t = hitting_onbase_t;
 	}
 
 	public int getHitting_onbase_hr() {
 		return hitting_onbase_hr;
 	}
 
-	public void setHitting_onbase_hr(int hitting_onbase_hr) {
-		this.hitting_onbase_hr = hitting_onbase_hr;
-	}
-
 	public int getHitting_onbase_earned() {
 		return hitting_onbase_earned;
-	}
-
-	public void setHitting_onbase_earned(int hitting_onbase_earned) {
-		this.hitting_onbase_earned = hitting_onbase_earned;
 	}
 
 	public int getHitting_runs_total() {
 		return hitting_runs_total;
 	}
 
-	public void setHitting_runs_total(int hitting_runs_total) {
-		this.hitting_runs_total = hitting_runs_total;
-	}
-
 	public int getHitting_outs_ktotal() {
 		return hitting_outs_ktotal;
-	}
-
-	public void setHitting_outs_ktotal(int hitting_outs_ktotal) {
-		this.hitting_outs_ktotal = hitting_outs_ktotal;
 	}
 
 	public int getHitting_steal_stolen() {
 		return hitting_steal_stolen;
 	}
 
-	public void setHitting_steal_stolen(int hitting_steal_stolen) {
-		this.hitting_steal_stolen = hitting_steal_stolen;
-	}
-
 	public int getHitting_games_play() {
 		return hitting_games_play;
 	}
 
-	public void setHitting_games_play(int hitting_games_play) {
-		this.hitting_games_play = hitting_games_play;
-	}
-
 	public int getHitting_games_loss() {
 		return hitting_games_loss;
-	}
-
-	public void setHitting_games_loss(int hitting_games_loss) {
-		this.hitting_games_loss = hitting_games_loss;
 	}
 
 	/**

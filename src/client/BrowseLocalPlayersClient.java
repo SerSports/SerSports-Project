@@ -9,6 +9,8 @@ import javax.swing.table.DefaultTableModel;
 
 import database.LocalPlayer;
 import database.LocalPlayerBattingStatistics;
+import database.LocalPlayerFieldingStatistics;
+import database.LocalPlayerPitchingStatistics;
 import gui.BrowseLocalPlayers;
 
 public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
@@ -107,7 +109,7 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
 	private void loadBattingGameData(LocalPlayer player) {
 		
 		// Set up the table
-		DefaultTableModel newTable = new DefaultTableModel(new Object[]{"GP","AB","H","RBI","Runs","SB","HR","SO"}, 0);
+		DefaultTableModel newTable = new DefaultTableModel(new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}, 0);
 		
         // Get a list of Local Players
         ArrayList<LocalPlayerBattingStatistics> players = LocalPlayerBattingStatistics.getStatisticsFromDatabase(player.getLocalPlayerId());
@@ -115,6 +117,7 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
         // Add the Local Players to the List
         for(LocalPlayerBattingStatistics m: players) {
             Object[] row = {m.getHitting_games_play(), m.getHitting_ab(), m.getHitting_onbase_h(), m.getHitting_rbi(), 
+            				m.getHitting_onbase_s(), m.getHitting_onbase_d(), m.getHitting_onbase_t(),
             				m.getHitting_runs_total(), m.getHitting_steal_stolen(), m.getHitting_onbase_hr(), m.getHitting_outs_ktotal()};
             newTable.addRow(row);
         }
@@ -124,9 +127,38 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
 	
 	private void loadFieldingGameData(LocalPlayer player) {
 		
+		// Set up the table
+		DefaultTableModel newTable = new DefaultTableModel(new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}, 0);
+		
+        // Get a list of Local Players
+        ArrayList<LocalPlayerFieldingStatistics> players = LocalPlayerFieldingStatistics.getStatisticsFromDatabase(player.getLocalPlayerId());
+        
+        // Add the Local Players to the List
+        for(LocalPlayerFieldingStatistics m: players) {
+            Object[] row = {m.getFielding_games_play(), m.getFielding_games_win(), m.getFielding_games_loss(),
+            				m.getFielding_po(), m.getFielding_error(), m.getFielding_a(), m.getFielding_fpct()};
+            newTable.addRow(row);
+        }
+        fieldingTable.setModel(newTable);
+        fieldingTable.removeColumn(table.getColumnModel().getColumn(0));
 	}
 	
 	private void loadPitchingGameData(LocalPlayer player) {
 		
+		// Set up the table
+		DefaultTableModel newTable = new DefaultTableModel(new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}, 0);
+		
+        // Get a list of Local Players
+        ArrayList<LocalPlayerPitchingStatistics> players = LocalPlayerPitchingStatistics.getStatisticsFromDatabase(player.getLocalPlayerId());
+        
+        // Add the Local Players to the List
+        for(LocalPlayerPitchingStatistics m: players) {
+            Object[] row = {m.getPitching_games_play(), m.getPitching_games_win(), m.getPitching_games_loss(), m.getPitching_era(), 
+            				m.getPitching_games_save(), m.getPitching_onbase_h(), m.getPitching_games_hold(), m.getPitching_runs_total(),
+            				0};
+            newTable.addRow(row);
+        }
+        pitchingTable.setModel(newTable);
+        pitchingTable.removeColumn(table.getColumnModel().getColumn(0));
 	}
 }
