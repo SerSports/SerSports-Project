@@ -158,7 +158,7 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
         for(LocalPlayerPitchingStatistics m: players) {
             Object[] row = {m.getPitching_games_play(), m.getPitching_games_win(), m.getPitching_games_loss(), m.getPitching_era(), 
             				m.getPitching_games_save(), m.getPitching_games_hit(), m.getPitching_games_hold(), m.getPitching_runs_total(),
-            				0};
+            				m.getPitching_hbp()};
             newTable.addRow(row);
         }
         pitchingTable.setModel(newTable);

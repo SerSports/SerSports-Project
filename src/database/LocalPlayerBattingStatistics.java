@@ -27,7 +27,7 @@ public class LocalPlayerBattingStatistics {
 	private static final String FIELD_HITTING_OUTS_KTOTAL = "hitting_outs_ktotal";
 	private static final String FIELD_HITTING_STEAL_STOLEN = "hitting_steal_stolen";
 	private static final String FIELD_HITTING_GAMES_PLAY = "hitting_games_play";
-	private static final String FIELD_HITTING_GAMES_LOSS = "hitting_games_loss";
+	//private static final String FIELD_HITTING_GAMES_LOSS = "hitting_games_loss";
 
 	// Members
 	private int localPlayersHittingStatisticsID;
@@ -47,7 +47,7 @@ public class LocalPlayerBattingStatistics {
 	private int hitting_outs_ktotal;
 	private int hitting_steal_stolen;
 	private int hitting_games_play;
-	private int hitting_games_loss;
+	//private int hitting_games_loss;
 
 	public int getLocalPlayersHittingStatisticsID() {
 		return localPlayersHittingStatisticsID;
@@ -116,11 +116,11 @@ public class LocalPlayerBattingStatistics {
 	public int getHitting_games_play() {
 		return hitting_games_play;
 	}
-
+/*
 	public int getHitting_games_loss() {
 		return hitting_games_loss;
 	}
-
+*/
 	/**
 	 * Method: Constructor Inputs: ResultSet rs Returns:
 	 * 
@@ -146,15 +146,14 @@ public class LocalPlayerBattingStatistics {
 			this.hitting_outs_ktotal = rs.getInt(FIELD_HITTING_OUTS_KTOTAL);
 			this.hitting_steal_stolen = rs.getInt(FIELD_HITTING_STEAL_STOLEN);
 			this.hitting_games_play = rs.getInt(FIELD_HITTING_GAMES_PLAY);
-			this.hitting_games_loss = rs.getInt(FIELD_HITTING_GAMES_LOSS);
+			//this.hitting_games_loss = rs.getInt(FIELD_HITTING_GAMES_LOSS);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	public static ArrayList<LocalPlayerBattingStatistics> getStatisticsFromDatabase(
-			int localPlayerId) {
+	public static ArrayList<LocalPlayerBattingStatistics> getStatisticsFromDatabase(int localPlayerId) {
 		ArrayList<LocalPlayerBattingStatistics> resultList = new ArrayList<LocalPlayerBattingStatistics>();
 
 		// Get the Result Set containing every Player
@@ -168,8 +167,7 @@ public class LocalPlayerBattingStatistics {
 			// ArrayList
 			try {
 				while (rs.next()) {
-					LocalPlayerBattingStatistics player = new LocalPlayerBattingStatistics(
-							rs);
+					LocalPlayerBattingStatistics player = new LocalPlayerBattingStatistics(rs);
 					resultList.add(player);
 				}
 			} catch (SQLException e) {

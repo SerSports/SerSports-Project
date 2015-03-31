@@ -8,47 +8,23 @@ public class LocalPlayerPitchingStatistics {
 
 	// pitching constants
 	private static final String TABLE_NAME = "localPlayersPitchingStatistics";
-	private static final String FIELD_ID = "localPlayerHittingStatisticsID";
+	private static final String FIELD_ID = "localPlayersPitchingStatisticsID";
 	private static final String FIELD_LOCAL_PLAYER_ID = "localPlayerId";
 	private static final String FIELD_TEAM_NAME = "team_name";
 	private static final String FIELD_POSITION = "position";
 	private static final String FIELD_GAME_DATE = "game_date";
-	private static final String FIELD_PITCHING_GAMES_PLAY = "pitching_games_play"; // games
-																					// played
-																					// (gp)
-	private static final String FIELD_PITCHING_GAMES_WIN = "pitching_games_win"; // win
-																					// (w)
-	private static final String FIELD_PITCHING_GAMES_LOSS = "pitching_games_loss"; // loss
-																					// (l)
-	private static final String FIELD_PITCHING_ERA = "pitching_era"; // Earned
-																		// run
-																		// average
-																		// overall/per
-																		// season
-																		// (era)
-	private static final String FIELD_PITCHING_GAMES_SAVE = "pitching_games_save"; // as
-																					// in
-																					// saves
-																					// the
-																					// game
-																					// (save)
-	private static final String FIELD_PITCHING_GAMES_HIT = "pitching_games_hit"; // hits
-																					// allowed
-																					// (hit)
-	private static final String FIELD_PITCHING_GAMES_HOLD = "pitching_games_hold"; // holds
-																					// (hold)
-	private static final String FIELD_PITCHING_RUNS_TOTAL = "pitching_runs_total"; // runs
-																					// allowed
-																					// in
-																					// one
-																					// game
-																					// (runs)
-	private static final String FIELD_PITCHING_HBP = "pitching_hbp"; // hits by
-																		// pitch
-																		// (hbp)
+	private static final String FIELD_PITCHING_GAMES_PLAY = "pitching_games_play"; 	// games played (gp)
+	private static final String FIELD_PITCHING_GAMES_WIN = "pitching_games_win"; 	// win (w)
+	private static final String FIELD_PITCHING_GAMES_LOSS = "pitching_games_loss"; 	// loss (l)
+	private static final String FIELD_PITCHING_ERA = "pitching_era"; // Earned run average overall/per season (era)
+	private static final String FIELD_PITCHING_GAMES_SAVE = "pitching_games_save"; // as in saves the game (save)
+	private static final String FIELD_PITCHING_GAMES_HIT = "pitching_games_hit"; // hits allowed (hit)
+	private static final String FIELD_PITCHING_GAMES_HOLD = "pitching_games_hold"; // holds (hold)
+	private static final String FIELD_PITCHING_RUNS_TOTAL = "pitching_runs_total"; // runs allowed in one game (runs)
+	private static final String FIELD_PITCHING_HBP = "pitching_hbp"; // hits by pitch (hbp)
 
 	// Members
-	private int localPlayersHittingStatisticsID;
+	private int localPlayersPitchingStatisticsID;
 	private int localPlayerId;
 	private String team_name;
 	private String position;
@@ -63,8 +39,8 @@ public class LocalPlayerPitchingStatistics {
 	private int pitching_runs_total; // Pitching R
 	private int pitching_hbp; // Pitching hbp: hits by pitch
 
-	public int getLocalPlayersHittingStatisticsID() {
-		return localPlayersHittingStatisticsID;
+	public int getLocalPlayersPitchingStatisticsID() {
+		return localPlayersPitchingStatisticsID;
 	}
 
 	public int getLocalPlayerId() {
@@ -127,7 +103,7 @@ public class LocalPlayerPitchingStatistics {
 	private LocalPlayerPitchingStatistics(ResultSet rs) {
 		try {
 			// Load the rs's information
-			this.localPlayersHittingStatisticsID = rs.getInt(FIELD_ID);
+			this.localPlayersPitchingStatisticsID = rs.getInt(FIELD_ID);
 			this.localPlayerId = rs.getInt(FIELD_LOCAL_PLAYER_ID);
 			this.team_name = rs.getString(FIELD_TEAM_NAME);
 			this.position = rs.getString(FIELD_POSITION);
@@ -147,8 +123,7 @@ public class LocalPlayerPitchingStatistics {
 		}
 	}
 
-	public static ArrayList<LocalPlayerPitchingStatistics> getStatisticsFromDatabase(
-			int localPlayerId) {
+	public static ArrayList<LocalPlayerPitchingStatistics> getStatisticsFromDatabase(int localPlayerId) {
 		ArrayList<LocalPlayerPitchingStatistics> resultList = new ArrayList<LocalPlayerPitchingStatistics>();
 
 		// Get the Result Set containing every Player
@@ -162,8 +137,7 @@ public class LocalPlayerPitchingStatistics {
 			// ArrayList
 			try {
 				while (rs.next()) {
-					LocalPlayerPitchingStatistics player = new LocalPlayerPitchingStatistics(
-							rs);
+					LocalPlayerPitchingStatistics player = new LocalPlayerPitchingStatistics(rs);
 					resultList.add(player);
 				}
 			} catch (SQLException e) {
