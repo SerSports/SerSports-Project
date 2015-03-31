@@ -17,7 +17,8 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
 		ActionListener {
 
 	/**
-	 * Method: MlbStatsGuiClient Inputs: none Returns:
+	 * Method: BrowseLocalPlayersClient
+	 *  Inputs: none Returns:
 	 * 
 	 * Description:
 	 */
@@ -32,7 +33,9 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
 	}
 
 	/**
-	 * Method: MlbStatsGuiClient Inputs: none Returns:
+	 * Method: actionPerformed 
+	 * Inputs: ActionEven e
+	 *  Returns: NA
 	 * 
 	 * Description:
 	 */
