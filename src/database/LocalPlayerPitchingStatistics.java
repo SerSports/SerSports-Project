@@ -159,15 +159,42 @@ public class LocalPlayerPitchingStatistics {
 		int igp, iw, il, iera, isaves, ihits, iholds, iruns, ihbp;
 		try {
 			// parse strings into integers where appropriate
-			igp = Integer.parseInt(gp);
-			iw = Integer.parseInt(w);
-			il = Integer.parseInt(l);
-			iera = Integer.parseInt(era);
-			isaves = Integer.parseInt(saves);
-			ihits = Integer.parseInt(hits);
-			iholds = Integer.parseInt(holds);
-			iruns = Integer.parseInt(runs);
-			ihbp = Integer.parseInt(hbp);
+			if (notNumeric(gp) != true)
+				igp = Integer.parseInt(gp);
+			else
+				igp = 0;
+			if (notNumeric(w) != true)
+				iw = Integer.parseInt(w);
+			else
+				iw = 0;
+			if (notNumeric(l) != true)
+				il = Integer.parseInt(l);
+			else
+				il = 0;
+			if (notNumeric(era) != true)
+				iera = Integer.parseInt(era);
+			else
+				iera = 0;
+			if (notNumeric(saves) != true)
+				isaves = Integer.parseInt(saves);
+			else
+				isaves = 0;
+			if (notNumeric(hits) != true)
+				ihits = Integer.parseInt(hits);
+			else
+				ihits = 0;
+			if (notNumeric(holds) != true)
+				iholds = Integer.parseInt(holds);
+			else
+				iholds = 0;
+			if (notNumeric(runs) != true)
+				iruns = Integer.parseInt(runs);
+			else
+				iruns = 0;
+			if (notNumeric(hbp) != true)
+				ihbp = Integer.parseInt(hbp);
+			else
+				ihbp = 0;
 
 			/*
 			 * NOTE: local variables which may need columns added in LocalPlayer
@@ -197,5 +224,17 @@ public class LocalPlayerPitchingStatistics {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+	
+	private static boolean notNumeric(String value){
+		
+		try{
+			int number = Integer.parseInt(value);
+			
+		} catch(NumberFormatException ex){
+			return true;
+		}
+		
+		return false;
 	}
 }

@@ -147,13 +147,34 @@ public class LocalPlayerFieldingStatistics {
 		int igp, iw, il, ipo, ierror, iassist, ifpct;
 		try {
 			// parse strings into integers where appropriate
-			igp = Integer.parseInt(gp);
-			iw = Integer.parseInt(w);
-			il = Integer.parseInt(l);
-			ipo = Integer.parseInt(po);
-			ierror = Integer.parseInt(error);
-			iassist = Integer.parseInt(assist);
-			ifpct = Integer.parseInt(fpct);
+			if (notNumeric(gp) != true)
+				igp = Integer.parseInt(gp);
+			else
+				igp = 0;
+			if (notNumeric(w) != true)
+				iw = Integer.parseInt(w);
+			else
+				iw = 0;
+			if (notNumeric(l) != true)
+				il = Integer.parseInt(l);
+			else
+				il = 0;
+			if (notNumeric(po) != true)
+				ipo = Integer.parseInt(po);
+			else
+				ipo = 0;
+			if (notNumeric(error) != true)
+				ierror = Integer.parseInt(error);
+			else
+				ierror = 0;
+			if (notNumeric(assist) != true)
+				iassist = Integer.parseInt(assist);
+			else
+				iassist = 0;
+			if (notNumeric(fpct) != true)
+				ifpct = Integer.parseInt(fpct);
+			else
+				ifpct = 0;
 
 			/*
 			 * NOTE: local variables which may need columns added in LocalPlayer
@@ -180,5 +201,17 @@ public class LocalPlayerFieldingStatistics {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+
+	private static boolean notNumeric(String value){
+		
+		try{
+			int number = Integer.parseInt(value);
+			
+		} catch(NumberFormatException ex){
+			return true;
+		}
+		
+		return false;
 	}
 }

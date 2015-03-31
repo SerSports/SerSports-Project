@@ -14,13 +14,15 @@ import javax.swing.border.EmptyBorder;
 
 //import client.MlbStatsGuiClient;
 import client.*;
-
+import database.*;
 import javax.swing.border.LineBorder;
+
 
 public class ApplicationGUI extends JTabbedPane{
 	HomePageGUI jp1;
+	UserBattingStats batting;
+	User currentUser;
 	
-		
 	public ApplicationGUI() {
 		this.setTabPlacement(JTabbedPane.TOP);
 		JTabbedPane MultipleStats = new JTabbedPane();
@@ -61,6 +63,11 @@ public class ApplicationGUI extends JTabbedPane{
 
 	public void loadUserInfoIntoControls() {
 		jp1.loadUserInfoIntoControls();
+		currentUser = User.getCurrentUser();
+		if(currentUser != null){
+			System.out.println("username in ApplicationGUI: "+currentUser.getUserName());
+			//batting.localUserInfoIntoControl(); <--does not like this line
+		}
 	}
 
 }

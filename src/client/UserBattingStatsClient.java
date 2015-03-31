@@ -8,9 +8,8 @@ Description: ActionListeners and ItemListeners for the User Batting Stats GUI (U
 */
 package client;
 
-import gui.MlbStatsGui;
-import database.LocalPlayer;
-import gui.UserBattingStats;
+import gui.*;
+import database.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,16 +20,12 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 
-import database.*;
-
 /**
 Class: UserBattingStatsClient
 
 Description:
 */
 public class UserBattingStatsClient extends UserBattingStats implements ActionListener, ItemListener {
-
-	//private User currentUser = null;
 	
 	private static final boolean debugOn = true;
 	
@@ -44,6 +39,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
     public UserBattingStatsClient() {
         //debug("Test in UserBattingStatsClient method");
     	SubmitBattingStats.addActionListener(this);
+    	
+    	//loadUserInfoIntoControl();
     }
 	
     /**
@@ -148,7 +145,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
                 LocalPlayerBattingStatistics.addLocalPlayerBattingStatistics(date, gp, ab, h, rbi, b1, b2, b3, runs, sb, hr, so);
                 
                 //display for user
-                                
+                //loadUserInfoIntoCotrol();
                 
 			} catch (RuntimeException ex){
 				throw ex;
@@ -156,5 +153,33 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 				ex.printStackTrace();
 			}
 		}
+	}
+	
+	public void populateLocalPlayersBattingTable() {
+		
+		// Set up the table
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "ID", "Date", "Games Played",
+				"AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO"}, 0);
+
+		if(LocalPlayer.getCurrentLoggedInUser() != null){
+			LocalPlayer currentLoggedInUser = LocalPlayer.getCurrentLoggedInUser();
+			Integer id_in = currentLoggedInUser.getLocalPlayerId();
+			
+			// Get a list of Local Players
+			//ArrayList<LocalPlayer> players = LocalPlayer.getLocalPlayersStatisticsFromDatabase(currentLoggedInUser.getLocalPlayerId());
+			ArrayList<LocalPlayerBattingStatistics> currentPlayerBattingStatistics = LocalPlayerBattingStatistics.getStatisticsFromDatabase(id_in); 
+			
+			// Add the Local Players to the List
+			for (LocalPlayerBattingStatistics m : currentPlayerBattingStatistics) {
+				Object[] row = { m.getLocalPlayerId(), m.getGame_date(), m.getHitting_games_play(), m.getHitting_ab(),
+						m.getHitting_onbase_h(), m.getHitting_rbi(), m.getHitting_onbase_s(), m.getHitting_onbase_d(),
+						m.getHitting_onbase_t(), m.getHitting_runs_total(), m.getHitting_steal_stolen(), 
+						m.getHitting_onbase_hr(), m.getHitting_outs_ktotal() };
+				newTable.addRow(row);
+			}
+
+			table.setModel(newTable);
+			table.removeColumn(table.getColumnModel().getColumn(0));
+		}		
 	}
 }

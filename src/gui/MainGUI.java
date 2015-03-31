@@ -44,11 +44,11 @@ public class MainGUI{
        
     public MainGUI(){    	
 		txtUserName = new JTextField();
-		txtUserName.setText("User Name");
+		txtUserName.setText("ser_sports");
 		login.add(txtUserName);
 		txtUserName.setColumns(10);
 		pwdPassword.setColumns(10);
-		pwdPassword.setText("Password");
+		pwdPassword.setText("admin");
 		login.add(pwdPassword);	
 		
 		JButton btnSubmit = new JButton("Submit");

@@ -190,18 +190,50 @@ public class LocalPlayerBattingStatistics {
 		int igp, iab, ih, irbi, ib1, ib2, ib3, iruns, isb, ihr, iso;
 		try {
 			// parse strings into integers where appropriate
-			igp = Integer.parseInt(gp);
-			iab = Integer.parseInt(ab);
-			ih = Integer.parseInt(h);
-			irbi = Integer.parseInt(rbi);
-			ib1 = Integer.parseInt(b1);
-			ib2 = Integer.parseInt(b2);
-			ib3 = Integer.parseInt(b3);
-			iruns = Integer.parseInt(runs);
-			isb = Integer.parseInt(sb);
-			ihr = Integer.parseInt(hr);
-			iso = Integer.parseInt(so);
-
+			if (notNumeric(gp) != true)
+				igp = Integer.parseInt(gp);
+			else
+				igp = 0;
+			if (notNumeric(ab) != true)
+				iab = Integer.parseInt(ab);
+			else
+				iab = 0;
+			if (notNumeric(h) != true)
+				ih = Integer.parseInt(h);
+			else
+				ih = 0;
+			if (notNumeric(rbi) != true)
+				irbi = Integer.parseInt(rbi);
+			else
+				irbi = 0;
+			if (notNumeric(b1) != true)
+				ib1 = Integer.parseInt(b1);
+			else
+				ib1 = 0;
+			if (notNumeric(b2) != true)
+				ib2 = Integer.parseInt(b2);
+			else
+				ib2 = 0;
+			if (notNumeric(b3) != true)
+				ib3 = Integer.parseInt(b3);
+			else
+				ib3 = 0;
+			if (notNumeric(runs) != true)
+				iruns = Integer.parseInt(runs);
+			else
+				iruns = 0;
+			if (notNumeric(sb) != true)
+				isb = Integer.parseInt(sb);
+			else
+				isb = 0;
+			if (notNumeric(hr) != true)
+				ihr = Integer.parseInt(hr);
+			else
+				ihr = 0;
+			if (notNumeric(so) != true)
+				iso = Integer.parseInt(so);
+			else
+				iso = 0;
 			/*
 			 * NOTE: local variables which may need columns added in LocalPlayer
 			 * table
@@ -235,30 +267,16 @@ public class LocalPlayerBattingStatistics {
 			ex.printStackTrace();
 		}
 	}
-
-	private void populateLocalPlayersBattingTable() {
-
-		// Set up the table
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "ID", "Date", "Games Played",
-				"AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO"}, 0);
-
-		LocalPlayer currentLoggedInUser = LocalPlayer.getCurrentLoggedInUser();
-		int id_in = currentLoggedInUser.getLocalPlayerId();
+	
+	private static boolean notNumeric(String value){
 		
-		// Get a list of Local Players
-		//ArrayList<LocalPlayer> players = LocalPlayer.getLocalPlayersStatisticsFromDatabase(currentLoggedInUser.getLocalPlayerId());
-		ArrayList<LocalPlayerBattingStatistics> currentPlayerBattingStatistics = LocalPlayerBattingStatistics.getStatisticsFromDatabase(id_in); 
-		
-		// Add the Local Players to the List
-		for (LocalPlayerBattingStatistics m : currentPlayerBattingStatistics) {
-			Object[] row = { m.getLocalPlayerId(), m.getGame_date(), m.getHitting_games_play(), m.getHitting_ab(),
-					m.getHitting_onbase_h(), m.getHitting_rbi(), m.getHitting_onbase_s(), m.getHitting_onbase_d(),
-					m.getHitting_onbase_t(), m.getHitting_runs_total(), m.getHitting_steal_stolen(), 
-					m.getHitting_onbase_hr(), m.getHitting_outs_ktotal() };
-			newTable.addRow(row);
+		try{
+			int number = Integer.parseInt(value);
+			
+		} catch(NumberFormatException ex){
+			return true;
 		}
-
-		//table.setModel(newTable);
-		//table.removeColumn(table.getColumnModel().getColumn(0));
+		
+		return false;
 	}
 }
