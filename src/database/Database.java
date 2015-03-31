@@ -169,4 +169,28 @@ public class Database {
 	// Default Constructor
 	private Database() {
 	}
+	
+	/**
+	  Method: formatSqlStringValue
+	  Inputs: String value_in
+	  Returns: String result
+
+	  Description: This method is used when putting a value into an SQL String.  
+	  					This method will enclose the value in quotes as well as replace 
+	  					it with Null if the String is null.
+	*/
+	public static String formatSqlStringValueForInsert(String value_in) {
+		StringBuilder builder = new StringBuilder();
+		
+		// Check if the value is null
+		if (value_in == null) {
+			builder.append("Null");
+		} else {
+			builder.append("\"");
+			builder.append(value_in);
+			builder.append("\"");
+		}
+		
+		return builder.toString();
+	}
 }

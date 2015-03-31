@@ -11,6 +11,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+
 //import client.MlbStatsGuiClient;
 import client.*;
 
@@ -46,7 +47,7 @@ public class ApplicationGUI extends JTabbedPane{
 		MultipleStats.add("Pitching", pitching);
 
 		//Browse Local Players
-		BrowseLocalPlayers jp3 = new BrowseLocalPlayers();
+		BrowseLocalPlayers jp3 = new BrowseLocalPlayersClient();
 		jtp.addTab("Browse Local Players", jp3);
 		
 		//MlbStats Browse

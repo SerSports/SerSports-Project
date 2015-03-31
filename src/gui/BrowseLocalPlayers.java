@@ -30,10 +30,16 @@ Class: BrowseLocalPlayers
 Description: GUI for displaying/searching Local Players database
 */
 public class BrowseLocalPlayers extends JPanel {
-	private JTextField txtLastEnterNameteamPosition;
-	private JTable table;
-	private JTextField txtLocalLastName;
-	private JTextField txtLocalTeam;
+	
+	// Protected Members
+	protected JTextField txtFirstName;
+	protected JTextField txtLastName;
+	protected JTextField txtTeam;
+	protected JButton SubmitLocalSearch;
+	protected JButton btnSeePlayerStats;
+	protected JTable table;
+	
+	// Private Members
 	private JTable battingTable;
 	private JLabel mlbBatting;
 	private JLabel mlbPitching;
@@ -57,38 +63,38 @@ public class BrowseLocalPlayers extends JPanel {
 		logo.setBounds(20, 20, 100, 100);
 		add(logo);
 		
-		JButton SubmitLocalSearch = new JButton("Submit");
+		SubmitLocalSearch = new JButton("Submit");
 		SubmitLocalSearch.setBounds(38, 255, 117, 29);
 		add(SubmitLocalSearch);
 		
-		txtLastEnterNameteamPosition = new JTextField();
-		txtLastEnterNameteamPosition.setText("First Name");
-		txtLastEnterNameteamPosition.setBounds(30, 134, 176, 29);
-		add(txtLastEnterNameteamPosition);
-		txtLastEnterNameteamPosition.setColumns(10);
+		txtFirstName = new JTextField();
+		txtFirstName.setText("First Name");
+		txtFirstName.setBounds(30, 134, 176, 29);
+		add(txtFirstName);
+		txtFirstName.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(38, 294, 480, 181);
 		add(scrollPane);
 		
-		JButton btnSeePlayerStats = new JButton("See Player Stats");
+		btnSeePlayerStats = new JButton("See Player Stats");
 		btnSeePlayerStats.setBounds(205, 498, 200, 50);
 		add(btnSeePlayerStats);
 	
 		table = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name", "Team", "Position" }));
 		scrollPane.setViewportView(table);
 		
-		txtLocalLastName = new JTextField();
-		txtLocalLastName.setText("Last Name");
-		txtLocalLastName.setColumns(10);
-		txtLocalLastName.setBounds(30, 174, 176, 29);
-		add(txtLocalLastName);
+		txtLastName = new JTextField();
+		txtLastName.setText("Last Name");
+		txtLastName.setColumns(10);
+		txtLastName.setBounds(30, 174, 176, 29);
+		add(txtLastName);
 		
-		txtLocalTeam = new JTextField();
-		txtLocalTeam.setText("Team");
-		txtLocalTeam.setColumns(10);
-		txtLocalTeam.setBounds(30, 214, 176, 29);
-		add(txtLocalTeam);
+		txtTeam = new JTextField();
+		txtTeam.setText("Team");
+		txtTeam.setColumns(10);
+		txtTeam.setBounds(30, 214, 176, 29);
+		add(txtTeam);
 		
 		
 		JScrollPane scrollPane_1 = new JScrollPane();

@@ -89,7 +89,7 @@ public class User {
 		User result = null;
 		
 		// Create the Local Player First
-		LocalPlayer player = LocalPlayer.newLocalPlayer(firstName, lastName, age);
+		LocalPlayer player = LocalPlayer.newLocalPlayer(firstName, lastName, age, null);
 		
 		// Create the New User
 		Database.executeSQL(buildInsertSql(player.getLocalPlayerId(), userName, password));
@@ -109,6 +109,9 @@ public class User {
 				e.printStackTrace();
 			}
 		}
+		
+		// Clean up
+		Database.close();
 		
 		return result;
 	}
