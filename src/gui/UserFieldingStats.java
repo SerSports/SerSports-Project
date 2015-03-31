@@ -37,6 +37,8 @@ public class UserFieldingStats extends JPanel {
 
 	private JTable table;
 	protected JTextField txtPo;
+	protected JTextField txtWins;
+	protected JTextField txtLoss;
 
 	protected JButton SubmitFieldingStats;
 	
@@ -77,24 +79,24 @@ public class UserFieldingStats extends JPanel {
 		txtGP.setBounds(325, 118, 77, 28);
 		add(txtGP);
 		
-		txtPo = new JTextField();
-		txtPo.setText("Wins");
-		txtPo.setColumns(10);
-		txtPo.setBounds(414, 118, 77, 28);
-		add(txtPo);
+		txtWins = new JTextField();
+		txtWins.setText("Wins");
+		txtWins.setColumns(10);
+		txtWins.setBounds(414, 118, 77, 28);
+		add(txtWins);
 
 		
-		txtINN = new JTextField();
-		txtINN.setText("Losses");
-		txtINN.setColumns(10);
-		txtINN.setBounds(511, 118, 77, 28);
-		add(txtINN);
+		txtLoss = new JTextField();
+		txtLoss.setText("Losses");
+		txtLoss.setColumns(10);
+		txtLoss.setBounds(511, 118, 77, 28);
+		add(txtLoss);
 		
-		txtA = new JTextField();
-		txtA.setText("PO");
-		txtA.setColumns(10);
-		txtA.setBounds(620, 118, 77, 28);
-		add(txtA);
+		txtPo = new JTextField();
+		txtPo.setText("PO");
+		txtPo.setColumns(10);
+		txtPo.setBounds(620, 118, 77, 28);
+		add(txtPo);
 		
 		txtE = new JTextField();
 		txtE.setText("Err");
@@ -102,17 +104,17 @@ public class UserFieldingStats extends JPanel {
 		txtE.setBounds(709, 118, 77, 28);
 		add(txtE);
 		
-		txtFpct = new JTextField();
-		txtFpct.setText("Assist");
-		txtFpct.setColumns(10);
-		txtFpct.setBounds(798, 118, 77, 28);
-		add(txtFpct);
+		txtA = new JTextField();
+		txtA.setText("Assist");
+		txtA.setColumns(10);
+		txtA.setBounds(798, 118, 77, 28);
+		add(txtA);
 		
-		txtSB = new JTextField();
-		txtSB.setText("F%");
-		txtSB.setColumns(10);
-		txtSB.setBounds(887, 118, 77, 28);
-		add(txtSB);
+		txtFpct = new JTextField();
+		txtFpct.setText("F%");
+		txtFpct.setColumns(10);
+		txtFpct.setBounds(887, 118, 77, 28);
+		add(txtFpct);
 		
 		
 		SubmitFieldingStats = new JButton("Submit");

@@ -143,19 +143,9 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 				debug(" 2B: "+b2+" 3B: "+b3+" Runs: "+runs+" SB: "+sb+" HR: "+hr+" SO: "+so);
                  */
                 
-                /*
-                 * Add input into user database, then display all game statistics
-                 */ 
-                //get username/id
-                User currentUser = User.getCurrentUser();
-                //add batting statistics to database
-                String currentLocalPlayerId = Integer.toString(currentUser.getLocalPlayerId());
-                String [] battingStatistics = {currentLocalPlayerId, date, gp, ab, h, rbi,
-                		b1, b2, b3, runs, sb, hr, so}; 
                 
-                
-                //add batting statistics to user's db
-                //LocalPlayerStatistics.setLocalUserBattingStatistics(battingStatistics);
+                //Add input into user database, then display all game statistics
+                LocalPlayerStatistics.setLocalPlayerBattingStatistics(date, gp, ab, h, rbi, b1, b2, b3, runs, sb, hr, so);
                 
                 //display for user
                                 
