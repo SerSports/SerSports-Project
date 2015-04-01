@@ -72,7 +72,6 @@ public class LocalPlayer {
 			this.age = rs.getInt(FIELD_AGE);
 			this.teamName = rs.getString(FIELD_TEAM_NAME);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -85,17 +84,16 @@ public class LocalPlayer {
 		
 		// Find the newly created Local Player
 		String sql = "SELECT * FROM " + TABLE_NAME + genereateWhereClause(0, firstName, lastName, age, teamName) + " ORDER BY " + FIELD_ID + " DESC";
-		ResultSet rs = Database.getResultSetFromSQL(sql);
+		ResultSet resultSet = Database.getResultSetFromSQL(sql);
 		
 		// Create the Local Player Object
-		if (rs != null) {
+		if (resultSet != null) {
 			try {
-				if (rs.next()){
-					result = new LocalPlayer(rs);
+				if (resultSet.next()){
+					result = new LocalPlayer(resultSet);
 					//System.out.println("currentLocalPlayer: "+currentLocalPlayer.getLocalPlayerId());
 				}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch blocks
 				e.printStackTrace();
 			}
 		}
@@ -197,13 +195,13 @@ public class LocalPlayer {
 		// Get the Result Set containing every Player
 		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + FIELD_ID + " = \"" + id_in + "\"" +
 								" ORDER BY " + FIELD_ID;
-		ResultSet rs = Database.getResultSetFromSQL(sql);
+		ResultSet resultSet = Database.getResultSetFromSQL(sql);
 		
-		if (rs != null) {
+		if (resultSet != null) {
 			// Loop through the Result Set and Add Each MlbPlayer to the ArrayList
 			try {
-				while(rs.next()){
-					LocalPlayer player = new LocalPlayer(rs);
+				while(resultSet.next()){
+					LocalPlayer player = new LocalPlayer(resultSet);
 					resultList.add(player);
 				}
 			} catch (SQLException e) {
