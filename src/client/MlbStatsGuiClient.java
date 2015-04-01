@@ -152,27 +152,6 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
         }
     }
 private void loadSelectedPlayer() {
-		
-		// Get the value from the table - Key is in first hidden row
-		int selectedRow = table.getSelectedRow();
-		if (selectedRow >= 0) {
-			int mlbPlayerId = (Integer) table.getModel().getValueAt(selectedRow, 0);	
-	
-			// Get the Selected Player
-			ArrayList<MlbPlayer> playerList = MlbPlayer.getPlayersFromDatabase(Integer.toString(mlbPlayerId), "", "", "");
-			if (playerList != null) {
-				MlbPlayer selectedPlayer = playerList.get(0);
-				mlbfieldingTable = new JTable(new DefaultTableModel(null, new Object[]{selectedPlayer.getFielding_games_play(), 
-						selectedPlayer.getFielding_games_win(), selectedPlayer.getFielding_games_loss(),
-						selectedPlayer.getFielding_po(), selectedPlayer.getFielding_error(), selectedPlayer.getFielding_a(),
-						selectedPlayer.getFielding_fpct()}));
-			}
-		}
-		
-		/**
-		 * mlbfieldingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}));
-		 * mlbpitchingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
-		 * battingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
-		 */
+
 	}
 }
