@@ -6,7 +6,7 @@
 	<property name="build" value="classes" />
 	<property name="src.testing" value="src/Testing" />
 	<property name="build.test" value="classes/testing"/>
-	<property name="test.reports" value="report/"
+	<property name="test.reports" value="report/" />
 	<property name="jars" value="jars"/>
 
 	<path id="compile.classpath">
