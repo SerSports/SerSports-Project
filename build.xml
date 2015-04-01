@@ -51,7 +51,7 @@
 
     <target name="junit" depends="compile">
  
-        <junit printsummary="yes" haltonerror="yes" haltonfailure="no">
+        <junit printsummary="yes" haltonerror="no" haltonfailure="no">
             <formatter type="plain" usefile="false" />
             <formatter type="xml" />
             <batchtest todir="${test.reports}">
