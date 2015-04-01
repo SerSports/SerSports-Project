@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1427636763438" analysisTimestamp="1427636754802" release="">
+  <Project projectName="SerSports-Project">
+    <Jar>/Users/Gabby/Documents/SerSports-Project/bin/gui</Jar>
+    <AuxClasspathEntry>/Users/Gabby/Documents/SerSports-Project/bin</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/eclipse/plugins/org.junit_4.11.0.v201303080030/junit.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/eclipse/plugins/org.hamcrest.core_1.3.0.v201303031735.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/Gabby/Documents/SerSports-Project/lib/mysql-connector-java-5.0.8-bin.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/jre/lib/rt.jar</AuxClasspathEntry>
+    <SrcDir>/Users/Gabby/Documents/SerSports-Project/src</SrcDir>
+    <WrkDir>/Users/Gabby/Documents/workspace/.metadata/.plugins/edu.umd.cs.findbugs.plugin.eclipse</WrkDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.BrowseLocalPlayers">
+      <SourceLine classname="gui.BrowseLocalPlayers" sourcefile="BrowseLocalPlayers.java" sourcepath="gui/BrowseLocalPlayers.java"/>
+    </Class>
+    <Method classname="gui.BrowseLocalPlayers" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.BrowseLocalPlayers" start="43" end="73" startBytecode="0" endBytecode="481" sourcefile="BrowseLocalPlayers.java" sourcepath="gui/BrowseLocalPlayers.java"/>
+    </Method>
+    <SourceLine classname="gui.BrowseLocalPlayers" start="48" end="48" startBytecode="48" endBytecode="48" sourcefile="BrowseLocalPlayers.java" sourcepath="gui/BrowseLocalPlayers.java"/>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.ContactUs">
+      <SourceLine classname="gui.ContactUs" sourcefile="ContactUs.java" sourcepath="gui/ContactUs.java"/>
+    </Class>
+    <Method classname="gui.ContactUs" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.ContactUs" start="35" end="44" startBytecode="0" endBytecode="183" sourcefile="ContactUs.java" sourcepath="gui/ContactUs.java"/>
+    </Method>
+    <SourceLine classname="gui.ContactUs" start="40" end="40" startBytecode="48" endBytecode="48" sourcefile="ContactUs.java" sourcepath="gui/ContactUs.java"/>
+  </BugInstance>
+  <BugInstance type="DM_BOXED_PRIMITIVE_FOR_PARSING" priority="1" rank="16" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="gui.CreateAccount$1">
+      <SourceLine classname="gui.CreateAccount$1" sourcefile="CreateAccount.java" sourcepath="gui/CreateAccount.java"/>
+    </Class>
+    <Method classname="gui.CreateAccount$1" name="actionPerformed" signature="(Ljava/awt/event/ActionEvent;)V" isStatic="false">
+      <SourceLine classname="gui.CreateAccount$1" start="79" end="87" startBytecode="0" endBytecode="173" sourcefile="CreateAccount.java" sourcepath="gui/CreateAccount.java"/>
+    </Method>
+    <Method classname="java.lang.Integer" name="intValue" signature="()I" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.Integer" start="893" end="893" startBytecode="0" endBytecode="28" sourcefile="Integer.java" sourcepath="java/lang/Integer.java"/>
+    </Method>
+    <Method classname="java.lang.Integer" name="parseInt" signature="(Ljava/lang/String;)I" isStatic="true" role="SHOULD_CALL"/>
+    <SourceLine classname="gui.CreateAccount$1" start="81" end="81" startBytecode="53" endBytecode="53" sourcefile="CreateAccount.java" sourcepath="gui/CreateAccount.java"/>
+    <SourceLine classname="gui.CreateAccount$1" start="81" end="81" startBytecode="53" endBytecode="53" sourcefile="CreateAccount.java" sourcepath="gui/CreateAccount.java"/>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.Help">
+      <SourceLine classname="gui.Help" sourcefile="Help.java" sourcepath="gui/Help.java"/>
+    </Class>
+    <Method classname="gui.Help" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.Help" start="35" end="58" startBytecode="0" endBytecode="365" sourcefile="Help.java" sourcepath="gui/Help.java"/>
+    </Method>
+    <SourceLine classname="gui.Help" start="40" end="40" startBytecode="48" endBytecode="48" sourcefile="Help.java" sourcepath="gui/Help.java"/>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.HomePageGUI">
+      <SourceLine classname="gui.HomePageGUI" sourcefile="HomePageGUI.java" sourcepath="gui/HomePageGUI.java"/>
+    </Class>
+    <Method classname="gui.HomePageGUI" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.HomePageGUI" start="33" end="58" startBytecode="0" endBytecode="399" sourcefile="HomePageGUI.java" sourcepath="gui/HomePageGUI.java"/>
+    </Method>
+    <SourceLine classname="gui.HomePageGUI" start="38" end="38" startBytecode="48" endBytecode="48" sourcefile="HomePageGUI.java" sourcepath="gui/HomePageGUI.java"/>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.LocalBattingStats">
+      <SourceLine classname="gui.LocalBattingStats" sourcefile="LocalBattingStats.java" sourcepath="gui/LocalBattingStats.java"/>
+    </Class>
+    <Method classname="gui.LocalBattingStats" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.LocalBattingStats" start="52" end="68" startBytecode="0" endBytecode="341" sourcefile="LocalBattingStats.java" sourcepath="gui/LocalBattingStats.java"/>
+    </Method>
+    <SourceLine classname="gui.LocalBattingStats" start="57" end="57" startBytecode="48" endBytecode="48" sourcefile="LocalBattingStats.java" sourcepath="gui/LocalBattingStats.java"/>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.LocalFieldingStats">
+      <SourceLine classname="gui.LocalFieldingStats" sourcefile="LocalFieldingStats.java" sourcepath="gui/LocalFieldingStats.java"/>
+    </Class>
+    <Method classname="gui.LocalFieldingStats" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.LocalFieldingStats" start="51" end="67" startBytecode="0" endBytecode="317" sourcefile="LocalFieldingStats.java" sourcepath="gui/LocalFieldingStats.java"/>
+    </Method>
+    <SourceLine classname="gui.LocalFieldingStats" start="56" end="56" startBytecode="48" endBytecode="48" sourcefile="LocalFieldingStats.java" sourcepath="gui/LocalFieldingStats.java"/>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.LocalPitchingStats">
+      <SourceLine classname="gui.LocalPitchingStats" sourcefile="LocalPitchingStats.java" sourcepath="gui/LocalPitchingStats.java"/>
+    </Class>
+    <Method classname="gui.LocalPitchingStats" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.LocalPitchingStats" start="52" end="68" startBytecode="0" endBytecode="329" sourcefile="LocalPitchingStats.java" sourcepath="gui/LocalPitchingStats.java"/>
+    </Method>
+    <SourceLine classname="gui.LocalPitchingStats" start="57" end="57" startBytecode="48" endBytecode="48" sourcefile="LocalPitchingStats.java" sourcepath="gui/LocalPitchingStats.java"/>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.MLBBattingStats">
+      <SourceLine classname="gui.MLBBattingStats" sourcefile="MLBBattingStats.java" sourcepath="gui/MLBBattingStats.java"/>
+    </Class>
+    <Method classname="gui.MLBBattingStats" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="gui.MLBBattingStats" start="52" end="68" startBytecode="0" endBytecode="349" sourcefile="MLBBattingStats.java" sourcepath="gui/MLBBattingStats.java"/>
+    </Method>
+    <SourceLine classname="gui.MLBBattingStats" start="57" end="57" startBytecode="48" endBytecode="48" sourcefile="MLBBattingStats.java" sourcepath="gui/MLBBattingStats.java"/>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.MLBFieldingStats">
+      <SourceLine classname="gui.MLBFieldingStats" sourcefile="MLBFieldingStats.java" sourcepath="gui/MLBFieldingStats.java"/>
+    </Class>
+    <Method classname="gui.MLBFieldingStats" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.MLBFieldingStats" start="51" end="67" startBytecode="0" endBytecode="311" sourcefile="MLBFieldingStats.java" sourcepath="gui/MLBFieldingStats.java"/>
+    </Method>
+    <SourceLine classname="gui.MLBFieldingStats" start="56" end="56" startBytecode="48" endBytecode="48" sourcefile="MLBFieldingStats.java" sourcepath="gui/MLBFieldingStats.java"/>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.MLBPitchingStats">
+      <SourceLine classname="gui.MLBPitchingStats" sourcefile="MLBPitchingStats.java" sourcepath="gui/MLBPitchingStats.java"/>
+    </Class>
+    <Method classname="gui.MLBPitchingStats" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.MLBPitchingStats" start="50" end="66" startBytecode="0" endBytecode="323" sourcefile="MLBPitchingStats.java" sourcepath="gui/MLBPitchingStats.java"/>
+    </Method>
+    <SourceLine classname="gui.MLBPitchingStats" start="55" end="55" startBytecode="48" endBytecode="48" sourcefile="MLBPitchingStats.java" sourcepath="gui/MLBPitchingStats.java"/>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="3" rank="19" abbrev="Se" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.MLBPlayerProfile">
+      <SourceLine classname="gui.MLBPlayerProfile" sourcefile="MLBPlayerProfile.java" sourcepath="gui/MLBPlayerProfile.java"/>
+    </Class>
+    <Field classname="gui.MLBPlayerProfile" name="frame" signature="Lgui/MainGUI;" isStatic="false">
+      <SourceLine classname="gui.MLBPlayerProfile" sourcefile="MLBPlayerProfile.java" sourcepath="gui/MLBPlayerProfile.java"/>
+    </Field>
+    <Type descriptor="Lgui/MainGUI;" role="TYPE_FOUND">
+      <SourceLine classname="gui.MainGUI" start="48" end="125" sourcefile="MainGUI.java" sourcepath="gui/MainGUI.java"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="NM_FIELD_NAMING_CONVENTION" priority="3" rank="19" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.MainGUI">
+      <SourceLine classname="gui.MainGUI" sourcefile="MainGUI.java" sourcepath="gui/MainGUI.java"/>
+    </Class>
+    <Field classname="gui.MainGUI" name="Login" signature="Ljavax/swing/JPanel;" isStatic="false">
+      <SourceLine classname="gui.MainGUI" sourcefile="MainGUI.java" sourcepath="gui/MainGUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" first="1">
+    <Class classname="gui.MainGUI">
+      <SourceLine classname="gui.MainGUI" sourcefile="MainGUI.java" sourcepath="gui/MainGUI.java"/>
+    </Class>
+    <Field classname="gui.MainGUI" name="btnCreateAccount" signature="Ljavax/swing/JButton;" isStatic="false">
+      <SourceLine classname="gui.MainGUI" sourcefile="MainGUI.java" sourcepath="gui/MainGUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" first="1">
+    <Class classname="gui.MainGUI">
+      <SourceLine classname="gui.MainGUI" sourcefile="MainGUI.java" sourcepath="gui/MainGUI.java"/>
+    </Class>
+    <Field classname="gui.MainGUI" name="btnSubmit" signature="Ljavax/swing/JButton;" isStatic="false">
+      <SourceLine classname="gui.MainGUI" sourcefile="MainGUI.java" sourcepath="gui/MainGUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" first="1">
+    <Class classname="gui.MainGUI">
+      <SourceLine classname="gui.MainGUI" sourcefile="MainGUI.java" sourcepath="gui/MainGUI.java"/>
+    </Class>
+    <Field classname="gui.MainGUI" name="txtUserName" signature="Ljavax/swing/JTextField;" isStatic="false">
+      <SourceLine classname="gui.MainGUI" sourcefile="MainGUI.java" sourcepath="gui/MainGUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" first="1">
+    <Class classname="gui.MainGUI">
+      <SourceLine classname="gui.MainGUI" sourcefile="MainGUI.java" sourcepath="gui/MainGUI.java"/>
+    </Class>
+    <Field classname="gui.MainGUI" name="txtUserName_1" signature="Ljavax/swing/JTextField;" isStatic="false">
+      <SourceLine classname="gui.MainGUI" sourcefile="MainGUI.java" sourcepath="gui/MainGUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="NM_FIELD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.MlbStatsGui">
+      <SourceLine classname="gui.MlbStatsGui" sourcefile="MlbStatsGui.java" sourcepath="gui/MlbStatsGui.java"/>
+    </Class>
+    <Field classname="gui.MlbStatsGui" name="SubmitPlayerSearchButton" signature="Ljavax/swing/JButton;" isStatic="false">
+      <SourceLine classname="gui.MlbStatsGui" sourcefile="MlbStatsGui.java" sourcepath="gui/MlbStatsGui.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.MlbStatsGui">
+      <SourceLine classname="gui.MlbStatsGui" sourcefile="MlbStatsGui.java" sourcepath="gui/MlbStatsGui.java"/>
+    </Class>
+    <Method classname="gui.MlbStatsGui" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.MlbStatsGui" start="53" end="151" startBytecode="0" endBytecode="1498" sourcefile="MlbStatsGui.java" sourcepath="gui/MlbStatsGui.java"/>
+    </Method>
+    <SourceLine classname="gui.MlbStatsGui" start="60" end="60" startBytecode="56" endBytecode="56" sourcefile="MlbStatsGui.java" sourcepath="gui/MlbStatsGui.java"/>
+  </BugInstance>
+  <BugInstance type="NM_FIELD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.UserBattingStats">
+      <SourceLine classname="gui.UserBattingStats" sourcefile="UserBattingStats.java" sourcepath="gui/UserBattingStats.java"/>
+    </Class>
+    <Field classname="gui.UserBattingStats" name="SubmitBattingStats" signature="Ljavax/swing/JButton;" isStatic="false">
+      <SourceLine classname="gui.UserBattingStats" sourcefile="UserBattingStats.java" sourcepath="gui/UserBattingStats.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.UserBattingStats">
+      <SourceLine classname="gui.UserBattingStats" sourcefile="UserBattingStats.java" sourcepath="gui/UserBattingStats.java"/>
+    </Class>
+    <Method classname="gui.UserBattingStats" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.UserBattingStats" start="56" end="157" startBytecode="0" endBytecode="1358" sourcefile="UserBattingStats.java" sourcepath="gui/UserBattingStats.java"/>
+    </Method>
+    <SourceLine classname="gui.UserBattingStats" start="61" end="61" startBytecode="48" endBytecode="48" sourcefile="UserBattingStats.java" sourcepath="gui/UserBattingStats.java"/>
+  </BugInstance>
+  <BugInstance type="NM_FIELD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.UserFieldingStats">
+      <SourceLine classname="gui.UserFieldingStats" sourcefile="UserFieldingStats.java" sourcepath="gui/UserFieldingStats.java"/>
+    </Class>
+    <Field classname="gui.UserFieldingStats" name="SubmitFieldingStats" signature="Ljavax/swing/JButton;" isStatic="false">
+      <SourceLine classname="gui.UserFieldingStats" sourcefile="UserFieldingStats.java" sourcepath="gui/UserFieldingStats.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.UserFieldingStats">
+      <SourceLine classname="gui.UserFieldingStats" sourcefile="UserFieldingStats.java" sourcepath="gui/UserFieldingStats.java"/>
+    </Class>
+    <Method classname="gui.UserFieldingStats" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.UserFieldingStats" start="53" end="130" startBytecode="0" endBytecode="1038" sourcefile="UserFieldingStats.java" sourcepath="gui/UserFieldingStats.java"/>
+    </Method>
+    <SourceLine classname="gui.UserFieldingStats" start="58" end="58" startBytecode="48" endBytecode="48" sourcefile="UserFieldingStats.java" sourcepath="gui/UserFieldingStats.java"/>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.UserGUIStats">
+      <SourceLine classname="gui.UserGUIStats" sourcefile="UserGUIStats.java" sourcepath="gui/UserGUIStats.java"/>
+    </Class>
+    <Method classname="gui.UserGUIStats" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.UserGUIStats" start="51" end="136" startBytecode="0" endBytecode="1176" sourcefile="UserGUIStats.java" sourcepath="gui/UserGUIStats.java"/>
+    </Method>
+    <SourceLine classname="gui.UserGUIStats" start="56" end="56" startBytecode="36" endBytecode="36" sourcefile="UserGUIStats.java" sourcepath="gui/UserGUIStats.java"/>
+  </BugInstance>
+  <BugInstance type="NM_FIELD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.UserPitchingStats">
+      <SourceLine classname="gui.UserPitchingStats" sourcefile="UserPitchingStats.java" sourcepath="gui/UserPitchingStats.java"/>
+    </Class>
+    <Field classname="gui.UserPitchingStats" name="SubmitPitchingStats" signature="Ljavax/swing/JButton;" isStatic="false">
+      <SourceLine classname="gui.UserPitchingStats" sourcefile="UserPitchingStats.java" sourcepath="gui/UserPitchingStats.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UI_INHERITANCE_UNSAFE_GETRESOURCE" priority="3" rank="19" abbrev="UI" category="BAD_PRACTICE" first="1">
+    <Class classname="gui.UserPitchingStats">
+      <SourceLine classname="gui.UserPitchingStats" sourcefile="UserPitchingStats.java" sourcepath="gui/UserPitchingStats.java"/>
+    </Class>
+    <Method classname="gui.UserPitchingStats" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.UserPitchingStats" start="53" end="140" startBytecode="0" endBytecode="1198" sourcefile="UserPitchingStats.java" sourcepath="gui/UserPitchingStats.java"/>
+    </Method>
+    <SourceLine classname="gui.UserPitchingStats" start="58" end="58" startBytecode="48" endBytecode="48" sourcefile="UserPitchingStats.java" sourcepath="gui/UserPitchingStats.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Sat, 28 Mar 2015 12:04:03 -0700" total_classes="26" referenced_classes="369" total_bugs="26" total_size="952" num_packages="1" java_version="1.8.0_31" vm_version="25.31-b07" cpu_seconds="33.91" clock_seconds="215.00" peak_mbytes="305.47" alloc_mbytes="455.50" gc_seconds="1.33" priority_3="17" priority_2="8" priority_1="1">
+    <PackageStats package="gui" total_bugs="26" total_types="26" total_size="952" priority_3="17" priority_2="8" priority_1="1">
+      <ClassStats class="gui.ApplicationGUI" sourceFile="ApplicationGUI.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="gui.BrowseLocalPlayers" sourceFile="BrowseLocalPlayers.java" interface="false" size="29" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.ContactUs" sourceFile="ContactUs.java" interface="false" size="12" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.CreateAccount" sourceFile="CreateAccount.java" interface="false" size="59" bugs="0"/>
+      <ClassStats class="gui.CreateAccount$1" sourceFile="CreateAccount.java" interface="false" size="12" bugs="1" priority_1="1"/>
+      <ClassStats class="gui.Help" sourceFile="Help.java" interface="false" size="23" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.HomePageGUI" sourceFile="HomePageGUI.java" interface="false" size="23" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.LocalBattingStats" sourceFile="LocalBattingStats.java" interface="false" size="28" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.LocalFieldingStats" sourceFile="LocalFieldingStats.java" interface="false" size="27" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.LocalPitchingStats" sourceFile="LocalPitchingStats.java" interface="false" size="27" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.LocalPlayerProfile" sourceFile="LocalPlayerProfile.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="gui.LocalPlayerProfile$1" sourceFile="LocalPlayerProfile.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="gui.MLBBattingStats" sourceFile="MLBBattingStats.java" interface="false" size="28" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.MLBFieldingStats" sourceFile="MLBFieldingStats.java" interface="false" size="27" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.MLBPitchingStats" sourceFile="MLBPitchingStats.java" interface="false" size="26" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.MLBPlayerProfile" sourceFile="MLBPlayerProfile.java" interface="false" size="28" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.MainGUI" sourceFile="MainGUI.java" interface="false" size="50" bugs="5" priority_3="1" priority_2="4"/>
+      <ClassStats class="gui.MainGUI$1" sourceFile="MainGUI.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="gui.MainGUI$2" sourceFile="MainGUI.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="gui.MainGUI$3" sourceFile="MainGUI.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="gui.MlbStatsGui" sourceFile="MlbStatsGui.java" interface="false" size="95" bugs="2" priority_3="1" priority_2="1"/>
+      <ClassStats class="gui.UserBattingStats" sourceFile="UserBattingStats.java" interface="false" size="98" bugs="2" priority_3="1" priority_2="1"/>
+      <ClassStats class="gui.UserFieldingStats" sourceFile="UserFieldingStats.java" interface="false" size="75" bugs="2" priority_3="1" priority_2="1"/>
+      <ClassStats class="gui.UserGUIStats" sourceFile="UserGUIStats.java" interface="false" size="84" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.UserLoginGUI" sourceFile="UserLoginGUI.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="gui.UserPitchingStats" sourceFile="UserPitchingStats.java" interface="false" size="86" bugs="2" priority_3="1" priority_2="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.SAXBugCollectionHandler" totalMilliseconds="11" invocations="1" avgMicrosecondsPerInvocation="11296" maxMicrosecondsPerInvocation="11296" standardDeviationMircosecondsPerInvocation="0"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1427636763373" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>

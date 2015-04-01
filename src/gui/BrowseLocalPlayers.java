@@ -30,8 +30,21 @@ Class: BrowseLocalPlayers
 Description: GUI for displaying/searching Local Players database
 */
 public class BrowseLocalPlayers extends JPanel {
-	private JTextField txtEnterNameteamPosition;
-	private JTable table;
+	
+	// Protected Members
+	protected JTextField txtFirstName;
+	protected JTextField txtLastName;
+	protected JTextField txtTeam;
+	protected JButton SubmitLocalSearch;
+	protected JButton btnSeePlayerStats;
+	protected JTable table;
+	protected JTable fieldingTable;
+	protected JTable pitchingTable;
+	protected JTable battingTable;
+	
+	// Private Members
+	private JLabel mlbBatting;
+	private JLabel mlbPitching;
 
 	/**
 	  Method: Constructor
@@ -44,31 +57,77 @@ public class BrowseLocalPlayers extends JPanel {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
-		/*JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
+		JLabel logo = new JLabel("New label");
+		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(589, 6, 100, 100);
-		add(logo);*/
+		logo.setBounds(20, 20, 100, 100);
+		add(logo);
 		
-		JButton SubmitLocalSearch = new JButton("Submit");
-		SubmitLocalSearch.setBounds(581, 181, 117, 29);
+		SubmitLocalSearch = new JButton("Submit");
+		SubmitLocalSearch.setBounds(38, 255, 117, 29);
 		add(SubmitLocalSearch);
 		
-		txtEnterNameteamPosition = new JTextField();
-		txtEnterNameteamPosition.setText("Enter name,team or position");
-		txtEnterNameteamPosition.setBounds(479, 118, 320, 28);
-		add(txtEnterNameteamPosition);
-		txtEnterNameteamPosition.setColumns(10);
+		txtFirstName = new JTextField();
+		txtFirstName.setText("First Name");
+		txtFirstName.setBounds(30, 134, 176, 29);
+		add(txtFirstName);
+		txtFirstName.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(399, 222, 480, 181);
+		scrollPane.setBounds(38, 294, 480, 181);
 		add(scrollPane);
 		
-		JButton btnSeePlayerStats = new JButton("See Player Stats");
-		btnSeePlayerStats.setBounds(422, 517, 200, 50);
+		btnSeePlayerStats = new JButton("See Player Stats");
+		btnSeePlayerStats.setBounds(205, 498, 200, 50);
 		add(btnSeePlayerStats);
 	
 		table = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name", "Team", "Position" }));
 		scrollPane.setViewportView(table);
+		
+		txtLastName = new JTextField();
+		txtLastName.setText("Last Name");
+		txtLastName.setColumns(10);
+		txtLastName.setBounds(30, 174, 176, 29);
+		add(txtLastName);
+		
+		txtTeam = new JTextField();
+		txtTeam.setText("Team");
+		txtTeam.setColumns(10);
+		txtTeam.setBounds(30, 214, 176, 29);
+		add(txtTeam);
+		
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(621, 173, 480, 85);
+		add(scrollPane_1);
+		
+		battingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
+		scrollPane_1.setViewportView(battingTable);
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(621, 453, 480, 85);
+		add(scrollPane_2);
+
+		fieldingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}));
+		scrollPane_2.setViewportView(fieldingTable);
+		
+		JScrollPane scrollPane_3 = new JScrollPane();
+		scrollPane_3.setBounds(621, 317, 480, 85);
+		add(scrollPane_3);
+		
+		pitchingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
+		scrollPane_3.setViewportView(pitchingTable);
+		
+		JLabel lblBatting = new JLabel("Batting");
+		lblBatting.setBounds(621, 140, 61, 16);
+		add(lblBatting);
+		
+		JLabel lblPitching = new JLabel("Pitching");
+		lblPitching.setBounds(621, 295, 61, 16);
+		add(lblPitching);
+		
+		JLabel lblFielding = new JLabel("Fielding");
+		lblFielding.setBounds(621, 431, 61, 16);
+		add(lblFielding);
 	}
 }

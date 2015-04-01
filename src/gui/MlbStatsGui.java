@@ -35,10 +35,14 @@ public class MlbStatsGui extends JPanel {
 	protected JTable table;
 	protected JTextField txtLastName;
 	protected JTextField txtTeam;
-	//protected JButton btnSeePlayerStats;
-	//protected JButton btnCompareToPlayer;
-	protected JButton SubmitPlayerSearchButton;
-
+	protected JButton btnSeePlayerStats;
+	protected JButton btnCompareToPlayer;
+	protected JButton submitPlayerSearchButton;
+	protected JTable battingTable;
+	protected JLabel mlbBatting;
+	protected JLabel mlbPitching;
+	protected JTable mlbfieldingTable;
+	protected JTable mlbpitchingTable;
 	/**
 	  Method: Constructor
 	  Inputs: None
@@ -52,53 +56,97 @@ public class MlbStatsGui extends JPanel {
 		getDBconnection();
 		getResultsSet();
 		
-		/*JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
+		JLabel logo = new JLabel("New label");
+		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(589, 6, 100, 100);
-		add(logo);*/
+		logo.setBounds(20, 20, 100, 100);
+		add(logo);
 		
-		SubmitPlayerSearchButton = new JButton("Submit");
-		SubmitPlayerSearchButton.setBounds(581, 234, 117, 29);
-		add(SubmitPlayerSearchButton);
-		SubmitPlayerSearchButton.setActionCommand("SubmitPlayerSearchButton");
-		SubmitPlayerSearchButton.setBackground(new Color(255,237,203));
-	    //getContentPane().add(SubmitPlayerSearchButton);
+		submitPlayerSearchButton = new JButton("Submit");
+		submitPlayerSearchButton.setBounds(50, 284, 117, 29);
+		add(submitPlayerSearchButton);
+		submitPlayerSearchButton.setActionCommand("submitPlayerSearchButton");
+		submitPlayerSearchButton.setBackground(new Color(255,237,203));
 		
 		txtFirstName = new JTextField();
 		txtFirstName.setText("First Name");
-		txtFirstName.setBounds(549, 118, 180, 29);
+		txtFirstName.setBounds(20, 152, 180, 29);
 		add(txtFirstName);
 		txtFirstName.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(400, 288, 478, 246);
+		scrollPane.setBounds(20, 325, 480, 174);
 		add(scrollPane);
 		
 		table = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name", "Team"/* "Position" */}));
 		scrollPane.setViewportView(table);
 		
-		/*btnSeePlayerStats = new JButton("See Player Stats");
-		btnSeePlayerStats.setBounds(421, 594, 200, 50);
+		btnSeePlayerStats = new JButton("See Player Stats");
+		btnSeePlayerStats.setBounds(43, 534, 200, 50);
 		btnSeePlayerStats.setActionCommand("SeePlayerStats");
 		add(btnSeePlayerStats);
 		
-		(btnCompareToPlayer = new JButton("Compare to Player");
-		btnCompareToPlayer.setBounds(656, 594, 200, 50);
+		btnCompareToPlayer = new JButton("Compare to Player");
+		btnCompareToPlayer.setBounds(291, 534, 200, 50);
 		btnCompareToPlayer.setActionCommand("CompareToPlayer");
-		add(btnCompareToPlayer);*/
+		add(btnCompareToPlayer);
 		
 		txtLastName = new JTextField();
 		txtLastName.setText("Last Name");
 		txtLastName.setColumns(10);
-		txtLastName.setBounds(549, 153, 180, 28);
+		txtLastName.setBounds(20, 193, 180, 28);
 		add(txtLastName);
 		
 		txtTeam = new JTextField();
 		txtTeam.setText("Team");
 		txtTeam.setColumns(10);
-		txtTeam.setBounds(549, 193, 180, 28);
+		txtTeam.setBounds(20, 233, 180, 28);
 		add(txtTeam);
+		
+		JLabel lblMlbPlayerName = new JLabel("MLB Player First Name");
+		lblMlbPlayerName.setBounds(621, 62, 149, 16);
+		add(lblMlbPlayerName);
+		
+		JLabel lblMlbPlayerLast = new JLabel("MLB Player Last Name");
+		lblMlbPlayerLast.setBounds(621, 90, 149, 16);
+		add(lblMlbPlayerLast);
+		
+		JLabel lblMlbPlayerTeam = new JLabel("MLB Player Team");
+		lblMlbPlayerTeam.setBounds(621, 118, 149, 16);
+		add(lblMlbPlayerTeam);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(621, 173, 480, 85);
+		add(scrollPane_1);
+		
+		battingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
+		scrollPane_1.setViewportView(battingTable);
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(621, 453, 480, 85);
+		add(scrollPane_2);
+
+		mlbfieldingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}));
+		scrollPane_2.setViewportView(mlbfieldingTable);
+		
+		mlbBatting = new JLabel("Batting");
+		mlbBatting.setBounds(621, 152, 61, 16);
+		add(mlbBatting);
+		
+		mlbPitching = new JLabel("Pitching");
+		mlbPitching.setBounds(621, 289, 61, 16);
+		add(mlbPitching);
+		
+		JScrollPane scrollPane_3 = new JScrollPane();
+		scrollPane_3.setBounds(621, 317, 480, 85);
+		add(scrollPane_3);
+		
+		mlbpitchingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
+		scrollPane_3.setViewportView(mlbpitchingTable);
+		
+		JLabel mlbFielding = new JLabel("Fielding");
+		mlbFielding.setBounds(621, 429, 61, 16);
+		add(mlbFielding);
 	}
 
 	private void getResultsSet() {

@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -22,26 +23,31 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import database.User;
+import client.UserBattingStatsClient;
 
 /**
 Class: UserBattingStats
 
 Description: GUI for User Batting stats
 */
-public class UserBattingStats extends JPanel {
-	private JTextField txtGP;
-	private JTextField txtAB;
-	private JTextField txtH;
-	private JTextField txtRBI;
-	private JTextField txtb_1;
-	private JTextField txtb_2;
-	private JTextField txtb_3;
-	private JTextField txtRuns;
-	private JTextField txtSB;
-	private JTextField txtHR;
-	private JTextField txtSO;
-	private JTable table;
-	private JTextField textDate;
+public class UserBattingStats extends JPanel {	
+	
+	protected JTable table;
+	protected JTextField txtGP;
+	protected JTextField txtAB;
+	protected JTextField txtH;
+	protected JTextField txtRBI;
+	protected JTextField txtb_1;
+	protected JTextField txtb_2;
+	protected JTextField txtb_3;
+	protected JTextField txtRuns;
+	protected JTextField txtSB;
+	protected JTextField txtHR;
+	protected JTextField txtSO;
+	protected JTextField textDate;
+	
+	protected JButton SubmitBattingStats;
 	
 	/**
 	  Method: Constructor
@@ -54,11 +60,11 @@ public class UserBattingStats extends JPanel {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
-		/*JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
+		JLabel logo = new JLabel("New label");
+		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		logo.setBounds(589, 6, 100, 100);
-		add(logo);*/
+		add(logo);
 		
 		JLabel lblYouAre = new JLabel("Enter a new game:");
 		lblYouAre.setForeground(Color.BLACK);
@@ -131,9 +137,13 @@ public class UserBattingStats extends JPanel {
 		txtSO.setBounds(1147, 118, 51, 28);
 		add(txtSO);
 		
-		JButton SubmitBattingStats = new JButton("Submit");
+		//JButton 
+		SubmitBattingStats = new JButton("Submit");
 		SubmitBattingStats.setBounds(580, 181, 117, 29);
 		add(SubmitBattingStats);
+		SubmitBattingStats.setActionCommand("SubmitBattingStats");
+		//SubmitBattingStats.addActionListener((ActionListener) this);
+		//SubmitBattingStats.setBackground(new Color(255,237,203));
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(293, 235, 691, 235);

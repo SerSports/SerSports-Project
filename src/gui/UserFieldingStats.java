@@ -26,18 +26,22 @@ Class: UserFieldingStats
 Description: GUI for the User Fielding Stats
 */
 public class UserFieldingStats extends JPanel {
-	private JTextField txtDate;
-	private JTextField txtGP;
-	private JTextField txtINN;
-	private JTextField txtA;
-	private JTextField txtE;
-	private JTextField txtFpct;
-	private JTextField txtSB;
-	private JTextField txtCS;
+	protected JTextField txtDate;
+	protected JTextField txtGP;
+	protected JTextField txtINN;
+	protected JTextField txtA;
+	protected JTextField txtE;
+	protected JTextField txtFpct;
+	protected JTextField txtSB;
+	protected JTextField txtCS;
 
-	private JTable table;
-	private JTextField txtPo;
+	protected JTable table;
+	protected JTextField txtPo;
+	protected JTextField txtWins;
+	protected JTextField txtLoss;
 
+	protected JButton SubmitFieldingStats;
+	
 	/**
 	  Method: 
 	  Inputs: 
@@ -53,7 +57,7 @@ public class UserFieldingStats extends JPanel {
 		setLayout(null);
 		
 		JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		logo.setBounds(589, 6, 100, 100);
 		add(logo);
@@ -75,53 +79,48 @@ public class UserFieldingStats extends JPanel {
 		txtGP.setBounds(325, 118, 77, 28);
 		add(txtGP);
 		
+		txtWins = new JTextField();
+		txtWins.setText("Wins");
+		txtWins.setColumns(10);
+		txtWins.setBounds(414, 118, 77, 28);
+		add(txtWins);
+
+		
+		txtLoss = new JTextField();
+		txtLoss.setText("Losses");
+		txtLoss.setColumns(10);
+		txtLoss.setBounds(511, 118, 77, 28);
+		add(txtLoss);
+		
 		txtPo = new JTextField();
 		txtPo.setText("PO");
 		txtPo.setColumns(10);
-		txtPo.setBounds(414, 118, 77, 28);
+		txtPo.setBounds(620, 118, 77, 28);
 		add(txtPo);
-
-		
-		txtINN = new JTextField();
-		txtINN.setText("INN");
-		txtINN.setColumns(10);
-		txtINN.setBounds(511, 118, 77, 28);
-		add(txtINN);
-		
-		txtA = new JTextField();
-		txtA.setText("A");
-		txtA.setColumns(10);
-		txtA.setBounds(620, 118, 77, 28);
-		add(txtA);
 		
 		txtE = new JTextField();
-		txtE.setText("E");
+		txtE.setText("Err");
 		txtE.setColumns(10);
 		txtE.setBounds(709, 118, 77, 28);
 		add(txtE);
 		
+		txtA = new JTextField();
+		txtA.setText("Assist");
+		txtA.setColumns(10);
+		txtA.setBounds(798, 118, 77, 28);
+		add(txtA);
+		
 		txtFpct = new JTextField();
-		txtFpct.setText("Fpct");
+		txtFpct.setText("F%");
 		txtFpct.setColumns(10);
-		txtFpct.setBounds(798, 118, 77, 28);
+		txtFpct.setBounds(887, 118, 77, 28);
 		add(txtFpct);
 		
-		txtSB = new JTextField();
-		txtSB.setText("SB");
-		txtSB.setColumns(10);
-		txtSB.setBounds(887, 118, 77, 28);
-		add(txtSB);
 		
-		txtCS = new JTextField();
-		txtCS.setText("CS");
-		txtCS.setColumns(10);
-		txtCS.setBounds(976, 118, 77, 28);
-		add(txtCS);
-		
-		
-		JButton SubmitFieldingStats = new JButton("Submit");
+		SubmitFieldingStats = new JButton("Submit");
 		SubmitFieldingStats.setBounds(580, 181, 117, 29);
 		add(SubmitFieldingStats);
+		SubmitFieldingStats.setActionCommand("SubmitFieldingStats");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(293, 235, 691, 235);

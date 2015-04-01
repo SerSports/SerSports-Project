@@ -7,64 +7,91 @@ Description: Main GUI (the brain, the tabs)
 
 */
 package gui;
-import java.awt.BorderLayout;
-import java.awt.Color;
+import java.awt.CardLayout;
 import java.awt.EventQueue;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.border.EmptyBorder;
-
-import client.MlbStatsGuiClient;
-
+import javax.swing.JTextField;
+import javax.swing.*;
+import database.User;
 
 /**
 Class: MainGUI
 
 Description: GUI for main navigation of site
 */
-public class MainGUI extends JFrame {
-    
-	/**
-	  Method: Constructor
-	  Inputs: None
-	  Returns:
+public class MainGUI{
 
-	  Description: Creates the panel
-	*/
-    public MainGUI() {
-        setTitle("SERSports");
-        JTabbedPane jtp = new JTabbedPane();
-        getContentPane().add(jtp,BorderLayout.CENTER);
-        
-        JTabbedPane MultipleStats = new JTabbedPane();
-        MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+	JFrame mainFrame = new JFrame("SERSports");	
+	protected ApplicationGUI panelApplication = null;
+	private static final boolean debugOn = true;
+	protected JTextField txtUserName;
+	private final JPasswordField pwdPassword = new JPasswordField();
+	protected JButton btnSubmit;
+	protected JButton btnCreateAccount;
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        HomePageGUI jp1 = new HomePageGUI();
-        JPanel jp2 = new JPanel();
-        BrowseLocalPlayers jp3 = new BrowseLocalPlayers();
-        MlbStatsGui jp4 = new MlbStatsGuiClient();
-        Help jp5 = new Help();
-        ContactUs jp6 = new ContactUs();
-        MLBPlayerProfile jp7 = new MLBPlayerProfile();
-        UserBattingStats batting = new UserBattingStats();
-        //UserFieldingStats fielding = new UserFieldingStats();
-        UserPitchingStats pitching = new UserPitchingStats();
-        jtp.addTab("Home", jp1);
-        MultipleStats.add("Batting", batting);
-        //MultipleStats.add("Fielding", fielding);
-        MultipleStats.add("Pitching", pitching);
-        jtp.add("User Stats", MultipleStats);
-        jtp.addTab("Browse Local Players", jp3);
-        jtp.addTab("Choose MLB Players", jp4);
-        jtp.addTab("Help", jp5);
-        jtp.addTab("Contact Us", jp6);
-        jtp.addTab("PlayerProfile", jp7);      
-    }
+    JPanel panelContainer = new JPanel();
+    JPanel login = new JPanel();
+    CreateAccount createAccountGUI = new CreateAccount(this);
+    CardLayout c1 = new CardLayout(); 
     
+    public void ShowMainGUI(){
+    	c1.show(panelContainer, "2");
+    }    
+       
+    public MainGUI(){    	
+		txtUserName = new JTextField();
+		txtUserName.setText("ser_sports");
+		login.add(txtUserName);
+		txtUserName.setColumns(10);
+		pwdPassword.setColumns(10);
+		pwdPassword.setText("admin");
+		login.add(pwdPassword);	
+		
+		JButton btnSubmit = new JButton("Submit");
+		login.add(btnSubmit);
+		
+		JButton btnCreateAccount = new JButton("Create Account");
+		login.add(btnCreateAccount);
+
+		//create and index the Panels
+		panelApplication = new ApplicationGUI();
+    	panelContainer.setLayout(c1);
+    	panelContainer.add(login, "1");
+    	panelContainer.add(panelApplication,"2");
+    	panelContainer.add(createAccountGUI, "3");
+    	c1.show(panelContainer, "1");
+ 
+    	btnSubmit.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    			// Authenticate User
+    			User user = User.authenticateUser(txtUserName.getText(), new String(pwdPassword.getPassword()));
+    			if (user != null) {
+    				loadUserInfoIntoControls();
+    				c1.show(panelContainer, "2");
+    			} else {
+    		        JOptionPane.showMessageDialog(null, "Invalid Username / Password!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+    			}
+    		}
+    	});
+    	
+    	
+    	btnCreateAccount.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    			c1.show(panelContainer, "3");
+ 
+    		}
+    	});
+    	
+    	mainFrame.getContentPane().add(panelContainer);
+    	mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    	mainFrame.pack();
+    	mainFrame.setVisible(true);
+    	mainFrame.setExtendedState(mainFrame.MAXIMIZED_BOTH);
+    }    
     /**
 	  Method: main
 	  Inputs: String[] args
@@ -72,17 +99,26 @@ public class MainGUI extends JFrame {
 
 	  Description: 
 	*/
+    
     public static void main(String[] args) { 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainGUI frame = new MainGUI();
-					frame.setVisible(true);
-					frame.setExtendedState(frame.MAXIMIZED_BOTH);		
+					new MainGUI();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});     
+    }
+    
+    private void debug(String message) {
+        if (debugOn){
+            System.out.println("debug: " + message);
+        }
+    }
+    
+    public void loadUserInfoIntoControls() {
+    	panelApplication.loadUserInfoIntoControls();
     }
 }

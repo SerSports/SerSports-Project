@@ -29,17 +29,17 @@ Class: MLBFieldingStats
 Description: GUI for displaying MLB Player Fielding Stats
 */
 public class MLBFieldingStats extends JPanel {
-	private JTextField txtDate;
-	private JTextField txtAverage;
-	private JTextField txtAb;
-	private JTextField txtb;
-	private JTextField txtb_1;
-	private JTextField txtb_2;
-	private JTextField txtRuns;
-	private JTextField txtSo;
-	private JTextField txtSos;
-	private JTextField txtBb;
-	private JTable table;
+	private JTextField txtMLBFieldingDate;
+	private JTextField txtMLBFieldingAverage;
+	private JTextField txtMLBFieldingAb;
+	private JTextField txtMLBFieldingb;
+	private JTextField txtMLBFieldingb_1;
+	private JTextField txtMLBFieldingb_2;
+	private JTextField txtMLBFieldingRuns;
+	private JTextField txtMLBFieldingSo;
+	private JTextField txtMLBFieldingSos;
+	private JTextField txtMLBFieldingBb;
+	private JTable mlbfieldingTable;
 
 	/**
 	  Method: Constructor
@@ -52,17 +52,17 @@ public class MLBFieldingStats extends JPanel {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
-		/*JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
+		JLabel logo = new JLabel("New label");
+		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		logo.setBounds(589, 6, 100, 100);
-		add(logo);*/
+		add(logo);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(293, 235, 691, 235);
 		add(scrollPane);
 
-		table = new JTable(new DefaultTableModel(null, new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}));
-		scrollPane.setViewportView(table);
+		mlbfieldingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}));
+		scrollPane.setViewportView(mlbfieldingTable);
 	}
 }

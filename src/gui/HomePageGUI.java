@@ -14,6 +14,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Color;
+import database.*;
+import client.*;
 
 
 /**
@@ -22,7 +24,9 @@ Class: HomePageGUI
 Description: GUI for the home page
 */
 public class HomePageGUI extends JPanel {
-
+	User currentUser = null;
+	JLabel userFirstName = null;
+	
 	/**
 	  Method: Constructor
 	  Inputs: None
@@ -31,14 +35,18 @@ public class HomePageGUI extends JPanel {
 	  Description: Creates the panel
 	*/
 	public HomePageGUI() {
+		
+		//User currentUser = User.getCurrentUser();
+		//System.out.println(currentUser.getUserName());
+		//String name = currentUser.getUserName();
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
-		/*JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/Logo1.png")).getImage();
+		JLabel logo = new JLabel("New label");
+		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		logo.setBounds(6, 6, 100, 100);
-		add(logo);*/
+		add(logo);
 		
 		JLabel lblYouAre = new JLabel("You are");
 		lblYouAre.setBounds(616, 189, 47, 16);
@@ -55,5 +63,25 @@ public class HomePageGUI extends JPanel {
 		JLabel lblInsertPlayersName = new JLabel("Insert Players name");
 		lblInsertPlayersName.setBounds(669, 217, 122, 16);
 		add(lblInsertPlayersName);		
+		
+		JLabel lblWelcome = new JLabel("Welcome,");
+		lblWelcome.setBounds(153, 59, 66, 16);
+		add(lblWelcome);
+		
+		//String userName = currentUser.getUserName();	
+		//System.out.println(userName);
+		//System.out.println(currentUser.getUserName());
+		userFirstName = new JLabel();//currentUser.getUserName());
+		userFirstName.setBounds(217, 59, 89, 16);
+		add(userFirstName);
+	}
+	
+	public void loadUserInfoIntoControls()
+	{
+		// Reload the Current User
+		currentUser = User.getCurrentUser();
+		if (currentUser != null) {
+			userFirstName.setText(currentUser.getUserName());
+		}
 	}
 }
