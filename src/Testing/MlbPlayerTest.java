@@ -10,10 +10,12 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class MlbPlayerTest {
+	
+	static ArrayList<MlbPlayer> players;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-	
+		players = MlbPlayer.getListOfPlayersFromDatabase();
 	}
 
 	@Before
@@ -23,7 +25,8 @@ public class MlbPlayerTest {
 
 	@Test
 	public void testMlbPlayer() {
-		fail("Not yet implemented");
+		MlbPlayer test = players.get(0);
+		assertNotNull(test);
 	}
 
 	@Test
@@ -33,7 +36,8 @@ public class MlbPlayerTest {
 
 	@Test
 	public void testSaveMlbPlayerToDatabase() {
-		fail("Not yet implemented");
+		MlbPlayer test = players.get(0);
+		assertTrue(test.saveMlbPlayerToDatabase());
 	}
 	
 	@Test
