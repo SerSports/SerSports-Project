@@ -77,7 +77,7 @@
 	  </findbugs>
 	</target>
 	
-	<property name="pmd.home" location="./lib/pmd-bin-5.1.0" />
+	<property name="pmd.home" location="./lib/pmd-bin-4.2.6" />
 	<path id="pmd.classpath">
 	    	<fileset dir="${pmd.home}/lib" includes="*.jar" />
 	</path>
