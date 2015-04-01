@@ -38,11 +38,11 @@ public class MlbStatsGui extends JPanel {
 	protected JButton btnSeePlayerStats;
 	protected JButton btnCompareToPlayer;
 	protected JButton submitPlayerSearchButton;
-	private JTable battingTable;
-	private JLabel mlbBatting;
-	private JLabel mlbPitching;
-	private JTable mlbfieldingTable;
-	private JTable mlbpitchingTable;
+	protected JTable battingTable;
+	protected JLabel mlbBatting;
+	protected JLabel mlbPitching;
+	protected JTable mlbfieldingTable;
+	protected JTable mlbpitchingTable;
 	/**
 	  Method: Constructor
 	  Inputs: None

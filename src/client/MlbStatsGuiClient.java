@@ -17,6 +17,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -115,7 +116,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        } else if (e.getActionCommand().equals("SeePlayerStats")) {
+        } else if (e.getActionCommand().equals("See Player Stats")) {
             try {
 				//MainGUI frame = new MainGUI();
 				new MainGUI();
@@ -135,8 +136,8 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 				//get the id value number in the hidden column of the selected (highlighted) row (player)
 				//use that value to find the player in the database and return the player in a list
 				if(rowSelected >= 0){
-					String selectedPlayer = (String) table.getModel().getValueAt(rowSelected, COLUMN_VALUE);
-					
+					String selectedPlayer = (String) table.getModel().getValueAt(rowSelected, COLUMN_VALUE);				
+					loadSelectedPlayer();
 					//will get the mlb player from database, can delete later
 					//ArrayList<MlbPlayer> arrListWithSelectedPlayer = MlbPlayer.getPlayersFromDatabase(selectedPlayer, null, null, null);
 					//arrListWithSelectedPlayer = MlbPlayer.getPlayersFromDatabase(selectedPlayer, null, null, null);
@@ -150,40 +151,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
             }
         }
     }
-private void populateMlbPlayersTable() {
-		
-		// Set up the table
-		DefaultTableModel newTable = new DefaultTableModel(new Object[]{"ID", "First Name", "Last Name", "Team"/* "Position" */}, 0);
-		
-		// Get the search values
-		String firstName = txtFirstName.getText();
-		String lastName = txtLastName.getText();
-		String team = txtTeam.getText();
-
-		// Check for empty or invalid String
-        if (firstName.length() == 0 || firstName.equals("First Name")) {
-        	firstName = null;
-    	}
-        if (lastName.length() == 0 || lastName.equals("Last Name")) {
-        	lastName = null;
-    	}
-        if (team.length() == 0 || team.equals("Team")) {
-            team = null;
-        }
-     
-        // Get a list of Mlb Players
-        ArrayList<MlbPlayer> players = MlbPlayer.getPlayersFromDatabase("", firstName, lastName, team);
-        
-        // Add the Mlb Players to the List
-        for(MlbPlayer m: players) {
-            Object[] row = {m.getId() ,m.getFirstName(), m.getLastName(), m.getTeam()};
-            newTable.addRow(row);
-        }
-        table.setModel(newTable);
-        table.removeColumn(table.getColumnModel().getColumn(0));
-	}
-	
-	private void loadSelectedPlayer() {
+private void loadSelectedPlayer() {
 		
 		// Get the value from the table - Key is in first hidden row
 		int selectedRow = table.getSelectedRow();
@@ -194,7 +162,17 @@ private void populateMlbPlayersTable() {
 			ArrayList<MlbPlayer> playerList = MlbPlayer.getPlayersFromDatabase(Integer.toString(mlbPlayerId), "", "", "");
 			if (playerList != null) {
 				MlbPlayer selectedPlayer = playerList.get(0);
+				mlbfieldingTable = new JTable(new DefaultTableModel(null, new Object[]{selectedPlayer.getFielding_games_play(), 
+						selectedPlayer.getFielding_games_win(), selectedPlayer.getFielding_games_loss(),
+						selectedPlayer.getFielding_po(), selectedPlayer.getFielding_error(), selectedPlayer.getFielding_a(),
+						selectedPlayer.getFielding_fpct()}));
 			}
 		}
+		
+		/**
+		 * mlbfieldingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}));
+		 * mlbpitchingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
+		 * battingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
+		 */
 	}
 }
