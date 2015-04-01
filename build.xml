@@ -6,6 +6,7 @@
 	<property name="build" value="classes" />
 	<property name="src.testing" value="src/Testing" />
 	<property name="build.test" value="classes/testing"/>
+	<property name="test.reports" value="report/"
 	<property name="jars" value="jars"/>
 
 	<path id="compile.classpath">
@@ -23,6 +24,7 @@
 	<target name="prepare">
 		<mkdir dir="${build}" />
 		<mkdir dir="${build.test}" />
+		<mkdir dir="${test.reports}" />
 	</target>
 
 	<target name="compile" depends="prepare"
@@ -47,20 +49,51 @@
 		<delete dir="${build.test" />
 	</target>
 
-	<target name="junit" depends="compile">
-		<junit printsummary="on" fork="true" haltonfailure="no">
-			<classpath refid="compile.classpath"/>
-			<classpath>
-				<pathelement location="${build.test}"/>
-			</classpath>
-			<formatter type="plain"/>
-			<batchtest todir="${build.test}">
-				<fileset dir="${src.testing}">
-					<include name="**/*Test*.java"/>
-				</fileset>
-			</batchtest>
-		</junit>
-
+    <target name="junit" depends="compile">
+ 
+        <junit printsummary="yes" haltonerror="yes" haltonfailure="no">
+            <formatter type="plain" usefile="false" />
+            <formatter type="xml" />
+            <batchtest todir="${test.reports}">
+                <fileset dir="${src.testing}">
+                    <include name="**/*Test.java" />
+                    <exclude name="**/Test*All.java" />
+                </fileset>
+            </batchtest>
+            <classpath>
+                <pathelement location="${build}" />
+                <pathelement path="lib/junit-4.4.jar" />
+            </classpath>
+        </junit>
+    </target>
+	
+	<property name="findbugs.home" value="./lib/findbugs-3.0.1" />
+	<target name="findbugs" depends="compile">
+	  <findbugs home="${findbugs.home}"
+              output="xml"
+              outputFile="sersportsfindbugs.xml" >
+	    <sourcePath path="${src}" />
+	    <class location="${classes}" />
+	  </findbugs>
+	</target>
+	
+	<property name="pmd.home" location="./lib/pmd-bin-5.1.0" />
+	<path id="pmd.classpath">
+	    	<fileset dir="${pmd.home}/lib" includes="*.jar" />
+	</path>
+	<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.classpath"/>
+	<target name="pmd">
+ 		<pmd shortFilenames="true">
+  			<sourceLanguage name="java" version="1.8"/>
+  			<ruleset>rulesets/java/design.xml</ruleset>
+  			<ruleset>java-basic</ruleset>
+  			<formatter type="html" toFile="pmd_report_fromant.html">
+    				<param name="linkPrefix" value="http://pmd.sourceforge.net/xref/"/>
+  			</formatter>
+  			<fileset dir="${src}">
+   				<include name="banking/server/*.java"/>
+  			</fileset>
+ 		</pmd>
 	</target>
 
 </project>
