@@ -38,7 +38,7 @@ public class MlbStatsGui extends JPanel {
 	protected JButton btnSeePlayerStats;
 	protected JButton btnCompareToPlayer;
 	protected JButton submitPlayerSearchButton;
-	protected JTable battingTable;
+	protected JTable mlbbattingTable;
 	protected JLabel mlbBatting;
 	protected JLabel mlbPitching;
 	protected JLabel mlbFielding;
@@ -120,8 +120,8 @@ public class MlbStatsGui extends JPanel {
 		scrollPane_1.setBounds(621, 173, 480, 85);
 		add(scrollPane_1);
 		
-		battingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
-		scrollPane_1.setViewportView(battingTable);
+		mlbbattingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
+		scrollPane_1.setViewportView(mlbbattingTable);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
 		scrollPane_2.setBounds(621, 453, 480, 85);
@@ -142,7 +142,7 @@ public class MlbStatsGui extends JPanel {
 		scrollPane_3.setBounds(621, 317, 480, 85);
 		add(scrollPane_3);
 		
-		mlbpitchingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
+		mlbpitchingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","BB"}));
 		scrollPane_3.setViewportView(mlbpitchingTable);
 		
 		mlbFielding = new JLabel("Fielding");

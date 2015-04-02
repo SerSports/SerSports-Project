@@ -158,25 +158,26 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
     }
 				
 	private void loadGameData(MlbPlayer player) {
-		// Set up the Batting table
-		DefaultTableModel bTable = new DefaultTableModel(new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}, 0);
-		
-        // Get a list of the Mlb Player's Stats
-        ArrayList<MlbPlayer> players = MlbPlayer.getStatisticsFromDatabase(player.getId());
+		// Get a list of the Mlb Player's Stats
+		System.out.println(player.getFirst_name());
+        ArrayList<MlbPlayer> players = MlbPlayer.getStatisticsFromDatabase(player.getId()); 
         
+		// Set up the Hitting table
+		DefaultTableModel bTable = new DefaultTableModel(new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}, 0);		      
         // Create the row of Hitting Stats
         Object[] bRow = {player.getHitting_games_play(), player.getHitting_ab(), player.getHitting_onbase_h(), player.getHitting_rbi(), 
         				player.getHitting_onbase_s(), player.getHitting_onbase_d(), player.getHitting_onbase_t(),
         				player.getHitting_runs_total(), player.getHitting_steal_stolen(), player.getHitting_onbase_hr(), player.getHitting_outs_ktotal()};
         bTable.addRow(bRow);
-        battingTable.setModel(bTable);
-        battingTable.removeColumn(table.getColumnModel().getColumn(0));
+        mlbbattingTable.setModel(bTable);
+        mlbbattingTable.removeColumn(table.getColumnModel().getColumn(0));
         
         
+		System.out.println("test result: " + player.getFirst_name());
+		
         // Set up the Fielding Table
     	DefaultTableModel fTable = new DefaultTableModel(new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}, 0);
-        
-        // Create the row of Hitting Stats
+        // Create the row of Fielding Stats
     	Object[] hRow = {player.getFielding_games_play(), player.getFielding_games_win(), player.getFielding_games_loss(),
 				player.getFielding_po(), player.getFielding_error(), player.getFielding_a(), player.getFielding_fpct()};
     	fTable.addRow(hRow);
@@ -185,15 +186,13 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
         mlbfieldingTable.removeColumn(table.getColumnModel().getColumn(0));
         
         // Set up the Pitching Table
-		DefaultTableModel pTable = new DefaultTableModel(new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}, 0);
-		
+		DefaultTableModel pTable = new DefaultTableModel(new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","BB"}, 0);
 		// Create the row of Pitching Stats
         Object[] pRow = {player.getPitching_games_play(), player.getPitching_games_win(), player.getPitching_games_loss(), player.getPitching_era(), 
         				player.getPitching_games_save(), player.getPitching_onbase_h(), player.getPitching_games_hold(), player.getPitching_runs_total(),
-        				player.getPitching_onbase_d()};
+        				player.getPitching_onbase_bb()};
         pTable.addRow(pRow);
         mlbpitchingTable.setModel(pTable);
         mlbpitchingTable.removeColumn(table.getColumnModel().getColumn(0));
-	
 	}
 }

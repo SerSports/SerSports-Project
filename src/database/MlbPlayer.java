@@ -34,8 +34,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	private static final String FIELD_LASTNAME = "lastName";  
 	private static final String FIELD_TEAM_NAME = "team_name";  
 	private static final String FIELD_TEAM_ID = "team_id";				
-	private static final String FIELD_HITTING_AB = "hitting_ab"; 			
-	private static final String FIELD_HITTING_RBI = "hitting_rbi"; 			
+	 			
 	private static final String FIELD_PITCHING_ERA = "pitching_era"; 		
 	private static final String FIELD_PITCHING_ONBASE_H = "pitching_onbase_h";	
 	private static final String FIELD_PITCHING_ONBASE_S = "pitching_onbase_s";	
@@ -53,6 +52,9 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     private static final String FIELD_PITCHING_GAMES_LOSS = "pitching_games_loss";	
     private static final String FIELD_PITCHING_GAMES_SAVE = "pitching_games_save";	
     private static final String FIELD_PITCHING_GAMES_HOLD = "pitching_games_hold"; 	
+    
+    private static final String FIELD_HITTING_AB = "hitting_ab"; 			
+	private static final String FIELD_HITTING_RBI = "hitting_rbi";
     private static final String FIELD_HITTING_ONBASE_H = "hitting_onbase_h";		
     private static final String FIELD_HITTING_ONBASE_S = "hitting_onbase_s";		
     private static final String FIELD_HITTING_ONBASE_D = "hitting_onbase_d";		
@@ -66,7 +68,8 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     private static final String FIELD_HITTING_STEAL_STOLEN = "hitting_steal_stolen"; 
     private static final String FIELD_HITTING_GAMES_PLAY = "hitting_games_play";	
     private static final String FIELD_HITTING_GAMES_WIN = "hitting_games_win";	
-    private static final String FIELD_HITTING_GAMES_LOSS = "hitting_games_loss";	
+    private static final String FIELD_HITTING_GAMES_LOSS = "hitting_games_loss";
+    
     private static final String FIELD_FIELDING_PO = "fielding_po";			
     private static final String FIELD_FIELDING_ERROR = "fielding_error";		
     private static final String FIELD_FIELDING_A = "fielding_a";			
@@ -83,11 +86,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	private String team_id;				//Team ID
 	private String team_name;			//Team name
     
-	private int hitting_ab; 			//Batting AB
-	private int hitting_rbi; 			//Batting RBI
-
 	private float pitching_era; 		//Pitching ERA
-
 	private int pitching_onbase_h;		//Batting H
 	private int pitching_onbase_s;		//Batting 1B single
 	private int pitching_onbase_d;		//Batting 2B double
@@ -105,7 +104,10 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     private int pitching_games_save;	//Pitching: Saves
     private int pitching_games_hold; 	//Pitching:Hold
     
-    private int hitting_onbase_h;		//Hitting H
+    
+    private int hitting_ab; 			//Batting AB
+	private int hitting_rbi; 			//Batting RBIprivate int hitting_onbase_h;		
+	private int hitting_onbase_h;		//Hitting H
     private int hitting_onbase_s;		//Hitting 1B single
     private int hitting_onbase_d;		//Hitting 2B double
     private int hitting_onbase_t;		//Hitting 3B triple
@@ -191,14 +193,6 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		return team_name;
 	}
 
-	public int getHitting_ab() {
-		return hitting_ab;
-	}
-
-	public int getHitting_rbi() {
-		return hitting_rbi;
-	}
-
 	public float getPitching_era() {
 		return pitching_era;
 	}
@@ -265,6 +259,14 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 
 	public int getPitching_games_hold() {
 		return pitching_games_hold;
+	}
+	
+	public int getHitting_ab() {
+		return hitting_ab;
+	}
+
+	public int getHitting_rbi() {
+		return hitting_rbi;
 	}
 
 	public int getHitting_onbase_h() {
@@ -638,7 +640,6 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     	}
     }
     
-
     private void loadOutsData(Node node, String parentNodeName) {
         // Load "outs" data
     	if (parentNodeName.equals("hitting")) {
@@ -682,7 +683,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		ArrayList<MlbPlayer> resultList = new ArrayList<MlbPlayer>();
 		
 		// Get the Result Set containing every Player
-		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + FIELD_ID + " = \"" + id_in + "\"" +
+		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + FIELD_ID + " = \"" + id_in.toString() + "\"" +
 								" ORDER BY " + FIELD_ID;
 		ResultSet resultSet = Database.getResultSetFromSQL(sql);
 		
@@ -697,7 +698,6 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 				e.printStackTrace();
 			}
 		}
-		
 		// Clean up
 		Database.close();
 			
