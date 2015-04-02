@@ -41,6 +41,7 @@ public class MlbStatsGui extends JPanel {
 	protected JTable battingTable;
 	protected JLabel mlbBatting;
 	protected JLabel mlbPitching;
+	protected JLabel mlbFielding;
 	protected JTable mlbfieldingTable;
 	protected JTable mlbpitchingTable;
 	/**
@@ -144,7 +145,7 @@ public class MlbStatsGui extends JPanel {
 		mlbpitchingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
 		scrollPane_3.setViewportView(mlbpitchingTable);
 		
-		JLabel mlbFielding = new JLabel("Fielding");
+		mlbFielding = new JLabel("Fielding");
 		mlbFielding.setBounds(621, 429, 61, 16);
 		add(mlbFielding);
 	}
@@ -159,4 +160,3 @@ public class MlbStatsGui extends JPanel {
 		
 	}
 }
-

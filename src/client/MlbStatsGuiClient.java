@@ -42,6 +42,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 	*/
     public MlbStatsGuiClient() {
         submitPlayerSearchButton.addActionListener(this);
+        btnSeePlayerStats.addActionListener(this);
     }
     
     /**
@@ -116,10 +117,8 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        } else if (e.getActionCommand().equals("See Player Stats")) {
+        } else if (e.getActionCommand().equals("SeePlayerStats")) {
             try {
-				//MainGUI frame = new MainGUI();
-				new MainGUI();
             	
 				ApplicationGUI firstPanel = new ApplicationGUI();
 		        firstPanel.setOpaque(true);
@@ -129,29 +128,72 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 
 		        //check to see if this method gets called when SeePlayerStats button is pushed 
 				debug("you clicked SeePlayerStats");
-
-				//get the row number in which the user highlighted
-				int rowSelected = table.getSelectedRow();
 				
-				//get the id value number in the hidden column of the selected (highlighted) row (player)
-				//use that value to find the player in the database and return the player in a list
-				if(rowSelected >= 0){
-					String selectedPlayer = (String) table.getModel().getValueAt(rowSelected, COLUMN_VALUE);				
-					loadSelectedPlayer();
-					//will get the mlb player from database, can delete later
-					//ArrayList<MlbPlayer> arrListWithSelectedPlayer = MlbPlayer.getPlayersFromDatabase(selectedPlayer, null, null, null);
-					//arrListWithSelectedPlayer = MlbPlayer.getPlayersFromDatabase(selectedPlayer, null, null, null);
-
-				} else {
-					debug("ERROR: An MLB player has NOT been selected!");
-				}
+				loadSelectedPlayer();
 	       
             } catch (Exception ex) {
             	ex.printStackTrace();
             }
         }
     }
-private void loadSelectedPlayer() {
-
+    private void loadSelectedPlayer() {
+	
+	// Get the value from the table - Key is in first hidden row
+		int selectedRow = table.getSelectedRow();
+		//System.out.println("selected row: " + selectedRow);
+		
+		if (selectedRow >= 0) {	
+			String MlbPlayerId = (String) table.getModel().getValueAt(selectedRow, 0);
+			//System.out.println("mlb player id: " + MlbPlayerId);
+	
+			// Get the Selected Player
+			ArrayList<MlbPlayer> playerList = MlbPlayer.getPlayersFromDatabase(MlbPlayerId, null, null, null);
+			if (playerList != null) {
+				MlbPlayer selectedPlayer = playerList.get(0);
+				
+				// Load the Player's Data into the controls
+				loadGameData(selectedPlayer);
+			}
+		}
+    }
+				
+	private void loadGameData(MlbPlayer player) {
+		// Set up the Batting table
+		DefaultTableModel bTable = new DefaultTableModel(new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}, 0);
+		
+        // Get a list of the Mlb Player's Stats
+        ArrayList<MlbPlayer> players = MlbPlayer.getStatisticsFromDatabase(player.getId());
+        
+        // Create the row of Hitting Stats
+        Object[] bRow = {player.getHitting_games_play(), player.getHitting_ab(), player.getHitting_onbase_h(), player.getHitting_rbi(), 
+        				player.getHitting_onbase_s(), player.getHitting_onbase_d(), player.getHitting_onbase_t(),
+        				player.getHitting_runs_total(), player.getHitting_steal_stolen(), player.getHitting_onbase_hr(), player.getHitting_outs_ktotal()};
+        bTable.addRow(bRow);
+        battingTable.setModel(bTable);
+        battingTable.removeColumn(table.getColumnModel().getColumn(0));
+        
+        
+        // Set up the Fielding Table
+    	DefaultTableModel fTable = new DefaultTableModel(new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}, 0);
+        
+        // Create the row of Hitting Stats
+    	Object[] hRow = {player.getFielding_games_play(), player.getFielding_games_win(), player.getFielding_games_loss(),
+				player.getFielding_po(), player.getFielding_error(), player.getFielding_a(), player.getFielding_fpct()};
+    	fTable.addRow(hRow);
+        fTable.addRow(hRow);
+        mlbfieldingTable.setModel(fTable);
+        mlbfieldingTable.removeColumn(table.getColumnModel().getColumn(0));
+        
+        // Set up the Pitching Table
+		DefaultTableModel pTable = new DefaultTableModel(new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}, 0);
+		
+		// Create the row of Pitching Stats
+        Object[] pRow = {player.getPitching_games_play(), player.getPitching_games_win(), player.getPitching_games_loss(), player.getPitching_era(), 
+        				player.getPitching_games_save(), player.getPitching_onbase_h(), player.getPitching_games_hold(), player.getPitching_runs_total(),
+        				player.getPitching_onbase_d()};
+        pTable.addRow(pRow);
+        mlbpitchingTable.setModel(pTable);
+        mlbpitchingTable.removeColumn(table.getColumnModel().getColumn(0));
+	
 	}
 }

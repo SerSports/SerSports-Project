@@ -678,6 +678,32 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		}
     }
     
+    public static ArrayList<MlbPlayer> getStatisticsFromDatabase(String id_in) {
+		ArrayList<MlbPlayer> resultList = new ArrayList<MlbPlayer>();
+		
+		// Get the Result Set containing every Player
+		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + FIELD_ID + " = \"" + id_in + "\"" +
+								" ORDER BY " + FIELD_ID;
+		ResultSet resultSet = Database.getResultSetFromSQL(sql);
+		
+		if (resultSet != null) {
+			// Loop through the Result Set and Add Each MlbPlayer to the ArrayList
+			try {
+				while(resultSet.next()){
+					MlbPlayer player = new MlbPlayer(resultSet);
+					resultList.add(player);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// Clean up
+		Database.close();
+			
+		return resultList;
+	}
+    
 	/**
 	  Method: 
 	  Inputs: 
