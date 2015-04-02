@@ -158,10 +158,11 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
     }
 				
 	private void loadGameData(MlbPlayer player) {
-		// Get a list of the Mlb Player's Stats
-        ArrayList<MlbPlayer> players = MlbPlayer.getStatisticsFromDatabase(player.getId()); 
-        
-		// Set up the Hitting table
+        System.out.println(player.getFirst_name());
+        System.out.println(player.getHitting_ab());
+        System.out.println(player.getTeam());
+
+		// Set up the Hitting table							
 		DefaultTableModel bTable = new DefaultTableModel(new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}, 0);		      
         // Create the row of Hitting Stats
         Object[] hRow = {player.getHitting_games_play(), player.getHitting_ab(), player.getHitting_onbase_h(), player.getHitting_rbi(), 

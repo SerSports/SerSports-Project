@@ -106,7 +106,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     
     
     private int hitting_ab; 			//Batting AB
-	private int hitting_rbi; 			//Batting RBIprivate int hitting_onbase_h;		
+	private int hitting_rbi; 			//Batting RBI	
 	private int hitting_onbase_h;		//Hitting H
     private int hitting_onbase_s;		//Hitting 1B single
     private int hitting_onbase_d;		//Hitting 2B double
