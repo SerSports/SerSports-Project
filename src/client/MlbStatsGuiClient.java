@@ -159,29 +159,25 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 				
 	private void loadGameData(MlbPlayer player) {
 		// Get a list of the Mlb Player's Stats
-		System.out.println(player.getFirst_name());
         ArrayList<MlbPlayer> players = MlbPlayer.getStatisticsFromDatabase(player.getId()); 
         
 		// Set up the Hitting table
 		DefaultTableModel bTable = new DefaultTableModel(new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}, 0);		      
         // Create the row of Hitting Stats
-        Object[] bRow = {player.getHitting_games_play(), player.getHitting_ab(), player.getHitting_onbase_h(), player.getHitting_rbi(), 
+        Object[] hRow = {player.getHitting_games_play(), player.getHitting_ab(), player.getHitting_onbase_h(), player.getHitting_rbi(), 
         				player.getHitting_onbase_s(), player.getHitting_onbase_d(), player.getHitting_onbase_t(),
         				player.getHitting_runs_total(), player.getHitting_steal_stolen(), player.getHitting_onbase_hr(), player.getHitting_outs_ktotal()};
-        bTable.addRow(bRow);
+        bTable.addRow(hRow);
         mlbbattingTable.setModel(bTable);
         mlbbattingTable.removeColumn(table.getColumnModel().getColumn(0));
-        
-        
-		System.out.println("test result: " + player.getFirst_name());
 		
         // Set up the Fielding Table
     	DefaultTableModel fTable = new DefaultTableModel(new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}, 0);
         // Create the row of Fielding Stats
-    	Object[] hRow = {player.getFielding_games_play(), player.getFielding_games_win(), player.getFielding_games_loss(),
+    	Object[] fRow = {player.getFielding_games_play(), player.getFielding_games_win(), player.getFielding_games_loss(),
 				player.getFielding_po(), player.getFielding_error(), player.getFielding_a(), player.getFielding_fpct()};
-    	fTable.addRow(hRow);
-        fTable.addRow(hRow);
+    	fTable.addRow(fRow);
+        fTable.addRow(fRow);
         mlbfieldingTable.setModel(fTable);
         mlbfieldingTable.removeColumn(table.getColumnModel().getColumn(0));
         
