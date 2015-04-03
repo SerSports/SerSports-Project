@@ -15,6 +15,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.BoxLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import javax.swing.SwingConstants;
 
 
 /**
@@ -34,17 +39,19 @@ public class ContactUs extends JPanel {
 	  Description: Creates the panel
 	*/
 	public ContactUs() {
-		setLayout(null);
 		setBackground(new Color(107, 185, 240));
-
-		JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
-		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(590, 6, 100, 100);
-		add(logo);	
+		setLayout(null);
 		
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
+		
+		JLabel logo = new JLabel("Logo");
+		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
+		logo.setIcon(new ImageIcon(img));
+		logo.setBounds(20, 20, 100, 100);
+		add(logo);
+		
+
 	}
 }
