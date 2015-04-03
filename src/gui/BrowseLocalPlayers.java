@@ -41,6 +41,7 @@ public class BrowseLocalPlayers extends JPanel {
 	protected JTable fieldingTable;
 	protected JTable pitchingTable;
 	protected JTable battingTable;
+	protected JButton btnSignOut;
 	
 	// Private Members
 	private JLabel mlbBatting;
@@ -129,5 +130,9 @@ public class BrowseLocalPlayers extends JPanel {
 		JLabel lblFielding = new JLabel("Fielding");
 		lblFielding.setBounds(621, 431, 61, 16);
 		add(lblFielding);
+		
+		JButton btnSignOut = new JButton("Sign Out");
+		btnSignOut.setBounds(1030, 20, 117, 29);
+		add(btnSignOut);
 	}
 }

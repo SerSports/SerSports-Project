@@ -24,6 +24,7 @@ Description: GUI for the help page
 */
 public class Help extends JPanel {
 	private JTextField txtTypeQuestion;
+	protected JButton btnSignOut;
 
 	/**
 	  Method: Constructor
@@ -52,8 +53,12 @@ public class Help extends JPanel {
 		add(txtTypeQuestion);
 		txtTypeQuestion.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Submit");
-		btnNewButton.setBounds(581, 177, 117, 29);
-		add(btnNewButton);
+		JButton btnHelpSubmit = new JButton("Submit");
+		btnHelpSubmit.setBounds(581, 177, 117, 29);
+		add(btnHelpSubmit);
+		
+		JButton btnSignOut = new JButton("Sign Out");
+		btnSignOut.setBounds(1030, 20, 117, 29);
+		add(btnSignOut);
 	}
 }

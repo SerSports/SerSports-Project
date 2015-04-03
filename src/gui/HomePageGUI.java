@@ -11,9 +11,12 @@ import java.awt.Container;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 import java.awt.Color;
+
 import database.*;
 import client.*;
 
@@ -26,6 +29,7 @@ Description: GUI for the home page
 public class HomePageGUI extends JPanel {
 	User currentUser = null;
 	JLabel userFirstName = null;
+	protected JButton btnSignOut;
 	
 	/**
 	  Method: Constructor
@@ -74,6 +78,10 @@ public class HomePageGUI extends JPanel {
 		userFirstName = new JLabel();//currentUser.getUserName());
 		userFirstName.setBounds(217, 59, 89, 16);
 		add(userFirstName);
+		
+		JButton btnSignOut = new JButton("Sign Out");
+		btnSignOut.setBounds(1030, 20, 117, 29);
+		add(btnSignOut);
 	}
 	
 	public void loadUserInfoIntoControls()

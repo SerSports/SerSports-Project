@@ -24,6 +24,7 @@ Description: GUI for the Contact Us Page
 */
 public class ContactUs extends JPanel {
 	private JTextField txtTypeQuestion;
+	protected JButton btnSignOut;
 
 	/**
 	  Method: Constructor
@@ -40,6 +41,10 @@ public class ContactUs extends JPanel {
 		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		logo.setBounds(590, 6, 100, 100);
-		add(logo);		
+		add(logo);	
+		
+		JButton btnSignOut = new JButton("Sign Out");
+		btnSignOut.setBounds(1030, 20, 117, 29);
+		add(btnSignOut);
 	}
 }
