@@ -138,8 +138,11 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
             }
         }
         else if (e.getActionCommand().equals("CompareToPlayer")) {
+        	//add if statement for highlighted selection of player
 	        JOptionPane.showMessageDialog(null, "You are 20% like this player", "Compare to Player", JOptionPane.INFORMATION_MESSAGE);
-		}
+	        //add variable player into JDialog
+        
+        }
     }
         
     private void loadSelectedPlayer() {
