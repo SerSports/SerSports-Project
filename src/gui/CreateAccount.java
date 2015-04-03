@@ -93,7 +93,7 @@ public class CreateAccount extends JPanel {
     									 textFirstName.getText(), textLastname.getText(), 
     									 Integer.valueOf(textAge.getText()));
     			if (user != null) {
-    				debug("you're information is submitted");
+    				debug("your information is submitted");
     				main.loadUserInfoIntoControls();
     				main.ShowMainGUI();
     				debug("new application window should pop up");
