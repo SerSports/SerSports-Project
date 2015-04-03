@@ -39,6 +39,7 @@ public class UserFieldingStats extends JPanel {
 	protected JTextField txtPo;
 	protected JTextField txtWins;
 	protected JTextField txtLoss;
+	protected JButton btnSignOut;
 
 	protected JButton SubmitFieldingStats;
 	
@@ -129,5 +130,9 @@ public class UserFieldingStats extends JPanel {
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "Wins","Losses","PO","Err","Assist", "F%"}));
 		scrollPane.setViewportView(table);
+		
+		JButton btnSignOut = new JButton("Sign Out");
+		btnSignOut.setBounds(1030, 20, 117, 29);
+		add(btnSignOut);
 	}
 }

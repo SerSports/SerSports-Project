@@ -44,6 +44,7 @@ public class MlbStatsGui extends JPanel {
 	protected JLabel mlbFielding;
 	protected JTable mlbfieldingTable;
 	protected JTable mlbpitchingTable;
+	protected JButton btnSignOut;
 	/**
 	  Method: Constructor
 	  Inputs: None
@@ -148,6 +149,10 @@ public class MlbStatsGui extends JPanel {
 		mlbFielding = new JLabel("Fielding");
 		mlbFielding.setBounds(621, 429, 61, 16);
 		add(mlbFielding);
+		
+		JButton btnSignOut = new JButton("Sign Out");
+		btnSignOut.setBounds(1030, 20, 117, 29);
+		add(btnSignOut);
 	}
 
 	private void getResultsSet() {

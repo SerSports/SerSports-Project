@@ -42,6 +42,7 @@ public class UserPitchingStats extends JPanel {
 	protected JTextField txtHBP;
 
 	protected JButton SubmitPitchingStats;
+	protected JButton btnSignOut;
 	
 	/**
 	  Method: Constructor
@@ -137,5 +138,9 @@ public class UserPitchingStats extends JPanel {
 		txtDate.setColumns(10);
 		txtDate.setBounds(166, 121, 109, 22);
 		add(txtDate);
+		
+		JButton btnSignOut = new JButton("Sign Out");
+		btnSignOut.setBounds(1030, 20, 117, 29);
+		add(btnSignOut);
 	}
 }
