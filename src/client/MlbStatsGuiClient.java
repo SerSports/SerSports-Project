@@ -17,6 +17,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -41,6 +42,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 	  Description:
 	*/
     public MlbStatsGuiClient() {
+    	btnCompareToPlayer.addActionListener(this);
         submitPlayerSearchButton.addActionListener(this);
         btnSeePlayerStats.addActionListener(this);
     }
@@ -135,7 +137,11 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
             	ex.printStackTrace();
             }
         }
+        else if (e.getActionCommand().equals("CompareToPlayer")) {
+	        JOptionPane.showMessageDialog(null, "You are 20% like this player", "Compare to Player", JOptionPane.INFORMATION_MESSAGE);
+		}
     }
+        
     private void loadSelectedPlayer() {
 	
 	// Get the value from the table - Key is in first hidden row
@@ -192,4 +198,5 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
         mlbpitchingTable.setModel(pTable);
         mlbpitchingTable.removeColumn(table.getColumnModel().getColumn(0));
 	}
+	
 }
