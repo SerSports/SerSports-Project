@@ -15,9 +15,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -81,9 +86,9 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		//debug("Test");
 		if (e.getActionCommand().equals("SubmitBattingStats")) {
 			try {
-				debug("you clicked Submit in User Stats/Batting page");
+				//debug("you clicked Submit in User Stats/Batting page");
 				
-				String date = textDate.getText();
+				String date = txtDate.getText();
 				String gp = txtGP.getText();
 				String ab = txtAB.getText();
 				String h = txtH.getText();
@@ -95,57 +100,55 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 				String sb = txtSB.getText();
 				String hr = txtHR.getText();
 				String so = txtSO.getText();
-				
-				// Check for empty or invalid String
-                if (date.length() == 0 || date.equals("Date")) {
-                    date = null;
-            	}
-                if (gp.length() == 0 || gp.equals("Games Played")) {
-                    gp = null;
-            	}
-                if (ab.length() == 0 || ab.equals("AB")) {
-                    ab = null;
-                }
-                if (h.length() == 0 || h.equals("H")) {
-                    h = null;
-            	}
-                if (rbi.length() == 0 || rbi.equals("RBI")) {
-                    rbi = null;
-            	}
-                if (b1.length() == 0 || b1.equals("1B")) {
-                    b1 = null;
-                }
-                if (b2.length() == 0 || b2.equals("2B")) {
-                    b2 = null;
-            	}
-                if (b3.length() == 0 || b3.equals("3B")) {
-                    b3 = null;
-            	}
-                if (runs.length() == 0 || runs.equals("Runs")) {
-                    runs = null;
-                }
-                if (sb.length() == 0 || sb.equals("SB")) {
-                    sb = null;
-            	}
-                if (hr.length() == 0 || hr.equals("HR")) {
-                    hr = null;
-            	}
-                if (so.length() == 0 || so.equals("SO")) {
-                    so = null;
-                }
 			
-                /*
-				debug("Your entry:");
-				debug("Date: "+date+" Games Played: "+gp+" AB: "+ab+" H: "+h+" RBI: "+rbi+" 1B: "+b1);
-				debug(" 2B: "+b2+" 3B: "+b3+" Runs: "+runs+" SB: "+sb+" HR: "+hr+" SO: "+so);
-                 */
-                
-                
-                //Add input into user database, then display all game statistics
-                LocalPlayerBattingStatistics.addLocalPlayerBattingStatistics(date, gp, ab, h, rbi, b1, b2, b3, runs, sb, hr, so);
-                
-                //reload statistics into table
-                loadUserInfoIntoControls();
+				boolean valid = isValidDate(date);
+				
+			
+				if (valid == true){
+					// Check for empty or invalid String
+	                if (gp.length() == 0 || gp.equals("Games Played")) {
+	                    gp = null;
+	            	}
+	                if (ab.length() == 0 || ab.equals("AB")) {
+	                    ab = null;
+	                }
+	                if (h.length() == 0 || h.equals("H")) {
+	                    h = null;
+	            	}
+	                if (rbi.length() == 0 || rbi.equals("RBI")) {
+	                    rbi = null;
+	            	}
+	                if (b1.length() == 0 || b1.equals("1B")) {
+	                    b1 = null;
+	                }
+	                if (b2.length() == 0 || b2.equals("2B")) {
+	                    b2 = null;
+	            	}
+	                if (b3.length() == 0 || b3.equals("3B")) {
+	                    b3 = null;
+	            	}
+	                if (runs.length() == 0 || runs.equals("Runs")) {
+	                    runs = null;
+	                }
+	                if (sb.length() == 0 || sb.equals("SB")) {
+	                    sb = null;
+	            	}
+	                if (hr.length() == 0 || hr.equals("HR")) {
+	                    hr = null;
+	            	}
+	                if (so.length() == 0 || so.equals("SO")) {
+	                    so = null;
+	                }
+	                
+	                //Add input into user database, then display all game statistics
+	                LocalPlayerBattingStatistics.addLocalPlayerBattingStatistics(date, gp, ab, h, rbi, b1, b2, b3, runs, sb, hr, so);
+	                
+	                //reload statistics into table
+	                loadUserInfoIntoControls();
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "Invalid date format. Please add date in MM/DD/YYYY", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+				}
                 
 			} catch (RuntimeException ex){
 				throw ex;
@@ -185,5 +188,21 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	public void loadUserInfoIntoControls(){
 		// Reload the Local Players Batting Statistics Table
 		populateLocalPlayersBattingTable();
+	}
+	
+	public boolean isValidDate(String gameDate){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		boolean result = true;
+		
+		try {
+			Date validateDate = dateFormat.parse(gameDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			debug("Invalid date format");
+			result = false;
+		}
+		
+		return result;
 	}
 }

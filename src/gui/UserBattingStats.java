@@ -18,6 +18,9 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
+import javax.swing.JFormattedTextField;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -46,6 +49,7 @@ public class UserBattingStats extends JPanel {
 	protected JTextField txtHR;
 	protected JTextField txtSO;
 	protected JTextField textDate;
+	protected JTextField txtDate;
 	
 	protected JButton SubmitBattingStats;
 	
@@ -152,10 +156,10 @@ public class UserBattingStats extends JPanel {
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
 		scrollPane.setViewportView(table);
 		
-		textDate = new JTextField();
-		textDate.setText("Date");
-		textDate.setColumns(10);
-		textDate.setBounds(140, 118, 92, 28);
-		add(textDate);
+		txtDate = new JTextField();
+		txtDate.setText("MM/DD/YYYY");
+		txtDate.setColumns(10);
+		txtDate.setBounds(140, 118, 92, 28);
+		add(txtDate);
 	}
 }
