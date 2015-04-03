@@ -48,8 +48,9 @@ public class UserBattingStats extends JPanel {
 	protected JTextField txtSB;
 	protected JTextField txtHR;
 	protected JTextField txtSO;
-	protected JTextField textDate;
 	protected JTextField txtDate;
+	protected JButton btnSignOut;
+
 	
 	protected JButton SubmitBattingStats;
 	
@@ -161,5 +162,9 @@ public class UserBattingStats extends JPanel {
 		txtDate.setColumns(10);
 		txtDate.setBounds(140, 118, 92, 28);
 		add(txtDate);
+
+		JButton btnSignOut = new JButton("Sign Out");
+		btnSignOut.setBounds(1030, 20, 117, 29);
+		add(btnSignOut);
 	}
 }

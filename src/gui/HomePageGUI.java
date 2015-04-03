@@ -19,6 +19,7 @@ import java.awt.Color;
 
 import database.*;
 import client.*;
+import java.awt.Font;
 
 
 /**
@@ -39,17 +40,14 @@ public class HomePageGUI extends JPanel {
 	  Description: Creates the panel
 	*/
 	public HomePageGUI() {
-		
-		//User currentUser = User.getCurrentUser();
-		//System.out.println(currentUser.getUserName());
-		//String name = currentUser.getUserName();
+
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
 		JLabel logo = new JLabel("New label");
 		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(6, 6, 100, 100);
+		logo.setBounds(30, 30, 100, 100);
 		add(logo);
 		
 		JLabel lblYouAre = new JLabel("You are");
@@ -69,14 +67,13 @@ public class HomePageGUI extends JPanel {
 		add(lblInsertPlayersName);		
 		
 		JLabel lblWelcome = new JLabel("Welcome,");
-		lblWelcome.setBounds(153, 59, 66, 16);
+		lblWelcome.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblWelcome.setBounds(159, 58, 100, 29);
 		add(lblWelcome);
 		
-		//String userName = currentUser.getUserName();	
-		//System.out.println(userName);
-		//System.out.println(currentUser.getUserName());
-		userFirstName = new JLabel();//currentUser.getUserName());
-		userFirstName.setBounds(217, 59, 89, 16);
+		userFirstName = new JLabel();
+		userFirstName.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		userFirstName.setBounds(253, 58, 321, 29);
 		add(userFirstName);
 		
 		JButton btnSignOut = new JButton("Sign Out");

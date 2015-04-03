@@ -41,6 +41,10 @@ public class MainGUI{
     public void ShowMainGUI(){
     	c1.show(panelContainer, "2");
     }    
+    
+    public void setApplicationToClose(){
+    	mainFrame.dispose();
+    }
        
     public MainGUI(){    	
 		txtUserName = new JTextField();
@@ -91,6 +95,7 @@ public class MainGUI{
     	mainFrame.pack();
     	mainFrame.setVisible(true);
     	mainFrame.setExtendedState(mainFrame.MAXIMIZED_BOTH);
+    	
     }    
     /**
 	  Method: main

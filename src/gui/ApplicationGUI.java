@@ -12,9 +12,12 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 
+
+
 //import client.MlbStatsGuiClient;
 import client.*;
 import database.*;
+
 import javax.swing.border.LineBorder;
 
 
@@ -24,6 +27,7 @@ public class ApplicationGUI extends JTabbedPane{
 	UserFieldingStatsClient fielding;
 	UserPitchingStatsClient pitching;
 	User currentUser;
+	MainGUI mainGuiObj = null;
 	
 	public ApplicationGUI() {
 		this.setTabPlacement(JTabbedPane.TOP);

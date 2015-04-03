@@ -40,6 +40,7 @@ public class UserGUIStats extends JPanel {
 	private JTextField txtSos;
 	private JTextField txtBb;
 	private JTable table;
+	protected JButton btnSignOut;
 
 	/**
 	  Method: Constructor
@@ -133,5 +134,9 @@ public class UserGUIStats extends JPanel {
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date", "Average", "AB","1B","2B","3B","Runs","SO","SOS","BB"}));
 		scrollPane.setViewportView(table);
+		
+		JButton btnSignOut = new JButton("Sign Out");
+		btnSignOut.setBounds(1030, 20, 117, 29);
+		add(btnSignOut);
 	}
 }
