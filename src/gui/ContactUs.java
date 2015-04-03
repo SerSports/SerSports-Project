@@ -52,6 +52,14 @@ public class ContactUs extends JPanel {
 		logo.setBounds(20, 20, 100, 100);
 		add(logo);
 		
+		JLabel lblEmailUs = new JLabel("Email Us: ser.sports.asu@gmail.com");
+		lblEmailUs.setBounds(81, 167, 244, 16);
+		add(lblEmailUs);
+		
+		JLabel lblCallUs = new JLabel("Call Us: (623) 239-7644");
+		lblCallUs.setBounds(81, 203, 244, 16);
+		add(lblCallUs);
+		
 
 	}
 }
