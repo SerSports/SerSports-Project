@@ -33,10 +33,7 @@ public class MLBPlayerProfile extends JPanel {
     private MlbStatsGui secondPanel;
     private MLBPlayerProfile thirdPanel;
     public JButton btnbtnBackButton;
-    MLBBattingStats batting = new MLBBattingStats(null);
-    MLBPitchingStats pitching = new MLBPitchingStats();
-    MLBFieldingStats fielding = new MLBFieldingStats();
-    
+
     /**
 	  Method: Constructor
 	  Inputs: None
@@ -55,12 +52,6 @@ public class MLBPlayerProfile extends JPanel {
         jtp.setBounds(6, 47, 1274, 569);
         add(jtp);
         
-        MLBBattingStats batting = new MLBBattingStats(null);
-        MLBPitchingStats pitching = new MLBPitchingStats();
-        MLBFieldingStats fielding = new MLBFieldingStats();
-        
-        jtp.addTab("Batting", batting);
-        jtp.addTab("Fielding", fielding);
-        jtp.addTab("Pitching", pitching);
+
     }
 }
