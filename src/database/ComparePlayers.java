@@ -4,23 +4,29 @@ import java.util.ArrayList;
 
 public class ComparePlayers {
 	
-	private float[] LocalScores;
-	private float[] MlbScores;
+	private static float[] localScores;
+	private static float[] mlbScores;
+	private static float[] differenceNums;
 	
 	public static ArrayList<MlbPlayer> compareToPlayerList(LocalPlayer lp, ArrayList<MlbPlayer> mlbList) {
 		return mlbList;
 	}
 	
 	public static float compareToPlayer(LocalPlayer lb, MlbPlayer mlbPlayer) {
+		loadScores(lb, mlbPlayer);
+		int startScore = 1000;
+		for(int i = 0; i < differenceNums.length; i++) {
+			startScore -= returnDifference(localScores[i], mlbScores[i]);
+		}
 		return 50.0f;
 	}
 	
-	private int returnDifference(int firstNum, int secNum, int[] differenceNums) {
-		int startScore = 1000;
+	private static int returnDifference(float firstNum, float secNum) {
+		
 		return 1;
 	}
 	
-	private void loadScores(LocalPlayer lb, MlbPlayer mlbPlayer) {
+	private static void loadScores(LocalPlayer lb, MlbPlayer mlbPlayer) {
 		System.out.println("Not implemented");
 	}
 
