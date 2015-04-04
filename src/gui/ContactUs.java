@@ -64,7 +64,7 @@ public class ContactUs extends JPanel {
 		lblEmailUs.setBounds(81, 167, 244, 16);
 		add(lblEmailUs);
 		
-		JLabel lblCallUs = new JLabel("Call Us: (623) 239-7644");
+		JLabel lblCallUs = new JLabel("Call Us: (555) 555-5555");
 		lblCallUs.setBounds(81, 203, 244, 16);
 		add(lblCallUs);
 		
