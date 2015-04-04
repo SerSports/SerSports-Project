@@ -71,8 +71,7 @@ public class ContactUs extends JPanel {
 		
 		btnSignOut.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
-    			//MainGUI resetToMain = new MainGUI();
-    			MainGUI.setApplicationToClose(); //does not close out application yet.
+    			MainGUI.setApplicationToClose(); 
     		}
     	});
 

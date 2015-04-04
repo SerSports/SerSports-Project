@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -142,5 +144,11 @@ public class UserPitchingStats extends JPanel {
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
+		
+		btnSignOut.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    			MainGUI.setApplicationToClose(); 
+    		}
+    	});
 	}
 }

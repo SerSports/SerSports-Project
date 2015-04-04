@@ -19,7 +19,10 @@ import java.awt.Color;
 
 import database.*;
 import client.*;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 /**
@@ -79,6 +82,12 @@ public class HomePageGUI extends JPanel {
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
+		
+		btnSignOut.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    			MainGUI.setApplicationToClose(); 
+    		}
+    	});
 	}
 	
 	public void loadUserInfoIntoControls()
