@@ -122,7 +122,7 @@ public class MlbStatsGui extends JPanel {
 		scrollPane_1.setBounds(621, 173, 480, 85);
 		add(scrollPane_1);
 		
-		mlbbattingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
+		mlbbattingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BattingAverage"}));
 		scrollPane_1.setViewportView(mlbbattingTable);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
