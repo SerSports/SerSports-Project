@@ -44,6 +44,10 @@ public class MainGUI{
     	c1.show(panelContainer, "2");
     }    
     
+    public void ShowLoginGUI(){
+    	c1.show(panelContainer, "1");
+    }
+    
     public static void setApplicationToClose(){
     	singleton.mainFrame.dispose();
     	singleton = new MainGUI();

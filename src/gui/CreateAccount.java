@@ -20,6 +20,7 @@ public class CreateAccount extends JPanel {
 	private JTextField textLastname;
 	private JTextField textAge;
 	protected JButton btnCreateNewAccount;
+	protected JButton backButton;
 	private static final boolean debugOn = true;
 	MainGUI main = null;
 
@@ -85,6 +86,15 @@ public class CreateAccount extends JPanel {
 		add(btnCreateNewAccount);
 		btnCreateNewAccount.setActionCommand("btnCreateNewAccount");
 		
+		/**
+		 *  Back button displayed on the Create Account screen
+		 *  that transitions back to the Login screen
+		 */
+		JButton backButton = new JButton("Back");
+		backButton.setBounds(20, 20, 140, 28);
+		add(backButton);
+		backButton.setActionCommand("backButton");
+		
 		btnCreateNewAccount.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
     			debug("you clicked Create New Account");
@@ -101,6 +111,15 @@ public class CreateAccount extends JPanel {
     			} else {
     		        JOptionPane.showMessageDialog(null, "Unable to create user!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
     			}
+    		}
+    	});
+		
+		/**
+		 *  Listener used to transition back to the Login screen
+		 */
+		backButton.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    				main.ShowLoginGUI();
     		}
     	});
 	}
