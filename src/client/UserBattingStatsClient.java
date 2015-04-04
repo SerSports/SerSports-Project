@@ -140,7 +140,10 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			}
 		}
 		if (e.getActionCommand().equals("UpdateStatistic")) {
-			//debug("You clicked on update statistic in user batting stats client");
+			debug("You clicked on update statistic in user batting stats client");
+		}
+		if (e.getActionCommand().equals("DeleteStatistic")) {
+			debug("You clicked on delete statistic in user batting stats client");
 		}
 	}
 	

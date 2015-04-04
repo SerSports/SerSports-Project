@@ -180,6 +180,7 @@ public class UserBattingStats extends JPanel {
 		btnDeleteStatistic = new JButton("Delete Statistic");
 		btnDeleteStatistic.setBounds(674, 504, 143, 28);
 		add(btnDeleteStatistic);
+		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 		
 		btnSignOut.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){

@@ -137,11 +137,12 @@ public class UserFieldingStats extends JPanel {
 		btnUpdateStatistic = new JButton("Update Statistic");
 		btnUpdateStatistic.setBounds(469, 504, 143, 28);
 		add(btnUpdateStatistic);
-		//btnUpdateStatistic.addActionListener("UpdateStatistic");
+		btnUpdateStatistic.setActionCommand("UpdateStatistic");
 		
 		btnDeleteStatistic = new JButton("Delete Statistic");
 		btnDeleteStatistic.setBounds(674, 504, 143, 28);
 		add(btnDeleteStatistic);
+		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "Wins","Losses","PO","Err","Assist", "F%"}));
 		scrollPane.setViewportView(table);

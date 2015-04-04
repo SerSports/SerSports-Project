@@ -44,6 +44,8 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
     */
     public UserFieldingStatsClient() {
         SubmitFieldingStats.addActionListener(this);
+        btnUpdateStatistic.addActionListener(this);
+        btnDeleteStatistic.addActionListener(this);
     }
     
     /**
@@ -141,6 +143,12 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
                 ex.printStackTrace();
             }
         }
+		if (e.getActionCommand().equals("UpdateStatistic")) {
+			debug("You clicked on update statistic in user fielding stats client");
+		}
+		if (e.getActionCommand().equals("DeleteStatistic")) {
+			debug("You clicked on delete statistic in user fielding stats client");
+		}
 	}
 	
 	public void populateLocalPlayersFieldingTable() {
