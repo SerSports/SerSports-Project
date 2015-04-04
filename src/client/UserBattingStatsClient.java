@@ -10,18 +10,12 @@ package client;
 
 import gui.*;
 import database.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,8 +24,9 @@ Class: UserBattingStatsClient
 
 Description:
 */
-public class UserBattingStatsClient extends UserBattingStats implements ActionListener, ItemListener {
+public class UserBattingStatsClient extends UserBattingStats implements ActionListener {
 	
+	private static final long serialVersionUID = 1L;
 	private static final boolean debugOn = true;
 	
     /**
@@ -44,8 +39,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
     public UserBattingStatsClient() {
         //debug("Test in UserBattingStatsClient method");
     	SubmitBattingStats.addActionListener(this);
-    	
-    	//loadUserInfoIntoControl();
     }
 	
     /**
@@ -61,18 +54,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
         }
     }
 	
-	/**
-	  Method: itemStateChanged
-	  Inputs: ItemEvent e
-	  Returns:
-
-	  Description:
-	*/
-	@Override
-	public void itemStateChanged(ItemEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	/**
 	  Method: actionPerformed
