@@ -45,6 +45,9 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
     	btnCompareToPlayer.addActionListener(this);
         submitPlayerSearchButton.addActionListener(this);
         btnSeePlayerStats.addActionListener(this);
+        
+        // Populate Table
+        populateTable(null, null, null, null);
     }
     
     /**
@@ -75,6 +78,22 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
             ex.printStackTrace();
         }
     }
+    
+    public void populateTable(String id, String firstName, String lastName, String team) {
+    	DefaultTableModel newTable = new DefaultTableModel(new Object[]{"ID", "First Name", "Last Name", "Team"/* "Position" */}, 0);
+        
+    	// Get filtered list
+        ArrayList<MlbPlayer> players = MlbPlayer.getPlayersFromDatabase(id, firstName, lastName, team);
+        
+        for(MlbPlayer m: players) {
+            Object[] row = {m.getId() ,m.getFirstName(), m.getLastName(), m.getTeam()};
+            newTable.addRow(row);
+        }
+        
+        table.setModel(newTable);
+        table.removeColumn(table.getColumnModel().getColumn(0));
+    }
+    
     /**
 	  Method: actionPerformed
 	  Inputs: ActionEvent e
@@ -102,17 +121,8 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
                     team = null;
                 }
                 
-                DefaultTableModel newTable = new DefaultTableModel(new Object[]{"ID", "First Name", "Last Name", "Team"/* "Position" */}, 0);
-                
-                ArrayList<MlbPlayer> players = MlbPlayer.getPlayersFromDatabase(null, fName, lName, team);
-                
-                for(MlbPlayer m: players) {
-                    Object[] row = {m.getId() ,m.getFirstName(), m.getLastName(), m.getTeam()};
-                    newTable.addRow(row);
-                }
-                
-                table.setModel(newTable);
-                table.removeColumn(table.getColumnModel().getColumn(0));
+                // Populate Table
+                populateTable(null, fName, lName, team);
                 
             } catch (RuntimeException ex){
 				throw ex;    
