@@ -42,6 +42,8 @@ public class UserPitchingStats extends JPanel {
 	protected JTextField txtHolds;
 	protected JTextField txtRuns;
 	protected JTextField txtHBP;
+	protected JButton btnUpdateStatistic;
+	protected JButton btnDeleteStatistic;
 
 	protected JButton SubmitPitchingStats;
 	protected JButton btnSignOut;
@@ -140,6 +142,14 @@ public class UserPitchingStats extends JPanel {
 		txtDate.setColumns(10);
 		txtDate.setBounds(166, 121, 109, 22);
 		add(txtDate);
+		
+		btnUpdateStatistic = new JButton("Update Statistic");
+		btnUpdateStatistic.setBounds(469, 504, 143, 28);
+		add(btnUpdateStatistic);
+		
+		btnDeleteStatistic = new JButton("Delete Statistic");
+		btnDeleteStatistic.setBounds(674, 504, 143, 28);
+		add(btnDeleteStatistic);
 		
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
