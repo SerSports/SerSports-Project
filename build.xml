@@ -71,7 +71,7 @@
 	<target name="findbugs" depends="compile">
 	  <findbugs home="${findbugs.home}"
               output="xml"
-              outputFile="cst316sa.xml" >
+              outputFile="sersports.xml" >
 	    <sourcePath path="${src}" />
 	    <class location="${build}" />
 	  </findbugs>
