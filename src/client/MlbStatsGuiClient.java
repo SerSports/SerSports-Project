@@ -190,7 +190,6 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
     	Object[] fRow = {player.getFielding_games_play(), player.getFielding_games_win(), player.getFielding_games_loss(),
 				player.getFielding_po(), player.getFielding_error(), player.getFielding_a(), player.getFielding_fpct()};
     	fTable.addRow(fRow);
-        fTable.addRow(fRow);
         mlbfieldingTable.setModel(fTable);
         mlbfieldingTable.removeColumn(table.getColumnModel().getColumn(0));
         
