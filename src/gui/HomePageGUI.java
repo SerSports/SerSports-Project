@@ -78,6 +78,7 @@ public class HomePageGUI extends JPanel {
 		lblWelcome.setBounds(159, 58, 100, 29);
 		add(lblWelcome);
 		
+		//calling name
 		userFirstName = new JLabel();
 		userFirstName.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		userFirstName.setBounds(253, 58, 321, 29);
@@ -105,6 +106,7 @@ public class HomePageGUI extends JPanel {
     	});
 	}
 	
+	//method to reload name
 	public void loadUserInfoIntoControls()
 	{
 		// Reload the Current User
