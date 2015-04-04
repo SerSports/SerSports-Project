@@ -1,9 +1,11 @@
 package gui;
 
 import java.awt.CardLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -91,7 +93,9 @@ public class CreateAccount extends JPanel {
 		 *  that transitions back to the Login screen
 		 */
 		JButton backButton = new JButton("Back");
-		backButton.setBounds(20, 20, 140, 28);
+		Image back_button_img = new ImageIcon(this.getClass().getResource("/images/back_arrow_img.png")).getImage();
+		backButton.setIcon(new ImageIcon(back_button_img));
+		backButton.setBounds(20, 20, 20, 10);
 		add(backButton);
 		backButton.setActionCommand("backButton");
 		
@@ -114,7 +118,6 @@ public class CreateAccount extends JPanel {
     		}
     	});
 		
-<<<<<<< HEAD
 		/**
 		 *  Listener used to transition back to the Login screen
 		 */
@@ -123,8 +126,6 @@ public class CreateAccount extends JPanel {
     				main.ShowLoginGUI();
     		}
     	});
-=======
 		
->>>>>>> d2a6c9427ce346d830f967cf0bc3e1c2b74d4717
 	}
 }
