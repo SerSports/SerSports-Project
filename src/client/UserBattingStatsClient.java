@@ -39,6 +39,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
     public UserBattingStatsClient() {
         //debug("Test in UserBattingStatsClient method");
     	SubmitBattingStats.addActionListener(this);
+    	btnUpdateStatistic.addActionListener(this);
+    	btnDeleteStatistic.addActionListener(this);
     }
 	
     /**
@@ -136,6 +138,9 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
+		}
+		if (e.getActionCommand().equals("UpdateStatistic")) {
+			//debug("You clicked on update statistic in user batting stats client");
 		}
 	}
 	

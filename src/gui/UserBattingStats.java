@@ -175,6 +175,7 @@ public class UserBattingStats extends JPanel {
 		btnUpdateStatistic = new JButton("Update Statistic");
 		btnUpdateStatistic.setBounds(469, 504, 143, 28);
 		add(btnUpdateStatistic);
+		btnUpdateStatistic.setActionCommand("UpdateStatistic");
 		
 		btnDeleteStatistic = new JButton("Delete Statistic");
 		btnDeleteStatistic.setBounds(674, 504, 143, 28);
