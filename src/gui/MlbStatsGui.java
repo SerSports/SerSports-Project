@@ -10,15 +10,12 @@ package gui;
 
 
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
@@ -32,6 +29,8 @@ Class: MlbStatsGui
 Description: GUI for Mlb Stats database
 */
 public class MlbStatsGui extends JPanel {
+
+	private static final long serialVersionUID = 1L;
 	protected JTextField txtFirstName;
 	protected JTable table;
 	protected JTextField txtLastName;
@@ -46,6 +45,12 @@ public class MlbStatsGui extends JPanel {
 	protected JTable mlbfieldingTable;
 	protected JTable mlbpitchingTable;
 	protected JButton btnSignOut;
+	protected JLabel lblMlbPlayerName;
+	protected JLabel lblMlbPlayerLast;
+	protected JLabel lblMlbPlayerTeam;
+
+
+	
 	/**
 	  Method: Constructor
 	  Inputs: None
@@ -56,8 +61,6 @@ public class MlbStatsGui extends JPanel {
 	public MlbStatsGui() {
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
-		getDBconnection();
-		getResultsSet();
 		
 		JLabel logo = new JLabel("New label");
 		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
@@ -106,15 +109,15 @@ public class MlbStatsGui extends JPanel {
 		txtTeam.setBounds(20, 233, 180, 28);
 		add(txtTeam);
 		
-		JLabel lblMlbPlayerName = new JLabel("MLB Player First Name");
+		lblMlbPlayerName = new JLabel("MLB Player First Name");
 		lblMlbPlayerName.setBounds(621, 62, 149, 16);
 		add(lblMlbPlayerName);
 		
-		JLabel lblMlbPlayerLast = new JLabel("MLB Player Last Name");
+		lblMlbPlayerLast = new JLabel("MLB Player Last Name");
 		lblMlbPlayerLast.setBounds(621, 90, 149, 16);
 		add(lblMlbPlayerLast);
 		
-		JLabel lblMlbPlayerTeam = new JLabel("MLB Player Team");
+		lblMlbPlayerTeam = new JLabel("MLB Player Team");
 		lblMlbPlayerTeam.setBounds(621, 118, 149, 16);
 		add(lblMlbPlayerTeam);
 		
@@ -160,15 +163,5 @@ public class MlbStatsGui extends JPanel {
     			MainGUI.setApplicationToClose(); 
     		}
     	});
-	}
-
-	private void getResultsSet() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void getDBconnection() {
-		// TODO Auto-generated method stub
-		
 	}
 }

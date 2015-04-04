@@ -135,8 +135,12 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener {
 				MlbPlayer selectedPlayer = playerList.get(0);			
 				// Load the Player's Data into the controls
 				loadGameData(selectedPlayer);
+				System.out.println("first: " + selectedPlayer.getFirst_name());
+				lblMlbPlayerName.setText("First Name: " + selectedPlayer.getFirst_name());
+				lblMlbPlayerLast.setText("Last Name: " + selectedPlayer.getLast_name());
+				lblMlbPlayerTeam.setText("Team: " + selectedPlayer.getTeam_name());
 			}
-		}
+		}		
     }
 				
 	private void loadGameData(MlbPlayer player) {

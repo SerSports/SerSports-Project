@@ -6,15 +6,13 @@ Date:
 Description: Creates a MLB Player Object with player stats and info
 
  */
+
 package database;
 
-import java.rmi.server.*;
-import java.rmi.*;
-import java.text.NumberFormat;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
