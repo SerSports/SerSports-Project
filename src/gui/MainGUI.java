@@ -8,14 +8,14 @@ Description: Main GUI (the brain, the tabs)
 */
 package gui;
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+
 import javax.swing.*;
+
 import database.User;
 
 /**
@@ -100,7 +100,9 @@ public class MainGUI{
     	mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     	mainFrame.pack();
     	mainFrame.setVisible(true);
-    	mainFrame.setExtendedState(mainFrame.MAXIMIZED_BOTH);
+    	mainFrame.setSize(1000, 650);
+    	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    	mainFrame.setLocation(dim.width/2-mainFrame.getSize().width/2, dim.height/2-mainFrame.getSize().height/2);
     	
     }    
     /**
