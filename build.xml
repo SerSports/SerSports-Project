@@ -68,10 +68,10 @@
     </target>
 	
 	<property name="findbugs.home" value="/opt/findbugs-3.0.1" />
-	<target name="findbugs" depends="compile">
+	<target name="findbugs" depends="build">
 	  <findbugs home="${findbugs.home}"
               output="xml"
-              outputFile="sersportsfindbugs.xml" >
+              outputFile="cst316sa.xml" >
 	    <sourcePath path="${src}" />
 	    <class location="${classes}" />
 	  </findbugs>
