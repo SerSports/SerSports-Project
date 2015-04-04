@@ -21,7 +21,7 @@ public class ComparePlayers {
 	}
 	
 	private void loadScores(LocalPlayer lb, MlbPlayer mlbPlayer) {
-		System.out.println("Not implemented");
+		System.out.println("Not implemented yet");
 	}
 
 }
