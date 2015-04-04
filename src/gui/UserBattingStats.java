@@ -159,7 +159,7 @@ public class UserBattingStats extends JPanel {
 		scrollPane.setBounds(293, 235, 691, 235);
 		add(scrollPane);
 		
-		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
+		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}));
 		scrollPane.setViewportView(table);
 		
 		txtDate = new JTextField();
