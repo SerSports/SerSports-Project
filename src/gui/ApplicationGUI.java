@@ -22,7 +22,7 @@ import javax.swing.border.LineBorder;
 
 
 public class ApplicationGUI extends JTabbedPane{
-	HomePageGUI jp1;
+	HomePageGUIClient jp1;
 	UserBattingStatsClient batting;
 	UserFieldingStatsClient fielding;
 	UserPitchingStatsClient pitching;
@@ -37,7 +37,7 @@ public class ApplicationGUI extends JTabbedPane{
 		//Calling Jpanel classes and putting them into tabbedPanes
 		
 		//Home Page
-		jp1 = new HomePageGUI();
+		jp1 = new HomePageGUIClient();
 		this.addTab("Home", jp1);
 		
 		//UserStats

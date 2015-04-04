@@ -38,6 +38,7 @@ public class HomePageGUI extends JPanel {
 	JLabel userFirstName = null;
 	protected JButton btnSignOut;
 	protected JTable comparisonTable;
+	protected JButton btnFindBestComparison;
 	
 	/**
 	  Method: Constructor
@@ -91,19 +92,13 @@ public class HomePageGUI extends JPanel {
 		comparisonTable = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"}));
 		scrollPane_2.setViewportView(comparisonTable);
 		
-		JButton btnSignOut = new JButton("Sign Out");
+		btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
 		
-		JButton btnFindBestComparison = new JButton("Find Best Comparison");
+		btnFindBestComparison = new JButton("Find Best Comparison");
 		btnFindBestComparison.setBounds(208, 285, 171, 29);
 		add(btnFindBestComparison);
-		
-		btnSignOut.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			MainGUI.setApplicationToClose(); 
-    		}
-    	});
 	}
 	
 	//method to reload name
