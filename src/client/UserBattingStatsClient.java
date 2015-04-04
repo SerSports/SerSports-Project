@@ -148,7 +148,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		
 		// Set up the table
 		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "ID", "Date", "Games Played",
-				"AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO"}, 0);
+				"AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO", "BA"}, 0);
 
 		if(User.getCurrentUser() != null){
 			User currentLoggedInUser = User.getCurrentUser();
