@@ -93,9 +93,9 @@ public class CreateAccount extends JPanel {
 		 *  that transitions back to the Login screen
 		 */
 		JButton backButton = new JButton("Back");
-		Image back_button_img = new ImageIcon(this.getClass().getResource("/images/back_arrow_img.png")).getImage();
+		Image back_button_img = new ImageIcon(this.getClass().getResource("/images/BackButton.png")).getImage();
 		backButton.setIcon(new ImageIcon(back_button_img));
-		backButton.setBounds(20, 20, 20, 10);
+		backButton.setBounds(20, 20, 10, 20);
 		add(backButton);
 		backButton.setActionCommand("backButton");
 		
