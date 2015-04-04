@@ -170,9 +170,6 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
     }
 				
 	private void loadGameData(MlbPlayer player) {
-		MlbStatsGui.lblMlbPlayerName = player.getFirst_name();
-		lblMlbPlayerLast = player.getLast_name();
-		lblMlbPlayerTeam = player.getTeam_name();
 
 		// Set up the Hitting table							
 		DefaultTableModel bTable = new DefaultTableModel(new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}, 0);		      
