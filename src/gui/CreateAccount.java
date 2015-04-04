@@ -114,7 +114,6 @@ public class CreateAccount extends JPanel {
     		}
     	});
 		
-<<<<<<< HEAD
 		/**
 		 *  Listener used to transition back to the Login screen
 		 */
@@ -123,8 +122,6 @@ public class CreateAccount extends JPanel {
     				main.ShowLoginGUI();
     		}
     	});
-=======
-		
->>>>>>> d2a6c9427ce346d830f967cf0bc3e1c2b74d4717
+
 	}
 }
