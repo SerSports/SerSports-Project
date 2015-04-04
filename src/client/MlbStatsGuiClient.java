@@ -141,7 +141,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener {
 				
 	private void loadGameData(MlbPlayer player) {
 		// Set up the Hitting table							
-		DefaultTableModel bTable = new DefaultTableModel(new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}, 0);		      
+		DefaultTableModel bTable = new DefaultTableModel(new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}, 0);		      
         // Create the row of Hitting Stats
         Object[] hRow = {player.getHitting_games_play(), player.getHitting_ab(), player.getHitting_onbase_h(), player.getHitting_rbi(), 
         				player.getHitting_onbase_s(), player.getHitting_onbase_d(), player.getHitting_onbase_t(),
