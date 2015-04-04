@@ -24,6 +24,8 @@ Class: MainGUI
 Description: GUI for main navigation of site
 */
 public class MainGUI{
+	
+	private static MainGUI singleton = null;
 
 	JFrame mainFrame = new JFrame("SERSports");	
 	protected ApplicationGUI panelApplication = null;
@@ -42,8 +44,9 @@ public class MainGUI{
     	c1.show(panelContainer, "2");
     }    
     
-    public void setApplicationToClose(){
-    	mainFrame.dispose();
+    public static void setApplicationToClose(){
+    	singleton.mainFrame.dispose();
+    	singleton = new MainGUI();
     }
        
     public MainGUI(){    	
@@ -82,7 +85,6 @@ public class MainGUI{
     		}
     	});
     	
-    	
     	btnCreateAccount.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
     			c1.show(panelContainer, "3");
@@ -109,7 +111,7 @@ public class MainGUI{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					new MainGUI();
+					singleton = new MainGUI();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

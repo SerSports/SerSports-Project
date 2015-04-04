@@ -35,7 +35,7 @@ Description: GUI for the Contact Us Page
 public class ContactUs extends JPanel {
 	private JTextField txtTypeQuestion;
 	protected JButton btnSignOut;
-	MainGUI mainGUI = null;
+	//MainGUI mainGUI = null;
 
 	/**
 	  Method: Constructor
@@ -45,8 +45,8 @@ public class ContactUs extends JPanel {
 	  Description: Creates the panel
 	*/
 	public ContactUs() {
-		MainGUI main = null;
-		this.mainGUI = main;
+		//MainGUI main = null;
+		//this.mainGUI = main;
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
@@ -71,9 +71,8 @@ public class ContactUs extends JPanel {
 		
 		btnSignOut.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
-    			MainGUI resetToMain = new MainGUI();
-    			//mainGUI.setApplicationToClose(); //does not close out application yet.
- 
+    			//MainGUI resetToMain = new MainGUI();
+    			MainGUI.setApplicationToClose(); //does not close out application yet.
     		}
     	});
 
