@@ -35,8 +35,6 @@ Description: GUI for the Contact Us Page
 public class ContactUs extends JPanel {
 	private JTextField txtTypeQuestion;
 	protected JButton btnSignOut;
-	//MainGUI mainGUI = null;
-
 	/**
 	  Method: Constructor
 	  Inputs: None
@@ -45,8 +43,6 @@ public class ContactUs extends JPanel {
 	  Description: Creates the panel
 	*/
 	public ContactUs() {
-		//MainGUI main = null;
-		//this.mainGUI = main;
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
@@ -67,8 +63,7 @@ public class ContactUs extends JPanel {
 		JLabel lblCallUs = new JLabel("Call Us: (555) 555-5555");
 		lblCallUs.setBounds(81, 203, 244, 16);
 		add(lblCallUs);
-		
-		
+			
 		btnSignOut.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
     			MainGUI.setApplicationToClose(); 
