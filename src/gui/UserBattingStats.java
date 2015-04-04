@@ -53,6 +53,8 @@ public class UserBattingStats extends JPanel {
 	protected JTextField txtSO;
 	protected JTextField txtDate;
 	protected JButton btnSignOut;
+	protected JButton btnUpdateStatistic;
+	protected JButton btnDeleteStatistic;
 
 	
 	protected JButton SubmitBattingStats;
@@ -169,6 +171,14 @@ public class UserBattingStats extends JPanel {
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
+		
+		btnUpdateStatistic = new JButton("Update Statistic");
+		btnUpdateStatistic.setBounds(469, 504, 143, 28);
+		add(btnUpdateStatistic);
+		
+		btnDeleteStatistic = new JButton("Delete Statistic");
+		btnDeleteStatistic.setBounds(674, 504, 143, 28);
+		add(btnDeleteStatistic);
 		
 		btnSignOut.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){

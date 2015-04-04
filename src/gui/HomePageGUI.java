@@ -14,6 +14,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 import java.awt.Color;
 
@@ -34,6 +37,7 @@ public class HomePageGUI extends JPanel {
 	User currentUser = null;
 	JLabel userFirstName = null;
 	protected JButton btnSignOut;
+	protected JTable comparisonTable;
 	
 	/**
 	  Method: Constructor
@@ -79,9 +83,20 @@ public class HomePageGUI extends JPanel {
 		userFirstName.setBounds(253, 58, 321, 29);
 		add(userFirstName);
 		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(46, 188, 480, 85);
+		add(scrollPane_2);
+
+		comparisonTable = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"}));
+		scrollPane_2.setViewportView(comparisonTable);
+		
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
+		
+		JButton btnFindBestComparison = new JButton("Find Best Comparison");
+		btnFindBestComparison.setBounds(208, 285, 171, 29);
+		add(btnFindBestComparison);
 		
 		btnSignOut.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){

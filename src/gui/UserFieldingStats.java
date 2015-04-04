@@ -45,6 +45,8 @@ public class UserFieldingStats extends JPanel {
 	protected JTextField txtWins;
 	protected JTextField txtLoss;
 	protected JButton btnSignOut;
+	protected JButton btnUpdateStatistic;
+	protected JButton btnDeleteStatistic;
 
 	protected JButton SubmitFieldingStats;
 	
@@ -132,6 +134,13 @@ public class UserFieldingStats extends JPanel {
 		scrollPane.setBounds(293, 235, 691, 235);
 		add(scrollPane);
 		
+		btnUpdateStatistic = new JButton("Update Statistic");
+		btnUpdateStatistic.setBounds(469, 504, 143, 28);
+		add(btnUpdateStatistic);
+		
+		btnDeleteStatistic = new JButton("Delete Statistic");
+		btnDeleteStatistic.setBounds(674, 504, 143, 28);
+		add(btnDeleteStatistic);
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "Wins","Losses","PO","Err","Assist", "F%"}));
 		scrollPane.setViewportView(table);

@@ -205,30 +205,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	public float getBattingAverage() {
 		return (hitting_onbase_h / hitting_ab);
 	}
-	
-	public String getFirstName() {
-		return first_name;
-	}
 
-	public void setFirstName(String firstName) {
-		this.first_name = firstName;
-	}
-
-	public String getLastName() {
-		return last_name;
-	}
-
-	public void setLastName(String lastName) {
-		this.last_name = lastName;
-	}
-
-	public String getTeam() {
-		return team_name;
-	}
-
-	public void setTeam(String team) {
-		this.team_name = team;
-	}
 	public String getFirst_name() {
 		return first_name;
 	}
