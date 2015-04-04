@@ -14,8 +14,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -91,43 +95,45 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 				String assist = txtA.getText();
 				String fpct = txtFpct.getText();
 				
-				// Check for empty or invalid String
-                if (date.length() == 0 || date.equals("Date")) {
-                    date = null;
-            	}
-                if (gp.length() == 0 || gp.equals("Games Played")) {
-                    gp = null;
-            	}
-                if (wins.length() == 0 || wins.equals("Wins")) {
-                    wins = null;
-                }
-                if (loss.length() == 0 || loss.equals("Loss")) {
-                    loss = null;
-                }
-                if (po.length() == 0 || po.equals("PO")) {
-                    po = null;
-                }
-                if (error.length() == 0 || error.equals("Err")) {
-                    error = null;
-                }
-                if (assist.length() == 0 || assist.equals("Assist")) {
-                    assist = null;
-                }
-                if (fpct.length() == 0 || fpct.equals("F%")) {
-                    fpct = null;
-                }
-                
-                /*
-				debug("Your entry:");
-				debug("Date: "+date+" Games Played: "+gp+" Wins: "+wins+" Loss: "+loss+" PO: "+po+" Error: "+error);
-				debug(" Assist: "+assist+" FPCT: "+fpct);
-                 */
-                
-                //Add input into user database, then display all game statistics
-                LocalPlayerFieldingStatistics.addLocalPlayerFieldingStatistics(date, gp, wins, loss, po, error, assist, fpct);
-			
-                //reload statistics into table
-                loadUserInfoIntoControls();
+				boolean valid = isValidDate(date);
+				
+				//collect values if user entered the correct date format
+				if (valid == true){
+					// Check for empty or invalid String
+	                if (date.length() == 0 || date.equals("Date")) {
+	                    date = null;
+	            	}
+	                if (gp.length() == 0 || gp.equals("Games Played")) {
+	                    gp = null;
+	            	}
+	                if (wins.length() == 0 || wins.equals("Wins")) {
+	                    wins = null;
+	                }
+	                if (loss.length() == 0 || loss.equals("Loss")) {
+	                    loss = null;
+	                }
+	                if (po.length() == 0 || po.equals("PO")) {
+	                    po = null;
+	                }
+	                if (error.length() == 0 || error.equals("Err")) {
+	                    error = null;
+	                }
+	                if (assist.length() == 0 || assist.equals("Assist")) {
+	                    assist = null;
+	                }
+	                if (fpct.length() == 0 || fpct.equals("F%")) {
+	                    fpct = null;
+	                }
+
+	                //Add input into user database, then display all game statistics
+	                LocalPlayerFieldingStatistics.addLocalPlayerFieldingStatistics(date, gp, wins, loss, po, error, assist, fpct);
+				
+	                //reload statistics into table
+	                loadUserInfoIntoControls();
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "Invalid date format. Please add date in MM/DD/YYYY", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+				}
                 
             } catch (RuntimeException ex){
 				throw ex;
@@ -167,5 +173,21 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 	public void loadUserInfoIntoControls(){
 		// Reload the Local Players Fielding Statistics Table
 		populateLocalPlayersFieldingTable();
+	}
+	
+	public boolean isValidDate(String gameDate){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		boolean result = true;
+		
+		try {
+			Date validateDate = dateFormat.parse(gameDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			//debug("Invalid date format");
+			result = false;
+		}
+		
+		return result;
 	}
 }

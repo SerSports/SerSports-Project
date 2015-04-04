@@ -16,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -102,7 +104,7 @@ public class BrowseLocalPlayers extends JPanel {
 		scrollPane_1.setBounds(621, 173, 480, 85);
 		add(scrollPane_1);
 		
-		battingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
+		battingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO","BA"}));
 		scrollPane_1.setViewportView(battingTable);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
@@ -134,5 +136,11 @@ public class BrowseLocalPlayers extends JPanel {
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
+		
+		btnSignOut.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    			MainGUI.setApplicationToClose(); 
+    		}
+    	});
 	}
 }

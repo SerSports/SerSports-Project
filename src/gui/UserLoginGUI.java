@@ -71,6 +71,7 @@ public class UserLoginGUI extends JPanel {
 		btnCreateAccount.setBounds(226, 236, 134, 28);
 		add(btnCreateAccount);
 
+		
 
 
 	

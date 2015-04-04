@@ -9,10 +9,15 @@ Description: GUI for handling the User Fielding stats input
 package gui;
 
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -40,6 +45,8 @@ public class UserFieldingStats extends JPanel {
 	protected JTextField txtWins;
 	protected JTextField txtLoss;
 	protected JButton btnSignOut;
+	protected JButton btnUpdateStatistic;
+	protected JButton btnDeleteStatistic;
 
 	protected JButton SubmitFieldingStats;
 	
@@ -127,6 +134,14 @@ public class UserFieldingStats extends JPanel {
 		scrollPane.setBounds(293, 235, 691, 235);
 		add(scrollPane);
 		
+		btnUpdateStatistic = new JButton("Update Statistic");
+		btnUpdateStatistic.setBounds(469, 504, 143, 28);
+		add(btnUpdateStatistic);
+		//btnUpdateStatistic.addActionListener("UpdateStatistic");
+		
+		btnDeleteStatistic = new JButton("Delete Statistic");
+		btnDeleteStatistic.setBounds(674, 504, 143, 28);
+		add(btnDeleteStatistic);
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "Wins","Losses","PO","Err","Assist", "F%"}));
 		scrollPane.setViewportView(table);
@@ -134,5 +149,11 @@ public class UserFieldingStats extends JPanel {
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
+		
+		btnSignOut.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    			MainGUI.setApplicationToClose(); 
+    		}
+    	});
 	}
 }

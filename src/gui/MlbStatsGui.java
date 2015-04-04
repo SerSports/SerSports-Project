@@ -14,9 +14,10 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -118,14 +119,14 @@ public class MlbStatsGui extends JPanel {
 		add(lblMlbPlayerTeam);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(621, 173, 480, 85);
+		scrollPane_1.setBounds(621, 173, 653, 88);
 		add(scrollPane_1);
 		
-		mlbbattingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
+		mlbbattingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}));
 		scrollPane_1.setViewportView(mlbbattingTable);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(621, 453, 480, 85);
+		scrollPane_2.setBounds(621, 453, 653, 88);
 		add(scrollPane_2);
 
 		mlbfieldingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}));
@@ -140,7 +141,7 @@ public class MlbStatsGui extends JPanel {
 		add(mlbPitching);
 		
 		JScrollPane scrollPane_3 = new JScrollPane();
-		scrollPane_3.setBounds(621, 317, 480, 85);
+		scrollPane_3.setBounds(621, 317, 653, 85);
 		add(scrollPane_3);
 		
 		mlbpitchingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","BB"}));
@@ -153,6 +154,12 @@ public class MlbStatsGui extends JPanel {
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
+		
+		btnSignOut.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    			MainGUI.setApplicationToClose(); 
+    		}
+    	});
 	}
 
 	private void getResultsSet() {

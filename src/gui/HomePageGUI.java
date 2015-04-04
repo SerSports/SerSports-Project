@@ -14,12 +14,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 import java.awt.Color;
 
 import database.*;
 import client.*;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 /**
@@ -31,6 +37,8 @@ public class HomePageGUI extends JPanel {
 	User currentUser = null;
 	JLabel userFirstName = null;
 	protected JButton btnSignOut;
+	protected JTable comparisonTable;
+	protected JButton btnFindBestComparison;
 	
 	/**
 	  Method: Constructor
@@ -71,16 +79,29 @@ public class HomePageGUI extends JPanel {
 		lblWelcome.setBounds(159, 58, 100, 29);
 		add(lblWelcome);
 		
+		//calling name
 		userFirstName = new JLabel();
 		userFirstName.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		userFirstName.setBounds(253, 58, 321, 29);
 		add(userFirstName);
 		
-		JButton btnSignOut = new JButton("Sign Out");
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(46, 188, 480, 85);
+		add(scrollPane_2);
+
+		comparisonTable = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"}));
+		scrollPane_2.setViewportView(comparisonTable);
+		
+		btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
+		
+		btnFindBestComparison = new JButton("Find Best Comparison");
+		btnFindBestComparison.setBounds(208, 285, 171, 29);
+		add(btnFindBestComparison);
 	}
 	
+	//method to reload name
 	public void loadUserInfoIntoControls()
 	{
 		// Reload the Current User

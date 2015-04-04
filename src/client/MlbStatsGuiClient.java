@@ -10,15 +10,10 @@ package client;
 
 import gui.*;
 import database.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,14 +21,11 @@ Class: MlbStatsGuiClient
 
 Description:
 */
-public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, ItemListener {
+public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener {
     
     private static final long serialVersionUID = 1L;
-    private static final byte COLUMN_VALUE = 0;
     private static final boolean debugOn = true;
-    
-    private ArrayList<MlbPlayer> arrListWithSelectedPlayer;
-    
+     
     /**
 	  Method: MlbStatsGuiClient
 	  Inputs: none
@@ -45,6 +37,9 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
     	btnCompareToPlayer.addActionListener(this);
         submitPlayerSearchButton.addActionListener(this);
         btnSeePlayerStats.addActionListener(this);
+        
+        // Populate Table
+        populateTable(null, null, null, null);
     }
     
     /**
@@ -60,21 +55,19 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
         }
     }
     
-    /**
-	  Method: itemStateChanged
-	  Inputs: ItemEvent e
-	  Returns:
-
-	  Description:
-	*/
-    @Override
-    public void itemStateChanged(ItemEvent e) {
-        try {
-           
-        } catch (Exception ex) {
-            ex.printStackTrace();
+    public void populateTable(String id, String firstName, String lastName, String team) {
+    	DefaultTableModel newTable = new DefaultTableModel(new Object[]{"ID", "First Name", "Last Name", "Team"/* "Position" */}, 0);
+        
+    	// Get filtered list
+        ArrayList<MlbPlayer> players = MlbPlayer.getPlayersFromDatabase(id, firstName, lastName, team);
+        for(MlbPlayer m: players) {
+            Object[] row = {m.getId() ,m.getFirst_name(), m.getLast_name(), m.getTeam_name()};
+            newTable.addRow(row);
         }
+        table.setModel(newTable);
+        table.removeColumn(table.getColumnModel().getColumn(0));
     }
+    
     /**
 	  Method: actionPerformed
 	  Inputs: ActionEvent e
@@ -102,17 +95,8 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
                     team = null;
                 }
                 
-                DefaultTableModel newTable = new DefaultTableModel(new Object[]{"ID", "First Name", "Last Name", "Team"/* "Position" */}, 0);
-                
-                ArrayList<MlbPlayer> players = MlbPlayer.getPlayersFromDatabase(null, fName, lName, team);
-                
-                for(MlbPlayer m: players) {
-                    Object[] row = {m.getId() ,m.getFirstName(), m.getLastName(), m.getTeam()};
-                    newTable.addRow(row);
-                }
-                
-                table.setModel(newTable);
-                table.removeColumn(table.getColumnModel().getColumn(0));
+                // Populate Table
+                populateTable(null, fName, lName, team);
                 
             } catch (RuntimeException ex){
 				throw ex;    
@@ -121,13 +105,6 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
             }
         } else if (e.getActionCommand().equals("SeePlayerStats")) {
             try {
-            	
-				ApplicationGUI firstPanel = new ApplicationGUI();
-		        firstPanel.setOpaque(true);
-
-		        MLBPlayerProfile secondPanel = new MLBPlayerProfile();
-		        secondPanel.setOpaque(true);
-
 		        //check to see if this method gets called when SeePlayerStats button is pushed 
 				debug("you clicked SeePlayerStats");
 				
@@ -140,17 +117,14 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
         else if (e.getActionCommand().equals("CompareToPlayer")) {
         	//add if statement for highlighted selection of player
 	        JOptionPane.showMessageDialog(null, "You are 20% like this player", "Compare to Player", JOptionPane.INFORMATION_MESSAGE);
-	        //add variable player into JDialog
-        
+	        //add variable player into JDialog      
         }
     }
         
     private void loadSelectedPlayer() {
-	
 	// Get the value from the table - Key is in first hidden row
 		int selectedRow = table.getSelectedRow();
 		//System.out.println("selected row: " + selectedRow);
-		
 		if (selectedRow >= 0) {	
 			String MlbPlayerId = (String) table.getModel().getValueAt(selectedRow, 0);
 			//System.out.println("mlb player id: " + MlbPlayerId);
@@ -158,8 +132,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
 			// Get the Selected Player
 			ArrayList<MlbPlayer> playerList = MlbPlayer.getPlayersFromDatabase(MlbPlayerId, null, null, null);
 			if (playerList != null) {
-				MlbPlayer selectedPlayer = playerList.get(0);
-				
+				MlbPlayer selectedPlayer = playerList.get(0);			
 				// Load the Player's Data into the controls
 				loadGameData(selectedPlayer);
 			}
@@ -167,12 +140,8 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
     }
 				
 	private void loadGameData(MlbPlayer player) {
-        System.out.println(player.getFirst_name());
-        System.out.println(player.getHitting_ab());
-        System.out.println(player.getTeam());
-
 		// Set up the Hitting table							
-		DefaultTableModel bTable = new DefaultTableModel(new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}, 0);		      
+		DefaultTableModel bTable = new DefaultTableModel(new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}, 0);		      
         // Create the row of Hitting Stats
         Object[] hRow = {player.getHitting_games_play(), player.getHitting_ab(), player.getHitting_onbase_h(), player.getHitting_rbi(), 
         				player.getHitting_onbase_s(), player.getHitting_onbase_d(), player.getHitting_onbase_t(),
@@ -187,7 +156,6 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
     	Object[] fRow = {player.getFielding_games_play(), player.getFielding_games_win(), player.getFielding_games_loss(),
 				player.getFielding_po(), player.getFielding_error(), player.getFielding_a(), player.getFielding_fpct()};
     	fTable.addRow(fRow);
-        fTable.addRow(fRow);
         mlbfieldingTable.setModel(fTable);
         mlbfieldingTable.removeColumn(table.getColumnModel().getColumn(0));
         
@@ -201,5 +169,4 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
         mlbpitchingTable.setModel(pTable);
         mlbpitchingTable.removeColumn(table.getColumnModel().getColumn(0));
 	}
-	
 }

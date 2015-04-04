@@ -10,18 +10,12 @@ package client;
 
 import gui.*;
 import database.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,8 +24,9 @@ Class: UserBattingStatsClient
 
 Description:
 */
-public class UserBattingStatsClient extends UserBattingStats implements ActionListener, ItemListener {
+public class UserBattingStatsClient extends UserBattingStats implements ActionListener {
 	
+	private static final long serialVersionUID = 1L;
 	private static final boolean debugOn = true;
 	
     /**
@@ -44,8 +39,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
     public UserBattingStatsClient() {
         //debug("Test in UserBattingStatsClient method");
     	SubmitBattingStats.addActionListener(this);
-    	
-    	//loadUserInfoIntoControl();
+    	btnUpdateStatistic.addActionListener(this);
+    	btnDeleteStatistic.addActionListener(this);
     }
 	
     /**
@@ -61,18 +56,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
         }
     }
 	
-	/**
-	  Method: itemStateChanged
-	  Inputs: ItemEvent e
-	  Returns:
-
-	  Description:
-	*/
-	@Override
-	public void itemStateChanged(ItemEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	/**
 	  Method: actionPerformed
@@ -103,7 +86,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			
 				boolean valid = isValidDate(date);
 				
-			
+				//collect values if user entered the correct date format
 				if (valid == true){
 					// Check for empty or invalid String
 	                if (gp.length() == 0 || gp.equals("Games Played")) {
@@ -156,13 +139,16 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 				ex.printStackTrace();
 			}
 		}
+		if (e.getActionCommand().equals("UpdateStatistic")) {
+			//debug("You clicked on update statistic in user batting stats client");
+		}
 	}
 	
 	public void populateLocalPlayersBattingTable() {
 		
 		// Set up the table
 		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "ID", "Date", "Games Played",
-				"AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO"}, 0);
+				"AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO", "BA"}, 0);
 
 		if(User.getCurrentUser() != null){
 			User currentLoggedInUser = User.getCurrentUser();
@@ -199,7 +185,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			debug("Invalid date format");
+			//debug("Invalid date format");
 			result = false;
 		}
 		

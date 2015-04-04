@@ -15,12 +15,15 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.JFormattedTextField;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -50,6 +53,8 @@ public class UserBattingStats extends JPanel {
 	protected JTextField txtSO;
 	protected JTextField txtDate;
 	protected JButton btnSignOut;
+	protected JButton btnUpdateStatistic;
+	protected JButton btnDeleteStatistic;
 
 	
 	protected JButton SubmitBattingStats;
@@ -154,7 +159,7 @@ public class UserBattingStats extends JPanel {
 		scrollPane.setBounds(293, 235, 691, 235);
 		add(scrollPane);
 		
-		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}));
+		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}));
 		scrollPane.setViewportView(table);
 		
 		txtDate = new JTextField();
@@ -166,5 +171,20 @@ public class UserBattingStats extends JPanel {
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
+		
+		btnUpdateStatistic = new JButton("Update Statistic");
+		btnUpdateStatistic.setBounds(469, 504, 143, 28);
+		add(btnUpdateStatistic);
+		btnUpdateStatistic.setActionCommand("UpdateStatistic");
+		
+		btnDeleteStatistic = new JButton("Delete Statistic");
+		btnDeleteStatistic.setBounds(674, 504, 143, 28);
+		add(btnDeleteStatistic);
+		
+		btnSignOut.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    			MainGUI.setApplicationToClose(); 
+    		}
+    	});
 	}
 }

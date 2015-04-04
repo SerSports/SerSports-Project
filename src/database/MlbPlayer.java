@@ -144,9 +144,56 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 			this.first_name = rs.getString(FIELD_FIRSTNAME);
 			this.last_name = rs.getString(FIELD_LASTNAME);
 			this.team_name = rs.getString(FIELD_TEAM_NAME);
-		} catch (SQLException e) {
+			this.team_id = rs.getString(FIELD_TEAM_ID);		
+			
+			this.pitching_era = rs.getFloat(FIELD_PITCHING_ERA);	
+			this.pitching_onbase_h = rs.getInt(FIELD_PITCHING_ONBASE_H);
+			this.pitching_onbase_s = rs.getInt(FIELD_PITCHING_ONBASE_S);		
+			this.pitching_onbase_d = rs.getInt(FIELD_PITCHING_ONBASE_D);
+			this.pitching_onbase_t = rs.getInt(FIELD_PITCHING_ONBASE_T);
+			this.pitching_onbase_hr = rs.getInt(FIELD_PITCHING_ONBASE_HR);
+			this.pitching_onbase_bb = rs.getInt(FIELD_PITCHING_ONBASE_BB);	
+			this.pitching_runs_earned = rs.getInt(FIELD_PITCHING_RUNS_EARNED);
+			this.pitching_runs_total = rs.getInt(FIELD_PITCHING_RUNS_TOTAL);
+			this.pitching_outs_ktotal = rs.getInt(FIELD_PITCHING_OUTS_KTOTAL);
+			this.pitching_steal_caught = rs.getInt(FIELD_PITCHING_STEAL_CAUGHT);
+			this.pitching_games_play = rs.getInt(FIELD_PITCHING_GAMES_PLAY);		
+			this.pitching_games_play = rs.getInt(FIELD_PITCHING_GAMES_PLAY);
+			this.pitching_games_win = rs.getInt(FIELD_PITCHING_GAMES_WIN);
+			this.pitching_games_loss = rs.getInt(FIELD_PITCHING_GAMES_LOSS);
+			this.pitching_games_save = rs.getInt(FIELD_PITCHING_GAMES_SAVE);
+			this.pitching_games_hold = rs.getInt(FIELD_PITCHING_GAMES_HOLD);
+			this.pitching_games_play = rs.getInt(FIELD_PITCHING_GAMES_PLAY);
+		    
+			this.hitting_ab = rs.getInt(FIELD_HITTING_AB);	
+			this.hitting_ab = rs.getInt(FIELD_HITTING_AB);
+			this.hitting_rbi = rs.getInt(FIELD_HITTING_RBI);
+			this.hitting_onbase_h = rs.getInt(FIELD_HITTING_ONBASE_H);		
+			this.hitting_onbase_s = rs.getInt(FIELD_HITTING_ONBASE_S);
+			this.hitting_onbase_d = rs.getInt(FIELD_HITTING_ONBASE_D);
+			this.hitting_onbase_t = rs.getInt(FIELD_HITTING_ONBASE_T);
+			this.hitting_onbase_hr = rs.getInt(FIELD_HITTING_ONBASE_HR);
+			this.hitting_onbase_bb = rs.getInt(FIELD_HITTING_ONBASE_BB);			
+			this.hitting_runs_earned = rs.getInt(FIELD_HITTING_RUNS_EARNED);
+			this.hitting_runs_total = rs.getInt(FIELD_HITTING_RUNS_TOTAL);			
+			this.hitting_outs_ktotal = rs.getInt(FIELD_HITTING_OUTS_KTOTAL);
+			this.hitting_steal_caught = rs.getInt(FIELD_HITTING_STEAL_CAUGHT);
+			this.hitting_steal_stolen = rs.getInt(FIELD_HITTING_STEAL_STOLEN);		
+			this.hitting_games_play = rs.getInt(FIELD_HITTING_GAMES_PLAY);
+			this.hitting_games_win = rs.getInt(FIELD_HITTING_GAMES_WIN);
+			this.hitting_games_loss = rs.getInt(FIELD_HITTING_GAMES_LOSS);
+			
+			this.fielding_po = rs.getInt(FIELD_FIELDING_PO);
+			this.fielding_error = rs.getInt(FIELD_FIELDING_ERROR);
+			this.fielding_a = rs.getInt(FIELD_FIELDING_A);
+			this.fielding_fpct = rs.getInt(FIELD_FIELDING_FPCT);
+			this.fielding_games_play = rs.getInt(FIELD_FIELDING_GAMES_PLAY);
+			this.fielding_games_win = rs.getInt(FIELD_FIELDING_GAMES_WIN);
+			this.fielding_games_loss = rs.getInt(FIELD_FIELDING_GAMES_LOSS);
+			
+		    } catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+		    	e.printStackTrace();
 		}
 	}
 
@@ -154,29 +201,11 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	public String getId() {
 		return id;
 	}
-	public String getFirstName() {
-		return first_name;
+	
+	public float getBattingAverage() {
+		return (hitting_onbase_h / hitting_ab);
 	}
 
-	public void setFirstName(String firstName) {
-		this.first_name = firstName;
-	}
-
-	public String getLastName() {
-		return last_name;
-	}
-
-	public void setLastName(String lastName) {
-		this.last_name = lastName;
-	}
-
-	public String getTeam() {
-		return team_name;
-	}
-
-	public void setTeam(String team) {
-		this.team_name = team;
-	}
 	public String getFirst_name() {
 		return first_name;
 	}

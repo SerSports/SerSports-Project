@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -40,6 +42,8 @@ public class UserPitchingStats extends JPanel {
 	protected JTextField txtHolds;
 	protected JTextField txtRuns;
 	protected JTextField txtHBP;
+	protected JButton btnUpdateStatistic;
+	protected JButton btnDeleteStatistic;
 
 	protected JButton SubmitPitchingStats;
 	protected JButton btnSignOut;
@@ -139,8 +143,22 @@ public class UserPitchingStats extends JPanel {
 		txtDate.setBounds(166, 121, 109, 22);
 		add(txtDate);
 		
+		btnUpdateStatistic = new JButton("Update Statistic");
+		btnUpdateStatistic.setBounds(469, 504, 143, 28);
+		add(btnUpdateStatistic);
+		
+		btnDeleteStatistic = new JButton("Delete Statistic");
+		btnDeleteStatistic.setBounds(674, 504, 143, 28);
+		add(btnDeleteStatistic);
+		
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
+		
+		btnSignOut.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    			MainGUI.setApplicationToClose(); 
+    		}
+    	});
 	}
 }
