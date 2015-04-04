@@ -154,6 +154,11 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	public String getId() {
 		return id;
 	}
+	
+	public float getBattingAverage() {
+		return (hitting_onbase_h / hitting_ab);
+	}
+	
 	public String getFirstName() {
 		return first_name;
 	}
