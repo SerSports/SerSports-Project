@@ -103,7 +103,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			
 				boolean valid = isValidDate(date);
 				
-			
+				//collect values if user entered the correct date format
 				if (valid == true){
 					// Check for empty or invalid String
 	                if (gp.length() == 0 || gp.equals("Games Played")) {
@@ -199,7 +199,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			debug("Invalid date format");
+			//debug("Invalid date format");
 			result = false;
 		}
 		

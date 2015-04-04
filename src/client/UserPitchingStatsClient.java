@@ -12,8 +12,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import gui.*;
@@ -88,50 +92,52 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
 				String holds = txtHolds.getText();
 				String runs = txtRuns.getText();
 				String hbp = txtHBP.getText();
-				
-				// Check for empty or invalid String
-                if (date.length() == 0 || date.equals("Date")) {
-                    date = null;
-            	}
-                if (gp.length() == 0 || gp.equals("Games Played")) {
-                    gp = null;
-            	}
-                if (w.length() == 0 || w.equals("W")) {
-                    w = null;
-                }
-                if (l.length() == 0 || l.equals("L")) {
-                    l = null;
-            	}
-                if (era.length() == 0 || era.equals("ERA")) {
-                    era = null;
-            	}
-                if (saves.length() == 0 || saves.equals("Saves")) {
-                    saves = null;
-                }
-                if (hits.length() == 0 || hits.equals("Hits")) {
-                    hits = null;
-            	}
-                if (holds.length() == 0 || holds.equals("Holds")) {
-                    holds = null;
-            	}
-                if (runs.length() == 0 || runs.equals("Runs")) {
-                    runs = null;
-                }
-                if (hbp.length() == 0 || hbp.equals("HBP")) {
-                    hbp = null;
-            	}
 
-                /*
-				debug("Your entry:");
-				debug("Date: "+date+" Games Played: "+gp+" W: "+w+" L: "+l+" ERA: "+era+" Saves: "+saves);
-				debug(" Hits: "+hits+" Holds: "+holds+" Runs: "+runs+" HBP: "+hbp);
-                 */
-                
-                //Add input into user database, then display all game statistics
-                LocalPlayerPitchingStatistics.addLocalPlayerPitchingStatistics(date, gp, w, l, era, saves, hits, holds, runs, hbp);
-                
-                //reload statistics into table
-                loadUserInfoIntoControls();  
+				boolean valid = isValidDate(date);
+				
+				//collect values if user entered the correct date format
+				if (valid == true){
+					// Check for empty or invalid String
+	                if (date.length() == 0 || date.equals("Date")) {
+	                    date = null;
+	            	}
+	                if (gp.length() == 0 || gp.equals("Games Played")) {
+	                    gp = null;
+	            	}
+	                if (w.length() == 0 || w.equals("W")) {
+	                    w = null;
+	                }
+	                if (l.length() == 0 || l.equals("L")) {
+	                    l = null;
+	            	}
+	                if (era.length() == 0 || era.equals("ERA")) {
+	                    era = null;
+	            	}
+	                if (saves.length() == 0 || saves.equals("Saves")) {
+	                    saves = null;
+	                }
+	                if (hits.length() == 0 || hits.equals("Hits")) {
+	                    hits = null;
+	            	}
+	                if (holds.length() == 0 || holds.equals("Holds")) {
+	                    holds = null;
+	            	}
+	                if (runs.length() == 0 || runs.equals("Runs")) {
+	                    runs = null;
+	                }
+	                if (hbp.length() == 0 || hbp.equals("HBP")) {
+	                    hbp = null;
+	            	}
+	                
+	                //Add input into user database, then display all game statistics
+	                LocalPlayerPitchingStatistics.addLocalPlayerPitchingStatistics(date, gp, w, l, era, saves, hits, holds, runs, hbp);
+	                
+	                //reload statistics into table
+	                loadUserInfoIntoControls();
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "Invalid date format. Please add date in MM/DD/YYYY", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+				}
                 
 			} catch (RuntimeException ex){
 				throw ex;	
@@ -171,5 +177,21 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
 	public void loadUserInfoIntoControls(){
 		// Reload the Local Players Pitching Statistics Table
 		populateLocalPlayersPitchingTable();
+	}
+	
+	public boolean isValidDate(String gameDate){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		boolean result = true;
+		
+		try {
+			Date validateDate = dateFormat.parse(gameDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			//debug("Invalid date format");
+			result = false;
+		}
+		
+		return result;
 	}
 }
