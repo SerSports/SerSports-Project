@@ -41,6 +41,8 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
 	*/
   public UserPitchingStatsClient() {
       SubmitPitchingStats.addActionListener(this);
+      btnUpdateStatistic.addActionListener(this);
+      btnDeleteStatistic.addActionListener(this);
   }
 	
   /**
@@ -144,6 +146,12 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
+		}
+		if (e.getActionCommand().equals("UpdateStatistic")) {
+			debug("You clicked on update statistic in user pitching stats client");
+		}
+		if (e.getActionCommand().equals("DeleteStatistic")) {
+			debug("You clicked on delete statistic in user pitching stats client");
 		}
 	}
 	

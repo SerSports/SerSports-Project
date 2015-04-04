@@ -146,10 +146,12 @@ public class UserPitchingStats extends JPanel {
 		btnUpdateStatistic = new JButton("Update Statistic");
 		btnUpdateStatistic.setBounds(469, 504, 143, 28);
 		add(btnUpdateStatistic);
+		btnUpdateStatistic.setActionCommand("UpdateStatistic");
 		
 		btnDeleteStatistic = new JButton("Delete Statistic");
 		btnDeleteStatistic.setBounds(674, 504, 143, 28);
 		add(btnDeleteStatistic);
+		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 		
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
