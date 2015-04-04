@@ -14,7 +14,6 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

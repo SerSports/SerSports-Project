@@ -86,7 +86,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
         ArrayList<MlbPlayer> players = MlbPlayer.getPlayersFromDatabase(id, firstName, lastName, team);
         
         for(MlbPlayer m: players) {
-            Object[] row = {m.getId() ,m.getFirstName(), m.getLastName(), m.getTeam()};
+            Object[] row = {m.getId() ,m.getFirst_name(), m.getLast_name(), m.getTeam_name()};
             newTable.addRow(row);
         }
         
@@ -170,9 +170,9 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener, It
     }
 				
 	private void loadGameData(MlbPlayer player) {
-        System.out.println(player.getFirst_name());
-        System.out.println(player.getHitting_ab());
-        System.out.println(player.getTeam());
+		MlbStatsGui.lblMlbPlayerName = player.getFirst_name();
+		lblMlbPlayerLast = player.getLast_name();
+		lblMlbPlayerTeam = player.getTeam_name();
 
 		// Set up the Hitting table							
 		DefaultTableModel bTable = new DefaultTableModel(new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO"}, 0);		      
