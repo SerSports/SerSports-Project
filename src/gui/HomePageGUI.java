@@ -8,6 +8,7 @@ Description: GUI for the Home Page
 */
 package gui;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -48,7 +49,7 @@ public class HomePageGUI extends JPanel {
 	  Description: Creates the panel
 	*/
 	public HomePageGUI() {
-
+		setPreferredSize(new Dimension(1000, 650));
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
@@ -59,19 +60,19 @@ public class HomePageGUI extends JPanel {
 		add(logo);
 		
 		JLabel lblYouAre = new JLabel("You are");
-		lblYouAre.setBounds(616, 189, 47, 16);
+		lblYouAre.setBounds(323, 139, 47, 16);
 		add(lblYouAre);
 		
 		JLabel label = new JLabel("20");
-		label.setBounds(675, 189, 16, 16);
+		label.setBounds(382, 139, 16, 16);
 		add(label);
 		
 		JLabel lblPercent = new JLabel("percent like");
-		lblPercent.setBounds(588, 217, 74, 16);
+		lblPercent.setBounds(410, 139, 74, 16);
 		add(lblPercent);
 		
 		JLabel lblInsertPlayersName = new JLabel("Insert Players name");
-		lblInsertPlayersName.setBounds(669, 217, 122, 16);
+		lblInsertPlayersName.setBounds(496, 139, 122, 16);
 		add(lblInsertPlayersName);		
 		
 		JLabel lblWelcome = new JLabel("Welcome,");
@@ -86,18 +87,18 @@ public class HomePageGUI extends JPanel {
 		add(userFirstName);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(46, 188, 480, 85);
+		scrollPane_2.setBounds(253, 177, 480, 139);
 		add(scrollPane_2);
 
 		comparisonTable = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"}));
 		scrollPane_2.setViewportView(comparisonTable);
 		
 		btnSignOut = new JButton("Sign Out");
-		btnSignOut.setBounds(1030, 20, 117, 29);
+		btnSignOut.setBounds(850, 30, 117, 29);
 		add(btnSignOut);
 		
 		btnFindBestComparison = new JButton("Find Best Comparison");
-		btnFindBestComparison.setBounds(208, 285, 171, 29);
+		btnFindBestComparison.setBounds(410, 334, 171, 29);
 		add(btnFindBestComparison);
 	}
 	
