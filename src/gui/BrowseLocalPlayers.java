@@ -67,14 +67,14 @@ public class BrowseLocalPlayers extends JPanel {
 		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(183, 489, 636, 79);
+		scrollPane_2.setBounds(183, 484, 636, 79);
 		add(scrollPane_2);
 		
 				fieldingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "Wins","Losses","PO","Err","Assist", "F%"}));
 				scrollPane_2.setViewportView(fieldingTable);
 		
 		JScrollPane scrollPane_3 = new JScrollPane();
-		scrollPane_3.setBounds(183, 426, 636, 71);
+		scrollPane_3.setBounds(183, 419, 636, 71);
 		add(scrollPane_3);
 		
 		pitchingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
@@ -94,7 +94,7 @@ public class BrowseLocalPlayers extends JPanel {
 		txtFirstName.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(319, 114, 636, 176);
+		scrollPane.setBounds(316, 74, 636, 176);
 		add(scrollPane);
 		
 		btnSeePlayerStats = new JButton("See Player Stats");
@@ -118,7 +118,7 @@ public class BrowseLocalPlayers extends JPanel {
 		
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(183, 355, 636, 79);
+		scrollPane_1.setBounds(183, 349, 636, 79);
 		add(scrollPane_1);
 		
 		battingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO","BA"}));
@@ -129,11 +129,11 @@ public class BrowseLocalPlayers extends JPanel {
 		add(lblBatting);
 		
 		JLabel lblPitching = new JLabel("Pitching");
-		lblPitching.setBounds(122, 443, 61, 16);
+		lblPitching.setBounds(122, 440, 61, 16);
 		add(lblPitching);
 		
 		JLabel lblFielding = new JLabel("Fielding");
-		lblFielding.setBounds(122, 509, 61, 16);
+		lblFielding.setBounds(122, 512, 61, 16);
 		add(lblFielding);
 		
 		JButton btnSignOut = new JButton("Sign Out");
@@ -142,7 +142,7 @@ public class BrowseLocalPlayers extends JPanel {
 		
 		JLabel lblIndividualStatistics = new JLabel("Individual Statistics");
 		lblIndividualStatistics.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
-		lblIndividualStatistics.setBounds(16, 307, 234, 36);
+		lblIndividualStatistics.setBounds(20, 301, 234, 36);
 		add(lblIndividualStatistics);
 		
 		btnSignOut.addActionListener(new ActionListener(){
