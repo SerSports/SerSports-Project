@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JMenuItem;
 
 
 /**
@@ -37,7 +38,7 @@ public class Help extends JPanel {
 	  Description: Creates the panel
 	*/
 	public Help() {
-		setPreferredSize(new Dimension(1000, 650));
+		setPreferredSize(new Dimension(1000, 600));
 		setLayout(null);
 		setBackground(new Color(107, 185, 240));
 		
