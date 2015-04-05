@@ -9,13 +9,17 @@ Description: GUI for displaying/searching the MLB Stats database
 package gui;
 
 
+import java.awt.Dimension;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
@@ -59,6 +63,7 @@ public class MlbStatsGui extends JPanel {
 	  Description: Creates the panel
 	*/
 	public MlbStatsGui() {
+		setPreferredSize(new Dimension(1000, 650));
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		

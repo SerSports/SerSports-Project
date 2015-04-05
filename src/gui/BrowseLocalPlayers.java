@@ -8,6 +8,7 @@ Description: GUI for displaying/searching the Local Players database
 */
 
 package gui;
+import java.awt.Dimension;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -57,6 +58,7 @@ public class BrowseLocalPlayers extends JPanel {
 	  Description: Creates the panel
 	*/
 	public BrowseLocalPlayers() {
+		setPreferredSize(new Dimension(1000, 650));
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		

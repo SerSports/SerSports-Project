@@ -8,6 +8,7 @@ Description: GUI for handling the User Fielding stats input
 */
 package gui;
 
+import java.awt.Dimension;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -61,6 +62,7 @@ public class UserFieldingStats extends JPanel {
 	 * Create the panel.
 	 */
 	public UserFieldingStats() {
+		setPreferredSize(new Dimension(1000, 650));
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		

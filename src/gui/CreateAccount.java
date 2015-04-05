@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,6 +37,7 @@ public class CreateAccount extends JPanel {
         }
     }
 	public CreateAccount(MainGUI mainGuiObj) {	
+		setPreferredSize(new Dimension(1000, 650));
 		setLayout(null);
 		this.main = mainGuiObj;
 		textUsername = new JTextField();

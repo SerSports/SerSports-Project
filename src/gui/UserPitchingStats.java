@@ -8,6 +8,7 @@ Description: GUI for User input of Pitching Stats
 */
 package gui;
 
+import java.awt.Dimension;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -56,6 +57,7 @@ public class UserPitchingStats extends JPanel {
 	  Description: Create the panel.
 	*/
 	public UserPitchingStats() {
+		setPreferredSize(new Dimension(1000, 650));
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
