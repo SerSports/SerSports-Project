@@ -35,11 +35,13 @@ Class: HomePageGUI
 Description: GUI for the home page
 */
 public class HomePageGUI extends JPanel {
-	User currentUser = null;
-	JLabel userFirstName = null;
+	protected User currentUser = null;
+	protected JLabel userFirstName = null;
 	protected JButton btnSignOut;
 	protected JTable comparisonTable;
 	protected JButton btnFindBestComparison;
+	protected JLabel lblInsertPlayersName;
+	protected JLabel label;
 	
 	/**
 	  Method: Constructor
@@ -63,7 +65,7 @@ public class HomePageGUI extends JPanel {
 		lblYouAre.setBounds(323, 139, 47, 16);
 		add(lblYouAre);
 		
-		JLabel label = new JLabel("20");
+		label = new JLabel("20");
 		label.setBounds(382, 139, 16, 16);
 		add(label);
 		
@@ -71,7 +73,7 @@ public class HomePageGUI extends JPanel {
 		lblPercent.setBounds(410, 139, 74, 16);
 		add(lblPercent);
 		
-		JLabel lblInsertPlayersName = new JLabel("Insert Players name");
+		lblInsertPlayersName = new JLabel("Insert Players name");
 		lblInsertPlayersName.setBounds(496, 139, 122, 16);
 		add(lblInsertPlayersName);		
 		
@@ -100,15 +102,5 @@ public class HomePageGUI extends JPanel {
 		btnFindBestComparison = new JButton("Find Best Comparison");
 		btnFindBestComparison.setBounds(410, 334, 171, 29);
 		add(btnFindBestComparison);
-	}
-	
-	//method to reload name
-	public void loadUserInfoIntoControls()
-	{
-		// Reload the Current User
-		currentUser = User.getCurrentUser();
-		if (currentUser != null) {
-			userFirstName.setText(currentUser.getUserName());
-		}
 	}
 }
