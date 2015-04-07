@@ -100,7 +100,7 @@ public class MainGUI{
     	mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     	mainFrame.pack();
     	mainFrame.setVisible(true);
-    	mainFrame.setSize(1000, 650);
+    	mainFrame.setSize(1024, 768);
     	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     	mainFrame.setLocation(dim.width/2-mainFrame.getSize().width/2, dim.height/2-mainFrame.getSize().height/2);
     	
