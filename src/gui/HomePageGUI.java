@@ -94,6 +94,7 @@ public class HomePageGUI extends JPanel {
 
 		comparisonTable = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"}));
 		scrollPane_2.setViewportView(comparisonTable);
+		comparisonTable.getTableHeader().setDefaultRenderer(new SimpleHeaderRenderer());
 		
 		btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(850, 30, 117, 29);
