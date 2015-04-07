@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.Color;
@@ -95,6 +96,11 @@ public class HomePageGUI extends JPanel {
 		comparisonTable = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"}));
 		scrollPane_2.setViewportView(comparisonTable);
 		comparisonTable.getTableHeader().setDefaultRenderer(new SimpleHeaderRenderer());
+		comparisonTable.setOpaque(false);
+		((DefaultTableCellRenderer)comparisonTable.getDefaultRenderer(Object.class)).setOpaque(false);
+		scrollPane_2.setOpaque(false);
+		scrollPane_2.getViewport().setOpaque(false);
+		comparisonTable.setShowGrid(false);
 		
 		btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(850, 30, 117, 29);
