@@ -79,7 +79,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("submitPlayerSearchButton")) {
             try {
-                debug("you clicked Submit Search");
+                //debug("you clicked Submit Search");
                 String fName = txtFirstName.getText();
                 String lName = txtLastName.getText();
                 String team = txtTeam.getText();
@@ -106,7 +106,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener {
         } else if (e.getActionCommand().equals("SeePlayerStats")) {
             try {
 		        //check to see if this method gets called when SeePlayerStats button is pushed 
-				debug("you clicked SeePlayerStats");
+				//debug("you clicked SeePlayerStats");
 				
 				loadSelectedPlayer();
 	       

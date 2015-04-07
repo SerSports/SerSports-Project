@@ -10,12 +10,14 @@ package client;
 
 import gui.*;
 import database.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -140,17 +142,51 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			}
 		}
 		if (e.getActionCommand().equals("UpdateStatistic")) {
-			debug("You clicked on update statistic in user batting stats client");
+			//debug("You clicked on update statistic in user batting stats client");
+
+			int selectedRow = table.getSelectedRow();
+			if (selectedRow >= 0) {
+				//getValueAt(selectedRow, #) where # starts at 1 for the first column shown in the gui
+				String playerStatistic = (String) table.getModel().getValueAt(selectedRow, 1);
+				
+				//ask user if the statistic they selected is the one they really want to update
+				int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the highlighted game statistic?", null,
+						JOptionPane.YES_NO_CANCEL_OPTION);
+				
+				if(result == JOptionPane.YES_OPTION){
+					updateStatistic();
+				}
+			}
+			else{
+				JOptionPane.showMessageDialog(null, "Please select a row in which you would like to update", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+			}
 		}
+		
 		if (e.getActionCommand().equals("DeleteStatistic")) {
-			debug("You clicked on delete statistic in user batting stats client");
+			//debug("You clicked on delete statistic in user batting stats client");
+			int selectedRow = table.getSelectedRow();
+			if (selectedRow >= 0) {
+				//getValueAt(selectedRow, #) where # starts at 1 for the first column shown in the gui
+				String playerStatistic = (String) table.getModel().getValueAt(selectedRow, 1);
+				
+				//ask user if the statistic they selected is the one they really want to update
+				int result = JOptionPane.showConfirmDialog(null, "WARNING: Are you sure you want to delete the highlighted game statistic?", null,
+						JOptionPane.YES_NO_CANCEL_OPTION);
+				
+				if(result == JOptionPane.YES_OPTION){
+					deleteStatistic();
+				}
+			}
+			else{
+				JOptionPane.showMessageDialog(null, "Please select a row in which you would like to delete", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+			}
 		}
 	}
 	
 	public void populateLocalPlayersBattingTable() {
 		
 		// Set up the table
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "ID", "Date", "Games Played",
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "StatID", "Date", "Games Played",
 				"AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO", "BA"}, 0);
 
 		if(User.getCurrentUser() != null){
@@ -162,7 +198,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			
 			// Add the Local Players to the List
 			for (LocalPlayerBattingStatistics m : currentPlayerBattingStatistics) {
-				Object[] row = { m.getLocalPlayerId(), m.getGame_date(), m.getHitting_games_play(), m.getHitting_ab(),
+				Object[] row = { m.getLocalPlayersHittingStatisticsID(), m.getGame_date(), m.getHitting_games_play(), m.getHitting_ab(),
 						m.getHitting_onbase_h(), m.getHitting_rbi(), m.getHitting_onbase_s(), m.getHitting_onbase_d(),
 						m.getHitting_onbase_t(), m.getHitting_runs_total(), m.getHitting_steal_stolen(), 
 						m.getHitting_onbase_hr(), m.getHitting_outs_ktotal() };
@@ -171,7 +207,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 
 			table.setModel(newTable);
 			table.removeColumn(table.getColumnModel().getColumn(0));
-		}		
+		}
 	}
 	
 	public void loadUserInfoIntoControls(){
@@ -193,5 +229,32 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		}
 		
 		return result;
+	}
+	
+	public void deleteStatistic(){
+		//get currently highlighted row
+		int selectedRow = table.getSelectedRow();
+		
+		//get localPlayersHittingStatisticsID from that row
+		int selectedStatisticID = (int) table.getModel().getValueAt(selectedRow, 0);
+		
+		//delete statistic
+		LocalPlayerBattingStatistics.deleteLocalPlayerBattingStatistic(selectedStatisticID);
+		
+		//reload statistics into table
+        loadUserInfoIntoControls();
+	}
+	
+	public void updateStatistic(){
+			
+			//get current localPlayersHittingStatisticsID
+			
+			//delete existing statistic (highlighted)
+		
+			//replace with new statistic
+		
+			//update/refresh stats (loadUserInfoIntoControls())
+
+		
 	}
 }

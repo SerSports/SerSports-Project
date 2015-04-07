@@ -150,15 +150,32 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
 		if (e.getActionCommand().equals("UpdateStatistic")) {
 			debug("You clicked on update statistic in user pitching stats client");
 		}
+
 		if (e.getActionCommand().equals("DeleteStatistic")) {
-			debug("You clicked on delete statistic in user pitching stats client");
+			//debug("You clicked on delete statistic in user batting stats client");
+			int selectedRow = table.getSelectedRow();
+			if (selectedRow >= 0) {
+				//getValueAt(selectedRow, #) where # starts at 1 for the first column shown in the gui
+				String playerStatistic = (String) table.getModel().getValueAt(selectedRow, 1);
+				
+				//ask user if the statistic they selected is the one they really want to update
+				int result = JOptionPane.showConfirmDialog(null, "WARNING: Are you sure you want to delete the highlighted game statistic?", null,
+						JOptionPane.YES_NO_CANCEL_OPTION);
+				
+				if(result == JOptionPane.YES_OPTION){
+					deleteStatistic();
+				}
+			}
+			else{
+				JOptionPane.showMessageDialog(null, "Please select a row in which you would like to delete", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+			}
 		}
 	}
 	
 	public void populateLocalPlayersPitchingTable() {
 		
 		// Set up the table
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "ID", "Date", "GP",
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "StatID", "Date", "GP",
 				"W", "L", "ERA", "SAVES", "HITS", "HOLDS", "RUNS", "HBP"}, 0);
 
 		if(User.getCurrentUser() != null){
@@ -171,7 +188,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
 			
 			// Add the Local Players to the List
 			for (LocalPlayerPitchingStatistics m : currentPlayerPitchingStatistics) {
-				Object[] row = { m.getLocalPlayerId(), m.getGame_date(), m.getPitching_games_play(), m.getPitching_games_win(),
+				Object[] row = { m.getLocalPlayersPitchingStatisticsID(), m.getGame_date(), m.getPitching_games_play(), m.getPitching_games_win(),
 						m.getPitching_games_loss(), m.getPitching_era(), m.getPitching_games_save(), m.getPitching_games_hit(),
 						m.getPitching_games_hold(), m.getPitching_runs_total(), m.getPitching_hbp()};
 				newTable.addRow(row);
@@ -201,5 +218,19 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
 		}
 		
 		return result;
+	}
+
+	public void deleteStatistic(){
+		//get currently highlighted row
+		int selectedRow = table.getSelectedRow();
+		
+		//get localPlayersHittingStatisticsID from that row
+		int selectedStatisticID = (int) table.getModel().getValueAt(selectedRow, 0);
+		
+		//delete statistic
+		LocalPlayerPitchingStatistics.deleteLocalPlayerPitchingStatistic(selectedStatisticID);
+		
+		//reload statistics into table
+        loadUserInfoIntoControls();
 	}
 }
