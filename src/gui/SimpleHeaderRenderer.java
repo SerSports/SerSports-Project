@@ -12,6 +12,7 @@ import javax.swing.table.TableCellRenderer;
 /**
  * A simple renderer class for JTable component.
  * @author www.codejava.net
+ * http://www.codejava.net/java-se/swing/jtable-column-header-custom-renderer-examples
  *
  */
 public class SimpleHeaderRenderer extends JLabel implements TableCellRenderer {
