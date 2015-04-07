@@ -31,7 +31,8 @@ public class ApplicationGUI extends JTabbedPane{
 	MainGUI mainGuiObj = null;
 	
 	public ApplicationGUI() {
-		this.setTabPlacement(JTabbedPane.TOP);
+		
+		this.setTabPlacement(JTabbedPane.EAST);
 		JTabbedPane MultipleStats = new JTabbedPane();
 		MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		
@@ -40,7 +41,7 @@ public class ApplicationGUI extends JTabbedPane{
 		//Home Page
 		jp1 = new HomePageGUIClient();
 		this.addTab("Home", jp1);
-		this.setTabComponentAt(0, getLabel("Home", "/images/Logo1.png"));
+		this.setTabComponentAt(0, getLabel("", "/images/HomeTab.png"));
 		
 		//UserStats
 		this.add("User Stats", MultipleStats);
