@@ -60,7 +60,7 @@ public class HomePageGUI extends JPanel {
 		JLabel logo = new JLabel("New label");
 		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(30, 30, 100, 100);
+		logo.setBounds(30, 30, 141, 149);
 		add(logo);
 		
 		JLabel lblYouAre = new JLabel("You are");
