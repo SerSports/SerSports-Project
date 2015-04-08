@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class ComparePlayers {
 	
-	private static float[] localScore;
-	private static float[] mlbScore;
+	private static float[] localScores;
+	private static float[] mlbScores;
 	private static float[] differenceNums;
 	
 	public static ArrayList<MlbPlayer> compareToPlayerList(LocalPlayer lp, ArrayList<MlbPlayer> mlbList) {
