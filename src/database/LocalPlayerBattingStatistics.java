@@ -164,7 +164,7 @@ public class LocalPlayerBattingStatistics {
 		ResultSet rs = Database.getResultSetFromSQL(sql);
 
 		if (rs != null) {
-			// Loop through the Result Set and Add Each MlbPlayer to the
+			// Loop through the Result Set and Add Each LocalPlayer to the
 			// ArrayList
 			try {
 				while (rs.next()) {
@@ -267,6 +267,11 @@ public class LocalPlayerBattingStatistics {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+	
+	public static void deleteLocalPlayerBattingStatistic(int localPlayerHittingStatisticID){
+		Database.executeSQL("DELETE FROM " + TABLE_NAME + " WHERE " + FIELD_ID + " = " 
+				+ localPlayerHittingStatisticID + ";");
 	}
 	
 	private static boolean notNumeric(String value){
