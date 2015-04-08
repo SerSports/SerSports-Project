@@ -36,7 +36,7 @@ public class ComparePlayers {
 		
 		// Load Mlb Player Stats
 		float [] mlbScores = {};
-		System.out.println("Not implemented");
+		System.out.println("Not implemented yet");
 	}
 
 }
