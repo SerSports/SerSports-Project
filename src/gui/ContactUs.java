@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.BoxLayout;
 
+import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -43,6 +44,7 @@ public class ContactUs extends JPanel {
 	  Description: Creates the panel
 	*/
 	public ContactUs() {
+		setPreferredSize(new Dimension(1000, 650));
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		

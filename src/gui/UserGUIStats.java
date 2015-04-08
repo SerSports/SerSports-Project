@@ -8,6 +8,7 @@ Description:
 */
 package gui;
 
+import java.awt.Dimension;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -52,6 +53,7 @@ public class UserGUIStats extends JPanel {
 	  Description: Create the panel
 	*/
 	public UserGUIStats() {
+		setPreferredSize(new Dimension(1000, 650));
 		setBackground(Color.PINK);
 		setLayout(null);
 		

@@ -8,6 +8,7 @@ Description: GUI for handling the User Batting Stats input
 */
 package gui;
 
+import java.awt.Dimension;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -67,6 +68,7 @@ public class UserBattingStats extends JPanel {
 	  Description: Creates the panel
 	*/
 	public UserBattingStats() {
+		setPreferredSize(new Dimension(1000, 650));
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
@@ -180,6 +182,7 @@ public class UserBattingStats extends JPanel {
 		btnDeleteStatistic = new JButton("Delete Statistic");
 		btnDeleteStatistic.setBounds(674, 504, 143, 28);
 		add(btnDeleteStatistic);
+		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 		
 		btnSignOut.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){

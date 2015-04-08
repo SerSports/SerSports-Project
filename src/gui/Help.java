@@ -8,6 +8,7 @@ Description: GUI for the help page
 */
 package gui;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JMenuItem;
 
 
 /**
@@ -36,6 +38,7 @@ public class Help extends JPanel {
 	  Description: Creates the panel
 	*/
 	public Help() {
+		setPreferredSize(new Dimension(1000, 600));
 		setLayout(null);
 		setBackground(new Color(107, 185, 240));
 		

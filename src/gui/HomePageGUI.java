@@ -8,6 +8,7 @@ Description: GUI for the Home Page
 */
 package gui;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -16,6 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JViewport;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.Color;
@@ -34,10 +37,13 @@ Class: HomePageGUI
 Description: GUI for the home page
 */
 public class HomePageGUI extends JPanel {
-	User currentUser = null;
-	JLabel userFirstName = null;
+	protected User currentUser = null;
+	protected JLabel userFirstName = null;
 	protected JButton btnSignOut;
 	protected JTable comparisonTable;
+	protected JButton btnFindBestComparison;
+	protected JLabel lblInsertPlayersName;
+	protected JLabel label;
 	
 	/**
 	  Method: Constructor
@@ -47,7 +53,7 @@ public class HomePageGUI extends JPanel {
 	  Description: Creates the panel
 	*/
 	public HomePageGUI() {
-
+		setPreferredSize(new Dimension(1000, 650));
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
 		
@@ -58,19 +64,19 @@ public class HomePageGUI extends JPanel {
 		add(logo);
 		
 		JLabel lblYouAre = new JLabel("You are");
-		lblYouAre.setBounds(616, 189, 47, 16);
+		lblYouAre.setBounds(323, 139, 47, 16);
 		add(lblYouAre);
 		
-		JLabel label = new JLabel("20");
-		label.setBounds(675, 189, 16, 16);
+		label = new JLabel("20");
+		label.setBounds(382, 139, 16, 16);
 		add(label);
 		
 		JLabel lblPercent = new JLabel("percent like");
-		lblPercent.setBounds(588, 217, 74, 16);
+		lblPercent.setBounds(410, 139, 74, 16);
 		add(lblPercent);
 		
-		JLabel lblInsertPlayersName = new JLabel("Insert Players name");
-		lblInsertPlayersName.setBounds(669, 217, 122, 16);
+		lblInsertPlayersName = new JLabel("Insert Players name");
+		lblInsertPlayersName.setBounds(496, 139, 122, 16);
 		add(lblInsertPlayersName);		
 		
 		JLabel lblWelcome = new JLabel("Welcome,");
@@ -85,34 +91,24 @@ public class HomePageGUI extends JPanel {
 		add(userFirstName);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(46, 188, 480, 85);
+		scrollPane_2.setBounds(253, 177, 480, 139);
 		add(scrollPane_2);
 
 		comparisonTable = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"}));
 		scrollPane_2.setViewportView(comparisonTable);
+		comparisonTable.getTableHeader().setDefaultRenderer(new SimpleHeaderRenderer());
+		comparisonTable.setOpaque(false);
+		((DefaultTableCellRenderer)comparisonTable.getDefaultRenderer(Object.class)).setOpaque(false);
+		scrollPane_2.setOpaque(false);
+		scrollPane_2.getViewport().setOpaque(false);
+		comparisonTable.setShowGrid(false);
 		
-		JButton btnSignOut = new JButton("Sign Out");
-		btnSignOut.setBounds(1030, 20, 117, 29);
+		btnSignOut = new JButton("Sign Out");
+		btnSignOut.setBounds(850, 30, 117, 29);
 		add(btnSignOut);
 		
-		JButton btnFindBestComparison = new JButton("Find Best Comparison");
-		btnFindBestComparison.setBounds(208, 285, 171, 29);
+		btnFindBestComparison = new JButton("Find Best Comparison");
+		btnFindBestComparison.setBounds(410, 334, 171, 29);
 		add(btnFindBestComparison);
-		
-		btnSignOut.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			MainGUI.setApplicationToClose(); 
-    		}
-    	});
-	}
-	
-	//method to reload name
-	public void loadUserInfoIntoControls()
-	{
-		// Reload the Current User
-		currentUser = User.getCurrentUser();
-		if (currentUser != null) {
-			userFirstName.setText(currentUser.getUserName());
-		}
 	}
 }

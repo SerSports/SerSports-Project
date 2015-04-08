@@ -2,17 +2,18 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-
-
-
+import javax.swing.*;
 
 //import client.MlbStatsGuiClient;
 import client.*;
@@ -22,7 +23,7 @@ import javax.swing.border.LineBorder;
 
 
 public class ApplicationGUI extends JTabbedPane{
-	HomePageGUI jp1;
+	HomePageGUIClient jp1;
 	UserBattingStatsClient batting;
 	UserFieldingStatsClient fielding;
 	UserPitchingStatsClient pitching;
@@ -30,15 +31,17 @@ public class ApplicationGUI extends JTabbedPane{
 	MainGUI mainGuiObj = null;
 	
 	public ApplicationGUI() {
-		this.setTabPlacement(JTabbedPane.TOP);
+		
+		this.setTabPlacement(JTabbedPane.EAST);
 		JTabbedPane MultipleStats = new JTabbedPane();
 		MultipleStats.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		
 		//Calling Jpanel classes and putting them into tabbedPanes
 		
 		//Home Page
-		jp1 = new HomePageGUI();
+		jp1 = new HomePageGUIClient();
 		this.addTab("Home", jp1);
+		this.setTabComponentAt(0, getLabel("", "/images/HomeTab.png"));
 		
 		//UserStats
 		this.add("User Stats", MultipleStats);
@@ -67,6 +70,16 @@ public class ApplicationGUI extends JTabbedPane{
 
 	}
 
+
+protected JLabel getLabel(String title, String icon) {
+	        JLabel label = new JLabel(title);
+	        try {
+	            label.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(icon))));
+	        } catch (IOException ex) {
+	            ex.printStackTrace();
+	        }
+	        return label;
+	    }
 	public void loadUserInfoIntoControls() {
 		jp1.loadUserInfoIntoControls();
 		batting.loadUserInfoIntoControls();
