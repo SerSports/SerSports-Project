@@ -386,12 +386,62 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		String sql = null;
 		
 		// Save this is a new record
-		sql = buildInsertSql();
+		sql = buildUpdateSql();
 		
 		// Execute the command
 		result = Database.executeSQL(sql);
 		
 		return result;
+	}
+	
+	private String buildUpdateSql() {
+		return "UPDATE " + TABLE_NAME + " " +
+				   "SET " + 
+						FIELD_FIRSTNAME + " = \"" + this.first_name + "\", " +
+						FIELD_LASTNAME + " = \"" + this.last_name + "\", " +
+						FIELD_TEAM_NAME + " = \"" + this.team_name + "\", " +
+						FIELD_TEAM_ID +  " = \"" + this.team_id + "\", " +
+						FIELD_HITTING_AB +  " = \"" + this.hitting_ab + "\", " +
+						FIELD_HITTING_RBI +  " = \"" + this.hitting_rbi + "\", " +
+						FIELD_PITCHING_ERA +  " = \"" + this.pitching_era + "\", " +
+						FIELD_PITCHING_ONBASE_H +  " = \"" + this.pitching_onbase_h + "\", " +
+						FIELD_PITCHING_ONBASE_S +  " = \"" + this.pitching_onbase_s + "\", " +
+						FIELD_PITCHING_ONBASE_D +  " = \"" + this.pitching_onbase_d + "\", " +
+						FIELD_PITCHING_ONBASE_T +  " = \"" + this.pitching_onbase_t + "\", " +
+						FIELD_PITCHING_ONBASE_HR + " = \"" + this.pitching_onbase_hr + "\", " +
+						FIELD_PITCHING_ONBASE_BB + " = \"" + this.pitching_onbase_bb + "\", " +
+						FIELD_PITCHING_RUNS_EARNED + " = \"" + this.pitching_runs_earned + "\", " +
+						FIELD_PITCHING_RUNS_TOTAL + " = \"" + this.pitching_runs_total + "\", " +
+						FIELD_PITCHING_OUTS_KTOTAL + " = \"" + this.pitching_outs_ktotal + "\", " +
+						FIELD_PITCHING_STEAL_CAUGHT +" = \"" + this.pitching_steal_caught + "\", " +
+						FIELD_PITCHING_STEAL_STOLEN + " = \"" + this.pitching_steal_stolen + "\", " +
+						FIELD_PITCHING_GAMES_PLAY + " = \"" + this.pitching_games_play + "\", " +
+						FIELD_PITCHING_GAMES_WIN + " = \"" + this.pitching_games_win + "\", " +
+						FIELD_PITCHING_GAMES_LOSS +" = \"" + this.pitching_games_loss + "\", " +
+						FIELD_PITCHING_GAMES_SAVE + " = \"" + this.pitching_games_save + "\", " +
+						FIELD_PITCHING_GAMES_HOLD + " = \"" + this.pitching_games_hold + "\", " +
+						FIELD_HITTING_ONBASE_H + " = \"" + this.hitting_onbase_h + "\", " +
+						FIELD_HITTING_ONBASE_S +" = \"" + this.hitting_onbase_s + "\", " +
+						FIELD_HITTING_ONBASE_D + " = \"" + this.hitting_onbase_d + "\", " +
+						FIELD_HITTING_ONBASE_T + " = \"" + this.hitting_onbase_t + "\", " +
+						FIELD_HITTING_ONBASE_HR + " = \"" + this.hitting_onbase_hr + "\", " +
+						FIELD_HITTING_ONBASE_BB + " = \"" + this.hitting_onbase_bb + "\", " +
+						FIELD_HITTING_RUNS_EARNED + " = \"" + this.hitting_runs_earned + "\", " +
+						FIELD_HITTING_RUNS_TOTAL + " = \"" + this.hitting_runs_total + "\", " +
+						FIELD_HITTING_OUTS_KTOTAL + " = \"" + this.hitting_outs_ktotal + "\", " +
+						FIELD_HITTING_STEAL_CAUGHT + " = \"" + this.hitting_steal_caught + "\", " +
+						FIELD_HITTING_STEAL_STOLEN + " = \"" + this.hitting_steal_stolen + "\", " +
+						FIELD_HITTING_GAMES_PLAY +" = \"" + this.hitting_games_play + "\", " +
+						FIELD_HITTING_GAMES_WIN + " = \"" + this.hitting_games_win + "\", " +
+						FIELD_HITTING_GAMES_LOSS + " = \"" + this.hitting_games_loss + "\", " +
+						FIELD_FIELDING_PO + " = \"" + this.fielding_po + "\", " +
+						FIELD_FIELDING_ERROR + " = \"" + this.fielding_error + "\", " +
+						FIELD_FIELDING_A + " = \"" + this.fielding_a + "\", " +
+						FIELD_FIELDING_FPCT + " = \"" + this.fielding_fpct + "\", " +
+						FIELD_FIELDING_GAMES_PLAY + " = \"" + this.fielding_games_play + "\", " +
+						FIELD_FIELDING_GAMES_WIN + " = \"" + this.fielding_games_win + "\", " +
+						FIELD_FIELDING_GAMES_LOSS + " = \"" + this.fielding_games_loss + "\" " +
+				"WHERE " + FIELD_ID + " = \"" + this.id + "\"";
 	}
 	
 	private String buildInsertSql() {
@@ -483,12 +533,13 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	/*
 	 * getPlayersFromDatabase provides a user to search by one, a combination, or all parameters and
 	 * 		return an ArrayList of MLB player names
+	 *  Fails if 
 	 */
-	public static ArrayList<MlbPlayer> getPlayersFromDatabase(String id_in, String fName_in, String lName_in, String team_in) {
+	public static ArrayList<MlbPlayer> getPlayersFromDatabase(MlbPlayerFilter filter) {
 		ArrayList<MlbPlayer> resultList = new ArrayList<MlbPlayer>();
 		
 		// Get the Result Set containing every Player
-		String sql = "SELECT * FROM " + TABLE_NAME + genereateWhereClause(id_in, fName_in, lName_in, team_in) + " ORDER BY " + FIELD_TEAM_NAME + ", " + FIELD_FIRSTNAME + ", " + FIELD_LASTNAME;
+		String sql = "SELECT * FROM " + TABLE_NAME + " " + filter.getWhereClause() + " ORDER BY " + FIELD_TEAM_NAME + ", " + FIELD_FIRSTNAME + ", " + FIELD_LASTNAME;
 		ResultSet rs = Database.getResultSetFromSQL(sql);
 		
 		if (rs != null) {
@@ -508,48 +559,6 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		Database.close();
 			
 		return resultList;
-	}
-
-	private static String genereateWhereClause(String id_in, String fName_in, String lName_in, String team_in) {
-		StringBuilder whereClause = new StringBuilder();
-		
-		// See if anything was passed in
-		if (id_in != null || fName_in != null || lName_in != null || team_in != null) {
-			Boolean fieldsAdded = false;
-			
-			// Initialize
-			whereClause.append(" WHERE ");
-			
-			// Add the fields we need
-			if (id_in != null) {
-				whereClause.append(FIELD_ID + " = \"" + id_in + "\"");
-				fieldsAdded = true;
-			} 
-			if (fName_in != null) {
-				if (fieldsAdded) {
-					whereClause.append(" AND ");
-				}
-				
-				whereClause.append(FIELD_FIRSTNAME + " = \"" + fName_in + "\"");
-				fieldsAdded = true;
-			} 
-			if (lName_in != null) {
-				if (fieldsAdded) {
-					whereClause.append(" AND ");
-				}
-				whereClause.append(FIELD_LASTNAME + " = \"" + lName_in + "\"");
-				fieldsAdded = true;
-			} 
-			if (team_in != null) {
-				if (fieldsAdded) {
-					whereClause.append(" AND ");
-				}
-				
-				whereClause.append(FIELD_TEAM_NAME + " = \"" + team_in + "\"");
-				fieldsAdded = true;
-			}
-		}
-		return whereClause.toString();
 	}
 	
 	/**

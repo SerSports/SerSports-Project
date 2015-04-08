@@ -86,9 +86,12 @@ public class MlbStatsGui extends JPanel {
 		submitPlayerSearchButton.setActionCommand("submitPlayerSearchButton");
 		submitPlayerSearchButton.setBackground(new Color(255,237,203));
 		
+		JLabel lblFirstName = new JLabel("First Name");
+		lblFirstName.setBounds(5, 132, 80, 29);
+		add(lblFirstName);
+		
 		txtFirstName = new JTextField();
-		txtFirstName.setText("First Name");
-		txtFirstName.setBounds(59, 132, 180, 29);
+		txtFirstName.setBounds(90, 132, 125, 29);
 		add(txtFirstName);
 		txtFirstName.setColumns(10);
 		
@@ -108,17 +111,24 @@ public class MlbStatsGui extends JPanel {
 		btnCompareToPlayer.setBounds(751, 75, 200, 50);
 		btnCompareToPlayer.setActionCommand("CompareToPlayer");
 		add(btnCompareToPlayer);
+
+		
+		JLabel lblLastName = new JLabel("Last Name");
+		lblLastName.setBounds(5, 173, 80, 29);
+		add(lblLastName);
 		
 		txtLastName = new JTextField();
-		txtLastName.setText("Last Name");
 		txtLastName.setColumns(10);
-		txtLastName.setBounds(59, 173, 180, 28);
+		txtLastName.setBounds(90, 173, 125, 28);
 		add(txtLastName);
+
+		JLabel lblTeamName = new JLabel("Team");
+		lblTeamName.setBounds(5, 213, 80, 29);
+		add(lblTeamName);
 		
 		txtTeam = new JTextField();
-		txtTeam.setText("Team");
 		txtTeam.setColumns(10);
-		txtTeam.setBounds(59, 213, 180, 28);
+		txtTeam.setBounds(90, 213, 125, 28);
 		add(txtTeam);
 		
 		lblMlbPlayerName = new JLabel("MLB Player First Name");
