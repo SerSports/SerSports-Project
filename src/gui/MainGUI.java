@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import database.User;
+import java.awt.BorderLayout;
 
 /**
 Class: MainGUI
@@ -26,7 +27,6 @@ Description: GUI for main navigation of site
 public class MainGUI{
 	
 	private static MainGUI singleton = null;
-	protected JScrollPane inputStatsScroll = new JScrollPane(this.panelContainer, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	JFrame mainFrame = new JFrame("SERSports");	
 	protected ApplicationGUI panelApplication = null;
 	private static final boolean debugOn = true;
@@ -34,11 +34,11 @@ public class MainGUI{
 	private final JPasswordField pwdPassword = new JPasswordField();
 	protected JButton btnSubmit;
 	protected JButton btnCreateAccount;
-
     JPanel panelContainer = new JPanel();
     JPanel login = new JPanel();
     CreateAccount createAccountGUI = new CreateAccount(this);
     CardLayout c1 = new CardLayout(); 
+    JScrollPane scrollPane = new JScrollPane();
     
     public void ShowMainGUI(){
     	c1.show(panelContainer, "2");
@@ -54,54 +54,56 @@ public class MainGUI{
     }
        
     public MainGUI(){    	
-		login.setLayout(null);
-		txtUserName = new JTextField();
-		txtUserName.setBounds(244, 5, 134, 28);
-		txtUserName.setText("ser_sports");
-		login.add(txtUserName);
-		txtUserName.setColumns(10);
-		pwdPassword.setBounds(383, 5, 134, 28);
-		pwdPassword.setColumns(10);
-		pwdPassword.setText("admin");
-		login.add(pwdPassword);	
-		
-		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.setBounds(522, 5, 88, 29);
-		login.add(btnSubmit);
-		
-		JButton btnCreateAccount = new JButton("Create Account");
-		btnCreateAccount.setBounds(615, 5, 140, 29);
-		login.add(btnCreateAccount);
-
-		//create and index the Panels
-		panelApplication = new ApplicationGUI();
-    	panelContainer.setLayout(c1);
-    	panelContainer.add(login, "1");
-    	panelContainer.add(panelApplication,"2");
-    	panelContainer.add(createAccountGUI, "3");
-    	c1.show(panelContainer, "1");
- 
-    	btnSubmit.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			// Authenticate User
-    			User user = User.authenticateUser(txtUserName.getText(), new String(pwdPassword.getPassword()));
-    			if (user != null) {
-    				loadUserInfoIntoControls();
-    				c1.show(panelContainer, "2");
-    			} else {
-    		        JOptionPane.showMessageDialog(null, "Invalid Username / Password!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
-    			}
-    		}
-    	});
+    	mainFrame.add(scrollPane);
+    	scrollPane.setViewportView(panelContainer);
+    	login.setLayout(null);
+    	txtUserName = new JTextField();
+    	txtUserName.setBounds(244, 5, 134, 28);
+    	txtUserName.setText("ser_sports");
+    	login.add(txtUserName);
+    	txtUserName.setColumns(10);
+    	pwdPassword.setBounds(383, 5, 134, 28);
+    	pwdPassword.setColumns(10);
+    	pwdPassword.setText("admin");
+    	login.add(pwdPassword);	
     	
-    	btnCreateAccount.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			c1.show(panelContainer, "3");
- 
-    		}
-    	});
+    	JButton btnSubmit_1 = new JButton("Submit");
+    	btnSubmit_1.setBounds(522, 5, 88, 29);
+    	login.add(btnSubmit_1);
     	
-    	mainFrame.getContentPane().add(panelContainer);
+    	JButton btnCreateAccount_1 = new JButton("Create Account");
+    	btnCreateAccount_1.setBounds(615, 5, 140, 29);
+    	login.add(btnCreateAccount_1);
+    	
+    			//create and index the Panels
+    			panelApplication = new ApplicationGUI();
+    			panelContainer.setLayout(c1);
+    			panelContainer.add(login, "1");
+    			panelContainer.add(panelApplication,"2");
+    			panelContainer.add(createAccountGUI, "3");
+    			c1.show(panelContainer, "1");
+    			
+    			   	btnSubmit_1.addActionListener(new ActionListener(){
+    			   		public void actionPerformed(ActionEvent arg0){
+    			   			// Authenticate User
+    			   			User user = User.authenticateUser(txtUserName.getText(), new String(pwdPassword.getPassword()));
+    			   			if (user != null) {
+    			   				loadUserInfoIntoControls();
+    			   				c1.show(panelContainer, "2");
+    			   			} else {
+    			   		        JOptionPane.showMessageDialog(null, "Invalid Username / Password!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+    			   			}
+    			   		}
+    			   	});
+    			   	
+    			   	btnCreateAccount_1.addActionListener(new ActionListener(){
+    			   		public void actionPerformed(ActionEvent arg0){
+    			   			c1.show(panelContainer, "3");
+ 
+    			   		}
+    			   	});
+    			   	
+       // mainFrame.getContentPane().add(panelContainer);
     	mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     	mainFrame.pack();
     	mainFrame.setVisible(true);
