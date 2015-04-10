@@ -56,12 +56,7 @@ public class UserGUIStats extends JPanel {
 		setPreferredSize(new Dimension(1000, 650));
 		setBackground(Color.PINK);
 		setLayout(null);
-		
-		JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
-		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(465, 6, 100, 100);
-		add(logo);
+
 		
 		JLabel lblYouAre = new JLabel("Enter a new game:");
 		lblYouAre.setForeground(Color.BLACK);

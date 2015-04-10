@@ -40,7 +40,7 @@ public class Help extends JPanel {
 	public Help() {
 		setPreferredSize(new Dimension(1000, 600));
 		setLayout(null);
-		setBackground(new Color(107, 185, 240));
+		setBackground(new Color(47, 52, 64));
 
 		JLabel lblYouAre = new JLabel("FAQ & Help");
 		lblYouAre.setBounds(600, 118, 80, 16);

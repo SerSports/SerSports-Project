@@ -45,7 +45,7 @@ public class ContactUs extends JPanel {
 	*/
 	public ContactUs() {
 		setPreferredSize(new Dimension(1000, 650));
-		setBackground(new Color(107, 185, 240));
+		setBackground(new Color(47, 52, 64));
 		setLayout(null);
 		
 		JButton btnSignOut = new JButton("Sign Out");

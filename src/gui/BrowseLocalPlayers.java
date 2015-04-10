@@ -59,7 +59,7 @@ public class BrowseLocalPlayers extends JPanel {
 	*/
 	public BrowseLocalPlayers() {
 		setPreferredSize(new Dimension(1000, 600));
-		setBackground(new Color(107, 185, 240));
+		setBackground(new Color(47, 52, 64));
 		setLayout(null);
 		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		

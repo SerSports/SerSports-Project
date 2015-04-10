@@ -66,8 +66,7 @@ public class UserBattingStats extends JScrollPane {
 	  Description: Creates the panel
 	*/
 	public UserBattingStats() {
-		//setPreferredSize(new Dimension(1300, 650));
-		setBackground(new Color(107, 185, 240));
+		setBackground(new Color(47, 52, 64));
 		setLayout(null);
 		
 		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();

@@ -63,14 +63,8 @@ public class UserFieldingStats extends JPanel {
 	 */
 	public UserFieldingStats() {
 		setPreferredSize(new Dimension(1000, 650));
-		setBackground(new Color(107, 185, 240));
+		setBackground(new Color(47, 52, 64));
 		setLayout(null);
-		
-		JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
-		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(589, 6, 100, 100);
-		add(logo);
 		
 		JLabel lblYouAre = new JLabel("Enter a new game:");
 		lblYouAre.setForeground(Color.BLACK);
