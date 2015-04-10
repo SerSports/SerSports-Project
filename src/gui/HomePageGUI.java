@@ -57,7 +57,13 @@ public class HomePageGUI extends JPanel {
 		setPreferredSize(new Dimension(1000, 650));
 		setBackground(new Color(47, 52, 64));
 		setLayout(null);
-		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
+		
+		
+		JLabel logo = new JLabel("");
+		logo.setBounds(6, 0, 141, 42);
+		add(logo);
+		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
+		logo.setIcon(new ImageIcon(img));
 		
 		JLabel lblYouAre = new JLabel("You are");
 		lblYouAre.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));

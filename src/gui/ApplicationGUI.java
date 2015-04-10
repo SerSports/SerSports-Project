@@ -68,9 +68,9 @@ public class ApplicationGUI extends JLayeredPane{
 		menuPanel.add(btnBrowseMLB);
 		
 		JLabel logo = new JLabel("");
-		logo.setBounds(0, 0, 141, 149);
+		logo.setBounds(6, 11, 141, 107);
 		menuPanel.add(logo);
-		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/images/LogoTop.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		
 		btnSignOut.setBounds(659, 17, 117, 29);
@@ -85,7 +85,7 @@ public class ApplicationGUI extends JLayeredPane{
 		menuPanel.add(btnFAQs);
 		
 		//Body Container
-		panelBodyContainer.setBounds(0, 114, 1300, 597);
+		panelBodyContainer.setBounds(0, 118, 1300, 597);
 		add(panelBodyContainer);	
 		panelBodyContainer.setLayout(c1);
 		panelBodyContainer.add(home, "1");
