@@ -37,6 +37,7 @@ public class ApplicationGUI extends JLayeredPane{
 	BrowseLocalPlayersClient browseLocal = new BrowseLocalPlayersClient();
 	ContactUs contactUs = new ContactUs();
 	Help FAQs = new Help();
+	protected JButton btnSignOut = new JButton("SIGN OUT");
 
 	
 	public ApplicationGUI() {
@@ -72,7 +73,6 @@ public class ApplicationGUI extends JLayeredPane{
 		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		
-		JButton btnSignOut = new JButton("SIGN OUT");
 		btnSignOut.setBounds(659, 17, 117, 29);
 		menuPanel.add(btnSignOut);
 		

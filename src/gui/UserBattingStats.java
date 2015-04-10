@@ -53,10 +53,9 @@ public class UserBattingStats extends JScrollPane {
 	protected JTextField txtHR;
 	protected JTextField txtSO;
 	protected JTextField txtDate;
-	protected JButton btnSignOut;
 	protected JButton btnUpdateStatistic;
 	protected JButton btnDeleteStatistic;	
-	protected JButton SubmitBattingStats;
+	protected JButton submitBattingStats;
 	
 	/**
 	  Method: Constructor
@@ -143,10 +142,10 @@ public class UserBattingStats extends JScrollPane {
 		add(txtSO);
 		
 		//JButton 
-		SubmitBattingStats = new JButton("Submit");
-		SubmitBattingStats.setBounds(91, 568, 117, 29);
-		add(SubmitBattingStats);
-		SubmitBattingStats.setActionCommand("SubmitBattingStats");
+		submitBattingStats = new JButton("Submit");
+		submitBattingStats.setBounds(91, 568, 117, 29);
+		add(submitBattingStats);
+		submitBattingStats.setActionCommand("SubmitBattingStats");
 		//SubmitBattingStats.addActionListener((ActionListener) this);
 		//SubmitBattingStats.setBackground(new Color(255,237,203));
 		
@@ -189,10 +188,5 @@ public class UserBattingStats extends JScrollPane {
 		lblGamesPlayed.setBounds(66, 87, 86, 16);
 		add(lblGamesPlayed);
 		
-		btnSignOut.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			MainGUI.setApplicationToClose(); 
-    		}
-    	});
 	}
 }
