@@ -48,6 +48,12 @@ public class ContactUs extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		setLayout(null);
 		
+		JLabel logo = new JLabel("");
+		logo.setBounds(6, 0, 141, 42);
+		add(logo);
+		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
+		logo.setIcon(new ImageIcon(img));
+		
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);

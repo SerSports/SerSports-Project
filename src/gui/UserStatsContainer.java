@@ -1,11 +1,14 @@
 package gui;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -33,13 +36,17 @@ public class UserStatsContainer extends JLayeredPane {
 	public UserStatsContainer() {
 
 		setBounds(0, 114, 1300, 597);
-		//setPreferredSize(new Dimension(1000, 650));
 		setLayout(null);
 		menuPanel.setBackground(new Color(47, 52, 64));
 		menuPanel.setBounds(0, 0, 160, 600);
 		add(menuPanel);
 		menuPanel.setLayout(null);
 		
+		JLabel logo = new JLabel("");
+		logo.setBounds(6, 0, 141, 42);
+		menuPanel.add(logo);
+		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
+		logo.setIcon(new ImageIcon(img));
 
 		btnBattingStats.setBounds(20, 171, 117, 29);
 		menuPanel.add(btnBattingStats );

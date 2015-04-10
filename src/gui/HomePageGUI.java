@@ -58,7 +58,6 @@ public class HomePageGUI extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		setLayout(null);
 		
-		
 		JLabel logo = new JLabel("");
 		logo.setBounds(6, 0, 141, 42);
 		add(logo);

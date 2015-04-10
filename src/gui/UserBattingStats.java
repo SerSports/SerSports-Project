@@ -65,10 +65,10 @@ public class UserBattingStats extends JPanel {
 	  Description: Creates the panel
 	*/
 	public UserBattingStats() {
+		
+		
 		setBackground(new Color(47, 52, 64));
 		setLayout(null);
-		
-		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		
 		JLabel lblYouAre = new JLabel("Enter a new game");
 		lblYouAre.setForeground(new Color(244, 229, 192));

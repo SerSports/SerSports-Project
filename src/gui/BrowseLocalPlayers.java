@@ -62,6 +62,12 @@ public class BrowseLocalPlayers extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		setLayout(null);
 		
+		JLabel logo = new JLabel("");
+		logo.setBounds(6, 0, 141, 42);
+		add(logo);
+		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
+		logo.setIcon(new ImageIcon(img));
+		
 		JScrollPane scrollPane_2 = new JScrollPane();
 		scrollPane_2.setBounds(183, 484, 636, 79);
 		add(scrollPane_2);

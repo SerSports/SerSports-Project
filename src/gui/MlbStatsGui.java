@@ -63,6 +63,12 @@ public class MlbStatsGui extends JPanel {
 	  Description: Creates the panel
 	*/
 	public MlbStatsGui() {
+		
+		JLabel logo = new JLabel("");
+		logo.setBounds(6, 0, 141, 42);
+		add(logo);
+		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
+		logo.setIcon(new ImageIcon(img));
 		setPreferredSize(new Dimension(1000, 600));
 		setBackground(new Color(47, 52, 64));
 		setLayout(null);

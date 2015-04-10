@@ -46,6 +46,12 @@ public class Help extends JPanel {
 		lblYouAre.setBounds(600, 118, 80, 16);
 		add(lblYouAre);
 		
+		JLabel logo = new JLabel("");
+		logo.setBounds(6, 0, 141, 42);
+		add(logo);
+		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
+		logo.setIcon(new ImageIcon(img));
+		
 		txtTypeQuestion = new JTextField();
 		txtTypeQuestion.setText("Enter Search here..");
 		txtTypeQuestion.setBounds(573, 136, 134, 28);
