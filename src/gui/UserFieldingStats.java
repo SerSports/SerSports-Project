@@ -64,7 +64,7 @@ public class UserFieldingStats extends JPanel {
 	public UserFieldingStats() {
 setLayout(null);
 		setBackground(new Color(47, 52, 64));
-		
+		setPreferredSize(new Dimension(1300, 600));
 		
 		JLabel lblYouAre = new JLabel("Enter a new game:");
 		lblYouAre.setForeground(new Color(244, 229, 192));
