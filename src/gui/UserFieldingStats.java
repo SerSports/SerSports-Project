@@ -83,7 +83,7 @@ public class UserFieldingStats extends JPanel {
 		scrollContainer.add(lblYouAre);
 		
 		txtDate = new JTextField();
-		txtDate.setText("Date");
+		txtDate.setText("MM/DD/YYYY");
 		txtDate.setBounds(56, 96, 105, 22);
 		scrollContainer.add(txtDate);
 		txtDate.setColumns(10);
