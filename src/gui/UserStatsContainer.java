@@ -15,7 +15,7 @@ import client.UserBattingStatsClient;
 import client.UserFieldingStatsClient;
 import client.UserPitchingStatsClient;
 
-public class userStatsContainer extends JLayeredPane {
+public class UserStatsContainer extends JLayeredPane {
 	CardLayout c1 = new CardLayout();
 	JPanel panelBodyContainer = new JPanel();
 	JPanel menuPanel = new JPanel();	
@@ -30,7 +30,7 @@ public class userStatsContainer extends JLayeredPane {
 	/**
 	 * Create the panel.
 	 */
-	public userStatsContainer() {
+	public UserStatsContainer() {
 
 		setBounds(0, 114, 1300, 597);
 		//setPreferredSize(new Dimension(1000, 650));

@@ -32,7 +32,7 @@ public class ApplicationGUI extends JLayeredPane{
 	JPanel menuPanel = new JPanel();
 	CardLayout c1 = new CardLayout();
 	HomePageGUIClient home = new HomePageGUIClient();
-	userStatsContainer enterStats = new userStatsContainer();
+	UserStatsContainer enterStats = new UserStatsContainer();
 	MlbStatsGuiClient browseMLB = new MlbStatsGuiClient();
 	BrowseLocalPlayersClient browseLocal = new BrowseLocalPlayersClient();
 	ContactUs contactUs = new ContactUs();
