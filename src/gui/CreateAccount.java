@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -23,7 +24,8 @@ public class CreateAccount extends JPanel {
 	private JTextField textLastname;
 	private JTextField textAge;
 	protected JButton btnCreateNewAccount;
-	protected JButton backButton;
+	protected ImageIcon arrow = new ImageIcon(CreateAccount.class.getResource("/images/BackArrow.png"));
+	protected JButton backButton = new JButton(arrow);
 	private static final boolean debugOn = true;
 	MainGUI main = null;
 
@@ -37,6 +39,7 @@ public class CreateAccount extends JPanel {
         }
     }
 	public CreateAccount(MainGUI mainGuiObj) {	
+		setBackground(new Color(47, 52, 64));
 		setPreferredSize(new Dimension(1000, 650));
 		setLayout(null);
 		this.main = mainGuiObj;
@@ -94,10 +97,8 @@ public class CreateAccount extends JPanel {
 		 *  Back button displayed on the Create Account screen
 		 *  that transitions back to the Login screen
 		 */
-		backButton = new JButton("Back");
-		Image back_button_img = new ImageIcon(this.getClass().getResource("/images/BackButton.png")).getImage();
-		backButton.setIcon(new ImageIcon(back_button_img));
-		backButton.setBounds(20, 20, 10, 20);
+		
+		backButton.setBounds(20, 20, 103, 58);
 		add(backButton);
 		backButton.setActionCommand("backButton");
 		
