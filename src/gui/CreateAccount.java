@@ -18,6 +18,11 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 import database.User;
+/**
+
+
+used http://best-programming-tricks.blogspot.com/2011/07/how-to-add-action-mouse-listener-in.html for mouse listener
+*/
 
 public class CreateAccount extends JPanel {
 	private JTextField textUsername;
@@ -26,8 +31,6 @@ public class CreateAccount extends JPanel {
 	private JTextField textLastname;
 	private JTextField textAge;
 	protected JButton btnCreateNewAccount;
-	//protected ImageIcon arrow = new ImageIcon(CreateAccount.class.getResource("/images/BackArrow.png"));
-	//protected JButton backButton = new JButton(arrow);
 	private static final boolean debugOn = true;
 	MainGUI main = null;
 	protected JLabel logo = new JLabel("");
@@ -107,12 +110,7 @@ public class CreateAccount extends JPanel {
 		/**
 		 *  Back button displayed on the Create Account screen
 		 *  that transitions back to the Login screen
-		 */
-		/*
-		backButton.setBounds(20, 20, 103, 58);
-		add(backButton);
-		backButton.setActionCommand("backButton");*/
-		
+		 */	
 		btnCreateNewAccount.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
     			debug("you clicked Create New Account");
@@ -136,16 +134,10 @@ public class CreateAccount extends JPanel {
 			
 		/**
 		 *  Listener used to transition back to the Login screen
-		 */
-		/*backButton.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    				main.ShowLoginGUI();
-    		}
-    	});*/
-		
+		 */		
 		
 	}
-	void mouseactionlabel(){
+		void mouseactionlabel(){
 		logo.addMouseListener(new MouseListener()
 		{
 		public void mouseClicked(MouseEvent arg0) {
