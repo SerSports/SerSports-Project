@@ -54,18 +54,23 @@ public class MainGUI{
     }
        
     public MainGUI(){    	
+		login.setLayout(null);
 		txtUserName = new JTextField();
+		txtUserName.setBounds(244, 5, 134, 28);
 		txtUserName.setText("ser_sports");
 		login.add(txtUserName);
 		txtUserName.setColumns(10);
+		pwdPassword.setBounds(383, 5, 134, 28);
 		pwdPassword.setColumns(10);
 		pwdPassword.setText("admin");
 		login.add(pwdPassword);	
 		
 		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.setBounds(522, 5, 88, 29);
 		login.add(btnSubmit);
 		
 		JButton btnCreateAccount = new JButton("Create Account");
+		btnCreateAccount.setBounds(615, 5, 140, 29);
 		login.add(btnCreateAccount);
 
 		//create and index the Panels
