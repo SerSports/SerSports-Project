@@ -26,7 +26,7 @@ Description: GUI for main navigation of site
 public class MainGUI{
 	
 	private static MainGUI singleton = null;
-
+	protected JScrollPane inputStatsScroll = new JScrollPane(this.panelContainer, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	JFrame mainFrame = new JFrame("SERSports");	
 	protected ApplicationGUI panelApplication = null;
 	private static final boolean debugOn = true;
