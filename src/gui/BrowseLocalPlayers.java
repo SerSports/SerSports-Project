@@ -45,7 +45,6 @@ public class BrowseLocalPlayers extends JPanel {
 	protected JTable fieldingTable;
 	protected JTable pitchingTable;
 	protected JTable battingTable;
-	protected JButton btnSignOut;
 	
 	// Private Members
 	private JLabel mlbBatting;
@@ -130,20 +129,11 @@ public class BrowseLocalPlayers extends JPanel {
 		JLabel lblFielding = new JLabel("Fielding");
 		lblFielding.setBounds(122, 512, 61, 16);
 		add(lblFielding);
-		
-		JButton btnSignOut = new JButton("Sign Out");
-		btnSignOut.setBounds(852, 20, 117, 29);
-		add(btnSignOut);
-		
+			
 		JLabel lblIndividualStatistics = new JLabel("Individual Statistics");
 		lblIndividualStatistics.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		lblIndividualStatistics.setBounds(20, 301, 234, 36);
 		add(lblIndividualStatistics);
-		
-		btnSignOut.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			MainGUI.setApplicationToClose(); 
-    		}
-    	});
+
 	}
 }

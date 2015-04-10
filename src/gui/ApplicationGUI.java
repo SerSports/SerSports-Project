@@ -33,8 +33,8 @@ public class ApplicationGUI extends JLayeredPane{
 	CardLayout c1 = new CardLayout();
 	HomePageGUIClient home = new HomePageGUIClient();
 	userStatsContainer enterStats = new userStatsContainer();
-	MlbStatsGui browseMLB = new MlbStatsGui();
-	BrowseLocalPlayers browseLocal = new BrowseLocalPlayers();
+	MlbStatsGuiClient browseMLB = new MlbStatsGuiClient();
+	BrowseLocalPlayersClient browseLocal = new BrowseLocalPlayersClient();
 	ContactUs contactUs = new ContactUs();
 	Help FAQs = new Help();
 
