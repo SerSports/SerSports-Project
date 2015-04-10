@@ -48,7 +48,6 @@ public class MlbStatsGui extends JPanel {
 	protected JLabel mlbFielding;
 	protected JTable mlbfieldingTable;
 	protected JTable mlbpitchingTable;
-	protected JButton btnSignOut;
 	protected JLabel lblMlbPlayerName;
 	protected JLabel lblMlbPlayerLast;
 	protected JLabel lblMlbPlayerTeam;
@@ -168,15 +167,6 @@ public class MlbStatsGui extends JPanel {
 		mlbFielding = new JLabel("Fielding");
 		mlbFielding.setBounds(38, 428, 61, 16);
 		add(mlbFielding);
-		
-		JButton btnSignOut = new JButton("Sign Out");
-		btnSignOut.setBounds(852, 20, 117, 29);
-		add(btnSignOut);
-		
-		btnSignOut.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			MainGUI.setApplicationToClose(); 
-    		}
-    	});
+
 	}
 }

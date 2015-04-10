@@ -34,11 +34,11 @@ public class UserStatsContainer extends JLayeredPane {
 	 * Create the panel.
 	 */
 	public UserStatsContainer() {
-
+		setPreferredSize(new Dimension(1300, 650));
 		setBounds(0, 114, 1300, 597);
 		setLayout(null);
 		menuPanel.setBackground(new Color(47, 52, 64));
-		menuPanel.setBounds(0, 0, 160, 600);
+		menuPanel.setBounds(0, 0, 200, 600);
 		add(menuPanel);
 		menuPanel.setLayout(null);
 		
@@ -58,7 +58,7 @@ public class UserStatsContainer extends JLayeredPane {
 		menuPanel.add(btnFieldingStats);
 		
 		panelBodyContainer.setBackground(Color.LIGHT_GRAY);
-		panelBodyContainer.setBounds(160, 0, 1300, 600);
+		panelBodyContainer.setBounds(200, 0, 1300, 600);
 		add(panelBodyContainer);
 		panelBodyContainer.setLayout(null);
 		

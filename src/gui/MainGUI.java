@@ -55,6 +55,7 @@ public class MainGUI{
        
     public MainGUI(){    	
     	mainFrame.add(scrollPane);
+    	scrollPane.setBorder(BorderFactory.createEmptyBorder());
     	scrollPane.setViewportView(panelContainer);
     	login.setLayout(null);
     	txtUserName = new JTextField();
