@@ -22,7 +22,6 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener, It
 	public HomePageGUIClient() {
 
 		// Add Action Listeners
-		btnSignOut.addActionListener(this);
 		btnFindBestComparison.addActionListener(this);
 		
 		// Populate the Most Similar Player
@@ -32,9 +31,7 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener, It
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//debug("Test");
-		if (e.getActionCommand().equals("Sign Out")) {
-			MainGUI.setApplicationToClose(); 
-		} else if (e.getActionCommand().equals("Find Best Comparison")) {
+		if (e.getActionCommand().equals("Find Best Comparison")) {
 			
 			// Get Local Player
 			ArrayList<LocalPlayer> list = LocalPlayer.getPlayersFromDatabase(User.getCurrentUser().getLocalPlayerId(), null, null, 0, null);
