@@ -40,7 +40,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	*/
     public UserBattingStatsClient() {
         //debug("Test in UserBattingStatsClient method");
-    	SubmitBattingStats.addActionListener(this);
+    	submitBattingStats.addActionListener(this);
     	btnUpdateStatistic.addActionListener(this);
     	btnDeleteStatistic.addActionListener(this);
     }
