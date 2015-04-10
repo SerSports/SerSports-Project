@@ -52,12 +52,6 @@ public class ContactUs extends JPanel {
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
 		
-		JLabel logo = new JLabel("Logo");
-		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
-		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(20, 20, 100, 100);
-		add(logo);
-		
 		JLabel lblEmailUs = new JLabel("Email Us: ser.sports.asu@gmail.com");
 		lblEmailUs.setBounds(81, 167, 244, 16);
 		add(lblEmailUs);

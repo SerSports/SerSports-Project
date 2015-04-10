@@ -66,8 +66,6 @@ public class MlbStatsGui extends JPanel {
 		setPreferredSize(new Dimension(1000, 600));
 		setBackground(new Color(107, 185, 240));
 		setLayout(null);
-		
-		JLabel logo = new JLabel("New label");
 		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		
 		JScrollPane scrollPane_3 = new JScrollPane();
@@ -76,9 +74,6 @@ public class MlbStatsGui extends JPanel {
 		
 		mlbpitchingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","BB"}));
 		scrollPane_3.setViewportView(mlbpitchingTable);
-		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(20, 20, 100, 100);
-		add(logo);
 		
 		submitPlayerSearchButton = new JButton("Submit");
 		submitPlayerSearchButton.setBounds(82, 253, 117, 29);
