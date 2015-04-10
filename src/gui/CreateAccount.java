@@ -3,6 +3,7 @@ package gui;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -51,57 +52,67 @@ public class CreateAccount extends JPanel {
 		setLayout(null);
 		this.main = mainGuiObj;
 		textUsername = new JTextField();
-		textUsername.setBounds(135, 65, 134, 28);
+		textUsername.setBounds(294, 94, 134, 28);
 		add(textUsername);
 		textUsername.setColumns(10);
 		
 		JLabel lblUsername = new JLabel("UserName:");
-		lblUsername.setBounds(39, 71, 75, 16);
+		lblUsername.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
+		lblUsername.setForeground(new Color(244, 229, 192));
+		lblUsername.setBounds(198, 96, 84, 28);
 		add(lblUsername);
 		
-		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(39, 121, 61, 16);
+		JLabel lblPassword = new JLabel("Password:");
+		lblPassword.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
+		lblPassword.setForeground(new Color(244, 229, 192));
+		lblPassword.setBounds(204, 136, 78, 26);
 		add(lblPassword);
 		
 		textPassword = new JTextField();
-		textPassword.setBounds(135, 115, 134, 28);
+		textPassword.setBounds(294, 134, 134, 28);
 		add(textPassword);
 		textPassword.setColumns(10);
 		
-		JLabel lblFirstName = new JLabel("First Name");
-		lblFirstName.setBounds(39, 178, 86, 16);
+		JLabel lblFirstName = new JLabel("First Name:");
+		lblFirstName.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
+		lblFirstName.setForeground(new Color(244, 229, 192));
+		lblFirstName.setBounds(195, 176, 87, 28);
 		add(lblFirstName);
 		
-		JLabel lblLastName = new JLabel("Last Name");
-		lblLastName.setBounds(39, 219, 86, 16);
+		JLabel lblLastName = new JLabel("Last Name:");
+		lblLastName.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
+		lblLastName.setForeground(new Color(244, 229, 192));
+		lblLastName.setBounds(196, 217, 86, 24);
 		add(lblLastName);
 		
-		JLabel lblAge = new JLabel("Age");
-		lblAge.setBounds(39, 259, 61, 16);
+		JLabel lblAge = new JLabel("Age:");
+		lblAge.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
+		lblAge.setForeground(new Color(244, 229, 192));
+		lblAge.setBounds(248, 253, 34, 24);
 		add(lblAge);
 		
 		textFirstName = new JTextField();
-		textFirstName.setBounds(135, 172, 134, 28);
+		textFirstName.setBounds(294, 172, 134, 28);
 		add(textFirstName);
 		textFirstName.setColumns(10);
 		
 		textLastname = new JTextField();
-		textLastname.setBounds(135, 213, 134, 28);
+		textLastname.setBounds(294, 212, 134, 28);
 		add(textLastname);
 		textLastname.setColumns(10);
 		
 		textAge = new JTextField();
-		textAge.setBounds(135, 253, 134, 28);
+		textAge.setBounds(294, 249, 134, 28);
 		add(textAge);
 		textAge.setColumns(10);
 		
 		JButton btnCreateNewAccount = new JButton("Create Account");
-		btnCreateNewAccount.setBounds(151, 327, 140, 28);
+		btnCreateNewAccount.setBounds(294, 289, 140, 28);
 		add(btnCreateNewAccount);
 		btnCreateNewAccount.setActionCommand("btnCreateNewAccount");
 		
 		//Button with Image
-		logo.setBounds(0, 0, 103, 58);
+		logo.setBounds(20, 20, 103, 58);
 		this.add(logo);
 		Image img = new ImageIcon(this.getClass().getResource("/images/BackArrow.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
@@ -138,19 +149,19 @@ public class CreateAccount extends JPanel {
 		
 	}
 		void mouseactionlabel(){
-		logo.addMouseListener(new MouseListener()
-		{
-		public void mouseClicked(MouseEvent arg0) {
-			main.ShowLoginGUI();
-		}
-		public void mouseEntered(MouseEvent arg0) {
-		}
-		public void mouseExited(MouseEvent arg0) {
-		}
-		public void mousePressed(MouseEvent arg0) {
-		}
-		public void mouseReleased(MouseEvent arg0) {
-		}
-		});
+			logo.addMouseListener(new MouseListener()
+				{
+				public void mouseClicked(MouseEvent arg0) {
+					main.ShowLoginGUI();
+				}
+				public void mouseEntered(MouseEvent arg0) {
+				}
+				public void mouseExited(MouseEvent arg0) {
+				}
+				public void mousePressed(MouseEvent arg0) {
+				}
+				public void mouseReleased(MouseEvent arg0) {
+				}
+				});
 		}
 }
