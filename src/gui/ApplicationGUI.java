@@ -36,7 +36,7 @@ public class ApplicationGUI extends JLayeredPane{
 	MlbStatsGui browseMLB = new MlbStatsGui();
 	BrowseLocalPlayers browseLocal = new BrowseLocalPlayers();
 	ContactUs contactUs = new ContactUs();
-	Help help = new Help();
+	Help FAQs = new Help();
 
 	
 	public ApplicationGUI() {
@@ -72,6 +72,18 @@ public class ApplicationGUI extends JLayeredPane{
 		menuPanel.add(logo);
 		logo.setIcon(new ImageIcon(img));
 		
+		JButton btnSignOut = new JButton("SIGN OUT");
+		btnSignOut.setBounds(659, 17, 117, 29);
+		menuPanel.add(btnSignOut);
+		
+		JButton btncontactUs = new JButton("Contact Us");
+		btncontactUs.setBounds(776, 17, 117, 29);
+		menuPanel.add(btncontactUs);
+		
+		JButton btnFAQs = new JButton("FAQs");
+		btnFAQs.setBounds(891, 17, 117, 29);
+		menuPanel.add(btnFAQs);
+		
 		//Body Container
 		panelBodyContainer.setBounds(0, 114, 1300, 597);
 		add(panelBodyContainer);	
@@ -81,7 +93,7 @@ public class ApplicationGUI extends JLayeredPane{
 		panelBodyContainer.add(browseLocal, "3");
 		panelBodyContainer.add(browseMLB, "4");
 		panelBodyContainer.add(contactUs, "5");
-		panelBodyContainer.add(help, "6");
+		panelBodyContainer.add(FAQs, "6");
     	c1.show(panelBodyContainer, "1");
     			
     	btnHome.addActionListener(new ActionListener(){
@@ -109,6 +121,26 @@ public class ApplicationGUI extends JLayeredPane{
     		public void actionPerformed(ActionEvent arg0){
     			c1.show(panelBodyContainer, "4");
  
+    		}
+    	});
+    	
+    	btncontactUs.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    			c1.show(panelBodyContainer, "5");
+ 
+    		}
+    	});
+    	
+    	btnFAQs.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    			c1.show(panelBodyContainer, "6");
+ 
+    		}
+    	});
+    	
+		btnSignOut.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent arg0){
+    			MainGUI.setApplicationToClose(); 
     		}
     	});
 	    
