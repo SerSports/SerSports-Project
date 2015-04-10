@@ -61,7 +61,6 @@ public class ApplicationGUI extends JLayeredPane{
 		JButton btnBrowseLocal = new JButton("Browse Local");
 		btnBrowseLocal.setBounds(511, 58, 163, 29);
 		menuPanel.add(btnBrowseLocal);
-		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		
 		JButton btnBrowseMLB = new JButton("Browse MLB");
 		btnBrowseMLB.setBounds(705, 58, 163, 29);
@@ -70,6 +69,7 @@ public class ApplicationGUI extends JLayeredPane{
 		JLabel logo = new JLabel("");
 		logo.setBounds(0, 0, 141, 149);
 		menuPanel.add(logo);
+		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		
 		JButton btnSignOut = new JButton("SIGN OUT");
