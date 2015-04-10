@@ -53,8 +53,9 @@ public class HomePageGUI extends JPanel {
 	  Description: Creates the panel
 	*/
 	public HomePageGUI() {
+		setBounds(0, 114, 1300, 597);
 		setPreferredSize(new Dimension(1000, 650));
-		setBackground(new Color(107, 185, 240));
+		setBackground(new Color(47, 52, 64));
 		setLayout(null);
 		
 		JLabel logo = new JLabel("New label");
@@ -94,7 +95,9 @@ public class HomePageGUI extends JPanel {
 		scrollPane_2.setBounds(253, 177, 480, 139);
 		add(scrollPane_2);
 
-		comparisonTable = new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"}));
+		comparisonTable =  new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"}));
+		comparisonTable.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 14));
+		comparisonTable.setForeground(new Color(244, 229, 192));
 		scrollPane_2.setViewportView(comparisonTable);
 		comparisonTable.getTableHeader().setDefaultRenderer(new SimpleHeaderRenderer());
 		comparisonTable.setOpaque(false);
@@ -102,6 +105,8 @@ public class HomePageGUI extends JPanel {
 		scrollPane_2.setOpaque(false);
 		scrollPane_2.getViewport().setOpaque(false);
 		comparisonTable.setShowGrid(false);
+		
+	
 		
 		btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(850, 30, 117, 29);
