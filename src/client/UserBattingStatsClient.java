@@ -30,6 +30,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	
 	//private static final long serialVersionUID = 1L;
 	private static final boolean debugOn = true;
+	private static double battingAverage = 0.0;
 	
     /**
 	  Method: UserBattingStatsClient
@@ -55,6 +56,17 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
         if (debugOn){
             System.out.println("debug: " + message);
         }
+    }
+    
+    private void setBattingAverage(int hit, int atBase){
+    	if (atBase != 0)
+    		battingAverage = ((double) hit) / ((double) atBase);
+    	else
+    		battingAverage = 0.0;
+    }
+    
+    private double getBattingAverage(){
+    	return battingAverage;
     }
 	
 	/**
@@ -112,7 +124,9 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 				}
 			}
 			else{
-				JOptionPane.showMessageDialog(null, "Please select a row in which you would like to delete", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(
+						null, "Please select a row in which you would like to delete", 
+						"InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 	}
@@ -132,13 +146,15 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			
 			// Add the Local Players to the List
 			for (LocalPlayerBattingStatistics m : currentPlayerBattingStatistics) {
+				setBattingAverage(m.getHitting_onbase_h(), m.getHitting_ab());
 				Object[] row = { m.getLocalPlayersHittingStatisticsID(), 
 						m.getGame_date(), m.getHitting_games_play(), 
 						m.getHitting_ab(), m.getHitting_onbase_h(), 
 						m.getHitting_rbi(), m.getHitting_onbase_s(), 
 						m.getHitting_onbase_d(), m.getHitting_onbase_t(), 
 						m.getHitting_runs_total(), m.getHitting_steal_stolen(), 
-						m.getHitting_onbase_hr(), m.getHitting_outs_ktotal() };
+						m.getHitting_onbase_hr(), m.getHitting_outs_ktotal(),
+						getBattingAverage() };
 				newTable.addRow(row);
 			}
 
@@ -242,8 +258,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		boolean result = true;
 		
-		try {
-			Date validateDate = dateFormat.parse(gameDate);
+		try { 
+			dateFormat.parse(gameDate);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
