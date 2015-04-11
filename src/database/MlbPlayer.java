@@ -199,10 +199,6 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	public String getId() {
 		return id;
 	}
-	
-	public float getBattingAverage() {
-		return (hitting_onbase_h / hitting_ab);
-	}
 
 	public String getFirst_name() {
 		return first_name;
@@ -218,6 +214,26 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 
 	public String getTeam_name() {
 		return team_name;
+	}
+	
+	public int getTotalBases() {
+		return hitting_onbase_h + (2 * hitting_onbase_d) + (3 * hitting_onbase_t) + (4 * hitting_onbase_hr);
+	}
+	
+	public float getSlugging() {
+		if (hitting_ab != 0) {
+			return getTotalBases() / hitting_ab;
+		}
+		return 0.00f;
+	}
+	
+	public float getBattingAverage() {
+		if (hitting_ab != 0) {
+			return hitting_onbase_h / hitting_ab;
+		}
+		else {
+			return 0.00f;
+		}
 	}
 
 	public float getPitching_era() {

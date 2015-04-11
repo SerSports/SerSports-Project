@@ -50,7 +50,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 	 * 
 	 * Description:
 	 */
-	private void debug(String message) {
+	public void debug(String message) {
 		if (debugOn) {
 			System.out.println("debug: " + message);
 		}
