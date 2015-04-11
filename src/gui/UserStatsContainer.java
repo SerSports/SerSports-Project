@@ -30,6 +30,7 @@ public class UserStatsContainer extends JLayeredPane {
 	UserBattingStatsClient batting = new UserBattingStatsClient();
 	UserFieldingStatsClient fielding = new UserFieldingStatsClient();
 	UserPitchingStatsClient pitching = new UserPitchingStatsClient();
+
 	
 	
 	/**
@@ -50,12 +51,20 @@ public class UserStatsContainer extends JLayeredPane {
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		
-		btnBattingStats.setBounds(38, 120, 123, 29);
+		/*btnBattingStats.setBounds(38, 120, 123, 29);
 		menuPanel.add(btnBattingStats );
 		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnBattingStats.setContentAreaFilled(false);
 		btnBattingStats.setForeground(new Color(244, 229, 192));
-		btnBattingStats.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 20));
+		btnBattingStats.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 20));*/
+		
+		btnBattingStats.setBounds(0, 120, 200, 50);
+		menuPanel.add(btnBattingStats);
+		Image btnBattingStatsImage = new ImageIcon(this.getClass().getResource("/images/BattingStatsButton.png")).getImage();
+		btnBattingStats.setIcon(new ImageIcon(btnBattingStatsImage));
+		//btnBattingStats.setActionCommand("backButton");
+		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
+		btnBattingStats.setContentAreaFilled(false);	
 		
 		btnPitchingStats.setBounds(38, 290, 123, 29);
 		menuPanel.add(btnPitchingStats);
