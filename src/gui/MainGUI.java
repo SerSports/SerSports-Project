@@ -33,7 +33,7 @@ public class MainGUI{
 	protected ApplicationGUI panelApplication = null;
 	private static final boolean debugOn = true;
 	protected JTextField txtUserName;
-	private final JPasswordField pwdPassword = new JPasswordField();
+	protected JPasswordField pwdPassword = new JPasswordField();
 	private JButton btnSubmit = new JButton("Submit");
 	private JButton btnCreateAccount;
     JPanel panelContainer = new JPanel();
