@@ -8,8 +8,10 @@ Description: Main GUI (the brain, the tabs)
 */
 package gui;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -34,7 +36,7 @@ public class MainGUI{
 	private static final boolean debugOn = true;
 	protected JTextField txtUserName;
 	protected JPasswordField pwdPassword = new JPasswordField();
-	private JButton btnSubmit = new JButton("Submit");
+	private JButton btnSubmit = new JButton("SIGN IN");
 	private JButton btnCreateAccount;
     JPanel panelContainer = new JPanel();
     JPanel login = new JPanel();
@@ -61,32 +63,48 @@ public class MainGUI{
     	scrollPane.setViewportView(panelContainer);
     	login.setLayout(null);
     	txtUserName = new JTextField();
+    	txtUserName.setBackground(new Color(244, 229, 192));
     	txtUserName.setBounds(432, 199, 135, 28);
     	txtUserName.setText("ser_sports");
     	login.add(txtUserName);
     	txtUserName.setColumns(10);
-    	pwdPassword.setBounds(432, 253, 135, 28);
+    	pwdPassword.setBackground(new Color(244, 229, 192));
+    	pwdPassword.setBounds(432, 246, 135, 28);
     	pwdPassword.setColumns(10);
     	pwdPassword.setText("admin");
     	login.add(pwdPassword);	
     	
-    	//JButton btnSubmit_1 = new JButton("Submit");
-    	btnSubmit.setBounds(456, 300, 88, 29);
+    	btnSubmit.setBounds(456, 319, 88, 29);
     	login.add(btnSubmit);
+    	btnSubmit.setBorder(BorderFactory.createEmptyBorder());
+    	btnSubmit.setContentAreaFilled(false);
+    	btnSubmit.setForeground(new Color(244, 229, 192));
+    	btnSubmit.setFont(new Font("jaf lapture", Font.PLAIN, 18));
     	
-    	JButton btnCreateAccount_1 = new JButton("Create Account");
-    	btnCreateAccount_1.setBounds(430, 341, 140, 29);
-    	login.add(btnCreateAccount_1);
+    	JButton btnCreateAccount_1 = new JButton("CREATE ACCOUNT");
+    	btnCreateAccount_1.setBounds(417, 360, 166, 28);
+    	login.add(btnCreateAccount_1);	
+    	btnCreateAccount_1.setBorder(BorderFactory.createEmptyBorder());
+    	btnCreateAccount_1.setContentAreaFilled(false);
+    	btnCreateAccount_1.setForeground(new Color(244, 229, 192));
+    	btnCreateAccount_1.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+    	
     	
     			//create and index the Panels
     			panelApplication = new ApplicationGUI();
     			panelContainer.setLayout(c1);
     			panelContainer.add(login, "1");
+    			Image img = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
+    			
+    			JLabel line = new JLabel("");
+    			line.setBounds(350, 253, 300, 107);
+    			login.add(line);
+    			Image lineimg = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
+    			line.setIcon(new ImageIcon(lineimg));
     			
     			JLabel lblbackgroundImage = new JLabel("");
     			lblbackgroundImage.setBounds(-908, -627, 3456, 1446);
     			login.add(lblbackgroundImage);
-    			Image img = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
     			lblbackgroundImage.setIcon(new ImageIcon(img));
     			
     			
@@ -114,11 +132,9 @@ public class MainGUI{
     			   		}
     			   	});
     			   	
-       // mainFrame.getContentPane().add(panelContainer);
     	mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     	mainFrame.pack();
     	mainFrame.setVisible(true);
-    	//mainFrame.setSize(1024, 768);
     	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     	mainFrame.setLocation(dim.width/2-mainFrame.getSize().width/2, dim.height/2-mainFrame.getSize().height/2);
     	
