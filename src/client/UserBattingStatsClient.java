@@ -52,20 +52,20 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 
 	  Description:
 	*/
-    private void debug(String message) {
+    public void debug(String message) {
         if (debugOn){
             System.out.println("debug: " + message);
         }
     }
     
-    private void setBattingAverage(int hit, int atBase){
+    public void setBattingAverage(double hit, double atBase){
     	if (atBase != 0)
-    		battingAverage = ((double) hit) / ((double) atBase);
+    		battingAverage = hit / atBase;
     	else
     		battingAverage = 0.0;
     }
     
-    private double getBattingAverage(){
+    public double getBattingAverage(){
     	return battingAverage;
     }
 	
@@ -146,7 +146,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			
 			// Add the Local Players to the List
 			for (LocalPlayerBattingStatistics m : currentPlayerBattingStatistics) {
-				setBattingAverage(m.getHitting_onbase_h(), m.getHitting_ab());
+				setBattingAverage( (double) m.getHitting_onbase_h(), (double) m.getHitting_ab());
 				Object[] row = { m.getLocalPlayersHittingStatisticsID(), 
 						m.getGame_date(), m.getHitting_games_play(), 
 						m.getHitting_ab(), m.getHitting_onbase_h(), 
@@ -225,7 +225,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
             loadUserInfoIntoControls();
 		}
 		else{
-			JOptionPane.showMessageDialog(null, "Invalid date format. Please add date in MM/DD/YYYY", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Invalid date format. Please add date in MM/DD/YYYY", 
+					"InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 	
@@ -261,9 +262,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		try { 
 			dateFormat.parse(gameDate);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
-			//debug("Invalid date format");
 			result = false;
 		}
 		
