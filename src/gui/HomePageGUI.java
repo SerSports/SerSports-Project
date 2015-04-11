@@ -132,7 +132,7 @@ public class HomePageGUI extends JPanel {
 		add(btnFindBestComparison);
 		borderPanel.setBorder(new LineBorder(Color.getHSBColor(47, 52, 64), 4));
 		
-		borderPanel.setBounds(36, 21, 928, 608);
+		borderPanel.setBounds(36, 21, 929, 483);
 		add(borderPanel);
 		borderPanel.setPreferredSize(new Dimension(1000, 650));
 		borderPanel.setBackground(new Color(47, 52, 64));

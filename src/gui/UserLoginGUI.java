@@ -8,21 +8,24 @@ Description: Main GUI (the brain, the tabs)
  */
 package gui;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 import database.User;
-
-import java.awt.BorderLayout;
 
 /**
  * Class: MainGUI
@@ -40,6 +43,9 @@ public class UserLoginGUI extends JPanel {
 	protected Image lineimg = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
 	protected JLabel lblbackgroundImage = new JLabel("");
 	protected Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+	MainGUI main = null;
+	//private static MainGUI singleton = null;
+
 
 	public UserLoginGUI() {
 		setLayout(null);
@@ -77,40 +83,23 @@ public class UserLoginGUI extends JPanel {
 		add(lblbackgroundImage);
 		lblbackgroundImage.setIcon(new ImageIcon(img));
 
-		btnSubmit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				// Authenticate User
-				User user = User.authenticateUser(txtUserName.getText(),
-						new String(pwdPassword.getPassword()));
-				if (user != null) {
-					loadUserInfoIntoControls();
-					c1.show(panelContainer, "2");
-				} else {
-					JOptionPane.showMessageDialog(null,
-							"Invalid Username / Password!",
-							"InfoBox: SER SPORTS",
-							JOptionPane.INFORMATION_MESSAGE);
-				}
-			}
-		});
 
 		btnCreateAccount_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MainGUI.c1.show(panelContainer, "3");
+				main.showCreateAccount();
+
+			}
+		});
+		
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				main.showApplicationGUI();;
 
 			}
 		});
 
-
 	}
 
-	/**
-	 * Method: main Inputs: String[] args Returns: NA
-	 * 
-	 * Description:
-	 */
+
 	
-	public void loadUserInfoIntoControls() {
-		panelApplication.loadUserInfoIntoControls();
-	}
 }

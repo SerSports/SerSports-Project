@@ -24,7 +24,6 @@ import javax.swing.*;
 import client.*;
 import database.*;
 
-import javax.swing.border.LineBorder;
 
 
 public class ApplicationGUI extends JLayeredPane{

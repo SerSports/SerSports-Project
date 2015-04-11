@@ -137,7 +137,7 @@ public class CreateAccount extends JPanel {
     			if (user != null) {
     				debug("your information is submitted");
     				main.loadUserInfoIntoControls();
-    				main.ShowMainGUI();
+    				main.showApplicationGUI();
     				debug("new application window should pop up");
     				
     			} else {
@@ -153,7 +153,7 @@ public class CreateAccount extends JPanel {
 
 	backButton.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent arg0){
-				main.ShowLoginGUI();
+				main.showLoginGUI();
 		}
 	});
 	
