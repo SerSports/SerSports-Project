@@ -48,7 +48,6 @@ public class HomePageGUI extends JPanel {
 	protected JLabel lblInsertPlayersName = null;
 	protected JLabel label = null;
 	protected JPanel borderPanel = new JPanel();
-	protected Color tan = new Color(47, 52, 64);
 	
 	/**
 	  Method: Constructor
@@ -116,18 +115,11 @@ public class HomePageGUI extends JPanel {
 		scrollPane_2.setViewportView(comparisonTable);
 		comparisonTable.getTableHeader().setDefaultRenderer(new SimpleHeaderRenderer());
 		comparisonTable.setOpaque(false);
-		((DefaultTableCellRenderer)comparisonTable.getDefaultRenderer(Object.class)).setOpaque(false);
 		scrollPane_2.setOpaque(false);
 		scrollPane_2.getViewport().setOpaque(false);
+		((DefaultTableCellRenderer)comparisonTable.getDefaultRenderer(Object.class)).setOpaque(false);
 		comparisonTable.setShowGrid(false);
 		
-	
-		/*
-		btnSignOut = new JButton("Sign Out");
-		btnSignOut.setBounds(850, 30, 117, 29);
-		add(btnSignOut);*/
-		Color tan = new Color(47, 52, 64);
-		//btnFindBestComparison = new JButton("Find Best Comparison");
 		btnFindBestComparison = new JButton("Find Best Comparison");
 		btnFindBestComparison.setBounds(410, 334, 171, 29);
 		add(btnFindBestComparison);
