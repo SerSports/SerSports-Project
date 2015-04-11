@@ -49,13 +49,6 @@ public class UserStatsContainer extends JLayeredPane {
 		menuPanel.add(logo);
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
-
-		/*btnBattingStats.setBounds(48, 159, 103, 58);
-		menuPanel.add(btnBattingStats );
-		Image btnBattingImage = new ImageIcon(this.getClass().getResource("/images/BackArrow.png")).getImage();
-		btnBattingStats.setIcon(new ImageIcon(btnBattingImage));
-		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
-		btnBattingStats.setContentAreaFilled(false);*/
 		
 		btnBattingStats.setBounds(38, 120, 123, 29);
 		menuPanel.add(btnBattingStats );
