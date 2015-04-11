@@ -20,4 +20,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>net.sourceforge.metrics.nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>images/back_arrow_img.png</name>
+			<type>1</type>
+			<location>/Users/nickkrogstad/Documents/Junior Year/CST 316/back_arrow_img.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>
