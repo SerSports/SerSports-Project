@@ -34,8 +34,8 @@ public class MainGUI{
 	private static final boolean debugOn = true;
 	protected JTextField txtUserName;
 	private final JPasswordField pwdPassword = new JPasswordField();
-	protected JButton btnSubmit;
-	protected JButton btnCreateAccount;
+	private JButton btnSubmit = new JButton("Submit");
+	private JButton btnCreateAccount;
     JPanel panelContainer = new JPanel();
     JPanel login = new JPanel();
     CreateAccount createAccountGUI = new CreateAccount(this);
@@ -70,9 +70,9 @@ public class MainGUI{
     	pwdPassword.setText("admin");
     	login.add(pwdPassword);	
     	
-    	JButton btnSubmit_1 = new JButton("Submit");
-    	btnSubmit_1.setBounds(456, 300, 88, 29);
-    	login.add(btnSubmit_1);
+    	//JButton btnSubmit_1 = new JButton("Submit");
+    	btnSubmit.setBounds(456, 300, 88, 29);
+    	login.add(btnSubmit);
     	
     	JButton btnCreateAccount_1 = new JButton("Create Account");
     	btnCreateAccount_1.setBounds(430, 341, 140, 29);
@@ -94,7 +94,7 @@ public class MainGUI{
     			panelContainer.add(createAccountGUI, "3");
     			c1.show(panelContainer, "1");
     			
-    			   	btnSubmit_1.addActionListener(new ActionListener(){
+    			   	btnSubmit.addActionListener(new ActionListener(){
     			   		public void actionPerformed(ActionEvent arg0){
     			   			// Authenticate User
     			   			User user = User.authenticateUser(txtUserName.getText(), new String(pwdPassword.getPassword()));
