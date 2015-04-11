@@ -66,19 +66,19 @@ public class UserStatsContainer extends JLayeredPane {
 		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnBattingStats.setContentAreaFilled(false);	
 		
-		btnPitchingStats.setBounds(38, 240, 123, 29);
+		btnPitchingStats.setBounds(6, 240, 188, 29);
 		menuPanel.add(btnPitchingStats);
 		btnPitchingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnPitchingStats.setContentAreaFilled(false);
 		btnPitchingStats.setForeground(new Color(244, 229, 192));
-		btnPitchingStats.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 20));
+		btnPitchingStats.setFont(new Font("Stencil", Font.PLAIN, 18));
 		
-		btnFieldingStats.setBounds(38, 410, 123, 49);	
+		btnFieldingStats.setBounds(6, 410, 188, 29);	
 		menuPanel.add(btnFieldingStats);
 		btnFieldingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnFieldingStats.setContentAreaFilled(false);
 		btnFieldingStats.setForeground(new Color(244, 229, 192));
-		btnFieldingStats.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 20));
+		btnFieldingStats.setFont(new Font("Stencil", Font.PLAIN, 18));
 		
 		panelBodyContainer.setBackground(Color.LIGHT_GRAY);
 		panelBodyContainer.setBounds(200, 0, 1300, 600);
