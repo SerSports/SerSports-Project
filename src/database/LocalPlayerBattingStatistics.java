@@ -269,6 +269,11 @@ public class LocalPlayerBattingStatistics {
 		}
 	}
 	
+	public static void deleteLocalPlayerBattingStatistic(int localPlayerHittingStatisticID){
+		Database.executeSQL("DELETE FROM " + TABLE_NAME + " WHERE " + FIELD_ID + " = " 
+				+ localPlayerHittingStatisticID + ";");
+	}
+	
 	private static boolean notNumeric(String value){
 		
 		try{

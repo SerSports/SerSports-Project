@@ -45,18 +45,18 @@ public class ContactUs extends JPanel {
 	*/
 	public ContactUs() {
 		setPreferredSize(new Dimension(1000, 650));
-		setBackground(new Color(107, 185, 240));
+		setBackground(new Color(47, 52, 64));
 		setLayout(null);
+		
+		JLabel logo = new JLabel("");
+		logo.setBounds(6, 0, 141, 42);
+		add(logo);
+		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
+		logo.setIcon(new ImageIcon(img));
 		
 		JButton btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(1030, 20, 117, 29);
 		add(btnSignOut);
-		
-		JLabel logo = new JLabel("Logo");
-		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
-		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(20, 20, 100, 100);
-		add(logo);
 		
 		JLabel lblEmailUs = new JLabel("Email Us: ser.sports.asu@gmail.com");
 		lblEmailUs.setBounds(81, 167, 244, 16);

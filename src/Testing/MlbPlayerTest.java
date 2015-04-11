@@ -1,6 +1,7 @@
 package Testing;
 
 import database.MlbPlayer;
+import database.MlbPlayerFilter;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -45,8 +46,44 @@ public class MlbPlayerTest {
 		assertNotNull(MlbPlayer.getListOfPlayersFromDatabase()); 
 	}
 
-	@Test
+	@Test(expected=AssertionError.class)
 	public void testGetPlayersFromDatabase() {
-		assertNotNull(MlbPlayer.getPlayersFromDatabase("", "", "", ""));
+		
+		MlbPlayerFilter filter = new MlbPlayerFilter();
+		assertNotNull(MlbPlayer.getPlayersFromDatabase(filter));
+		assert(MlbPlayer.getPlayersFromDatabase(filter).size() > 0);
+
+		filter.setIdValue(null);
+		assertNotNull(MlbPlayer.getPlayersFromDatabase(filter));
+		assert(MlbPlayer.getPlayersFromDatabase(filter).size() > 0);
+
+		filter.setIdValue("00856892-9a5a-4161-b979-4335dab399cc");
+		assertNotNull(MlbPlayer.getPlayersFromDatabase(filter));
+		assert(MlbPlayer.getPlayersFromDatabase(filter).size() > 0);
+
+		filter.setIdValue(null);
+		filter.setFirstNameValue("Jose");
+		assertNotNull(MlbPlayer.getPlayersFromDatabase(filter));
+		assert(MlbPlayer.getPlayersFromDatabase(filter).size() > 0);
+
+		filter.setFirstNameValue(null);
+		filter.setLastNameValue("Johnson");
+		assertNotNull(MlbPlayer.getPlayersFromDatabase(filter));
+		assert(MlbPlayer.getPlayersFromDatabase(filter).size() > 0);
+
+		filter.setLastNameValue(null);
+		filter.setTeamNameValue("Cardinals");
+		assertNotNull(MlbPlayer.getPlayersFromDatabase(filter));
+		assert(MlbPlayer.getPlayersFromDatabase(filter).size() > 0);
+
+		filter.setLastNameValue("Goldschmidt");
+		filter.setTeamNameValue("Diamondbacks");
+		assertNotNull(MlbPlayer.getPlayersFromDatabase(filter));
+		assert(MlbPlayer.getPlayersFromDatabase(filter).size() > 0);
+
+		filter.setLastNameValue("x");
+		filter.setTeamNameValue("x");
+		assertNotNull(MlbPlayer.getPlayersFromDatabase(filter));
+		assert(MlbPlayer.getPlayersFromDatabase(filter).size() == 0);
 	}
 }

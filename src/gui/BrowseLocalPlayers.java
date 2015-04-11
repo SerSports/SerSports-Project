@@ -45,7 +45,6 @@ public class BrowseLocalPlayers extends JPanel {
 	protected JTable fieldingTable;
 	protected JTable pitchingTable;
 	protected JTable battingTable;
-	protected JButton btnSignOut;
 	
 	// Private Members
 	private JLabel mlbBatting;
@@ -60,11 +59,14 @@ public class BrowseLocalPlayers extends JPanel {
 	*/
 	public BrowseLocalPlayers() {
 		setPreferredSize(new Dimension(1000, 600));
-		setBackground(new Color(107, 185, 240));
+		setBackground(new Color(47, 52, 64));
 		setLayout(null);
 		
-		JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
+		JLabel logo = new JLabel("");
+		logo.setBounds(6, 0, 141, 42);
+		add(logo);
+		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
+		logo.setIcon(new ImageIcon(img));
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
 		scrollPane_2.setBounds(183, 484, 636, 79);
@@ -79,9 +81,6 @@ public class BrowseLocalPlayers extends JPanel {
 		
 		pitchingTable = new JTable(new DefaultTableModel(null, new Object[]{"GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
 		scrollPane_3.setViewportView(pitchingTable);
-		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(20, 20, 100, 100);
-		add(logo);
 		
 		SubmitLocalSearch = new JButton("Submit");
 		SubmitLocalSearch.setBounds(54, 260, 117, 29);
@@ -135,20 +134,11 @@ public class BrowseLocalPlayers extends JPanel {
 		JLabel lblFielding = new JLabel("Fielding");
 		lblFielding.setBounds(122, 512, 61, 16);
 		add(lblFielding);
-		
-		JButton btnSignOut = new JButton("Sign Out");
-		btnSignOut.setBounds(852, 20, 117, 29);
-		add(btnSignOut);
-		
+			
 		JLabel lblIndividualStatistics = new JLabel("Individual Statistics");
 		lblIndividualStatistics.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		lblIndividualStatistics.setBounds(20, 301, 234, 36);
 		add(lblIndividualStatistics);
-		
-		btnSignOut.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			MainGUI.setApplicationToClose(); 
-    		}
-    	});
+
 	}
 }

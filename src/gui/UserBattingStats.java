@@ -53,13 +53,10 @@ public class UserBattingStats extends JPanel {
 	protected JTextField txtHR;
 	protected JTextField txtSO;
 	protected JTextField txtDate;
-	protected JButton btnSignOut;
 	protected JButton btnUpdateStatistic;
-	protected JButton btnDeleteStatistic;
+	protected JButton btnDeleteStatistic;	
+	protected JButton submitBattingStats;
 
-	
-	protected JButton SubmitBattingStats;
-	
 	/**
 	  Method: Constructor
 	  Inputs: None
@@ -67,127 +64,170 @@ public class UserBattingStats extends JPanel {
 
 	  Description: Creates the panel
 	*/
-	public UserBattingStats() {
-		setPreferredSize(new Dimension(1000, 650));
-		setBackground(new Color(107, 185, 240));
+	public UserBattingStats() {	
 		setLayout(null);
+		setBackground(new Color(47, 52, 64));
 		
-		JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
-		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(589, 6, 100, 100);
-		add(logo);
-		
-		JLabel lblYouAre = new JLabel("Enter a new game:");
-		lblYouAre.setForeground(Color.BLACK);
-		lblYouAre.setBounds(21, 124, 119, 16);
+		JLabel lblYouAre = new JLabel("Enter a new game");
+		lblYouAre.setBounds(20, 36, 119, 16);
+		lblYouAre.setForeground(new Color(244, 229, 192));
 		add(lblYouAre);
 		
 		txtGP = new JTextField();
+		txtGP.setBounds(56, 140, 105, 22);
 		txtGP.setText("Games Played");
-		txtGP.setBounds(245, 121, 111, 22);
 		add(txtGP);
 		txtGP.setColumns(10);
 		
 		txtAB = new JTextField();
+		txtAB.setBounds(56, 184, 105, 22);
 		txtAB.setText("AB");
 		txtAB.setColumns(10);
-		txtAB.setBounds(368, 118, 77, 28);
 		add(txtAB);
 		
 		txtH = new JTextField();
+		txtH.setBounds(215, 96, 105, 22);
 		txtH.setText("H");
 		txtH.setColumns(10);
-		txtH.setBounds(456, 118, 77, 28);
 		add(txtH);
 		
 		txtRBI = new JTextField();
+		txtRBI.setBounds(215, 140, 105, 22);
 		txtRBI.setText("RBI");
 		txtRBI.setColumns(10);
-		txtRBI.setBounds(545, 118, 77, 28);
 		add(txtRBI);
 		
 		txtb_1 = new JTextField();
+		txtb_1.setBounds(215, 184, 105, 22);
 		txtb_1.setText("1B");
 		txtb_1.setColumns(10);
-		txtb_1.setBounds(640, 118, 77, 28);
 		add(txtb_1);
 		
 		txtb_2 = new JTextField();
+		txtb_2.setBounds(352, 96, 105, 22);
 		txtb_2.setText("2B");
 		txtb_2.setColumns(10);
-		txtb_2.setBounds(740, 118, 77, 28);
 		add(txtb_2);
 		
 		txtb_3 = new JTextField();
+		txtb_3.setBounds(352, 140, 105, 22);
 		txtb_3.setText("3B");
 		txtb_3.setColumns(10);
-		txtb_3.setBounds(829, 118, 77, 28);
 		add(txtb_3);
 		
 		txtRuns = new JTextField();
+		txtRuns.setBounds(352, 184, 105, 22);
 		txtRuns.setText("Runs");
 		txtRuns.setColumns(10);
-		txtRuns.setBounds(918, 118, 77, 28);
 		add(txtRuns);
 		
 		txtSB = new JTextField();
+		txtSB.setBounds(488, 184, 105, 22);
 		txtSB.setText("SB");
 		txtSB.setColumns(10);
-		txtSB.setBounds(1010, 118, 51, 28);
 		add(txtSB);
 		
 		txtHR = new JTextField();
+		txtHR.setBounds(488, 96, 105, 22);
 		txtHR.setText("HR");
 		txtHR.setColumns(10);
-		txtHR.setBounds(1073, 118, 51, 28);
 		add(txtHR);
 		
 		txtSO = new JTextField();
+		txtSO.setBounds(488, 140, 105, 22);
 		txtSO.setText("SO");
 		txtSO.setColumns(10);
-		txtSO.setBounds(1147, 118, 51, 28);
 		add(txtSO);
 		
 		//JButton 
-		SubmitBattingStats = new JButton("Submit");
-		SubmitBattingStats.setBounds(580, 181, 117, 29);
-		add(SubmitBattingStats);
-		SubmitBattingStats.setActionCommand("SubmitBattingStats");
-		//SubmitBattingStats.addActionListener((ActionListener) this);
-		//SubmitBattingStats.setBackground(new Color(255,237,203));
+		submitBattingStats = new JButton("Submit");
+		submitBattingStats.setBounds(632, 138, 117, 29);
+		add(submitBattingStats);
+		submitBattingStats.setActionCommand("SubmitBattingStats");
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(293, 235, 691, 235);
+		scrollPane.setBounds(27, 243, 734, 235);
 		add(scrollPane);
 		
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}));
 		scrollPane.setViewportView(table);
 		
 		txtDate = new JTextField();
+		txtDate.setBounds(56, 96, 105, 22);
 		txtDate.setText("MM/DD/YYYY");
 		txtDate.setColumns(10);
-		txtDate.setBounds(140, 118, 92, 28);
 		add(txtDate);
 
-		JButton btnSignOut = new JButton("Sign Out");
-		btnSignOut.setBounds(1030, 20, 117, 29);
-		add(btnSignOut);
-		
 		btnUpdateStatistic = new JButton("Update Statistic");
-		btnUpdateStatistic.setBounds(469, 504, 143, 28);
+		btnUpdateStatistic.setBounds(177, 504, 143, 28);
 		add(btnUpdateStatistic);
 		btnUpdateStatistic.setActionCommand("UpdateStatistic");
 		
 		btnDeleteStatistic = new JButton("Delete Statistic");
-		btnDeleteStatistic.setBounds(674, 504, 143, 28);
+		btnDeleteStatistic.setBounds(343, 504, 143, 28);
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 		
-		btnSignOut.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			MainGUI.setApplicationToClose(); 
-    		}
-    	});
+		JLabel lblDatemmddyyyy = new JLabel("Date (MM/DD/YYYY)");
+		lblDatemmddyyyy.setBounds(45, 79, 143, 16);
+		lblDatemmddyyyy.setForeground(new Color(244, 229, 192));
+		add(lblDatemmddyyyy);
+		
+		JLabel lblAb = new JLabel("AB");
+		lblAb.setBounds(100, 168, 22, 16);
+		lblAb.setForeground(new Color(244, 229, 192));
+		add(lblAb);
+		
+		JLabel lblGamesPlayed = new JLabel("Games Played");
+		lblGamesPlayed.setBounds(66, 124, 86, 16);
+		lblGamesPlayed.setForeground(new Color(244, 229, 192));
+		add(lblGamesPlayed);
+		
+		JLabel lblHits = new JLabel("Hits");
+		lblHits.setBounds(254, 79, 40, 16);
+		lblHits.setForeground(new Color(244, 229, 192));
+		add(lblHits);
+		
+		JLabel lblRbi = new JLabel("RBI");
+		lblRbi.setBounds(254, 124, 40, 16);
+		lblRbi.setForeground(new Color(244, 229, 192));
+		add(lblRbi);
+		
+		JLabel lblb = new JLabel("1B");
+		lblb.setBounds(254, 168, 40, 16);
+		lblb.setForeground(new Color(244, 229, 192));
+		add(lblb);
+		
+		JLabel lblb_1 = new JLabel("2B");
+		lblb_1.setBounds(384, 79, 40, 16);
+		lblb_1.setForeground(new Color(244, 229, 192));
+		add(lblb_1);
+		
+		JLabel lblb_2 = new JLabel("3B");
+		lblb_2.setBounds(395, 124, 40, 16);
+		lblb_2.setForeground(new Color(244, 229, 192));
+		add(lblb_2);
+		
+		JLabel lblRuns = new JLabel("Runs");
+		lblRuns.setBounds(395, 168, 40, 16);
+		lblRuns.setForeground(new Color(244, 229, 192));
+		add(lblRuns);
+		
+		JLabel lblHomeRuns = new JLabel("Home Runs");
+		lblHomeRuns.setBounds(509, 79, 72, 16);
+		lblHomeRuns.setForeground(new Color(244, 229, 192));
+		add(lblHomeRuns);
+		
+		JLabel lblSo = new JLabel("SO");
+		lblSo.setBounds(526, 124, 40, 16);
+		lblSo.setForeground(new Color(244, 229, 192));
+		add(lblSo);
+		
+		JLabel lblSb = new JLabel("SB");
+		lblSb.setBounds(526, 168, 40, 16);
+		lblSb.setForeground(new Color(244, 229, 192));
+		add(lblSb);
+
+		
 	}
 }
