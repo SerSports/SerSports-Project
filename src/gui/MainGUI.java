@@ -38,7 +38,7 @@ public class MainGUI{
 	protected JPasswordField pwdPassword = new JPasswordField();
 	private JButton btnSubmit = new JButton("SIGN IN");
 	private JButton btnCreateAccount;
-    JPanel panelContainer = new JPanel();
+    JPanel panelContainer = new JPanel();//keep in MainGUI
     JPanel login = new JPanel();
     CreateAccount createAccountGUI = new CreateAccount(this);
     CardLayout c1 = new CardLayout(); 
