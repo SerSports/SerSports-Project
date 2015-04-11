@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,6 +24,8 @@ import javax.swing.*;
 //import client.MlbStatsGuiClient;
 import client.*;
 import database.*;
+
+import java.awt.Font;
 
 
 
@@ -50,8 +53,12 @@ public class ApplicationGUI extends JLayeredPane{
 		menuPanel.setLayout(null);
 		add(menuPanel);
 		
-		JButton btnHome = new JButton("Home");
+		JButton btnHome = new JButton("HOME");
+		btnHome.setFont(new Font("jaf lapture", Font.PLAIN, 18));
 		btnHome.setBounds(159, 58, 117, 29);
+		btnHome.setBorder(BorderFactory.createEmptyBorder());
+		btnHome.setContentAreaFilled(false);
+		btnHome.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnHome);
 		
 		JButton btnEnterNewStats = new JButton("Enter New Stats");

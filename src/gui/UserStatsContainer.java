@@ -46,17 +46,10 @@ public class UserStatsContainer extends JLayeredPane {
 		menuPanel.setLayout(null);
 		
 		JLabel logo = new JLabel("");
-		logo.setBounds(6, 0, 141, 42);
+		logo.setBounds(6, 0, 152, 55);
 		menuPanel.add(logo);
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
-		
-		/*btnBattingStats.setBounds(38, 120, 123, 29);
-		menuPanel.add(btnBattingStats );
-		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
-		btnBattingStats.setContentAreaFilled(false);
-		btnBattingStats.setForeground(new Color(244, 229, 192));
-		btnBattingStats.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 20));*/
 		
 		btnBattingStats.setBounds(0, 80, 200, 50);
 		menuPanel.add(btnBattingStats);
