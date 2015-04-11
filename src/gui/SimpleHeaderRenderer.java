@@ -20,8 +20,10 @@ public class SimpleHeaderRenderer extends JLabel implements TableCellRenderer {
     public SimpleHeaderRenderer() {
         setFont(new Font("Montserrat", Font.BOLD, 14));
         setForeground(Color.BLACK);
-        setBackground(new Color(47, 52, 64));
-        setBorder(BorderFactory.createEtchedBorder());
+        //setBackground(new Color(47, 52, 64));
+        //setBorder(BorderFactory.createEtchedBorder());
+        setBorder(BorderFactory.createEmptyBorder());
+        
     }
      
     @Override
