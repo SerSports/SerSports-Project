@@ -26,10 +26,11 @@ public class UserStatsContainer extends JLayeredPane {
 	JPanel menuPanel = new JPanel();	
 	protected JButton btnPitchingStats = new JButton("Pitching Stats");
 	protected JButton btnFieldingStats = new JButton("Fielding Stats");
-	protected JButton btnBattingStats = new JButton("Batting Stats");
+	protected JButton btnBattingStats = new JButton("");
 	UserBattingStatsClient batting = new UserBattingStatsClient();
 	UserFieldingStatsClient fielding = new UserFieldingStatsClient();
 	UserPitchingStatsClient pitching = new UserPitchingStatsClient();
+
 	
 	
 	/**
@@ -50,26 +51,34 @@ public class UserStatsContainer extends JLayeredPane {
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		
-		btnBattingStats.setBounds(38, 120, 123, 29);
+		/*btnBattingStats.setBounds(38, 120, 123, 29);
 		menuPanel.add(btnBattingStats );
 		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnBattingStats.setContentAreaFilled(false);
 		btnBattingStats.setForeground(new Color(244, 229, 192));
-		btnBattingStats.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 20));
+		btnBattingStats.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 20));*/
 		
-		btnPitchingStats.setBounds(38, 290, 123, 29);
+		btnBattingStats.setBounds(0, 80, 200, 50);
+		menuPanel.add(btnBattingStats);
+		Image btnBattingStatsImage = new ImageIcon(this.getClass().getResource("/images/BattingStatsButton.png")).getImage();
+		btnBattingStats.setIcon(new ImageIcon(btnBattingStatsImage));
+		//btnBattingStats.setActionCommand("backButton");
+		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
+		btnBattingStats.setContentAreaFilled(false);	
+		
+		btnPitchingStats.setBounds(6, 240, 188, 29);
 		menuPanel.add(btnPitchingStats);
 		btnPitchingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnPitchingStats.setContentAreaFilled(false);
 		btnPitchingStats.setForeground(new Color(244, 229, 192));
-		btnPitchingStats.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 20));
+		btnPitchingStats.setFont(new Font("Stencil", Font.PLAIN, 18));
 		
-		btnFieldingStats.setBounds(38, 460, 123, 49);	
+		btnFieldingStats.setBounds(6, 410, 188, 29);	
 		menuPanel.add(btnFieldingStats);
 		btnFieldingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnFieldingStats.setContentAreaFilled(false);
 		btnFieldingStats.setForeground(new Color(244, 229, 192));
-		btnFieldingStats.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 20));
+		btnFieldingStats.setFont(new Font("Stencil", Font.PLAIN, 18));
 		
 		panelBodyContainer.setBackground(Color.LIGHT_GRAY);
 		panelBodyContainer.setBounds(200, 0, 1300, 600);

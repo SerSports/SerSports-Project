@@ -29,6 +29,9 @@ import client.*;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JSlider;
+import javax.swing.JEditorPane;
+import javax.swing.border.LineBorder;
 
 
 /**
@@ -44,6 +47,8 @@ public class HomePageGUI extends JPanel {
 	protected JButton btnFindBestComparison;
 	protected JLabel lblInsertPlayersName;
 	protected JLabel label;
+	protected JPanel borderPanel = new JPanel();
+	protected Color tan = new Color(47, 52, 64);
 	
 	/**
 	  Method: Constructor
@@ -121,9 +126,16 @@ public class HomePageGUI extends JPanel {
 		btnSignOut = new JButton("Sign Out");
 		btnSignOut.setBounds(850, 30, 117, 29);
 		add(btnSignOut);*/
-		
+		Color tan = new Color(47, 52, 64);
 		btnFindBestComparison = new JButton("Find Best Comparison");
 		btnFindBestComparison.setBounds(410, 334, 171, 29);
 		add(btnFindBestComparison);
+		borderPanel.setBorder(new LineBorder(Color.getHSBColor(47, 52, 64), 4));
+		
+		borderPanel.setBounds(36, 21, 928, 608);
+		add(borderPanel);
+		borderPanel.setPreferredSize(new Dimension(1000, 650));
+		borderPanel.setBackground(new Color(47, 52, 64));
+		borderPanel.setLayout(null);
 	}
 }
