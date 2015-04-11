@@ -55,7 +55,6 @@ public class UserStatsContainer extends JLayeredPane {
 		menuPanel.add(btnBattingStats);
 		Image btnBattingStatsImage = new ImageIcon(this.getClass().getResource("/images/BattingStatsButton.png")).getImage();
 		btnBattingStats.setIcon(new ImageIcon(btnBattingStatsImage));
-		//btnBattingStats.setActionCommand("backButton");
 		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnBattingStats.setContentAreaFilled(false);	
 		
