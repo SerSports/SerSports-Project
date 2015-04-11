@@ -34,7 +34,7 @@ import database.User;
  */
 public class UserLoginGUI extends JPanel {
 	protected JPasswordField pwdPassword = new JPasswordField();
-	protected JButton btnSubmit = new JButton("Submit");
+	protected JButton btnSubmit = new JButton("SIGN IN");
 	protected JButton btnCreateAccount_1 = new JButton("CREATE ACCOUNT");
 	protected JButton btnCreateAccount;
 	protected JTextField txtUserName = new JTextField();

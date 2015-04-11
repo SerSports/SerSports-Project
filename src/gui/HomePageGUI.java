@@ -139,6 +139,7 @@ public class HomePageGUI extends JPanel {
 		borderPanel.setPreferredSize(new Dimension(1000, 650));
 		borderPanel.setBackground(new Color(47, 52, 64));
 		borderPanel.setLayout(null);
+		borderPanel.setBorder(new LineBorder(Color.WHITE, 4));
 	}
 	
 	
