@@ -1,12 +1,9 @@
 package gui;
 
 import java.awt.CardLayout;
-import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -23,7 +20,6 @@ public class CreateAccount extends JPanel {
 	private JTextField textLastname;
 	private JTextField textAge;
 	protected JButton btnCreateNewAccount;
-	protected JButton backButton;
 	private static final boolean debugOn = true;
 	MainGUI main = null;
 
@@ -37,7 +33,6 @@ public class CreateAccount extends JPanel {
         }
     }
 	public CreateAccount(MainGUI mainGuiObj) {	
-		setPreferredSize(new Dimension(1000, 650));
 		setLayout(null);
 		this.main = mainGuiObj;
 		textUsername = new JTextField();
@@ -90,17 +85,6 @@ public class CreateAccount extends JPanel {
 		add(btnCreateNewAccount);
 		btnCreateNewAccount.setActionCommand("btnCreateNewAccount");
 		
-		/**
-		 *  Back button displayed on the Create Account screen
-		 *  that transitions back to the Login screen
-		 */
-		JButton backButton = new JButton("Back");
-		Image back_button_img = new ImageIcon(this.getClass().getResource("/images/BackButton.png")).getImage();
-		backButton.setIcon(new ImageIcon(back_button_img));
-		backButton.setBounds(20, 20, 10, 20);
-		add(backButton);
-		backButton.setActionCommand("backButton");
-		
 		btnCreateNewAccount.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
     			debug("you clicked Create New Account");
@@ -109,7 +93,7 @@ public class CreateAccount extends JPanel {
     									 textFirstName.getText(), textLastname.getText(), 
     									 Integer.valueOf(textAge.getText()));
     			if (user != null) {
-    				debug("your information is submitted");
+    				debug("you're information is submitted");
     				main.loadUserInfoIntoControls();
     				main.ShowMainGUI();
     				debug("new application window should pop up");
@@ -119,15 +103,5 @@ public class CreateAccount extends JPanel {
     			}
     		}
     	});
-		
-		/**
-		 *  Listener used to transition back to the Login screen
-		 */
-		backButton.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    				main.ShowLoginGUI();
-    		}
-    	});
-		
 	}
 }
