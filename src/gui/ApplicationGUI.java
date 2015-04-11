@@ -67,7 +67,7 @@ public class ApplicationGUI extends JLayeredPane{
 		menuPanel.add(btnBrowseMLB);
 		
 		JLabel logo = new JLabel("");
-		logo.setBounds(6, 11, 141, 107);
+		logo.setBounds(6, 6, 152, 112);
 		menuPanel.add(logo);
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoTop.png")).getImage();
 		logo.setIcon(new ImageIcon(img));

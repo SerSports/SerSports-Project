@@ -64,7 +64,7 @@ public class HomePageGUI extends JPanel {
 		setLayout(null);
 		
 		JLabel logo = new JLabel("");
-		logo.setBounds(6, 0, 141, 42);
+		logo.setBounds(6, 0, 152, 55);
 		add(logo);
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
