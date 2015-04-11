@@ -54,23 +54,35 @@ public class ApplicationGUI extends JLayeredPane{
 		add(menuPanel);
 		
 		JButton btnHome = new JButton("HOME");
-		btnHome.setFont(new Font("jaf lapture", Font.PLAIN, 18));
 		btnHome.setBounds(159, 58, 117, 29);
+		btnHome.setFont(new Font("jaf lapture", Font.PLAIN, 18));
 		btnHome.setBorder(BorderFactory.createEmptyBorder());
 		btnHome.setContentAreaFilled(false);
 		btnHome.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnHome);
 		
-		JButton btnEnterNewStats = new JButton("Enter New Stats");
+		JButton btnEnterNewStats = new JButton("ENTER NEW STATS");
 		btnEnterNewStats.setBounds(323, 58, 163, 29);
+		btnEnterNewStats.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		btnEnterNewStats.setBorder(BorderFactory.createEmptyBorder());
+		btnEnterNewStats.setContentAreaFilled(false);
+		btnEnterNewStats.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnEnterNewStats);
 		
-		JButton btnBrowseLocal = new JButton("Browse Local");
+		JButton btnBrowseLocal = new JButton("BROWSE LOCAL");
 		btnBrowseLocal.setBounds(511, 58, 163, 29);
+		btnBrowseLocal.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		btnBrowseLocal.setBorder(BorderFactory.createEmptyBorder());
+		btnBrowseLocal.setContentAreaFilled(false);
+		btnBrowseLocal.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnBrowseLocal);
 		
-		JButton btnBrowseMLB = new JButton("Browse MLB");
+		JButton btnBrowseMLB = new JButton("BROWSE MLB");
 		btnBrowseMLB.setBounds(705, 58, 163, 29);
+		btnBrowseMLB.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		btnBrowseMLB.setBorder(BorderFactory.createEmptyBorder());
+		btnBrowseMLB.setContentAreaFilled(false);
+		btnBrowseMLB.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnBrowseMLB);
 		
 		JLabel logo = new JLabel("");
@@ -80,14 +92,26 @@ public class ApplicationGUI extends JLayeredPane{
 		logo.setIcon(new ImageIcon(img));
 		
 		btnSignOut.setBounds(659, 17, 117, 29);
+		btnSignOut.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		btnSignOut.setBorder(BorderFactory.createEmptyBorder());
+		btnSignOut.setContentAreaFilled(false);
+		btnSignOut.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnSignOut);
 		
 		JButton btncontactUs = new JButton("Contact Us");
 		btncontactUs.setBounds(776, 17, 117, 29);
+		btncontactUs.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		btncontactUs.setBorder(BorderFactory.createEmptyBorder());
+		btncontactUs.setContentAreaFilled(false);
+		btncontactUs.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btncontactUs);
 		
 		JButton btnFAQs = new JButton("FAQs");
 		btnFAQs.setBounds(891, 17, 117, 29);
+		btnFAQs.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		btnFAQs.setBorder(BorderFactory.createEmptyBorder());
+		btnFAQs.setContentAreaFilled(false);
+		btnFAQs.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnFAQs);
 		
 		//Body Container
