@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -32,6 +33,8 @@ public class CreateAccount extends JPanel {
 	private JTextField textLastname;
 	private JTextField textAge;
 	protected JButton btnCreateNewAccount;
+	protected JButton backButton = new JButton();
+	protected Image backButtonImage = new ImageIcon(this.getClass().getResource("/images/BackArrow.png")).getImage();
 	private static final boolean debugOn = true;
 	MainGUI main = null;
 	protected JLabel logo = new JLabel("");
@@ -111,17 +114,19 @@ public class CreateAccount extends JPanel {
 		add(btnCreateNewAccount);
 		btnCreateNewAccount.setActionCommand("btnCreateNewAccount");
 		
-		//Button with Image
-		logo.setBounds(20, 20, 103, 58);
-		this.add(logo);
-		Image img = new ImageIcon(this.getClass().getResource("/images/BackArrow.png")).getImage();
-		logo.setIcon(new ImageIcon(img));
-		mouseactionlabel();
 		
 		/**
 		 *  Back button displayed on the Create Account screen
 		 *  that transitions back to the Login screen
 		 */	
+		backButton.setBounds(40, 40, 103, 58);
+		add(backButton);
+		Image backButtonImage = new ImageIcon(this.getClass().getResource("/images/BackArrow.png")).getImage();
+		backButton.setIcon(new ImageIcon(backButtonImage));
+		backButton.setActionCommand("backButton");
+		backButton.setBorder(BorderFactory.createEmptyBorder());
+		backButton.setContentAreaFilled(false);	
+
 		btnCreateNewAccount.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
     			debug("you clicked Create New Account");
@@ -141,27 +146,19 @@ public class CreateAccount extends JPanel {
     		}
     	});
 		
-
-			
+		
 		/**
 		 *  Listener used to transition back to the Login screen
 		 */		
-		
-	}
-		void mouseactionlabel(){
-			logo.addMouseListener(new MouseListener()
-				{
-				public void mouseClicked(MouseEvent arg0) {
-					main.ShowLoginGUI();
-				}
-				public void mouseEntered(MouseEvent arg0) {
-				}
-				public void mouseExited(MouseEvent arg0) {
-				}
-				public void mousePressed(MouseEvent arg0) {
-				}
-				public void mouseReleased(MouseEvent arg0) {
-				}
-				});
+
+	backButton.addActionListener(new ActionListener(){
+		public void actionPerformed(ActionEvent arg0){
+				main.ShowLoginGUI();
 		}
-}
+	});
+	
+	}
+			
+
+
+	}
