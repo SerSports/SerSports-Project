@@ -1,5 +1,6 @@
 package gui;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -17,6 +18,7 @@ import javax.swing.JButton;
 import client.UserBattingStatsClient;
 import client.UserFieldingStatsClient;
 import client.UserPitchingStatsClient;
+import java.awt.Font;
 
 public class UserStatsContainer extends JLayeredPane {
 	CardLayout c1 = new CardLayout();
@@ -48,14 +50,33 @@ public class UserStatsContainer extends JLayeredPane {
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 
-		btnBattingStats.setBounds(20, 171, 117, 29);
+		/*btnBattingStats.setBounds(48, 159, 103, 58);
 		menuPanel.add(btnBattingStats );
+		Image btnBattingImage = new ImageIcon(this.getClass().getResource("/images/BackArrow.png")).getImage();
+		btnBattingStats.setIcon(new ImageIcon(btnBattingImage));
+		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
+		btnBattingStats.setContentAreaFilled(false);*/
 		
-		btnPitchingStats.setBounds(20, 315, 117, 29);
+		btnBattingStats.setBounds(38, 120, 123, 29);
+		menuPanel.add(btnBattingStats );
+		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
+		btnBattingStats.setContentAreaFilled(false);
+		btnBattingStats.setForeground(new Color(244, 229, 192));
+		btnBattingStats.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 20));
+		
+		btnPitchingStats.setBounds(38, 290, 123, 29);
 		menuPanel.add(btnPitchingStats);
+		btnPitchingStats.setBorder(BorderFactory.createEmptyBorder());
+		btnPitchingStats.setContentAreaFilled(false);
+		btnPitchingStats.setForeground(new Color(244, 229, 192));
+		btnPitchingStats.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 20));
 		
-		btnFieldingStats.setBounds(20, 480, 117, 29);	
+		btnFieldingStats.setBounds(38, 460, 123, 49);	
 		menuPanel.add(btnFieldingStats);
+		btnFieldingStats.setBorder(BorderFactory.createEmptyBorder());
+		btnFieldingStats.setContentAreaFilled(false);
+		btnFieldingStats.setForeground(new Color(244, 229, 192));
+		btnFieldingStats.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 20));
 		
 		panelBodyContainer.setBackground(Color.LIGHT_GRAY);
 		panelBodyContainer.setBounds(200, 0, 1300, 600);

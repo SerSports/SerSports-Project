@@ -45,7 +45,6 @@ public class UserFieldingStats extends JPanel {
 	protected JTextField txtPo;
 	protected JTextField txtWins;
 	protected JTextField txtLoss;
-	protected JButton btnSignOut;
 	protected JButton btnUpdateStatistic;
 	protected JButton btnDeleteStatistic;
 
@@ -62,7 +61,7 @@ public class UserFieldingStats extends JPanel {
 	 * Create the panel.
 	 */
 	public UserFieldingStats() {
-setLayout(null);
+		setLayout(null);
 		setBackground(new Color(47, 52, 64));
 		setPreferredSize(new Dimension(1300, 600));
 		
