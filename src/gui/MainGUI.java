@@ -33,7 +33,7 @@ public class MainGUI {
 
 	private static MainGUI singleton = null;
 	JFrame mainFrame = new JFrame("SERSports");
-	protected ApplicationGUI panelApplication = new ApplicationGUI();
+	protected static ApplicationGUI panelApplication = null;
 	private static final boolean debugOn = true;
 	static JPanel panelContainer = new JPanel();
 	UserLoginGUI login = new UserLoginGUI();
@@ -47,7 +47,9 @@ public class MainGUI {
 	}
 
 	public static void showApplicationGUI() {
+		panelApplication.loadUserInfoIntoControls();
 		c1.show(panelContainer, "2");
+		
 	}
 
 	public static void showCreateAccount() {
@@ -66,6 +68,7 @@ public class MainGUI {
 		panelContainer.setLayout(c1);
 
 		c1.show(panelContainer, "1");
+		panelApplication = new ApplicationGUI();
 		panelContainer.add(login, "1");
 		panelContainer.add(panelApplication, "2");
 		panelContainer.add(createAccountGUI, "3");

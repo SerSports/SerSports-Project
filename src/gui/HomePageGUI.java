@@ -44,9 +44,9 @@ public class HomePageGUI extends JPanel {
 	protected JLabel userFirstName = null;
 	protected JButton btnSignOut;
 	protected JTable comparisonTable;
-	protected JButton btnFindBestComparison;
-	protected JLabel lblInsertPlayersName;
-	protected JLabel label;
+	protected JButton btnFindBestComparison = null;
+	protected JLabel lblInsertPlayersName = null;
+	protected JLabel label = null;
 	protected JPanel borderPanel = new JPanel();
 	protected Color tan = new Color(47, 52, 64);
 	
@@ -75,7 +75,7 @@ public class HomePageGUI extends JPanel {
 		lblYouAre.setBounds(212, 109, 60, 16);
 		add(lblYouAre);
 		
-		label = new JLabel("20");
+		label = new JLabel("");
 		label.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
 		label.setForeground(new Color(244, 229, 192));
 		label.setBounds(278, 110, 26, 19);
@@ -127,10 +127,12 @@ public class HomePageGUI extends JPanel {
 		btnSignOut.setBounds(850, 30, 117, 29);
 		add(btnSignOut);*/
 		Color tan = new Color(47, 52, 64);
+		//btnFindBestComparison = new JButton("Find Best Comparison");
 		btnFindBestComparison = new JButton("Find Best Comparison");
 		btnFindBestComparison.setBounds(410, 334, 171, 29);
 		add(btnFindBestComparison);
-		borderPanel.setBorder(new LineBorder(Color.getHSBColor(47, 52, 64), 4));
+		btnFindBestComparison.setActionCommand("Find Best Comparison");
+		btnFindBestComparison.setBorder(new LineBorder(Color.getHSBColor(47, 52, 64), 4));
 		
 		borderPanel.setBounds(36, 21, 929, 483);
 		add(borderPanel);
@@ -138,4 +140,7 @@ public class HomePageGUI extends JPanel {
 		borderPanel.setBackground(new Color(47, 52, 64));
 		borderPanel.setLayout(null);
 	}
+	
+	
+	
 }

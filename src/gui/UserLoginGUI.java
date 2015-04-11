@@ -34,18 +34,20 @@ import database.User;
  */
 public class UserLoginGUI extends JPanel {
 	protected JPasswordField pwdPassword = new JPasswordField();
-	protected JButton btnSubmit = new JButton("SIGN IN");
+	protected JButton btnSubmit = new JButton("Submit");
 	protected JButton btnCreateAccount_1 = new JButton("CREATE ACCOUNT");
 	protected JButton btnCreateAccount;
 	protected JTextField txtUserName = new JTextField();
-	protected Image img = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
+	protected Image img = new ImageIcon(this.getClass().getResource(
+			"/images/Backgroundimage.png")).getImage();
 	protected JLabel line = new JLabel("");
-	protected Image lineimg = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
+	protected Image lineimg = new ImageIcon(this.getClass().getResource(
+			"/images/LineSignInPage.png")).getImage();
 	protected JLabel lblbackgroundImage = new JLabel("");
 	protected Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 	MainGUI main = null;
-	//private static MainGUI singleton = null;
 
+	// private static MainGUI singleton = null;
 
 	public UserLoginGUI() {
 		setLayout(null);
@@ -93,13 +95,22 @@ public class UserLoginGUI extends JPanel {
 		
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				main.showApplicationGUI();;
+				User user = User.authenticateUser(txtUserName.getText(), new String(pwdPassword.getPassword()));
+				if (user != null) {
+			    main.showApplicationGUI();
+				} else {
+				JOptionPane.showMessageDialog(null, "Invalid Username / Password!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+				}
+				
 
 			}
+			
+		
 		});
 
 	}
-
-
-	
+	/*
+	 * public void loadUserInfoIntoControls() {
+	 *     main.loadUserInfoIntoControls();     }
+	 */
 }
