@@ -32,6 +32,7 @@ import javax.swing.table.DefaultTableModel;
 
 import database.User;
 import client.UserBattingStatsClient;
+import java.awt.Font;
 
 /**
 Class: UserBattingStats
@@ -67,15 +68,11 @@ public class UserBattingStats extends JPanel {
 	public UserBattingStats() {	
 		setLayout(null);
 		setBackground(new Color(47, 52, 64));
-		
-		JLabel lblBorderlayout = new JLabel("");
-		lblBorderlayout.setBounds(-164, 21, 929, 483);
-		add(lblBorderlayout);
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
-		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 		
 		JLabel lblYouAre = new JLabel("Enter a new game");
-		lblYouAre.setBounds(20, 36, 119, 16);
+		lblYouAre.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
+		lblYouAre.setBounds(20, 36, 164, 31);
 		lblYouAre.setForeground(new Color(244, 229, 192));
 		add(lblYouAre);
 		
@@ -147,12 +144,12 @@ public class UserBattingStats extends JPanel {
 		
 		//JButton 
 		submitBattingStats = new JButton("Submit");
-		submitBattingStats.setBounds(632, 138, 117, 29);
+		submitBattingStats.setBounds(605, 138, 117, 29);
 		add(submitBattingStats);
 		submitBattingStats.setActionCommand("SubmitBattingStats");
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(27, 243, 734, 235);
+		scrollPane.setBounds(15, 220, 734, 235);
 		add(scrollPane);
 		
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}));
@@ -165,12 +162,12 @@ public class UserBattingStats extends JPanel {
 		add(txtDate);
 
 		btnUpdateStatistic = new JButton("Update Statistic");
-		btnUpdateStatistic.setBounds(177, 504, 143, 28);
+		btnUpdateStatistic.setBounds(171, 467, 143, 28);
 		add(btnUpdateStatistic);
 		btnUpdateStatistic.setActionCommand("UpdateStatistic");
 		
 		btnDeleteStatistic = new JButton("Delete Statistic");
-		btnDeleteStatistic.setBounds(343, 504, 143, 28);
+		btnDeleteStatistic.setBounds(339, 467, 143, 28);
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 		
@@ -233,6 +230,11 @@ public class UserBattingStats extends JPanel {
 		lblSb.setBounds(526, 168, 40, 16);
 		lblSb.setForeground(new Color(244, 229, 192));
 		add(lblSb);
+		
+		JLabel lblBorderlayout = new JLabel("");
+		lblBorderlayout.setBounds(-164, 21, 929, 483);
+		add(lblBorderlayout);
+		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 
 		
 	}

@@ -51,21 +51,21 @@ public class UserStatsContainer extends JLayeredPane {
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		
-		btnBattingStats.setBounds(0, 80, 200, 50);
+		btnBattingStats.setBounds(37, 80, 164, 55);
 		menuPanel.add(btnBattingStats);
 		Image btnBattingStatsImage = new ImageIcon(this.getClass().getResource("/images/BattingStatsButton.png")).getImage();
 		btnBattingStats.setIcon(new ImageIcon(btnBattingStatsImage));
 		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnBattingStats.setContentAreaFilled(false);	
 		
-		btnPitchingStats.setBounds(6, 240, 188, 29);
+		btnPitchingStats.setBounds(27, 242, 188, 29);
 		menuPanel.add(btnPitchingStats);
 		btnPitchingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnPitchingStats.setContentAreaFilled(false);
 		btnPitchingStats.setForeground(new Color(244, 229, 192));
 		btnPitchingStats.setFont(new Font("Stencil", Font.PLAIN, 18));
 		
-		btnFieldingStats.setBounds(6, 410, 188, 29);	
+		btnFieldingStats.setBounds(27, 391, 188, 29);	
 		menuPanel.add(btnFieldingStats);
 		btnFieldingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnFieldingStats.setContentAreaFilled(false);
