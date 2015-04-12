@@ -47,7 +47,6 @@ public class HomePageGUI extends JPanel {
 	protected JButton btnFindBestComparison = null;
 	protected JLabel lblInsertPlayersName = null;
 	protected JLabel label = null;
-	protected JPanel borderPanel = new JPanel();
 	
 	/**
 	  Method: Constructor
@@ -126,12 +125,11 @@ public class HomePageGUI extends JPanel {
 		btnFindBestComparison.setActionCommand("Find Best Comparison");
 		btnFindBestComparison.setBorder(new LineBorder(Color.getHSBColor(47, 52, 64), 4));
 		
-		borderPanel.setBounds(36, 21, 929, 483);
-		add(borderPanel);
-		borderPanel.setPreferredSize(new Dimension(1000, 650));
-		borderPanel.setBackground(new Color(47, 52, 64));
-		borderPanel.setLayout(null);
-		borderPanel.setBorder(new LineBorder(Color.WHITE, 4));
+		JLabel lblBorderlayout = new JLabel("");
+		lblBorderlayout.setBounds(36, 21, 929, 483);
+		add(lblBorderlayout);
+		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
+		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 	}
 	
 	

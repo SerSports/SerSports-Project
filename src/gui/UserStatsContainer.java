@@ -72,6 +72,12 @@ public class UserStatsContainer extends JLayeredPane {
 		btnFieldingStats.setForeground(new Color(244, 229, 192));
 		btnFieldingStats.setFont(new Font("Stencil", Font.PLAIN, 18));
 		
+		JLabel lblBorderlayout = new JLabel("");
+		lblBorderlayout.setBounds(36, 21, 929, 483);
+		menuPanel.add(lblBorderlayout);
+		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
+		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
+		
 		panelBodyContainer.setBackground(Color.LIGHT_GRAY);
 		panelBodyContainer.setBounds(200, 0, 1300, 600);
 		add(panelBodyContainer);
@@ -115,5 +121,4 @@ public class UserStatsContainer extends JLayeredPane {
 		fielding.loadUserInfoIntoControls();
 		pitching.loadUserInfoIntoControls();
 	}
-	
 }

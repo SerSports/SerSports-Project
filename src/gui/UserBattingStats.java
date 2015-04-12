@@ -68,6 +68,12 @@ public class UserBattingStats extends JPanel {
 		setLayout(null);
 		setBackground(new Color(47, 52, 64));
 		
+		JLabel lblBorderlayout = new JLabel("");
+		lblBorderlayout.setBounds(-164, 21, 929, 483);
+		add(lblBorderlayout);
+		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
+		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
+		
 		JLabel lblYouAre = new JLabel("Enter a new game");
 		lblYouAre.setBounds(20, 36, 119, 16);
 		lblYouAre.setForeground(new Color(244, 229, 192));
