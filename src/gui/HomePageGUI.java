@@ -134,7 +134,7 @@ public class HomePageGUI extends JPanel {
 		btnFindBestComparison.setBounds(410, 334, 171, 29);
 		add(btnFindBestComparison);
 		btnFindBestComparison.setActionCommand("Find Best Comparison");
-		btnFindBestComparison.setBorder(new LineBorder(Color.getHSBColor(47, 52, 64), 4));
+		btnFindBestComparison.setBorder(new LineBorder(new Color(244, 229, 192), 4));
 		
 		JLabel lblBorderlayout = new JLabel("");
 		lblBorderlayout.setBounds(16, 16, 968, 483);
