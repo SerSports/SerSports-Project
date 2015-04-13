@@ -20,6 +20,7 @@ import javax.swing.JTable;
 import javax.swing.JViewport;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import java.awt.Color;
 
@@ -29,6 +30,7 @@ import client.*;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JSlider;
 import javax.swing.JEditorPane;
 import javax.swing.border.LineBorder;
@@ -119,7 +121,9 @@ public class HomePageGUI extends JPanel {
 		comparisonTable.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 14));
 		comparisonTable.setForeground(new Color(244, 229, 192));
 		scrollPane_2.setViewportView(comparisonTable);
-		comparisonTable.getTableHeader().setDefaultRenderer(new SimpleHeaderRenderer());
+		JTableHeader header = comparisonTable.getTableHeader();
+		header.setBackground(new Color(47, 52, 64));
+		header.setForeground(new Color(244, 229, 192));
 		comparisonTable.setOpaque(false);
 		scrollPane_2.setOpaque(false);
 		scrollPane_2.getViewport().setOpaque(false);
