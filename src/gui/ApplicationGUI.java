@@ -1,4 +1,4 @@
-package gui;
+package gui; 
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -15,6 +15,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
@@ -54,32 +55,32 @@ public class ApplicationGUI extends JLayeredPane{
 		add(menuPanel);
 		
 		JButton btnHome = new JButton("HOME");
-		btnHome.setBounds(159, 58, 117, 29);
-		btnHome.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		btnHome.setBounds(164, 62, 117, 29);
+		btnHome.setFont(new Font("Bangla MN", Font.PLAIN, 18));
 		btnHome.setBorder(BorderFactory.createEmptyBorder());
 		btnHome.setContentAreaFilled(false);
 		btnHome.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnHome);
 		
 		JButton btnEnterNewStats = new JButton("ENTER NEW STATS");
-		btnEnterNewStats.setBounds(323, 58, 163, 29);
-		btnEnterNewStats.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		btnEnterNewStats.setBounds(298, 62, 206, 29);
+		btnEnterNewStats.setFont(new Font("Bangla MN", Font.PLAIN, 18));
 		btnEnterNewStats.setBorder(BorderFactory.createEmptyBorder());
 		btnEnterNewStats.setContentAreaFilled(false);
 		btnEnterNewStats.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnEnterNewStats);
 		
 		JButton btnBrowseLocal = new JButton("BROWSE LOCAL");
-		btnBrowseLocal.setBounds(511, 58, 163, 29);
-		btnBrowseLocal.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		btnBrowseLocal.setBounds(555, 62, 163, 29);
+		btnBrowseLocal.setFont(new Font("Bangla MN", Font.PLAIN, 18));
 		btnBrowseLocal.setBorder(BorderFactory.createEmptyBorder());
 		btnBrowseLocal.setContentAreaFilled(false);
 		btnBrowseLocal.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnBrowseLocal);
 		
 		JButton btnBrowseMLB = new JButton("BROWSE MLB");
-		btnBrowseMLB.setBounds(705, 58, 163, 29);
-		btnBrowseMLB.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		btnBrowseMLB.setBounds(776, 62, 163, 29);
+		btnBrowseMLB.setFont(new Font("Bangla MN", Font.PLAIN, 18));
 		btnBrowseMLB.setBorder(BorderFactory.createEmptyBorder());
 		btnBrowseMLB.setContentAreaFilled(false);
 		btnBrowseMLB.setForeground(new Color(47, 52, 64));
@@ -91,24 +92,24 @@ public class ApplicationGUI extends JLayeredPane{
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoTop.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		
-		btnSignOut.setBounds(659, 17, 117, 29);
-		btnSignOut.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		btnSignOut.setBounds(682, 11, 117, 24);
+		btnSignOut.setFont(new Font("Bangla MN", Font.PLAIN, 14));
 		btnSignOut.setBorder(BorderFactory.createEmptyBorder());
 		btnSignOut.setContentAreaFilled(false);
 		btnSignOut.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnSignOut);
 		
 		JButton btncontactUs = new JButton("Contact Us");
-		btncontactUs.setBounds(776, 17, 117, 29);
-		btncontactUs.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		btncontactUs.setBounds(785, 11, 100, 24);
+		btncontactUs.setFont(new Font("Bangla MN", Font.PLAIN, 14));
 		btncontactUs.setBorder(BorderFactory.createEmptyBorder());
 		btncontactUs.setContentAreaFilled(false);
 		btncontactUs.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btncontactUs);
 		
 		JButton btnFAQs = new JButton("FAQs");
-		btnFAQs.setBounds(891, 17, 117, 29);
-		btnFAQs.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		btnFAQs.setBounds(877, 11, 74, 24);
+		btnFAQs.setFont(new Font("Bangla MN", Font.PLAIN, 14));
 		btnFAQs.setBorder(BorderFactory.createEmptyBorder());
 		btnFAQs.setContentAreaFilled(false);
 		btnFAQs.setForeground(new Color(47, 52, 64));
@@ -170,7 +171,13 @@ public class ApplicationGUI extends JLayeredPane{
     	
 		btnSignOut.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
-    			MainGUI.setApplicationToClose(); 
+    			
+    			int result = JOptionPane.showConfirmDialog(null, "You have pending statistics to add. Are you sure you want to sign out?", 
+    					null, JOptionPane.YES_NO_OPTION);
+    			
+    			if(result == JOptionPane.YES_OPTION){
+    				MainGUI.setApplicationToClose();
+				}
     		}
     	});
 	    

@@ -30,7 +30,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	
 	//private static final long serialVersionUID = 1L;
 	private static final boolean debugOn = true;
-	private static double battingAverage = 0.0;
+	private double battingAverage = 0.0;
 	
     /**
 	  Method: UserBattingStatsClient
@@ -92,8 +92,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 
 			int selectedRow = table.getSelectedRow();
 			if (selectedRow >= 0) {
-				//getValueAt(selectedRow, #) where # starts at 1 for the first column shown in the gui
-				String playerStatistic = (String) table.getModel().getValueAt(selectedRow, 1);
 				
 				//ask user if the statistic they selected is the one they really want to update
 				int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the highlighted game statistic?", null,
@@ -111,8 +109,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		if (e.getActionCommand().equals("DeleteStatistic")) {
 			int selectedRow = table.getSelectedRow();
 			if (selectedRow >= 0) {
-				//getValueAt(selectedRow, #) where # starts at 1 for the first column shown in the gui
-				String playerStatistic = (String) table.getModel().getValueAt(selectedRow, 1);
 				
 				//ask user if the statistic they selected is the one they really want to update
 				int result = JOptionPane.showConfirmDialog(
@@ -183,39 +179,17 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		//collect values if user entered the correct date format
 		if (valid == true){
 			// Check for empty or invalid String
-            if (gp.length() == 0 || gp.equals("Games Played")) {
-                gp = null;
-        	}
-            if (ab.length() == 0 || ab.equals("AB")) {
-                ab = null;
-            }
-            if (h.length() == 0 || h.equals("H")) {
-                h = null;
-        	}
-            if (rbi.length() == 0 || rbi.equals("RBI")) {
-                rbi = null;
-        	}
-            if (b1.length() == 0 || b1.equals("1B")) {
-                b1 = null;
-            }
-            if (b2.length() == 0 || b2.equals("2B")) {
-                b2 = null;
-        	}
-            if (b3.length() == 0 || b3.equals("3B")) {
-                b3 = null;
-        	}
-            if (runs.length() == 0 || runs.equals("Runs")) {
-                runs = null;
-            }
-            if (sb.length() == 0 || sb.equals("SB")) {
-                sb = null;
-        	}
-            if (hr.length() == 0 || hr.equals("HR")) {
-                hr = null;
-        	}
-            if (so.length() == 0 || so.equals("SO")) {
-                so = null;
-            }
+			isValidInput(gp);
+            isValidInput(ab);
+            isValidInput(h);
+            isValidInput(rbi);
+            isValidInput(b1);
+            isValidInput(b2);
+            isValidInput(b3);
+            isValidInput(runs);
+            isValidInput(sb);
+            isValidInput(hr);
+            isValidInput(so);
             
             //Add input into user database, then display all game statistics
             LocalPlayerBattingStatistics.addLocalPlayerBattingStatistics(date, gp, ab, h, rbi, 
@@ -223,6 +197,9 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
             
             //reload statistics into table
             loadUserInfoIntoControls();
+            
+            //reset fields
+            resetTextFields();
 		}
 		else{
 			JOptionPane.showMessageDialog(null, "Invalid date format. Please add date in MM/DD/YYYY", 
@@ -266,5 +243,39 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		}
 		
 		return result;
+	}
+
+	public String isValidInput(String userInput){
+		String result;
+		
+		if(userInput.equals("") || userInput.length() == 0){
+			result = null;
+		}
+		else{
+			result = userInput;
+		}
+		
+		try{
+			Integer.parseInt(userInput);
+		} catch (Exception e){
+			result = null;
+		}
+			
+		return result;
+	}
+	
+	public void resetTextFields(){
+		txtDate.setText("MM/DD/YYYY");
+		txtGP.setText("Games Played");
+		txtAB.setText("AB");
+		txtH.setText("H");
+		txtRBI.setText("RBI");
+		txtb_1.setText("1B");
+		txtb_2.setText("2B");
+		txtb_3.setText("3B");
+		txtRuns.setText("Runs");
+		txtSB.setText("SB");
+		txtHR.setText("HR");
+		txtSO.setText("SO");
 	}
 }

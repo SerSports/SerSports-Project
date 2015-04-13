@@ -139,7 +139,7 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
         // Add the Local Players to the List
         for(LocalPlayerFieldingStatistics m: players) {
             Object[] row = {m.getFielding_games_play(), m.getFielding_games_win(), m.getFielding_games_loss(),
-            				m.getFielding_po(), m.getFielding_error(), m.getFielding_a(), m.getFielding_fpct()};
+            				m.getFielding_po(), m.getFielding_error(), m.getFielding_assist(), m.getFielding_fpct()};
             newTable.addRow(row);
         }
         fieldingTable.setModel(newTable);

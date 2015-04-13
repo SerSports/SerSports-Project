@@ -76,8 +76,6 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 
 			int selectedRow = table.getSelectedRow();
 			if (selectedRow >= 0) {
-				//getValueAt(selectedRow, #) where # starts at 1 for the first column shown in the gui
-				String playerStatistic = (String) table.getModel().getValueAt(selectedRow, 1);
 				
 				//ask user if the statistic they selected is the one they really want to update
 				int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the highlighted game statistic?", null,
@@ -95,9 +93,6 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		if (e.getActionCommand().equals("DeleteStatistic")) {
 			int selectedRow = table.getSelectedRow();
 			if (selectedRow >= 0) {
-				// getValueAt(selectedRow, #) where # starts at 1 for the first
-				// column shown in the gui
-				String playerStatistic = (String) table.getModel().getValueAt(selectedRow, 1);
 
 				// ask user if the statistic they selected is the one they really want to update
 				int result = JOptionPane.showConfirmDialog(
@@ -163,36 +158,14 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		// collect values if user entered the correct date format
 		if (valid == true) {
 			// Check for empty or invalid String
-			if (date.length() == 0 || date.equals("Date")) {
-				date = null;
-			}
-			if (gp.length() == 0 || gp.equals("Games Played")) {
-				gp = null;
-			}
-			if (w.length() == 0 || w.equals("W")) {
-				w = null;
-			}
-			if (l.length() == 0 || l.equals("L")) {
-				l = null;
-			}
-			if (era.length() == 0 || era.equals("ERA")) {
-				era = null;
-			}
-			if (saves.length() == 0 || saves.equals("Saves")) {
-				saves = null;
-			}
-			if (hits.length() == 0 || hits.equals("Hits")) {
-				hits = null;
-			}
-			if (holds.length() == 0 || holds.equals("Holds")) {
-				holds = null;
-			}
-			if (runs.length() == 0 || runs.equals("Runs")) {
-				runs = null;
-			}
-			if (hbp.length() == 0 || hbp.equals("HBP")) {
-				hbp = null;
-			}
+			isValidInput(date);
+			isValidInput(w);
+			isValidInput(l);
+			isValidInput(saves);
+			isValidInput(hits);
+			isValidInput(holds);
+			isValidInput(runs);
+			isValidInput(hbp);
 
 			// Add input into user database, then display all game statistics
 			LocalPlayerPitchingStatistics.addLocalPlayerPitchingStatistics(date, gp, w, l,
@@ -200,6 +173,9 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 
 			// reload statistics into table
 			loadUserInfoIntoControls();
+			
+			resetTextFields();
+			
 		} else {
 			JOptionPane.showMessageDialog(
 					null, "Invalid date format. Please add date in MM/DD/YYYY",
@@ -238,7 +214,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		boolean result = true;
 
 		try {
-			Date validateDate = dateFormat.parse(gameDate);
+			dateFormat.parse(gameDate);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
@@ -247,5 +223,38 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		}
 
 		return result;
+	}
+
+	public String isValidInput(String userInput){
+		String result;
+		
+		if(userInput.equals("") || userInput.length() == 0){
+			result = null;
+		}
+		else{
+			result = userInput;
+		}
+		
+		try{
+			Integer.parseInt(userInput);
+		} catch (Exception e){
+			result = null;
+		}
+			
+		return result;
+	}
+
+	public void resetTextFields(){
+		txtDate.setText("MM/DD/YYYY");
+		txtGP.setText("Games Played");
+		txtW.setText("Wins");
+		txtL.setText("Loss");
+		txtERA.setText("ERA");
+		txtSaves.setText("Saves");
+		txtHits.setText("Hits");
+		txtHolds.setText("Holds");
+		txtRuns.setText("Runs");
+		txtHBP.setText("HBP");
+		
 	}
 }

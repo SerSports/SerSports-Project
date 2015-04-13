@@ -121,4 +121,8 @@ public class User {
 						 	" (" + FIELD_LOCAL_PLAYER_ID + ", " + FIELD_USER_NAME + ", " + FIELD_PASSWORD + ") " + 
 					      "VALUES("+ localPlayerId + ", \"" + userName + "\", \"" + password + "\")");
 	}
+
+	public static LocalPlayer getCurrentLocalPlayer() {
+		return LocalPlayer.getLocalPlayerForId(currentUser.localPlayerId);
+	}
 }

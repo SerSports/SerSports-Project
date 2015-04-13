@@ -78,8 +78,6 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 
 			int selectedRow = table.getSelectedRow();
 			if (selectedRow >= 0) {
-				//getValueAt(selectedRow, #) where # starts at 1 for the first column shown in the gui
-				String playerStatistic = (String) table.getModel().getValueAt(selectedRow, 1);
 				
 				//ask user if the statistic they selected is the one they really want to update
 				int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the highlighted game statistic?", null,
@@ -97,9 +95,6 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		if (e.getActionCommand().equals("DeleteStatistic")) {
 			int selectedRow = table.getSelectedRow();
 			if (selectedRow >= 0) {
-				// getValueAt(selectedRow, #) where # starts at 1 for the first
-				// column shown in the gui
-				String playerStatistic = (String) table.getModel().getValueAt(selectedRow, 1);
 
 				// ask user if the statistic they selected is the one they really want to update
 				int result = JOptionPane.showConfirmDialog(
@@ -138,7 +133,7 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 						m.getGame_date(), m.getFielding_games_play(),
 						m.getFielding_games_win(), m.getFielding_games_loss(),
 						m.getFielding_po(), m.getFielding_error(),
-						m.getFielding_fpct() };
+						m.getFielding_assist(), m.getFielding_fpct() };
 				newTable.addRow(row);
 			}
 
@@ -162,37 +157,24 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		// collect values if user entered the correct date format
 		if (valid == true) {
 			// Check for empty or invalid String
-			if (date.length() == 0 || date.equals("Date")) {
-				date = null;
-			}
-			if (gp.length() == 0 || gp.equals("Games Played")) {
-				gp = null;
-			}
-			if (wins.length() == 0 || wins.equals("Wins")) {
-				wins = null;
-			}
-			if (loss.length() == 0 || loss.equals("Loss")) {
-				loss = null;
-			}
-			if (po.length() == 0 || po.equals("PO")) {
-				po = null;
-			}
-			if (error.length() == 0 || error.equals("Err")) {
-				error = null;
-			}
-			if (assist.length() == 0 || assist.equals("Assist")) {
-				assist = null;
-			}
-			if (fpct.length() == 0 || fpct.equals("F%")) {
-				fpct = null;
-			}
-
+			isValidInput(date);
+			isValidInput(gp);
+			isValidInput(wins);
+			isValidInput(loss);
+			isValidInput(po);
+			isValidInput(error);
+			isValidInput(assist);
+			isValidInput(fpct);
+			
 			// Add input into user database, then display all game statistics
 			LocalPlayerFieldingStatistics.addLocalPlayerFieldingStatistics(date, gp, wins,
 							loss, po, error, assist, fpct);
 
 			// reload statistics into table
 			loadUserInfoIntoControls();
+			
+			resetTextFields();
+			
 		} else {
 			JOptionPane.showMessageDialog(
 					null, "Invalid date format. Please add date in MM/DD/YYYY",
@@ -232,7 +214,7 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		boolean result = true;
 
 		try {
-			Date validateDate = dateFormat.parse(gameDate);
+			dateFormat.parse(gameDate);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
@@ -241,5 +223,35 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		}
 
 		return result;
-	}	
+	}
+
+	public String isValidInput(String userInput){
+		String result;
+		
+		if(userInput.equals("") || userInput.length() == 0){
+			result = null;
+		}
+		else{
+			result = userInput;
+		}
+		
+		try{
+			Integer.parseInt(userInput);
+		} catch (Exception e){
+			result = null;
+		}
+			
+		return result;
+	}
+
+	public void resetTextFields(){
+		txtDate.setText("MM/DD/YYYY");
+		txtGP.setText("Games Played");
+		txtWins.setText("Wins");
+		txtLoss.setText("Losses");
+		txtPo.setText("PO");
+		txtE.setText("Err");
+		txtA.setText("Assist");
+		txtFpct.setText("F%");
+	}
 }

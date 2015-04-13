@@ -13,6 +13,7 @@ package database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -575,6 +576,21 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		Database.close();
 			
 		return resultList;
+	}
+	
+	public static MlbPlayer getPlayerForId(String id) {
+		MlbPlayer result = null;
+		
+		MlbPlayerFilter filter = new MlbPlayerFilter();
+		filter.setIdValue(id);
+
+		// Get the Selected Player
+		ArrayList<MlbPlayer> playerList = MlbPlayer.getPlayersFromDatabase(filter);
+		if (playerList.size() > 0) {
+			result = playerList.get(0);
+		}
+		
+		return result;
 	}
 	
 	/**

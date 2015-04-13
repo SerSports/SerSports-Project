@@ -238,4 +238,26 @@ public class UserBattingStats extends JPanel {
 
 		
 	}
+	
+	public boolean checkTextFields(){
+		//Batting
+		if (txtDate.getText() != "MM/DD/YYYY" ||
+			txtGP.getText() != "Games Played" ||
+			txtAB.getText() != "AB" ||
+			txtH.getText() != "H" ||
+			txtRBI.getText() != "RBI" ||
+			txtb_1.getText() != "1B" ||
+			txtb_2.getText() != "2B" ||
+			txtb_3.getText() != "3B" ||
+			txtRuns.getText() != "Runs" ||
+			txtSB.getText() != "SB" ||
+			txtHR.getText() != "HR" ||
+			txtSO.getText() != "SO"	){
+			
+			return false;
+		}
+		else{
+			return true;
+		}
+	}
 }

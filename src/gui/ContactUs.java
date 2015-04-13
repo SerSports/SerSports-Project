@@ -26,6 +26,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.SwingConstants;
+import java.awt.Font;
 
 
 /**
@@ -59,11 +60,15 @@ public class ContactUs extends JPanel {
 		add(btnSignOut);
 		
 		JLabel lblEmailUs = new JLabel("Email Us: ser.sports.asu@gmail.com");
-		lblEmailUs.setBounds(81, 167, 244, 16);
+		lblEmailUs.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		lblEmailUs.setForeground(new Color(244, 229, 192));
+		lblEmailUs.setBounds(81, 167, 369, 29);
 		add(lblEmailUs);
 		
 		JLabel lblCallUs = new JLabel("Call Us: (555) 555-5555");
-		lblCallUs.setBounds(81, 203, 244, 16);
+		lblCallUs.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		lblCallUs.setForeground(new Color(244, 229, 192));
+		lblCallUs.setBounds(81, 203, 251, 29);
 		add(lblCallUs);
 			
 		btnSignOut.addActionListener(new ActionListener(){
