@@ -61,11 +61,18 @@ public class HomePageGUI extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		setLayout(null);
 		
+		JLabel diamond = new JLabel("");
+		diamond.setBounds(189, -40, 64, 64);
+		add(diamond);
+		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
+		diamond.setIcon(new ImageIcon(img2));
+		
 		JLabel logo = new JLabel("");
 		logo.setBounds(6, 0, 152, 55);
 		add(logo);
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
+		
 		
 		JLabel lblYouAre = new JLabel("You are");
 		lblYouAre.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
