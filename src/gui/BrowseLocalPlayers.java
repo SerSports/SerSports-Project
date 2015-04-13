@@ -5,7 +5,7 @@ Date:
 
 Description: GUI for displaying/searching the Local Players database
 
-*/
+ */
 
 package gui;
 
