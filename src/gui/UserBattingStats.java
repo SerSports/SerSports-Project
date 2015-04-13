@@ -8,30 +8,16 @@ Description: GUI for handling the User Batting Stats input
 */
 package gui;
 
-import java.awt.Dimension;
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JTextField;
-import javax.swing.JFormattedTextField;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
-import database.User;
-import client.UserBattingStatsClient;
 import java.awt.Font;
 
 /**
@@ -232,7 +218,7 @@ public class UserBattingStats extends JPanel {
 		add(lblSb);
 		
 		JLabel lblBorderlayout = new JLabel("");
-		lblBorderlayout.setBounds(-164, 21, 929, 483);
+		lblBorderlayout.setBounds(-184, 16, 968, 483);
 		add(lblBorderlayout);
 		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 

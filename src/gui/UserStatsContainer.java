@@ -74,7 +74,7 @@ public class UserStatsContainer extends JLayeredPane {
 		btnFieldingStats.setFont(new Font("Stencil", Font.PLAIN, 18));
 		
 		JLabel lblBorderlayout = new JLabel("");
-		lblBorderlayout.setBounds(36, 21, 929, 483);
+		lblBorderlayout.setBounds(16,16, 968, 483);
 		menuPanel.add(lblBorderlayout);
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
@@ -88,7 +88,7 @@ public class UserStatsContainer extends JLayeredPane {
 		panelBodyContainer.add(batting, "1");
 		
 		JLabel diamond = new JLabel("");
-		diamond.setBounds(167, -40, 64, 64);
+		diamond.setBounds(167, -48, 64, 64);
 		batting.add(diamond);
 		diamond.setIcon(new ImageIcon(img2));
 		panelBodyContainer.add(fielding,"2");

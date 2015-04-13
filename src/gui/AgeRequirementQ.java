@@ -2,7 +2,6 @@ package gui;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import java.awt.Dimension;
 
 public class AgeRequirementQ extends JPanel

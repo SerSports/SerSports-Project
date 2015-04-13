@@ -9,22 +9,14 @@ Description: ActionListeners and ItemListeners for the User Fielding Stats GUI (
 package client;
 
 import gui.UserFieldingStats;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-
 import database.*;
-import gui.*;
 
 /**
  * Class: UserFieldingStatsClient

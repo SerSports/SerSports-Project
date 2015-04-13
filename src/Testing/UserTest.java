@@ -1,13 +1,7 @@
 package Testing;
 
 import static org.junit.Assert.assertNotNull;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.Assert;
-
-import database.MlbPlayer;
 import database.User;
 
 public class UserTest {

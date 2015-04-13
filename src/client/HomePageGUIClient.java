@@ -5,17 +5,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
-
 import javax.swing.table.DefaultTableModel;
-
 import database.ComparePlayers;
 import database.LocalPlayer;
-import database.LocalPlayerBattingStatistics;
-import database.LocalPlayerFieldingStatistics;
 import database.MlbPlayer;
 import database.User;
 import gui.HomePageGUI;
-import gui.MainGUI;
 
 public class HomePageGUIClient extends HomePageGUI implements ActionListener, ItemListener {
 	

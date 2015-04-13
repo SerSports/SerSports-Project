@@ -1,10 +1,4 @@
 package Testing;
-import gui.*;
-import database.*;
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
 
 
 public class CreateAccountTest {

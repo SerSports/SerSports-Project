@@ -10,15 +10,10 @@ package gui;
 
 import java.awt.Dimension;
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;

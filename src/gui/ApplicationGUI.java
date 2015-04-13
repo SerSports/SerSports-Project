@@ -1,33 +1,20 @@
 package gui; 
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
 import javax.swing.*;
-
-//import client.MlbStatsGuiClient;
 import client.*;
-import database.*;
-
 import java.awt.Font;
-
 
 
 public class ApplicationGUI extends JLayeredPane{
@@ -45,9 +32,9 @@ public class ApplicationGUI extends JLayeredPane{
 	
 	public ApplicationGUI() {
 		setLayout(null);
-		setBounds(0,0,1300,597);
+		//setBounds(0,0,1300,597);
 
-		
+
 		//Menu		
 		menuPanel.setBounds(0, 0, 1300, 118);
 		menuPanel.setBackground(new Color(244, 229, 192));

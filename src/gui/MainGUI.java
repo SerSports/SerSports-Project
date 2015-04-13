@@ -9,20 +9,11 @@ Description: Main GUI (the brain, the tabs)
 package gui;
 
 import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
-import database.User;
-
-import java.awt.BorderLayout;
 
 /**
  * Class: MainGUI
@@ -66,12 +57,13 @@ public class MainGUI {
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		scrollPane.setViewportView(panelContainer);
 		panelContainer.setLayout(c1);
-
+		
 		c1.show(panelContainer, "1");
 		panelApplication = new ApplicationGUI();
 		panelContainer.add(login, "1");
 		panelContainer.add(panelApplication, "2");
 		panelContainer.add(createAccountGUI, "3");
+
 
 		mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		mainFrame.pack();
