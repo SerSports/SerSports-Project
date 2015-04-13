@@ -217,4 +217,17 @@ public class LocalPlayer {
 			
 		return resultList;
 	}
+
+	
+	public static LocalPlayer getLocalPlayerForId(int id) {
+		LocalPlayer result = null;
+
+		// Get the Selected Player
+		ArrayList<LocalPlayer> playerList = LocalPlayer.getPlayersFromDatabase(id, null, null, 0, null);
+		if (playerList.size() > 0) {
+			result = playerList.get(0);
+		}
+		
+		return result;
+	}
 }

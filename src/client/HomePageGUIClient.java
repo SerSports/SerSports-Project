@@ -56,8 +56,10 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener, It
 		// Set up the table
 		DefaultTableModel newTable = new DefaultTableModel(new Object[] {"ID","First Name", "Last Name","Team","Similarity %"}, 0);
 		
-		// Add the Local Players to the List
-		for (MlbPlayer m : players) {
+		// Add the first 10 player matches to the list
+		for (int i = 0; i < players.size() && i < 10; i++) {
+			MlbPlayer m = players.get(i);
+			
 			Object[] row = {m.getId(), m.getFirst_name(), m.getLast_name(), m.getTeam_name(), 0.5};
 			newTable.addRow(row);
 		}

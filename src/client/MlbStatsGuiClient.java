@@ -92,9 +92,19 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener {
 
         }
         else if (e.getActionCommand().equals("CompareToPlayer")) {
-        	//add if statement for highlighted selection of player
-	        JOptionPane.showMessageDialog(null, "You are 20% like this player", "Compare to Player", JOptionPane.INFORMATION_MESSAGE);
-	        //add variable player into JDialog      
+	        //JOptionPane.showMessageDialog(null, "You are 20% like this player", "Compare to Player", JOptionPane.INFORMATION_MESSAGE);
+
+    		int selectedRow = table.getSelectedRow();
+    		if (selectedRow >= 0) {	
+    			String MlbPlayerId = (String) table.getModel().getValueAt(selectedRow, 0);	
+    			MlbPlayer selectedPlayer = MlbPlayer.getPlayerForId(MlbPlayerId);
+    		
+    			//float result = ComparePlayers.compareToPlayer(User.getCurrentLocalPlayer(), selectedPlayer);
+    			float result = 0.5f;
+
+    	        JOptionPane.showMessageDialog(null, "You are " + (result * 100.0) + "% like this player", "Compare to Player", JOptionPane.INFORMATION_MESSAGE);
+    		}
+	        
         }
     }
         
@@ -103,21 +113,13 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener {
 		int selectedRow = table.getSelectedRow();
 		//System.out.println("selected row: " + selectedRow);
 		if (selectedRow >= 0) {	
-			String MlbPlayerId = (String) table.getModel().getValueAt(selectedRow, 0);
+			String MlbPlayerId = (String) table.getModel().getValueAt(selectedRow, 0);	
+		
+			MlbPlayer selectedPlayer = MlbPlayer.getPlayerForId(MlbPlayerId);			
+			loadGameData(selectedPlayer);
 			
-			MlbPlayerFilter filter = new MlbPlayerFilter();
-			filter.setIdValue(MlbPlayerId);
-	
-			// Get the Selected Player
-			ArrayList<MlbPlayer> playerList = MlbPlayer.getPlayersFromDatabase(filter);
-			if (playerList.size() > 0) {
-				
-				MlbPlayer selectedPlayer = playerList.get(0);			
-				loadGameData(selectedPlayer);
-				
-				lblMlbPlayerName.setText("Name: " + selectedPlayer.getFirst_name() + " " + selectedPlayer.getLast_name());
-				lblMlbPlayerTeam.setText("Team: " + selectedPlayer.getTeam_name());
-			}
+			lblMlbPlayerName.setText("Name: " + selectedPlayer.getFirst_name() + " " + selectedPlayer.getLast_name());
+			lblMlbPlayerTeam.setText("Team: " + selectedPlayer.getTeam_name());
 		}		
     }
 				
