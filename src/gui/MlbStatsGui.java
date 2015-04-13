@@ -50,7 +50,6 @@ public class MlbStatsGui extends JPanel {
 	protected JTable mlbfieldingTable;
 	protected JTable mlbpitchingTable;
 	protected JLabel lblMlbPlayerName;
-	protected JLabel lblMlbPlayerLast;
 	protected JLabel lblMlbPlayerTeam;
 	protected JPanel borderPanel = new JPanel();
 
@@ -148,19 +147,14 @@ public class MlbStatsGui extends JPanel {
 						submitPlayerSearchButton.setActionCommand("submitPlayerSearchButton");
 						submitPlayerSearchButton.setBackground(new Color(255,237,203));
 						
-						lblMlbPlayerName = new JLabel("MLB Player First Name");
+						lblMlbPlayerName = new JLabel("");
 						lblMlbPlayerName.setForeground(Color.WHITE);
-						lblMlbPlayerName.setBounds(282, 219, 149, 16);
+						lblMlbPlayerName.setBounds(282, 219, 189, 16);
 						borderPanel.add(lblMlbPlayerName);
 						
-						lblMlbPlayerLast = new JLabel("MLB Player Last Name");
-						lblMlbPlayerLast.setForeground(Color.WHITE);
-						lblMlbPlayerLast.setBounds(443, 219, 149, 16);
-						borderPanel.add(lblMlbPlayerLast);
-						
-						lblMlbPlayerTeam = new JLabel("MLB Player Team");
+						lblMlbPlayerTeam = new JLabel("");
 						lblMlbPlayerTeam.setForeground(Color.WHITE);
-						lblMlbPlayerTeam.setBounds(604, 219, 149, 16);
+						lblMlbPlayerTeam.setBounds(604, 219, 189, 16);
 						borderPanel.add(lblMlbPlayerTeam);
 								
 								JScrollPane scrollPane_3 = new JScrollPane();
