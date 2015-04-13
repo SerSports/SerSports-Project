@@ -30,7 +30,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	
 	//private static final long serialVersionUID = 1L;
 	private static final boolean debugOn = true;
-	private static double battingAverage = 0.0;
+	private double battingAverage = 0.0;
 	
     /**
 	  Method: UserBattingStatsClient
@@ -92,8 +92,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 
 			int selectedRow = table.getSelectedRow();
 			if (selectedRow >= 0) {
-				//getValueAt(selectedRow, #) where # starts at 1 for the first column shown in the gui
-				String playerStatistic = (String) table.getModel().getValueAt(selectedRow, 1);
 				
 				//ask user if the statistic they selected is the one they really want to update
 				int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the highlighted game statistic?", null,
@@ -111,8 +109,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		if (e.getActionCommand().equals("DeleteStatistic")) {
 			int selectedRow = table.getSelectedRow();
 			if (selectedRow >= 0) {
-				//getValueAt(selectedRow, #) where # starts at 1 for the first column shown in the gui
-				String playerStatistic = (String) table.getModel().getValueAt(selectedRow, 1);
 				
 				//ask user if the statistic they selected is the one they really want to update
 				int result = JOptionPane.showConfirmDialog(

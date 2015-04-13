@@ -76,8 +76,6 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 
 			int selectedRow = table.getSelectedRow();
 			if (selectedRow >= 0) {
-				//getValueAt(selectedRow, #) where # starts at 1 for the first column shown in the gui
-				String playerStatistic = (String) table.getModel().getValueAt(selectedRow, 1);
 				
 				//ask user if the statistic they selected is the one they really want to update
 				int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the highlighted game statistic?", null,
@@ -95,9 +93,6 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		if (e.getActionCommand().equals("DeleteStatistic")) {
 			int selectedRow = table.getSelectedRow();
 			if (selectedRow >= 0) {
-				// getValueAt(selectedRow, #) where # starts at 1 for the first
-				// column shown in the gui
-				String playerStatistic = (String) table.getModel().getValueAt(selectedRow, 1);
 
 				// ask user if the statistic they selected is the one they really want to update
 				int result = JOptionPane.showConfirmDialog(
@@ -238,7 +233,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		boolean result = true;
 
 		try {
-			Date validateDate = dateFormat.parse(gameDate);
+			dateFormat.parse(gameDate);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
