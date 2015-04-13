@@ -41,8 +41,8 @@ public class Help extends JPanel
 	protected JButton deletedStatisticsQ = new JButton(
 			"Can I retrieve deleted statistics?");
 	
-	AbbreviationsQ abbreviations = new AbbreviationsQ();
 	AgeRequirementQ ageRequirement = new AgeRequirementQ();
+	AbbreviationsQ abbreviations = new AbbreviationsQ();
 	DeletedStatisticsQ deletedStats = new DeletedStatisticsQ();
 	SimilarityQ similarity = new SimilarityQ();
 	StatisticViewQ viewStats = new StatisticViewQ();
@@ -63,9 +63,10 @@ public class Help extends JPanel
 		setBackground(new Color(47, 52, 64));
 		faqContainer.setLayout(c1);
 		faqContainer.add(ageRequirement, "1");
-		faqContainer.add(similarity, "2");
-		faqContainer.add(viewStats, "3");
-		faqContainer.add(deletedStats, "4");
+		faqContainer.add(abbreviations, "2");
+		faqContainer.add(similarity, "3");
+		faqContainer.add(viewStats, "4");
+		faqContainer.add(deletedStats, "5");
 		
 		JLabel lblYouAre = new JLabel("FAQ & Help");
 		lblYouAre.setBounds(466, 20, 80, 16);
@@ -100,24 +101,31 @@ public class Help extends JPanel
 			}
 		});
 		
-		similarityQ.addActionListener(new ActionListener() {
+		abbreviationsQ.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
 				c1.show(faqContainer, "2");
 			}
 		});
 		
-		statisticViewQ.addActionListener(new ActionListener() {
+		similarityQ.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
 				c1.show(faqContainer, "3");
 			}
 		});
 		
-		deletedStatisticsQ.addActionListener(new ActionListener() {
+		statisticViewQ.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
 				c1.show(faqContainer, "4");
+			}
+		});
+		
+		deletedStatisticsQ.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				c1.show(faqContainer, "5");
 			}
 		});
 		
