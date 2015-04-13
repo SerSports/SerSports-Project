@@ -72,6 +72,13 @@ public class BrowseLocalPlayers extends JPanel {
 		add(diamond);
 		diamond.setIcon(new ImageIcon(img2));
 		
+		//border
+		JLabel lblBorderlayout = new JLabel("");
+		lblBorderlayout.setBounds(36, 21, 929, 483);
+		add(lblBorderlayout);
+		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
+		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
+		
 		JLabel logo = new JLabel("");
 		logo.setBounds(6, 0, 152, 55);
 		add(logo);
