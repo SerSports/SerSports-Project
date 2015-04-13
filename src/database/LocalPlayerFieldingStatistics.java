@@ -63,7 +63,7 @@ public class LocalPlayerFieldingStatistics {
 		return fielding_error;
 	}
 
-	public int getFielding_a() {
+	public int getFielding_assist() {
 		return fielding_assist;
 	}
 

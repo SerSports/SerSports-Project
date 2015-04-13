@@ -158,36 +158,14 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		// collect values if user entered the correct date format
 		if (valid == true) {
 			// Check for empty or invalid String
-			if (date.length() == 0 || date.equals("Date")) {
-				date = null;
-			}
-			if (gp.length() == 0 || gp.equals("Games Played")) {
-				gp = null;
-			}
-			if (w.length() == 0 || w.equals("W")) {
-				w = null;
-			}
-			if (l.length() == 0 || l.equals("L")) {
-				l = null;
-			}
-			if (era.length() == 0 || era.equals("ERA")) {
-				era = null;
-			}
-			if (saves.length() == 0 || saves.equals("Saves")) {
-				saves = null;
-			}
-			if (hits.length() == 0 || hits.equals("Hits")) {
-				hits = null;
-			}
-			if (holds.length() == 0 || holds.equals("Holds")) {
-				holds = null;
-			}
-			if (runs.length() == 0 || runs.equals("Runs")) {
-				runs = null;
-			}
-			if (hbp.length() == 0 || hbp.equals("HBP")) {
-				hbp = null;
-			}
+			isValidInput(date);
+			isValidInput(w);
+			isValidInput(l);
+			isValidInput(saves);
+			isValidInput(hits);
+			isValidInput(holds);
+			isValidInput(runs);
+			isValidInput(hbp);
 
 			// Add input into user database, then display all game statistics
 			LocalPlayerPitchingStatistics.addLocalPlayerPitchingStatistics(date, gp, w, l,
@@ -241,6 +219,25 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 			result = false;
 		}
 
+		return result;
+	}
+
+	public String isValidInput(String userInput){
+		String result;
+		
+		if(userInput.equals("") || userInput.length() == 0){
+			result = null;
+		}
+		else{
+			result = userInput;
+		}
+		
+		try{
+			Integer.parseInt(userInput);
+		} catch (Exception e){
+			result = null;
+		}
+			
 		return result;
 	}
 }
