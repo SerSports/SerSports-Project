@@ -172,6 +172,9 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 
 			// reload statistics into table
 			loadUserInfoIntoControls();
+			
+			resetTextFields();
+			
 		} else {
 			JOptionPane.showMessageDialog(
 					null, "Invalid date format. Please add date in MM/DD/YYYY",
@@ -239,5 +242,16 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		}
 			
 		return result;
+	}
+
+	public void resetTextFields(){
+		txtDate.setText("MM/DD/YYYY");
+		txtGP.setText("Games Played");
+		txtWins.setText("Wins");
+		txtLoss.setText("Losses");
+		txtPo.setText("PO");
+		txtE.setText("Err");
+		txtA.setText("Assist");
+		txtFpct.setText("F%");
 	}
 }

@@ -150,4 +150,15 @@ public class UserFieldingStats extends JPanel {
 		scrollPane.setViewportView(table);
 		
 	}
+	public void checkTextFields(){
+		//Fielding
+		txtDate.getText();
+		txtGP.getText();
+		txtWins.getText();
+		txtLoss.getText();
+		txtPo.getText();
+		txtE.getText();
+		txtA.getText();
+		txtFpct.getText();
+	}
 }

@@ -1,4 +1,4 @@
-package gui;
+package gui; 
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -15,6 +15,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
@@ -170,7 +171,13 @@ public class ApplicationGUI extends JLayeredPane{
     	
 		btnSignOut.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
-    			MainGUI.setApplicationToClose(); 
+    			
+    			int result = JOptionPane.showConfirmDialog(null, "You have pending statistics to add. Are you sure you want to sign out?", 
+    					null, JOptionPane.YES_NO_OPTION);
+    			
+    			if(result == JOptionPane.YES_OPTION){
+    				MainGUI.setApplicationToClose();
+				}
     		}
     	});
 	    

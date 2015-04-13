@@ -155,4 +155,18 @@ public class UserPitchingStats extends JPanel {
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 		
 	}
+	
+	public void checkTextFields(){
+		//Pitching
+		txtDate.getText();
+		txtGP.getText();
+		txtW.getText();
+		txtL.getText();
+		txtERA.getText();
+		txtSaves.getText();
+		txtHits.getText();
+		txtHolds.getText();
+		txtRuns.getText();
+		txtHBP.getText();
+	}
 }

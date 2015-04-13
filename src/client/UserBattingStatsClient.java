@@ -197,6 +197,9 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
             
             //reload statistics into table
             loadUserInfoIntoControls();
+            
+            //reset fields
+            resetTextFields();
 		}
 		else{
 			JOptionPane.showMessageDialog(null, "Invalid date format. Please add date in MM/DD/YYYY", 
@@ -259,5 +262,20 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		}
 			
 		return result;
+	}
+	
+	public void resetTextFields(){
+		txtDate.setText("MM/DD/YYYY");
+		txtGP.setText("Games Played");
+		txtAB.setText("AB");
+		txtH.setText("H");
+		txtRBI.setText("RBI");
+		txtb_1.setText("1B");
+		txtb_2.setText("2B");
+		txtb_3.setText("3B");
+		txtRuns.setText("Runs");
+		txtSB.setText("SB");
+		txtHR.setText("HR");
+		txtSO.setText("SO");
 	}
 }

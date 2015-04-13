@@ -173,6 +173,9 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 
 			// reload statistics into table
 			loadUserInfoIntoControls();
+			
+			resetTextFields();
+			
 		} else {
 			JOptionPane.showMessageDialog(
 					null, "Invalid date format. Please add date in MM/DD/YYYY",
@@ -239,5 +242,19 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		}
 			
 		return result;
+	}
+
+	public void resetTextFields(){
+		txtDate.setText("MM/DD/YYYY");
+		txtGP.setText("Games Played");
+		txtW.setText("Wins");
+		txtL.setText("Loss");
+		txtERA.setText("ERA");
+		txtSaves.setText("Saves");
+		txtHits.setText("Hits");
+		txtHolds.setText("Holds");
+		txtRuns.setText("Runs");
+		txtHBP.setText("HBP");
+		
 	}
 }
