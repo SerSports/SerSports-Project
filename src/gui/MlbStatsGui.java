@@ -68,7 +68,7 @@ public class MlbStatsGui extends JPanel {
 
 		// Menu Indicator
 		JLabel diamond = new JLabel("");
-		diamond.setBounds(830, -40, 64, 64);
+		diamond.setBounds(830, -48, 64, 64);
 		Image img2 = new ImageIcon(this.getClass().getResource(
 				"/images/diamond.png")).getImage();
 		add(diamond);
@@ -76,10 +76,9 @@ public class MlbStatsGui extends JPanel {
 
 		// border
 		JLabel lblBorderlayout = new JLabel("");
-		lblBorderlayout.setBounds(36, 21, 929, 483);
+		lblBorderlayout.setBounds(16, 16, 968, 483);
 		add(lblBorderlayout);
-		Image imgBorder = new ImageIcon(this.getClass().getResource(
-				"/images/Border.png")).getImage();
+		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 
 		JScrollPane scrollPane = new JScrollPane();

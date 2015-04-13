@@ -45,9 +45,9 @@ public class ApplicationGUI extends JLayeredPane{
 	
 	public ApplicationGUI() {
 		setLayout(null);
-		setBounds(0,0,1300,597);
+		//setBounds(0,0,1300,597);
 
-		
+
 		//Menu		
 		menuPanel.setBounds(0, 0, 1300, 118);
 		menuPanel.setBackground(new Color(244, 229, 192));

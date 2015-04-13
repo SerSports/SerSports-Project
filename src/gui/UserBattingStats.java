@@ -232,7 +232,7 @@ public class UserBattingStats extends JPanel {
 		add(lblSb);
 		
 		JLabel lblBorderlayout = new JLabel("");
-		lblBorderlayout.setBounds(-164, 21, 929, 483);
+		lblBorderlayout.setBounds(-184, 16, 968, 483);
 		add(lblBorderlayout);
 		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 

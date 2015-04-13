@@ -66,12 +66,13 @@ public class MainGUI {
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		scrollPane.setViewportView(panelContainer);
 		panelContainer.setLayout(c1);
-
+		
 		c1.show(panelContainer, "1");
 		panelApplication = new ApplicationGUI();
 		panelContainer.add(login, "1");
 		panelContainer.add(panelApplication, "2");
 		panelContainer.add(createAccountGUI, "3");
+
 
 		mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		mainFrame.pack();
