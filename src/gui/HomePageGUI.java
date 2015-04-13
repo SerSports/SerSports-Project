@@ -68,6 +68,11 @@ public class HomePageGUI extends JPanel {
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		
+		JLabel line = new JLabel("");
+		line.setBounds(16, 67, 287, 55);
+		add(line);
+		Image imgline = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
+		line.setIcon(new ImageIcon(imgline));
 		
 		JLabel lblYouAre = new JLabel("You are");
 		lblYouAre.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
