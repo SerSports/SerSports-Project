@@ -118,13 +118,15 @@ public class HomePageGUI extends JPanel {
 		header.setBackground(new Color(47, 52, 64));
 		header.setForeground(new Color(244, 229, 192));
 		header.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
-		header.setBorder(BorderFactory.createEmptyBorder());
+		header.setBorder(new LineBorder(new Color(244, 229, 192), 4));
 		header.setOpaque(false);
 		comparisonTable.setOpaque(false);
 		scrollPane_2.setOpaque(false);
 		scrollPane_2.getViewport().setOpaque(false);
 		((DefaultTableCellRenderer)comparisonTable.getDefaultRenderer(Object.class)).setOpaque(false);
 		comparisonTable.setShowGrid(false);
+		
+
 		
 		btnFindBestComparison = new JButton("Find Best Comparison");
 		btnFindBestComparison.addActionListener(new ActionListener() {
@@ -137,6 +139,7 @@ public class HomePageGUI extends JPanel {
 		add(btnFindBestComparison);
 		btnFindBestComparison.setActionCommand("Find Best Comparison");
 		btnFindBestComparison.setBorder(new LineBorder(new Color(244, 229, 192), 4));
+		btnFindBestComparison.setBackground(new Color(47, 52, 64));
 		
 		JLabel lblBorderlayout = new JLabel("");
 		lblBorderlayout.setBounds(16, 16, 968, 483);
