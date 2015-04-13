@@ -5,120 +5,99 @@ Date:
 
 Description: Main GUI (the brain, the tabs)
 
-*/
+ */
 package gui;
+
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.awt.Toolkit;
 import javax.swing.*;
-import database.User;
+
 
 /**
-Class: MainGUI
+ * Class: MainGUI
+ * 
+ * Description: GUI for main navigation of site
+ */
+public class MainGUI {
 
-Description: GUI for main navigation of site
-*/
-public class MainGUI{
-
-	JFrame mainFrame = new JFrame("SERSports");	
-	protected ApplicationGUI panelApplication = null;
+	private static MainGUI singleton = null;
+	JFrame mainFrame = new JFrame("SERSports");
+	protected static ApplicationGUI panelApplication = null;
 	private static final boolean debugOn = true;
-	protected JTextField txtUserName;
-	private final JPasswordField pwdPassword = new JPasswordField();
-	protected JButton btnSubmit;
-	protected JButton btnCreateAccount;
+	static JPanel panelContainer = new JPanel();
+	UserLoginGUI login = new UserLoginGUI();
+	CreateAccount createAccountGUI = new CreateAccount(this);
+	static CardLayout c1 = new CardLayout();
+	JScrollPane scrollPane = new JScrollPane();
+	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
-    JPanel panelContainer = new JPanel();
-    JPanel login = new JPanel();
-    CreateAccount createAccountGUI = new CreateAccount(this);
-    CardLayout c1 = new CardLayout(); 
-    
-    public void ShowMainGUI(){
-    	c1.show(panelContainer, "2");
-    }    
-       
-    public MainGUI(){    	
-		txtUserName = new JTextField();
-		txtUserName.setText("ser_sports");
-		login.add(txtUserName);
-		txtUserName.setColumns(10);
-		pwdPassword.setColumns(10);
-		pwdPassword.setText("admin");
-		login.add(pwdPassword);	
-		
-		JButton btnSubmit = new JButton("Submit");
-		login.add(btnSubmit);
-		
-		JButton btnCreateAccount = new JButton("Create Account");
-		login.add(btnCreateAccount);
+	public static void showLoginGUI() {
+		c1.show(panelContainer, "1");
+	}
 
-		//create and index the Panels
+	public static void showApplicationGUI() {
+		panelApplication.loadUserInfoIntoControls();
+		c1.show(panelContainer, "2");
+		
+	}
+
+	public static void showCreateAccount() {
+		c1.show(panelContainer, "3");
+	}
+
+	public static void setApplicationToClose() {
+		singleton.mainFrame.dispose();
+		singleton = new MainGUI();
+	}
+
+	public MainGUI() {
+		mainFrame.getContentPane().add(scrollPane);
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());
+		scrollPane.setViewportView(panelContainer);
+		panelContainer.setLayout(c1);
+		
+		c1.show(panelContainer, "1");
 		panelApplication = new ApplicationGUI();
-    	panelContainer.setLayout(c1);
-    	panelContainer.add(login, "1");
-    	panelContainer.add(panelApplication,"2");
-    	panelContainer.add(createAccountGUI, "3");
-    	c1.show(panelContainer, "1");
- 
-    	btnSubmit.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			// Authenticate User
-    			User user = User.authenticateUser(txtUserName.getText(), new String(pwdPassword.getPassword()));
-    			if (user != null) {
-    				loadUserInfoIntoControls();
-    				c1.show(panelContainer, "2");
-    			} else {
-    		        JOptionPane.showMessageDialog(null, "Invalid Username / Password!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
-    			}
-    		}
-    	});
-    	
-    	
-    	btnCreateAccount.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			c1.show(panelContainer, "3");
- 
-    		}
-    	});
-    	
-    	mainFrame.getContentPane().add(panelContainer);
-    	mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    	mainFrame.pack();
-    	mainFrame.setVisible(true);
-    	mainFrame.setExtendedState(mainFrame.MAXIMIZED_BOTH);
-    }    
-    /**
-	  Method: main
-	  Inputs: String[] args
-	  Returns: NA
+		panelContainer.add(login, "1");
+		panelContainer.add(panelApplication, "2");
+		panelContainer.add(createAccountGUI, "3");
 
-	  Description: 
-	*/
-    
-    public static void main(String[] args) { 
+
+		mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		mainFrame.pack();
+		mainFrame.setVisible(true);
+		mainFrame.setLocation(dim.width / 2 - mainFrame.getSize().width / 2,
+				dim.height / 2 - mainFrame.getSize().height / 2);
+
+	}
+
+	/**
+	 * Method: main Inputs: String[] args Returns: NA
+	 * 
+	 * Description:
+	 */
+
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					new MainGUI();
+					singleton = new MainGUI();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
-		});     
-    }
-    
-    private void debug(String message) {
-        if (debugOn){
-            System.out.println("debug: " + message);
-        }
-    }
-    
-    public void loadUserInfoIntoControls() {
-    	panelApplication.loadUserInfoIntoControls();
-    }
+		});
+	}
+
+	private void debug(String message) {
+		if (debugOn) {
+			System.out.println("debug: " + message);
+		}
+	}
+
+	public void loadUserInfoIntoControls() {
+		panelApplication.loadUserInfoIntoControls();
+	}
 }

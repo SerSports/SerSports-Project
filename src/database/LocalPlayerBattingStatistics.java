@@ -60,6 +60,17 @@ public class LocalPlayerBattingStatistics {
 	public String getTeam_name() {
 		return team_name;
 	}
+	
+	public int getTotalBases() {
+		return hitting_onbase_h + (2 * hitting_onbase_d) + (3 * hitting_onbase_t) + (4 * hitting_onbase_hr);
+	}
+	
+	public float getSlugging() {
+		if (hitting_ab != 0) {
+			return getTotalBases() / hitting_ab;
+		}
+		return 0.00f;
+	}
 
 	public String getPosition() {
 		return position;
@@ -266,6 +277,11 @@ public class LocalPlayerBattingStatistics {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+	
+	public static void deleteLocalPlayerBattingStatistic(int localPlayerHittingStatisticID){
+		Database.executeSQL("DELETE FROM " + TABLE_NAME + " WHERE " + FIELD_ID + " = " 
+				+ localPlayerHittingStatisticID + ";");
 	}
 	
 	private static boolean notNumeric(String value){

@@ -225,6 +225,11 @@ public class LocalPlayerPitchingStatistics {
 			ex.printStackTrace();
 		}
 	}
+
+	public static void deleteLocalPlayerPitchingStatistic(int localPlayerPitchingStatisticID){
+		Database.executeSQL("DELETE FROM " + TABLE_NAME + " WHERE " + FIELD_ID + " = " 
+				+ localPlayerPitchingStatisticID + ";");
+	}
 	
 	private static boolean notNumeric(String value){
 		

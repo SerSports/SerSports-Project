@@ -6,11 +6,10 @@ Date:
 Description: Creates a MLB Player Object with player stats and info
 
  */
+
 package database;
 
-import java.rmi.server.*;
-import java.rmi.*;
-import java.text.NumberFormat;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,8 +33,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	private static final String FIELD_LASTNAME = "lastName";  
 	private static final String FIELD_TEAM_NAME = "team_name";  
 	private static final String FIELD_TEAM_ID = "team_id";				
-	private static final String FIELD_HITTING_AB = "hitting_ab"; 			
-	private static final String FIELD_HITTING_RBI = "hitting_rbi"; 			
+	 			
 	private static final String FIELD_PITCHING_ERA = "pitching_era"; 		
 	private static final String FIELD_PITCHING_ONBASE_H = "pitching_onbase_h";	
 	private static final String FIELD_PITCHING_ONBASE_S = "pitching_onbase_s";	
@@ -53,6 +51,9 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     private static final String FIELD_PITCHING_GAMES_LOSS = "pitching_games_loss";	
     private static final String FIELD_PITCHING_GAMES_SAVE = "pitching_games_save";	
     private static final String FIELD_PITCHING_GAMES_HOLD = "pitching_games_hold"; 	
+    
+    private static final String FIELD_HITTING_AB = "hitting_ab"; 			
+	private static final String FIELD_HITTING_RBI = "hitting_rbi";
     private static final String FIELD_HITTING_ONBASE_H = "hitting_onbase_h";		
     private static final String FIELD_HITTING_ONBASE_S = "hitting_onbase_s";		
     private static final String FIELD_HITTING_ONBASE_D = "hitting_onbase_d";		
@@ -66,7 +67,8 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     private static final String FIELD_HITTING_STEAL_STOLEN = "hitting_steal_stolen"; 
     private static final String FIELD_HITTING_GAMES_PLAY = "hitting_games_play";	
     private static final String FIELD_HITTING_GAMES_WIN = "hitting_games_win";	
-    private static final String FIELD_HITTING_GAMES_LOSS = "hitting_games_loss";	
+    private static final String FIELD_HITTING_GAMES_LOSS = "hitting_games_loss";
+    
     private static final String FIELD_FIELDING_PO = "fielding_po";			
     private static final String FIELD_FIELDING_ERROR = "fielding_error";		
     private static final String FIELD_FIELDING_A = "fielding_a";			
@@ -83,11 +85,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	private String team_id;				//Team ID
 	private String team_name;			//Team name
     
-	private int hitting_ab; 			//Batting AB
-	private int hitting_rbi; 			//Batting RBI
-
 	private float pitching_era; 		//Pitching ERA
-
 	private int pitching_onbase_h;		//Batting H
 	private int pitching_onbase_s;		//Batting 1B single
 	private int pitching_onbase_d;		//Batting 2B double
@@ -105,7 +103,10 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     private int pitching_games_save;	//Pitching: Saves
     private int pitching_games_hold; 	//Pitching:Hold
     
-    private int hitting_onbase_h;		//Hitting H
+    
+    private int hitting_ab; 			//Batting AB
+	private int hitting_rbi; 			//Batting RBI	
+	private int hitting_onbase_h;		//Hitting H
     private int hitting_onbase_s;		//Hitting 1B single
     private int hitting_onbase_d;		//Hitting 2B double
     private int hitting_onbase_t;		//Hitting 3B triple
@@ -142,9 +143,56 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 			this.first_name = rs.getString(FIELD_FIRSTNAME);
 			this.last_name = rs.getString(FIELD_LASTNAME);
 			this.team_name = rs.getString(FIELD_TEAM_NAME);
-		} catch (SQLException e) {
+			this.team_id = rs.getString(FIELD_TEAM_ID);		
+			
+			this.pitching_era = rs.getFloat(FIELD_PITCHING_ERA);	
+			this.pitching_onbase_h = rs.getInt(FIELD_PITCHING_ONBASE_H);
+			this.pitching_onbase_s = rs.getInt(FIELD_PITCHING_ONBASE_S);		
+			this.pitching_onbase_d = rs.getInt(FIELD_PITCHING_ONBASE_D);
+			this.pitching_onbase_t = rs.getInt(FIELD_PITCHING_ONBASE_T);
+			this.pitching_onbase_hr = rs.getInt(FIELD_PITCHING_ONBASE_HR);
+			this.pitching_onbase_bb = rs.getInt(FIELD_PITCHING_ONBASE_BB);	
+			this.pitching_runs_earned = rs.getInt(FIELD_PITCHING_RUNS_EARNED);
+			this.pitching_runs_total = rs.getInt(FIELD_PITCHING_RUNS_TOTAL);
+			this.pitching_outs_ktotal = rs.getInt(FIELD_PITCHING_OUTS_KTOTAL);
+			this.pitching_steal_caught = rs.getInt(FIELD_PITCHING_STEAL_CAUGHT);
+			this.pitching_games_play = rs.getInt(FIELD_PITCHING_GAMES_PLAY);		
+			this.pitching_games_play = rs.getInt(FIELD_PITCHING_GAMES_PLAY);
+			this.pitching_games_win = rs.getInt(FIELD_PITCHING_GAMES_WIN);
+			this.pitching_games_loss = rs.getInt(FIELD_PITCHING_GAMES_LOSS);
+			this.pitching_games_save = rs.getInt(FIELD_PITCHING_GAMES_SAVE);
+			this.pitching_games_hold = rs.getInt(FIELD_PITCHING_GAMES_HOLD);
+			this.pitching_games_play = rs.getInt(FIELD_PITCHING_GAMES_PLAY);
+		    
+			this.hitting_ab = rs.getInt(FIELD_HITTING_AB);	
+			this.hitting_ab = rs.getInt(FIELD_HITTING_AB);
+			this.hitting_rbi = rs.getInt(FIELD_HITTING_RBI);
+			this.hitting_onbase_h = rs.getInt(FIELD_HITTING_ONBASE_H);		
+			this.hitting_onbase_s = rs.getInt(FIELD_HITTING_ONBASE_S);
+			this.hitting_onbase_d = rs.getInt(FIELD_HITTING_ONBASE_D);
+			this.hitting_onbase_t = rs.getInt(FIELD_HITTING_ONBASE_T);
+			this.hitting_onbase_hr = rs.getInt(FIELD_HITTING_ONBASE_HR);
+			this.hitting_onbase_bb = rs.getInt(FIELD_HITTING_ONBASE_BB);			
+			this.hitting_runs_earned = rs.getInt(FIELD_HITTING_RUNS_EARNED);
+			this.hitting_runs_total = rs.getInt(FIELD_HITTING_RUNS_TOTAL);			
+			this.hitting_outs_ktotal = rs.getInt(FIELD_HITTING_OUTS_KTOTAL);
+			this.hitting_steal_caught = rs.getInt(FIELD_HITTING_STEAL_CAUGHT);
+			this.hitting_steal_stolen = rs.getInt(FIELD_HITTING_STEAL_STOLEN);		
+			this.hitting_games_play = rs.getInt(FIELD_HITTING_GAMES_PLAY);
+			this.hitting_games_win = rs.getInt(FIELD_HITTING_GAMES_WIN);
+			this.hitting_games_loss = rs.getInt(FIELD_HITTING_GAMES_LOSS);
+			
+			this.fielding_po = rs.getInt(FIELD_FIELDING_PO);
+			this.fielding_error = rs.getInt(FIELD_FIELDING_ERROR);
+			this.fielding_a = rs.getInt(FIELD_FIELDING_A);
+			this.fielding_fpct = rs.getInt(FIELD_FIELDING_FPCT);
+			this.fielding_games_play = rs.getInt(FIELD_FIELDING_GAMES_PLAY);
+			this.fielding_games_win = rs.getInt(FIELD_FIELDING_GAMES_WIN);
+			this.fielding_games_loss = rs.getInt(FIELD_FIELDING_GAMES_LOSS);
+			
+		    } catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+		    	e.printStackTrace();
 		}
 	}
 
@@ -152,29 +200,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	public String getId() {
 		return id;
 	}
-	public String getFirstName() {
-		return first_name;
-	}
 
-	public void setFirstName(String firstName) {
-		this.first_name = firstName;
-	}
-
-	public String getLastName() {
-		return last_name;
-	}
-
-	public void setLastName(String lastName) {
-		this.last_name = lastName;
-	}
-
-	public String getTeam() {
-		return team_name;
-	}
-
-	public void setTeam(String team) {
-		this.team_name = team;
-	}
 	public String getFirst_name() {
 		return first_name;
 	}
@@ -190,13 +216,25 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	public String getTeam_name() {
 		return team_name;
 	}
-
-	public int getHitting_ab() {
-		return hitting_ab;
+	
+	public int getTotalBases() {
+		return hitting_onbase_h + (2 * hitting_onbase_d) + (3 * hitting_onbase_t) + (4 * hitting_onbase_hr);
 	}
-
-	public int getHitting_rbi() {
-		return hitting_rbi;
+	
+	public float getSlugging() {
+		if (hitting_ab != 0) {
+			return getTotalBases() / hitting_ab;
+		}
+		return 0.00f;
+	}
+	
+	public float getBattingAverage() {
+		if (hitting_ab != 0) {
+			return hitting_onbase_h / hitting_ab;
+		}
+		else {
+			return 0.00f;
+		}
 	}
 
 	public float getPitching_era() {
@@ -265,6 +303,14 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 
 	public int getPitching_games_hold() {
 		return pitching_games_hold;
+	}
+	
+	public int getHitting_ab() {
+		return hitting_ab;
+	}
+
+	public int getHitting_rbi() {
+		return hitting_rbi;
 	}
 
 	public int getHitting_onbase_h() {
@@ -357,12 +403,62 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		String sql = null;
 		
 		// Save this is a new record
-		sql = buildInsertSql();
+		sql = buildUpdateSql();
 		
 		// Execute the command
 		result = Database.executeSQL(sql);
 		
 		return result;
+	}
+	
+	private String buildUpdateSql() {
+		return "UPDATE " + TABLE_NAME + " " +
+				   "SET " + 
+						FIELD_FIRSTNAME + " = \"" + this.first_name + "\", " +
+						FIELD_LASTNAME + " = \"" + this.last_name + "\", " +
+						FIELD_TEAM_NAME + " = \"" + this.team_name + "\", " +
+						FIELD_TEAM_ID +  " = \"" + this.team_id + "\", " +
+						FIELD_HITTING_AB +  " = \"" + this.hitting_ab + "\", " +
+						FIELD_HITTING_RBI +  " = \"" + this.hitting_rbi + "\", " +
+						FIELD_PITCHING_ERA +  " = \"" + this.pitching_era + "\", " +
+						FIELD_PITCHING_ONBASE_H +  " = \"" + this.pitching_onbase_h + "\", " +
+						FIELD_PITCHING_ONBASE_S +  " = \"" + this.pitching_onbase_s + "\", " +
+						FIELD_PITCHING_ONBASE_D +  " = \"" + this.pitching_onbase_d + "\", " +
+						FIELD_PITCHING_ONBASE_T +  " = \"" + this.pitching_onbase_t + "\", " +
+						FIELD_PITCHING_ONBASE_HR + " = \"" + this.pitching_onbase_hr + "\", " +
+						FIELD_PITCHING_ONBASE_BB + " = \"" + this.pitching_onbase_bb + "\", " +
+						FIELD_PITCHING_RUNS_EARNED + " = \"" + this.pitching_runs_earned + "\", " +
+						FIELD_PITCHING_RUNS_TOTAL + " = \"" + this.pitching_runs_total + "\", " +
+						FIELD_PITCHING_OUTS_KTOTAL + " = \"" + this.pitching_outs_ktotal + "\", " +
+						FIELD_PITCHING_STEAL_CAUGHT +" = \"" + this.pitching_steal_caught + "\", " +
+						FIELD_PITCHING_STEAL_STOLEN + " = \"" + this.pitching_steal_stolen + "\", " +
+						FIELD_PITCHING_GAMES_PLAY + " = \"" + this.pitching_games_play + "\", " +
+						FIELD_PITCHING_GAMES_WIN + " = \"" + this.pitching_games_win + "\", " +
+						FIELD_PITCHING_GAMES_LOSS +" = \"" + this.pitching_games_loss + "\", " +
+						FIELD_PITCHING_GAMES_SAVE + " = \"" + this.pitching_games_save + "\", " +
+						FIELD_PITCHING_GAMES_HOLD + " = \"" + this.pitching_games_hold + "\", " +
+						FIELD_HITTING_ONBASE_H + " = \"" + this.hitting_onbase_h + "\", " +
+						FIELD_HITTING_ONBASE_S +" = \"" + this.hitting_onbase_s + "\", " +
+						FIELD_HITTING_ONBASE_D + " = \"" + this.hitting_onbase_d + "\", " +
+						FIELD_HITTING_ONBASE_T + " = \"" + this.hitting_onbase_t + "\", " +
+						FIELD_HITTING_ONBASE_HR + " = \"" + this.hitting_onbase_hr + "\", " +
+						FIELD_HITTING_ONBASE_BB + " = \"" + this.hitting_onbase_bb + "\", " +
+						FIELD_HITTING_RUNS_EARNED + " = \"" + this.hitting_runs_earned + "\", " +
+						FIELD_HITTING_RUNS_TOTAL + " = \"" + this.hitting_runs_total + "\", " +
+						FIELD_HITTING_OUTS_KTOTAL + " = \"" + this.hitting_outs_ktotal + "\", " +
+						FIELD_HITTING_STEAL_CAUGHT + " = \"" + this.hitting_steal_caught + "\", " +
+						FIELD_HITTING_STEAL_STOLEN + " = \"" + this.hitting_steal_stolen + "\", " +
+						FIELD_HITTING_GAMES_PLAY +" = \"" + this.hitting_games_play + "\", " +
+						FIELD_HITTING_GAMES_WIN + " = \"" + this.hitting_games_win + "\", " +
+						FIELD_HITTING_GAMES_LOSS + " = \"" + this.hitting_games_loss + "\", " +
+						FIELD_FIELDING_PO + " = \"" + this.fielding_po + "\", " +
+						FIELD_FIELDING_ERROR + " = \"" + this.fielding_error + "\", " +
+						FIELD_FIELDING_A + " = \"" + this.fielding_a + "\", " +
+						FIELD_FIELDING_FPCT + " = \"" + this.fielding_fpct + "\", " +
+						FIELD_FIELDING_GAMES_PLAY + " = \"" + this.fielding_games_play + "\", " +
+						FIELD_FIELDING_GAMES_WIN + " = \"" + this.fielding_games_win + "\", " +
+						FIELD_FIELDING_GAMES_LOSS + " = \"" + this.fielding_games_loss + "\" " +
+				"WHERE " + FIELD_ID + " = \"" + this.id + "\"";
 	}
 	
 	private String buildInsertSql() {
@@ -454,12 +550,13 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	/*
 	 * getPlayersFromDatabase provides a user to search by one, a combination, or all parameters and
 	 * 		return an ArrayList of MLB player names
+	 *  Fails if 
 	 */
-	public static ArrayList<MlbPlayer> getPlayersFromDatabase(String id_in, String fName_in, String lName_in, String team_in) {
+	public static ArrayList<MlbPlayer> getPlayersFromDatabase(MlbPlayerFilter filter) {
 		ArrayList<MlbPlayer> resultList = new ArrayList<MlbPlayer>();
 		
 		// Get the Result Set containing every Player
-		String sql = "SELECT * FROM " + TABLE_NAME + genereateWhereClause(id_in, fName_in, lName_in, team_in) + " ORDER BY " + FIELD_TEAM_NAME + ", " + FIELD_FIRSTNAME + ", " + FIELD_LASTNAME;
+		String sql = "SELECT * FROM " + TABLE_NAME + " " + filter.getWhereClause() + " ORDER BY " + FIELD_TEAM_NAME + ", " + FIELD_FIRSTNAME + ", " + FIELD_LASTNAME;
 		ResultSet rs = Database.getResultSetFromSQL(sql);
 		
 		if (rs != null) {
@@ -480,47 +577,20 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 			
 		return resultList;
 	}
-
-	private static String genereateWhereClause(String id_in, String fName_in, String lName_in, String team_in) {
-		StringBuilder whereClause = new StringBuilder();
+	
+	public static MlbPlayer getPlayerForId(String id) {
+		MlbPlayer result = null;
 		
-		// See if anything was passed in
-		if (id_in != null || fName_in != null || lName_in != null || team_in != null) {
-			Boolean fieldsAdded = false;
-			
-			// Initialize
-			whereClause.append(" WHERE ");
-			
-			// Add the fields we need
-			if (id_in != null) {
-				whereClause.append(FIELD_ID + " = \"" + id_in + "\"");
-				fieldsAdded = true;
-			} 
-			if (fName_in != null) {
-				if (fieldsAdded) {
-					whereClause.append(" AND ");
-				}
-				
-				whereClause.append(FIELD_FIRSTNAME + " = \"" + fName_in + "\"");
-				fieldsAdded = true;
-			} 
-			if (lName_in != null) {
-				if (fieldsAdded) {
-					whereClause.append(" AND ");
-				}
-				whereClause.append(FIELD_LASTNAME + " = \"" + lName_in + "\"");
-				fieldsAdded = true;
-			} 
-			if (team_in != null) {
-				if (fieldsAdded) {
-					whereClause.append(" AND ");
-				}
-				
-				whereClause.append(FIELD_TEAM_NAME + " = \"" + team_in + "\"");
-				fieldsAdded = true;
-			}
+		MlbPlayerFilter filter = new MlbPlayerFilter();
+		filter.setIdValue(id);
+
+		// Get the Selected Player
+		ArrayList<MlbPlayer> playerList = MlbPlayer.getPlayersFromDatabase(filter);
+		if (playerList.size() > 0) {
+			result = playerList.get(0);
 		}
-		return whereClause.toString();
+		
+		return result;
 	}
 	
 	/**
@@ -638,7 +708,6 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     	}
     }
     
-
     private void loadOutsData(Node node, String parentNodeName) {
         // Load "outs" data
     	if (parentNodeName.equals("hitting")) {
@@ -677,6 +746,31 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     		fielding_games_loss       = getNodesNamedInt(node, "loss");
 		}
     }
+    
+    public static ArrayList<MlbPlayer> getStatisticsFromDatabase(String id_in) {
+		ArrayList<MlbPlayer> resultList = new ArrayList<MlbPlayer>();
+		
+		// Get the Result Set containing every Player
+		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + FIELD_ID + " = \"" + id_in.toString() + "\"" +
+								" ORDER BY " + FIELD_ID;
+		ResultSet resultSet = Database.getResultSetFromSQL(sql);
+		
+		if (resultSet != null) {
+			// Loop through the Result Set and Add Each MlbPlayer to the ArrayList
+			try {
+				while(resultSet.next()){
+					MlbPlayer player = new MlbPlayer(resultSet);
+					resultList.add(player);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		// Clean up
+		Database.close();
+			
+		return resultList;
+	}
     
 	/**
 	  Method: 

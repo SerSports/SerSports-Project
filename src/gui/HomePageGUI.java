@@ -7,15 +7,26 @@ Description: GUI for the Home Page
 
 */
 package gui;
-import java.awt.Container;
-import java.awt.Image;
 
+import java.awt.Dimension;
+import java.awt.Image;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import java.awt.Color;
 import database.*;
-import client.*;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.border.LineBorder;
+import javax.swing.SwingConstants;
 
 
 /**
@@ -24,8 +35,13 @@ Class: HomePageGUI
 Description: GUI for the home page
 */
 public class HomePageGUI extends JPanel {
-	User currentUser = null;
-	JLabel userFirstName = null;
+	protected User currentUser = null;
+	protected JLabel userFirstName = null;
+	protected JButton btnSignOut;
+	protected JTable comparisonTable;
+	protected JButton btnFindBestComparison = null;
+	protected JLabel lblInsertPlayersName = null;
+	protected JLabel label = null;
 	
 	/**
 	  Method: Constructor
@@ -35,53 +51,110 @@ public class HomePageGUI extends JPanel {
 	  Description: Creates the panel
 	*/
 	public HomePageGUI() {
-		
-		//User currentUser = User.getCurrentUser();
-		//System.out.println(currentUser.getUserName());
-		//String name = currentUser.getUserName();
-		setBackground(new Color(107, 185, 240));
+		setBounds(0, 114, 1300, 597);
+		setPreferredSize(new Dimension(1000, 650));
+		setBackground(new Color(47, 52, 64));
 		setLayout(null);
 		
-		JLabel logo = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("/images/Logo1.png")).getImage();
-		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(6, 6, 100, 100);
+		JLabel diamond = new JLabel("");
+		diamond.setBounds(189, -48, 64, 64);
+		add(diamond);
+		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
+		diamond.setIcon(new ImageIcon(img2));
+		
+		JLabel logo = new JLabel("");
+		logo.setBounds(6, 0, 152, 55);
 		add(logo);
+		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
+		logo.setIcon(new ImageIcon(img));
+		
+		JLabel line = new JLabel("");
+		line.setBounds(16, 98, 508, 29);
+		add(line);
+		Image imgline = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
+		line.setIcon(new ImageIcon(imgline));
 		
 		JLabel lblYouAre = new JLabel("You are");
-		lblYouAre.setBounds(616, 189, 47, 16);
+		lblYouAre.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
+		lblYouAre.setForeground(new Color(244, 229, 192));
+		lblYouAre.setBounds(490, 155, 60, 16);
 		add(lblYouAre);
 		
-		JLabel label = new JLabel("20");
-		label.setBounds(675, 189, 16, 16);
+		label = new JLabel("");
+		label.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
+		label.setForeground(new Color(244, 229, 192));
+		label.setBounds(556, 156, 26, 19);
 		add(label);
 		
 		JLabel lblPercent = new JLabel("percent like");
-		lblPercent.setBounds(588, 217, 74, 16);
+		lblPercent.setForeground(new Color(244, 229, 192));
+		lblPercent.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
+		lblPercent.setBounds(583, 155, 100, 16);
 		add(lblPercent);
 		
-		JLabel lblInsertPlayersName = new JLabel("Insert Players name");
-		lblInsertPlayersName.setBounds(669, 217, 122, 16);
+		lblInsertPlayersName = new JLabel("Insert Players name");
+		lblInsertPlayersName.setForeground(new Color(244, 229, 192));
+		lblInsertPlayersName.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
+		lblInsertPlayersName.setBounds(678, 155, 211, 16);
 		add(lblInsertPlayersName);		
 		
 		JLabel lblWelcome = new JLabel("Welcome,");
-		lblWelcome.setBounds(153, 59, 66, 16);
+		lblWelcome.setForeground(new Color(244, 229, 192));
+		lblWelcome.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 24));
+		lblWelcome.setBounds(34, 69, 131, 29);
 		add(lblWelcome);
 		
-		//String userName = currentUser.getUserName();	
-		//System.out.println(userName);
-		//System.out.println(currentUser.getUserName());
-		userFirstName = new JLabel();//currentUser.getUserName());
-		userFirstName.setBounds(217, 59, 89, 16);
+		//calling name
+		userFirstName = new JLabel();
+		userFirstName.setForeground(new Color(244, 229, 192));
+		userFirstName.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 24));
+		userFirstName.setBounds(140, 69, 321, 29);
 		add(userFirstName);
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(259, 187, 480, 190);
+		add(scrollPane_2);
+
+		comparisonTable =  new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"}));
+		comparisonTable.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 14));
+		comparisonTable.setForeground(new Color(244, 229, 192));
+		scrollPane_2.setViewportView(comparisonTable);
+		JTableHeader header = comparisonTable.getTableHeader();
+		header.setBackground(new Color(47, 52, 64));
+		header.setForeground(new Color(244, 229, 192));
+		header.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
+		header.setBorder(new LineBorder(new Color(244, 229, 192), 2));
+		//comparisonTable.setBorder(new LineBorder(new Color(244, 229, 192), 2));
+		header.setOpaque(false);
+		comparisonTable.setOpaque(false);
+		scrollPane_2.setOpaque(false);
+		scrollPane_2.getViewport().setOpaque(false);
+		scrollPane_2.setBorder(new LineBorder(new Color(244, 229, 192), 2));
+		((DefaultTableCellRenderer)comparisonTable.getDefaultRenderer(Object.class)).setOpaque(false);
+		comparisonTable.setShowGrid(false);
+		
+
+		
+		btnFindBestComparison = new JButton("Find Best Comparison");
+		btnFindBestComparison.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnFindBestComparison.setForeground(new Color(244, 229, 192));
+		btnFindBestComparison.setFont(new Font("Bangla MN", Font.PLAIN, 16));
+		btnFindBestComparison.setBounds(382, 406, 235, 46);
+		add(btnFindBestComparison);
+		btnFindBestComparison.setActionCommand("Find Best Comparison");
+		btnFindBestComparison.setBorder(new LineBorder(new Color(244, 229, 192), 2));
+		btnFindBestComparison.setBackground(new Color(47, 52, 64));
+		
+		JLabel lblBorderlayout = new JLabel("");
+		lblBorderlayout.setBounds(16, 16, 968, 483);
+		add(lblBorderlayout);
+		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
+		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 	}
 	
-	public void loadUserInfoIntoControls()
-	{
-		// Reload the Current User
-		currentUser = User.getCurrentUser();
-		if (currentUser != null) {
-			userFirstName.setText(currentUser.getUserName());
-		}
-	}
+	
+	
 }
