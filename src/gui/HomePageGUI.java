@@ -69,7 +69,7 @@ public class HomePageGUI extends JPanel {
 		logo.setIcon(new ImageIcon(img));
 		
 		JLabel line = new JLabel("");
-		line.setBounds(16, 67, 287, 55);
+		line.setBounds(16, 98, 508, 29);
 		add(line);
 		Image imgline = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
 		line.setIcon(new ImageIcon(imgline));
@@ -77,42 +77,42 @@ public class HomePageGUI extends JPanel {
 		JLabel lblYouAre = new JLabel("You are");
 		lblYouAre.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
 		lblYouAre.setForeground(new Color(244, 229, 192));
-		lblYouAre.setBounds(305, 99, 60, 16);
+		lblYouAre.setBounds(490, 155, 60, 16);
 		add(lblYouAre);
 		
 		label = new JLabel("");
 		label.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
 		label.setForeground(new Color(244, 229, 192));
-		label.setBounds(371, 100, 26, 19);
+		label.setBounds(556, 156, 26, 19);
 		add(label);
 		
 		JLabel lblPercent = new JLabel("percent like");
 		lblPercent.setForeground(new Color(244, 229, 192));
 		lblPercent.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		lblPercent.setBounds(398, 99, 100, 16);
+		lblPercent.setBounds(583, 155, 100, 16);
 		add(lblPercent);
 		
 		lblInsertPlayersName = new JLabel("Insert Players name");
 		lblInsertPlayersName.setForeground(new Color(244, 229, 192));
 		lblInsertPlayersName.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		lblInsertPlayersName.setBounds(493, 99, 211, 16);
+		lblInsertPlayersName.setBounds(678, 155, 211, 16);
 		add(lblInsertPlayersName);		
 		
 		JLabel lblWelcome = new JLabel("Welcome,");
 		lblWelcome.setForeground(new Color(244, 229, 192));
 		lblWelcome.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 24));
-		lblWelcome.setBounds(128, 58, 131, 29);
+		lblWelcome.setBounds(34, 69, 131, 29);
 		add(lblWelcome);
 		
 		//calling name
 		userFirstName = new JLabel();
 		userFirstName.setForeground(new Color(244, 229, 192));
 		userFirstName.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 24));
-		userFirstName.setBounds(234, 58, 321, 29);
+		userFirstName.setBounds(140, 69, 321, 29);
 		add(userFirstName);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(260, 137, 480, 190);
+		scrollPane_2.setBounds(259, 187, 480, 190);
 		add(scrollPane_2);
 
 		comparisonTable =  new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"}));
@@ -142,7 +142,7 @@ public class HomePageGUI extends JPanel {
 		});
 		btnFindBestComparison.setForeground(new Color(244, 229, 192));
 		btnFindBestComparison.setFont(new Font("Bangla MN", Font.PLAIN, 16));
-		btnFindBestComparison.setBounds(382, 357, 235, 46);
+		btnFindBestComparison.setBounds(382, 406, 235, 46);
 		add(btnFindBestComparison);
 		btnFindBestComparison.setActionCommand("Find Best Comparison");
 		btnFindBestComparison.setBorder(new LineBorder(new Color(244, 229, 192), 2));
