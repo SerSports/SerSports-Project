@@ -63,7 +63,7 @@ public class UserFieldingStats extends JPanel {
 	public UserFieldingStats() {
 		
 		JLabel lblBorderlayout = new JLabel("");
-		lblBorderlayout.setBounds(-164, 21, 929, 483);
+		lblBorderlayout.setBounds(-184, 16, 968, 483);
 		add(lblBorderlayout);
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
@@ -148,6 +148,13 @@ public class UserFieldingStats extends JPanel {
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "Wins","Losses","PO","Err","Assist", "F%"}));
 		scrollPane.setViewportView(table);
+		
+		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
+		JLabel diamond = new JLabel("");
+		diamond.setBounds(167, -48, 64, 64);
+		diamond.setIcon(new ImageIcon(img2));
+		add(diamond);
+
 		
 	}
 	public void checkTextFields(){

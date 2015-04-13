@@ -44,7 +44,6 @@ public class UserStatsContainer extends JLayeredPane {
 		menuPanel.setBounds(0, 0, 200, 600);
 		add(menuPanel);
 		menuPanel.setLayout(null);
-		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
 		
 		JLabel logo = new JLabel("");
 		logo.setBounds(6, 0, 152, 55);
@@ -86,11 +85,8 @@ public class UserStatsContainer extends JLayeredPane {
 		
 		panelBodyContainer.setLayout(c1);
 		panelBodyContainer.add(batting, "1");
+
 		
-		JLabel diamond = new JLabel("");
-		diamond.setBounds(167, -48, 64, 64);
-		batting.add(diamond);
-		diamond.setIcon(new ImageIcon(img2));
 		panelBodyContainer.add(fielding,"2");
 		panelBodyContainer.add(pitching, "3");
     	c1.show(panelBodyContainer, "1");

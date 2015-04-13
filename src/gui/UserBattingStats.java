@@ -235,6 +235,12 @@ public class UserBattingStats extends JPanel {
 		lblBorderlayout.setBounds(-184, 16, 968, 483);
 		add(lblBorderlayout);
 		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
+		
+		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
+		JLabel diamond = new JLabel("");
+		diamond.setBounds(167, -48, 64, 64);
+		diamond.setIcon(new ImageIcon(img2));
+		add(diamond);
 
 		
 	}
