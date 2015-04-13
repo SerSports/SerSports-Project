@@ -88,7 +88,7 @@ public class UserStatsContainer extends JLayeredPane {
 		panelBodyContainer.add(batting, "1");
 		
 		JLabel diamond = new JLabel("");
-		diamond.setBounds(167, -41, 64, 64);
+		diamond.setBounds(167, -40, 64, 64);
 		batting.add(diamond);
 		diamond.setIcon(new ImageIcon(img2));
 		panelBodyContainer.add(fielding,"2");

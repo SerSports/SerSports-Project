@@ -73,6 +73,13 @@ public class MlbStatsGui extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		setLayout(null);
 		
+		//Menu Indicator
+		JLabel diamond = new JLabel("");
+		diamond.setBounds(830, -40, 64, 64);
+		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
+		add(diamond);
+		diamond.setIcon(new ImageIcon(img2));
+		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(251, 47, 480, 174);
 		add(scrollPane);
