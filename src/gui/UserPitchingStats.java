@@ -55,7 +55,7 @@ public class UserPitchingStats extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		
 		JLabel lblBorderlayout = new JLabel("");
-		lblBorderlayout.setBounds(-164, 21, 929, 483);
+		lblBorderlayout.setBounds(-184, 16, 968, 483);
 		add(lblBorderlayout);
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
@@ -148,6 +148,12 @@ public class UserPitchingStats extends JPanel {
 		btnDeleteStatistic.setBounds(405, 504, 143, 28);
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
+
+		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
+		JLabel diamond = new JLabel("");
+		diamond.setBounds(167, -48, 64, 64);
+		diamond.setIcon(new ImageIcon(img2));
+		add(diamond);
 		
 	}
 	
