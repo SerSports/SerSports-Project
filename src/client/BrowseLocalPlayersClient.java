@@ -95,14 +95,12 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
 	
 			// Get the Selected Player
 			ArrayList<LocalPlayer> playerList = LocalPlayer.getPlayersFromDatabase(localPlayerId, null, null, 0, null);
-			if (playerList != null) {
-				LocalPlayer selectedPlayer = playerList.get(0);
-				
-				// Load the Player's Data into the controls
-				loadBattingGameData(selectedPlayer);
-				loadFieldingGameData(selectedPlayer);
-				loadPitchingGameData(selectedPlayer);
-			}
+			LocalPlayer selectedPlayer = playerList.get(0);
+			
+			// Load the Player's Data into the controls
+			loadBattingGameData(selectedPlayer);
+			loadFieldingGameData(selectedPlayer);
+			loadPitchingGameData(selectedPlayer);
 		}
 	}
 	

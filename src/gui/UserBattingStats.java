@@ -247,6 +247,7 @@ public class UserBattingStats extends JPanel {
 			txtSO.getText() != "SO"	){
 			
 			return false;
+	
 		}
 		else{
 			return true;
