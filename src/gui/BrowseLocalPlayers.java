@@ -29,6 +29,10 @@ import java.awt.Font;
  */
 public class BrowseLocalPlayers extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9139519781491923436L;
 	// Protected Members
 	protected JTextField txtFirstName;
 	protected JTextField txtLastName;
@@ -39,10 +43,6 @@ public class BrowseLocalPlayers extends JPanel {
 	protected JTable fieldingTable;
 	protected JTable pitchingTable;
 	protected JTable battingTable;
-
-	// Private Members
-	private JLabel mlbBatting;
-	private JLabel mlbPitching;
 
 	/**
 	 * Method: Constructor Inputs: None Returns:
