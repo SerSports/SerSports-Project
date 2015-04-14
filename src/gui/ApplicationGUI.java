@@ -18,23 +18,25 @@ import java.awt.Font;
 
 
 public class ApplicationGUI extends JLayeredPane{
-	JPanel panelBodyContainer = new JPanel();
-	JPanel menuPanel = new JPanel();
-	CardLayout c1 = new CardLayout();
-	HomePageGUIClient home = new HomePageGUIClient();
-	UserStatsContainer enterStats = new UserStatsContainer();
-	MlbStatsGuiClient browseMLB = new MlbStatsGuiClient();
-	BrowseLocalPlayersClient browseLocal = new BrowseLocalPlayersClient();
-	ContactUs contactUs = new ContactUs();
-	Help FAQs = new Help();
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2185908976323552280L;
+	private JPanel panelBodyContainer = new JPanel();
+	private JPanel menuPanel = new JPanel();
+	private CardLayout c1 = new CardLayout();
+	private HomePageGUIClient home = new HomePageGUIClient();
+	private UserStatsContainer enterStats = new UserStatsContainer();
+	private MlbStatsGuiClient browseMLB = new MlbStatsGuiClient();
+	private BrowseLocalPlayersClient browseLocal = new BrowseLocalPlayersClient();
+	private ContactUs contactUs = new ContactUs();
+	private Help FAQs = new Help();
 	protected JButton btnSignOut = new JButton("SIGN OUT");
 
 	
 	public ApplicationGUI() {
 		setLayout(null);
-		//setBounds(0,0,1300,597);
-
-
+		
 		//Menu		
 		menuPanel.setBounds(0, 0, 1300, 118);
 		menuPanel.setBackground(new Color(244, 229, 192));
