@@ -27,8 +27,6 @@ Class: ContactUs
 Description: GUI for the Contact Us Page
 */
 public class ContactUs extends JPanel {
-	private JTextField txtTypeQuestion;
-	protected JButton btnSignOut;
 	/**
 	  Method: Constructor
 	  Inputs: None
@@ -47,10 +45,6 @@ public class ContactUs extends JPanel {
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		
-		JButton btnSignOut = new JButton("Sign Out");
-		btnSignOut.setBounds(1030, 20, 117, 29);
-		add(btnSignOut);
-		
 		JLabel lblEmailUs = new JLabel("Email Us: ser.sports.asu@gmail.com");
 		lblEmailUs.setFont(new Font("Bangla MN", Font.PLAIN, 18));
 		lblEmailUs.setForeground(new Color(244, 229, 192));
@@ -63,11 +57,6 @@ public class ContactUs extends JPanel {
 		lblCallUs.setBounds(81, 203, 251, 29);
 		add(lblCallUs);
 			
-		btnSignOut.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			MainGUI.setApplicationToClose(); 
-    		}
-    	});
 
 	}
 }
