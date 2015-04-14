@@ -15,6 +15,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,6 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 import database.User;
 
@@ -38,6 +40,8 @@ public class UserLoginGUI extends JPanel {
 	protected JButton btnCreateAccount_1 = new JButton("CREATE ACCOUNT");
 	protected JButton btnCreateAccount;
 	protected Image img = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
+	protected Image loginBorder = new ImageIcon(this.getClass().getResource("/images/LoginBorder.png")).getImage();
+	protected JLabel loginnBorderImage = new JLabel("");
 	protected JLabel lblbackgroundImage = new JLabel("");
 	protected Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 	MainGUI main = null;
@@ -46,21 +50,24 @@ public class UserLoginGUI extends JPanel {
 		setLayout(null);
 		setPreferredSize(new Dimension(1000, 650));
 		
+		
 		//username text field
-		txtUserName.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 14));
-		txtUserName.setBackground(new Color(47, 52, 64));
+		txtUserName.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
+		txtUserName.setBackground(new Color(47, 52, 64));	
 		txtUserName.setForeground(new Color(244, 229, 192));
-		txtUserName.setBounds(432, 199, 135, 28);
+		txtUserName.setBounds(400, 199, 200, 28);
 		txtUserName.setText("ser_sports");
 		add(txtUserName);
+		txtUserName.setHorizontalAlignment(JTextField.CENTER);
 		
 		//password text field
 		pwdPassword.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 14));
 		pwdPassword.setBackground(new Color(47, 52, 64));
 		pwdPassword.setForeground(new Color(244, 229, 192));
-		pwdPassword.setBounds(432, 246, 135, 28);
+		pwdPassword.setBounds(400, 246, 200, 28);
 		pwdPassword.setText("admin");
 		add(pwdPassword);
+		pwdPassword.setHorizontalAlignment(JTextField.CENTER);
 
 		//sign in button
 		btnSubmit.setBounds(456, 301, 88, 29);
@@ -77,6 +84,10 @@ public class UserLoginGUI extends JPanel {
 		btnCreateAccount_1.setContentAreaFilled(false);
 		btnCreateAccount_1.setForeground(new Color(244, 229, 192));
 		btnCreateAccount_1.setFont(new Font("jaf lapture", Font.PLAIN, 18));
+		
+		loginnBorderImage.setBounds(375,134,250, 300);
+		add(loginnBorderImage);
+		loginnBorderImage.setIcon(new ImageIcon(img));
 		
 		//background image
 		lblbackgroundImage.setBounds(-908, -627, 3456, 1446);

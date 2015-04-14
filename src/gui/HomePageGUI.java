@@ -42,6 +42,8 @@ public class HomePageGUI extends JPanel {
 	protected JButton btnFindBestComparison = null;
 	protected JLabel lblInsertPlayersName = null;
 	protected JLabel label = null;
+	protected Image imgbackground = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
+	protected JLabel lblbackgroundImage = new JLabel("");
 	
 	/**
 	  Method: Constructor
@@ -124,12 +126,11 @@ public class HomePageGUI extends JPanel {
 		header.setForeground(new Color(244, 229, 192));
 		header.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
 		header.setBorder(new LineBorder(new Color(244, 229, 192), 2));
-		//comparisonTable.setBorder(new LineBorder(new Color(244, 229, 192), 2));
 		header.setOpaque(false);
 		comparisonTable.setOpaque(false);
 		scrollPane_2.setOpaque(false);
 		scrollPane_2.getViewport().setOpaque(false);
-		scrollPane_2.setBorder(new LineBorder(new Color(244, 229, 192), 2));
+		scrollPane_2.setBorder(new LineBorder(new Color(244, 229, 192), 1));
 		((DefaultTableCellRenderer)comparisonTable.getDefaultRenderer(Object.class)).setOpaque(false);
 		comparisonTable.setShowGrid(false);
 		
@@ -153,6 +154,7 @@ public class HomePageGUI extends JPanel {
 		add(lblBorderlayout);
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
+		
 	}
 	
 	
