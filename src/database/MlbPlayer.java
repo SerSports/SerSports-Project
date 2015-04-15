@@ -26,6 +26,7 @@ Description: Creates MLBPlayer Object
 */
 public class MlbPlayer extends Object implements java.io.Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	// Constants
 	private static final String TABLE_NAME = "MlbPlayers";  
 	private static final String FIELD_ID = "mlbPlayerId";  

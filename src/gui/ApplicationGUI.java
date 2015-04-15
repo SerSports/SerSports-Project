@@ -24,6 +24,7 @@ public class ApplicationGUI extends JLayeredPane{
 	private static final long serialVersionUID = -2185908976323552280L;
 	private JPanel panelBodyContainer = new JPanel();
 	private JPanel menuPanel = new JPanel();
+	private JLabel logo;
 	private CardLayout c1 = new CardLayout();
 	private HomePageGUIClient home = new HomePageGUIClient();
 	private UserStatsContainer enterStats = new UserStatsContainer();
@@ -76,7 +77,7 @@ public class ApplicationGUI extends JLayeredPane{
 		btnBrowseMLB.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnBrowseMLB);
 		
-		JLabel logo = new JLabel("");
+		logo = new JLabel("");
 		logo.setBounds(6, 6, 152, 112);
 		menuPanel.add(logo);
 		logo.setIcon(new ImageIcon(img));
