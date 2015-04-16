@@ -85,7 +85,6 @@ public class UserLoginGUI extends JPanel {
 		btnCreateAccount_1.setForeground(new Color(244, 229, 192));
 		btnCreateAccount_1.setFont(new Font("jaf lapture", Font.PLAIN, 18));
 		
-		
 		//background image
 		lblbackgroundImage.setBounds(-908, -627, 3456, 1446);
 		add(lblbackgroundImage);
