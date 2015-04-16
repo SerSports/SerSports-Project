@@ -173,7 +173,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 			
 		} else {
 			JOptionPane.showMessageDialog(
-					null, "Invalid date format. Please add date in MM/DD/YYYY",
+					null, "Please add correct date in YYYY-MM-DD format",
 					"InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
 		}
 
@@ -205,15 +205,13 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 	}
 
 	public boolean isValidDate(String gameDate) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dateFormat.setLenient(false);
 		boolean result = true;
 
 		try {
 			dateFormat.parse(gameDate);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
-			// debug("Invalid date format");
 			result = false;
 		}
 
@@ -240,7 +238,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 	}
 
 	public void resetTextFields(){
-		txtDate.setText("MM/DD/YYYY");
+		txtDate.setText("YYYY-MM-DD");
 		txtGP.setText("Games Played");
 		txtW.setText("Wins");
 		txtL.setText("Loss");

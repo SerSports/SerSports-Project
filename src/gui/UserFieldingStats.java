@@ -73,7 +73,7 @@ public class UserFieldingStats extends JPanel {
 		add(lblYouAre);
 		
 		txtDate = new JTextField();
-		txtDate.setText("MM/DD/YYYY");
+		txtDate.setText("YYYY-MM-DD");
 		txtDate.setBounds(56, 96, 105, 22);
 		add(txtDate);
 		txtDate.setColumns(10);

@@ -134,7 +134,7 @@ public class UserPitchingStats extends JPanel {
 		scrollPane.setViewportView(table);
 		
 		txtDate = new JTextField();
-		txtDate.setText("MM/DD/YYYY");
+		txtDate.setText("YYYY-MM-DD");
 		txtDate.setColumns(10);
 		txtDate.setBounds(56, 96, 105, 22);
 		add(txtDate);

@@ -143,7 +143,7 @@ public class UserBattingStats extends JPanel {
 		
 		txtDate = new JTextField();
 		txtDate.setBounds(56, 96, 105, 22);
-		txtDate.setText("MM/DD/YYYY");
+		txtDate.setText("YYYY-MM-DD");
 		txtDate.setColumns(10);
 		add(txtDate);
 
@@ -157,7 +157,7 @@ public class UserBattingStats extends JPanel {
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 		
-		JLabel lblDatemmddyyyy = new JLabel("Date (MM/DD/YYYY)");
+		JLabel lblDatemmddyyyy = new JLabel("Date (YYYY-MM-DD)");
 		lblDatemmddyyyy.setBounds(45, 79, 143, 16);
 		lblDatemmddyyyy.setForeground(new Color(244, 229, 192));
 		add(lblDatemmddyyyy);
