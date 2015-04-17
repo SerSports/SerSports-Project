@@ -10,15 +10,24 @@ package gui;
 
 import java.awt.Dimension;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
 import java.awt.Color;
+
+import javax.swing.BorderFactory;
+import javax.swing.JTextField;
+import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+
 import java.awt.Font;
 
+import javax.swing.SwingConstants;
 
 /**
 Class: UserBattingStats
@@ -27,10 +36,6 @@ Description: GUI for User Batting stats
 */
 public class UserBattingStats extends JPanel {	
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1844009740643893414L;
 	protected JTable table;
 	protected ModifiedJTextField txtAB = new ModifiedJTextField();
 	protected ModifiedJTextField txtH = new ModifiedJTextField();
@@ -43,11 +48,9 @@ public class UserBattingStats extends JPanel {
 	protected ModifiedJTextField txtHR = new ModifiedJTextField();
 	protected ModifiedJTextField txtSO = new ModifiedJTextField();
 	protected ModifiedJTextField txtDate = new ModifiedJTextField();
-	protected ModifiedJTextField txtGP = new ModifiedJTextField();
 	protected ModifiedJButtonStyle1 btnUpdateStatistic = new ModifiedJButtonStyle1("Update Statistic");
 	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("Delete Statistic");	
 	protected ModifiedJButtonStyle1 submitBattingStats = new ModifiedJButtonStyle1("Submit");
-	private Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 
 	/**
 	  Method: Constructor
@@ -57,86 +60,72 @@ public class UserBattingStats extends JPanel {
 	  Description: Creates the panel
 	*/
 	public UserBattingStats() {	
-		
 		setLayout(null);
 		setPreferredSize(new Dimension(800, 650));
 		setBackground(new Color(47, 52, 64));
-
-		//Enter a New Game Stats Label
-		JLabel lblEnter = new JLabel("Enter a New Game Stats");
-		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
-		lblEnter.setBounds(278, 37, 244, 31);
-		lblEnter.setForeground(new Color(244, 229, 192));
-		add(lblEnter);
+		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		
-		
-		//User Input Fields
-		txtDate.setBounds(65, 97, 158, 31);
-		txtDate.setText("YYYY-MM-DD");
-		add(txtDate);		
-		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
-		
-		txtGP.setBounds(65, 97, 158, 31);
-		txtGP.setText("Games Played Holder");
-		add(txtGP);		
-		txtGP.addFocusListener(new ModifiedFocusAdapter(txtGP, "Games Played Holder"));
+		JLabel lblYouAre = new JLabel("Enter a New Game Stats");
+		lblYouAre.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
+		lblYouAre.setBounds(278, 37, 244, 31);
+		lblYouAre.setForeground(new Color(244, 229, 192));
+		add(lblYouAre);
 		
 		txtAB.setBounds(230, 97, 158, 31);
-		txtAB.setText("At Bat");
+		txtAB.setText("At Bats");
+		txtAB.setColumns(10);
 		add(txtAB);
-		txtAB.addFocusListener(new ModifiedFocusAdapter(txtAB, "At Bat"));
 		
 		txtH.setBounds(394, 97, 158, 31);
 		txtH.setText("Hits");
+		txtH.setColumns(10);
 		add(txtH);
-		txtH.addFocusListener(new ModifiedFocusAdapter(txtH, "Hits"));
 		
 		txtRBI.setBounds(560, 97, 158, 31);
 		txtRBI.setText("RBI");
+		txtRBI.setColumns(10);
 		add(txtRBI);
-		txtRBI.addFocusListener(new ModifiedFocusAdapter(txtRBI, "RBI"));
 		
 		txtb_1.setBounds(65, 140, 158, 31);
 		txtb_1.setText("1B");
+		txtb_1.setColumns(10);
 		add(txtb_1);
-		txtb_1.addFocusListener(new ModifiedFocusAdapter(txtb_1, "1B"));
 		
 		txtb_2.setBounds(230, 140, 158, 31);
 		txtb_2.setText("2B");
+		txtb_2.setColumns(10);
 		add(txtb_2);
-		txtb_2.addFocusListener(new ModifiedFocusAdapter(txtb_2, "2B"));
 		
 		txtb_3.setBounds(394, 140, 158, 31);
 		txtb_3.setText("3B");
+		txtb_3.setColumns(10);
 		add(txtb_3);
-		txtb_3.addFocusListener(new ModifiedFocusAdapter(txtb_3, "3B"));
 		
 		txtRuns.setBounds(560, 140, 158, 31);
 		txtRuns.setText("Runs");
+		txtRuns.setColumns(10);
 		add(txtRuns);
-		txtRuns.addFocusListener(new ModifiedFocusAdapter(txtRuns, "Runs"));
 		
 		txtSB.setBounds(65, 183, 158, 31);
 		txtSB.setText("Stolen Bases");
+		txtSB.setColumns(10);
 		add(txtSB);
-		txtSB.addFocusListener(new ModifiedFocusAdapter(txtSB, "Stolen Bases"));
 		
 		txtHR.setBounds(230, 183, 158, 31);
 		txtHR.setText("Home Runs");
+		txtHR.setColumns(10);
 		add(txtHR);
-		txtHR.addFocusListener(new ModifiedFocusAdapter(txtHR, "Home Runs"));
 		
 		txtSO.setBounds(394, 183, 158, 31);
 		txtSO.setText("Strikeouts");
+		txtSO.setColumns(10);
 		add(txtSO);
-		txtSO.addFocusListener(new ModifiedFocusAdapter(txtSO, "Strikeouts"));
 		
-		//Submitting stats button
+		//JButton 
 		submitBattingStats.setBounds(340, 230, 117, 29);
 		add(submitBattingStats);
 		submitBattingStats.setActionCommand("SubmitBattingStats");	
 		
-		//ScrollingPane and Containing Stats table
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(33, 281, 734, 145);
 		add(scrollPane);
@@ -144,23 +133,24 @@ public class UserBattingStats extends JPanel {
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}));
 		scrollPane.setViewportView(table);
 		
-		//Update Stats Button
+		txtDate.setBounds(65, 97, 158, 31);
+		txtDate.setText("YYYY-MM-DD");
+		add(txtDate);		
+		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
+		
 		btnUpdateStatistic.setBounds(278, 438, 117, 29);
 		add(btnUpdateStatistic);
 		btnUpdateStatistic.setActionCommand("UpdateStatistic");
-		
-		//Delete Stats Button
+	
 		btnDeleteStatistic.setBounds(405, 438, 117, 29);
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 		
-		//Border Image
 		JLabel lblBorderlayout = new JLabel("");
 		lblBorderlayout.setBounds(-184, 16, 968, 483);
 		add(lblBorderlayout);
 		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 		
-		//Menu Indicator
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
 		JLabel diamond = new JLabel("");
 		diamond.setBounds(167, -48, 64, 64);
