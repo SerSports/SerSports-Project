@@ -125,7 +125,7 @@ public class UserBattingStats extends JPanel {
 		add(txtSO);
 		txtSO.addFocusListener(new ModifiedFocusAdapter(txtSO, "Strikeouts"));
 		
-		//JButton 
+		//Submitting stats button
 		submitBattingStats.setBounds(340, 230, 117, 29);
 		add(submitBattingStats);
 		submitBattingStats.setActionCommand("SubmitBattingStats");	
