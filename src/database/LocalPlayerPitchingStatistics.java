@@ -13,7 +13,6 @@ public class LocalPlayerPitchingStatistics {
 	private static final String FIELD_TEAM_NAME = "team_name";
 	private static final String FIELD_POSITION = "position";
 	private static final String FIELD_GAME_DATE = "game_date";
-	private static final String FIELD_PITCHING_GAMES_PLAY = "pitching_games_play"; 	// games played (gp)
 	private static final String FIELD_PITCHING_GAMES_WIN = "pitching_games_win"; 	// win (w)
 	private static final String FIELD_PITCHING_GAMES_LOSS = "pitching_games_loss"; 	// loss (l)
 	private static final String FIELD_PITCHING_ERA = "pitching_era"; // Earned run average overall/per season (era)
@@ -29,7 +28,6 @@ public class LocalPlayerPitchingStatistics {
 	private String team_name;
 	private String position;
 	private String game_date;
-	private int pitching_games_play; // Pitching games played
 	private int pitching_games_win; // Pitching game won
 	private int pitching_games_loss; // Pitching game lost
 	private float pitching_era; // Pitching: ERA
@@ -65,10 +63,6 @@ public class LocalPlayerPitchingStatistics {
 
 	public int getPitching_runs_total() {
 		return pitching_runs_total;
-	}
-
-	public int getPitching_games_play() {
-		return pitching_games_play;
 	}
 
 	public int getPitching_games_win() {
@@ -110,7 +104,6 @@ public class LocalPlayerPitchingStatistics {
 			this.game_date = rs.getString(FIELD_GAME_DATE);
 			this.pitching_era = rs.getFloat(FIELD_PITCHING_ERA);
 			this.pitching_runs_total = rs.getInt(FIELD_PITCHING_RUNS_TOTAL);
-			this.pitching_games_play = rs.getInt(FIELD_PITCHING_GAMES_PLAY);
 			this.pitching_games_win = rs.getInt(FIELD_PITCHING_GAMES_WIN);
 			this.pitching_games_loss = rs.getInt(FIELD_PITCHING_GAMES_LOSS);
 			this.pitching_games_save = rs.getInt(FIELD_PITCHING_GAMES_SAVE);
@@ -152,17 +145,13 @@ public class LocalPlayerPitchingStatistics {
 	}
 
 	//add local player's pitching statistics
-	public static void addLocalPlayerPitchingStatistics(String date, String gp,
+	public static void addLocalPlayerPitchingStatistics(String date,
 			String w, String l, String era, String saves, String hits,
 			String holds, String runs, String hbp) {
 
-		int igp, iw, il, iera, isaves, ihits, iholds, iruns, ihbp;
+		int iw, il, iera, isaves, ihits, iholds, iruns, ihbp;
 		try {
 			// parse strings into integers where appropriate
-			if (notNumeric(gp) != true)
-				igp = Integer.parseInt(gp);
-			else
-				igp = 0;
 			if (notNumeric(w) != true)
 				iw = Integer.parseInt(w);
 			else
@@ -207,16 +196,15 @@ public class LocalPlayerPitchingStatistics {
 			User currentUser = User.getCurrentUser();
 
 			Database.executeSQL("INSERT INTO " + TABLE_NAME + "(" + FIELD_LOCAL_PLAYER_ID
-					+ ", " + FIELD_GAME_DATE + ", " + FIELD_PITCHING_GAMES_PLAY
-					+ ", " + FIELD_PITCHING_GAMES_WIN + ", "
+					+ ", " + FIELD_GAME_DATE + ", " + FIELD_PITCHING_GAMES_WIN + ", "
 					+ FIELD_PITCHING_GAMES_LOSS + ", " + FIELD_PITCHING_ERA
 					+ ", " + FIELD_PITCHING_GAMES_SAVE + ", "
 					+ FIELD_PITCHING_GAMES_HIT + ", "
 					+ FIELD_PITCHING_GAMES_HOLD + ", "
 					+ FIELD_PITCHING_RUNS_TOTAL + ", " + FIELD_PITCHING_HBP
 					+ ") " + "VALUES (\"" + currentUser.getLocalPlayerId()
-					+ "\", " + "\"" + date + "\", " + "\"" + igp + "\", "
-					+ "\"" + iw + "\", " + "\"" + il + "\", " + "\"" + iera
+					+ "\", " + "\"" + date + "\", " + "\"" + iw + "\", " + "\"" + il 
+					+ "\", " + "\"" + iera
 					+ "\", " + "\"" + isaves + "\", " + "\"" + ihits + "\", "
 					+ "\"" + iholds + "\", " + "\"" + iruns + "\", " + "\""
 					+ ihbp + "\");");

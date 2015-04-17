@@ -122,7 +122,7 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 			// Add the Local Players to the List
 			for (LocalPlayerFieldingStatistics m : currentPlayerFieldingStatistics) {
 				Object[] row = { m.getLocalPlayersFieldingStatisticsID(),
-						m.getGame_date(), m.getFielding_games_play(),
+						m.getGame_date(),
 						m.getFielding_games_win(), m.getFielding_games_loss(),
 						m.getFielding_po(), m.getFielding_error(),
 						m.getFielding_assist(), m.getFielding_fpct() };
@@ -136,7 +136,6 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 
 	public void submitFieldingStatistic(){
 		String date = txtDate.getText();
-		String gp = txtGP.getText();
 		String wins = txtWins.getText();
 		String loss = txtLoss.getText();
 		String po = txtPo.getText();
@@ -150,7 +149,6 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		if (valid == true) {
 			// Check for empty or invalid String
 			isValidInput(date);
-			isValidInput(gp);
 			isValidInput(wins);
 			isValidInput(loss);
 			isValidInput(po);
@@ -159,7 +157,7 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 			isValidInput(fpct);
 			
 			// Add input into user database, then display all game statistics
-			LocalPlayerFieldingStatistics.addLocalPlayerFieldingStatistics(date, gp, wins,
+			LocalPlayerFieldingStatistics.addLocalPlayerFieldingStatistics(date, wins,
 							loss, po, error, assist, fpct);
 
 			// reload statistics into table
@@ -236,7 +234,6 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 
 	public void resetTextFields(){
 		txtDate.setText("YYYY-MM-DD");
-		txtGP.setText("Games Played");
 		txtWins.setText("Wins");
 		txtLoss.setText("Losses");
 		txtPo.setText("PO");

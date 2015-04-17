@@ -109,7 +109,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 
 		// Set up the table
 		DefaultTableModel newTable = new DefaultTableModel(new Object[] {
-				"StatID", "Date", "GP", "W", "L", "ERA", "SAVES", "HITS",
+				"StatID", "Date", "W", "L", "ERA", "SAVES", "HITS",
 				"HOLDS", "RUNS", "HBP" }, 0);
 
 		if (User.getCurrentUser() != null) {
@@ -123,8 +123,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 			// Add the Local Players to the List
 			for (LocalPlayerPitchingStatistics m : currentPlayerPitchingStatistics) {
 				Object[] row = { m.getLocalPlayersPitchingStatisticsID(),
-						m.getGame_date(), m.getPitching_games_play(),
-						m.getPitching_games_win(), m.getPitching_games_loss(),
+						m.getGame_date(), m.getPitching_games_win(), m.getPitching_games_loss(),
 						m.getPitching_era(), m.getPitching_games_save(),
 						m.getPitching_games_hit(), m.getPitching_games_hold(),
 						m.getPitching_runs_total(), m.getPitching_hbp() };
@@ -138,7 +137,6 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 	
 	public void submitPitchingStatistic(){
 		String date = txtDate.getText();
-		String gp = txtGP.getText();
 		String w = txtW.getText();
 		String l = txtL.getText();
 		String era = txtERA.getText();
@@ -163,7 +161,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 			isValidInput(hbp);
 
 			// Add input into user database, then display all game statistics
-			LocalPlayerPitchingStatistics.addLocalPlayerPitchingStatistics(date, gp, w, l,
+			LocalPlayerPitchingStatistics.addLocalPlayerPitchingStatistics(date, w, l,
 							era, saves, hits, holds, runs, hbp);
 
 			// reload statistics into table
@@ -239,7 +237,6 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 
 	public void resetTextFields(){
 		txtDate.setText("YYYY-MM-DD");
-		txtGP.setText("Games Played");
 		txtW.setText("Wins");
 		txtL.setText("Loss");
 		txtERA.setText("ERA");

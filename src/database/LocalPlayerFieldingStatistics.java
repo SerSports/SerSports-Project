@@ -17,7 +17,6 @@ public class LocalPlayerFieldingStatistics {
 	private static final String FIELD_FIELDING_ERROR = "fielding_error";
 	private static final String FIELD_FIELDING_ASSIST = "fielding_assist";
 	private static final String FIELD_FIELDING_FPCT = "fielding_fpct";
-	private static final String FIELD_FIELDING_GAMES_PLAY = "fielding_games_play";
 	private static final String FIELD_FIELDING_GAMES_WIN = "fielding_games_win";
 	private static final String FIELD_FIELDING_GAMES_LOSS = "fielding_games_loss";
 
@@ -31,7 +30,6 @@ public class LocalPlayerFieldingStatistics {
 	private int fielding_error; // Fielding Error
 	private int fielding_assist; // Fielding Assists
 	private float fielding_fpct; // Fielding Fielding Percentage
-	private int fielding_games_play; // Fielding GP games played
 	private int fielding_games_win; // Fielding: W
 	private int fielding_games_loss; // Fielding: L
 
@@ -70,12 +68,8 @@ public class LocalPlayerFieldingStatistics {
 	public float getFielding_fpct() {
 		return fielding_fpct;
 	}
-
-	public int getFielding_games_play() {
-		return fielding_games_play;
-	}
-
-	public int getFielding_games_win() {
+	
+	public int getFielding_games_win(){
 		return fielding_games_win;
 	}
 
@@ -100,7 +94,6 @@ public class LocalPlayerFieldingStatistics {
 			this.fielding_error = rs.getInt(FIELD_FIELDING_ERROR);
 			this.fielding_assist = rs.getInt(FIELD_FIELDING_ASSIST);
 			this.fielding_fpct = rs.getFloat(FIELD_FIELDING_FPCT);
-			this.fielding_games_play = rs.getInt(FIELD_FIELDING_GAMES_PLAY);
 			this.fielding_games_win = rs.getInt(FIELD_FIELDING_GAMES_WIN);
 			this.fielding_games_loss = rs.getInt(FIELD_FIELDING_GAMES_LOSS);
 		} catch (SQLException e) {
@@ -140,17 +133,13 @@ public class LocalPlayerFieldingStatistics {
 	}
 
 	// get all the local player's fielding statistics
-	public static void addLocalPlayerFieldingStatistics(String date, String gp,
+	public static void addLocalPlayerFieldingStatistics(String date,
 			String w, String l, String po, String error, String assist,
 			String fpct) {
 
-		int igp, iw, il, ipo, ierror, iassist, ifpct;
+		int iw, il, ipo, ierror, iassist, ifpct;
 		try {
 			// parse strings into integers where appropriate
-			if (notNumeric(gp) != true)
-				igp = Integer.parseInt(gp);
-			else
-				igp = 0;
 			if (notNumeric(w) != true)
 				iw = Integer.parseInt(w);
 			else
@@ -187,13 +176,12 @@ public class LocalPlayerFieldingStatistics {
 			User currentUser = User.getCurrentUser();
 
 			Database.executeSQL("INSERT INTO " + TABLE_NAME + "(" + FIELD_LOCAL_PLAYER_ID
-					+ ", " + FIELD_GAME_DATE + ", " + FIELD_FIELDING_GAMES_PLAY
-					+ ", " + FIELD_FIELDING_GAMES_WIN + ", "
+					+ ", " + FIELD_GAME_DATE + ", " + FIELD_FIELDING_GAMES_WIN + ", "
 					+ FIELD_FIELDING_GAMES_LOSS + ", " + FIELD_FIELDING_PO
 					+ ", " + FIELD_FIELDING_ERROR + ", "
 					+ FIELD_FIELDING_ASSIST + ", " + FIELD_FIELDING_FPCT + ") "
 					+ "VALUES (\"" + currentUser.getLocalPlayerId() + "\", "
-					+ "\"" + date + "\", " + "\"" + igp + "\", " + "\"" + iw
+					+ "\"" + date + "\", " + "\"" + iw
 					+ "\", " + "\"" + il + "\", " + "\"" + ipo + "\", " + "\""
 					+ ierror + "\", " + "\"" + iassist + "\", " + "\"" + ifpct
 					+ "\");");

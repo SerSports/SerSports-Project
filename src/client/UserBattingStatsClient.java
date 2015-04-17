@@ -127,7 +127,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	public void populateLocalPlayersBattingTable() {
 		
 		// Set up the table
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "StatID", "Date", "Games Played",
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "StatID", "Date",
 				"AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO", "BA"}, 0);
 
 		if(User.getCurrentUser() != null){
@@ -141,7 +141,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			for (LocalPlayerBattingStatistics m : currentPlayerBattingStatistics) {
 				setBattingAverage( (double) m.getHitting_onbase_h(), (double) m.getHitting_ab());
 				Object[] row = { m.getLocalPlayersHittingStatisticsID(), 
-						m.getGame_date(), m.getHitting_games_play(), 
+						m.getGame_date(), 
 						m.getHitting_ab(), m.getHitting_onbase_h(), 
 						m.getHitting_rbi(), m.getHitting_onbase_s(), 
 						m.getHitting_onbase_d(), m.getHitting_onbase_t(), 
@@ -159,7 +159,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	public void submitBattingStatistic(){
 
 		String date = txtDate.getText();
-		String gp = txtGP.getText();
 		String ab = txtAB.getText();
 		String h = txtH.getText();
 		String rbi = txtRBI.getText();
@@ -176,7 +175,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		//collect values if user entered the correct date format
 		if (valid == true){
 			// Check for empty or invalid String
-			isValidInput(gp);
             isValidInput(ab);
             isValidInput(h);
             isValidInput(rbi);
@@ -189,7 +187,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
             isValidInput(so);
             
             //Add input into user database, then display all game statistics
-            LocalPlayerBattingStatistics.addLocalPlayerBattingStatistics(date, gp, ab, h, rbi, 
+            LocalPlayerBattingStatistics.addLocalPlayerBattingStatistics(date, ab, h, rbi, 
             		b1, b2, b3, runs, sb, hr, so);
             
             //reload statistics into table
@@ -264,7 +262,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	
 	public void resetTextFields(){
 		txtDate.setText("YYYY-MM-DD");
-		txtGP.setText("Games Played");
 		txtAB.setText("AB");
 		txtH.setText("H");
 		txtRBI.setText("RBI");

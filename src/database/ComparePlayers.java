@@ -79,7 +79,7 @@ public class ComparePlayers {
 			battingAverageLocal = 0.00f;
 		}
 		
-		float[] localScores = {lpStats.getHitting_games_play(), lpStats.getHitting_ab(), lpStats.getHitting_runs_total(), lpStats.getHitting_onbase_h(), 
+		float[] localScores = {0, lpStats.getHitting_ab(), lpStats.getHitting_runs_total(), lpStats.getHitting_onbase_h(), 
 				lpStats.getHitting_onbase_d(), lpStats.getHitting_onbase_t(), lpStats.getHitting_onbase_hr(), lpStats.getHitting_rbi(),
 				lpStats.getHitting_outs_ktotal(), lpStats.getHitting_steal_stolen()};
 		localBAverage = battingAverageLocal;

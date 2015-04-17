@@ -26,8 +26,6 @@ public class LocalPlayerBattingStatistics {
 	private static final String FIELD_HITTING_RUNS_TOTAL = "hitting_runs_total";
 	private static final String FIELD_HITTING_OUTS_KTOTAL = "hitting_outs_ktotal";
 	private static final String FIELD_HITTING_STEAL_STOLEN = "hitting_steal_stolen";
-	private static final String FIELD_HITTING_GAMES_PLAY = "hitting_games_play";
-	//private static final String FIELD_HITTING_GAMES_LOSS = "hitting_games_loss";
 
 	// Members
 	private int localPlayersHittingStatisticsID;
@@ -46,7 +44,6 @@ public class LocalPlayerBattingStatistics {
 	private int hitting_runs_total;
 	private int hitting_outs_ktotal;
 	private int hitting_steal_stolen;
-	private int hitting_games_play;
 	//private int hitting_games_loss;
 
 	public int getLocalPlayersHittingStatisticsID() {
@@ -124,14 +121,6 @@ public class LocalPlayerBattingStatistics {
 		return hitting_steal_stolen;
 	}
 
-	public int getHitting_games_play() {
-		return hitting_games_play;
-	}
-/*
-	public int getHitting_games_loss() {
-		return hitting_games_loss;
-	}
-*/
 	/**
 	 * Method: Constructor Inputs: ResultSet rs Returns:
 	 * 
@@ -156,10 +145,7 @@ public class LocalPlayerBattingStatistics {
 			this.hitting_runs_total = rs.getInt(FIELD_HITTING_RUNS_TOTAL);
 			this.hitting_outs_ktotal = rs.getInt(FIELD_HITTING_OUTS_KTOTAL);
 			this.hitting_steal_stolen = rs.getInt(FIELD_HITTING_STEAL_STOLEN);
-			this.hitting_games_play = rs.getInt(FIELD_HITTING_GAMES_PLAY);
-			//this.hitting_games_loss = rs.getInt(FIELD_HITTING_GAMES_LOSS);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -194,17 +180,13 @@ public class LocalPlayerBattingStatistics {
 
 	// add local player's batting statistics to localPlayerBattingStatistics
 	// table
-	public static void addLocalPlayerBattingStatistics(String date, String gp,
+	public static void addLocalPlayerBattingStatistics(String date,
 			String ab, String h, String rbi, String b1, String b2, String b3,
 			String runs, String sb, String hr, String so) {
 
-		int igp, iab, ih, irbi, ib1, ib2, ib3, iruns, isb, ihr, iso;
+		int iab, ih, irbi, ib1, ib2, ib3, iruns, isb, ihr, iso;
 		try {
 			// parse strings into integers where appropriate
-			if (notNumeric(gp) != true)
-				igp = Integer.parseInt(gp);
-			else
-				igp = 0;
 			if (notNumeric(ab) != true)
 				iab = Integer.parseInt(ab);
 			else
@@ -265,14 +247,12 @@ public class LocalPlayerBattingStatistics {
 					+ FIELD_HITTING_ONBASE_T + ", " + FIELD_HITTING_ONBASE_HR
 					+ ", " + FIELD_HITTING_RUNS_TOTAL + ", "
 					+ FIELD_HITTING_OUTS_KTOTAL + ", "
-					+ FIELD_HITTING_STEAL_STOLEN + ", "
-					+ FIELD_HITTING_GAMES_PLAY + ") " + "VALUES (\""
+					+ FIELD_HITTING_STEAL_STOLEN + ") " + "VALUES (\""
 					+ currentUser.getLocalPlayerId() + "\", " + "\"" + date
 					+ "\", " + "\"" + iab + "\", " + "\"" + irbi + "\", "
 					+ "\"" + ih + "\", " + "\"" + ib1 + "\", " + "\"" + ib2
 					+ "\", " + "\"" + ib3 + "\", " + "\"" + ihr + "\", " + "\""
-					+ iruns + "\", " + "\"" + iso + "\", " + "\"" + isb
-					+ "\", " + "\"" + igp + "\");");
+					+ iruns + "\", " + "\"" + iso + "\", " + "\"" + isb + "\");");
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
