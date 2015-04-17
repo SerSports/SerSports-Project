@@ -72,10 +72,9 @@ public class UserBattingStats extends JPanel {
 		add(lblYouAre);
 		
 		txtAB.setBounds(230, 97, 158, 31);
-		txtAB.setText("At Bats");
-		txtAB.setColumns(10);
+		txtAB.setText("At Bat");
 		add(txtAB);
-		txtAB.addFocusListener(new ModifiedFocusAdapter(txtAB, "At Bats"));
+		txtAB.addFocusListener(new ModifiedFocusAdapter(txtAB, "At Bat"));
 		
 		txtH.setBounds(394, 97, 158, 31);
 		txtH.setText("Hits");
