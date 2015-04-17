@@ -9,16 +9,28 @@ Description: GUI for handling the User Batting Stats input
 package gui;
 
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
 import java.awt.Color;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+
 import java.awt.Font;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.SwingConstants;
 
 /**
 Class: UserBattingStats
@@ -28,7 +40,6 @@ Description: GUI for User Batting stats
 public class UserBattingStats extends JPanel {	
 	
 	protected JTable table;
-	protected JTextField txtGP;
 	protected JTextField txtAB;
 	protected JTextField txtH;
 	protected JTextField txtRBI;
@@ -62,21 +73,15 @@ public class UserBattingStats extends JPanel {
 		lblYouAre.setForeground(new Color(244, 229, 192));
 		add(lblYouAre);
 		
-		txtGP = new JTextField();
-		txtGP.setBounds(56, 140, 105, 22);
-		txtGP.setText("Games Played");
-		add(txtGP);
-		txtGP.setColumns(10);
-		
 		txtAB = new JTextField();
 		txtAB.setBounds(56, 184, 105, 22);
-		txtAB.setText("AB");
+		txtAB.setText("At Bats");
 		txtAB.setColumns(10);
 		add(txtAB);
 		
 		txtH = new JTextField();
 		txtH.setBounds(215, 96, 105, 22);
-		txtH.setText("H");
+		txtH.setText("Hits");
 		txtH.setColumns(10);
 		add(txtH);
 		
@@ -112,19 +117,19 @@ public class UserBattingStats extends JPanel {
 		
 		txtSB = new JTextField();
 		txtSB.setBounds(488, 184, 105, 22);
-		txtSB.setText("SB");
+		txtSB.setText("Stolen Bases");
 		txtSB.setColumns(10);
 		add(txtSB);
 		
 		txtHR = new JTextField();
 		txtHR.setBounds(488, 96, 105, 22);
-		txtHR.setText("HR");
+		txtHR.setText("Home Runs");
 		txtHR.setColumns(10);
 		add(txtHR);
 		
 		txtSO = new JTextField();
 		txtSO.setBounds(488, 140, 105, 22);
-		txtSO.setText("SO");
+		txtSO.setText("Strikeouts");
 		txtSO.setColumns(10);
 		add(txtSO);
 		
@@ -142,10 +147,29 @@ public class UserBattingStats extends JPanel {
 		scrollPane.setViewportView(table);
 		
 		txtDate = new JTextField();
-		txtDate.setBounds(56, 96, 105, 22);
-		txtDate.setText("YYYY-MM-DD");
+		txtDate.setHorizontalAlignment(SwingConstants.CENTER);
+		txtDate.setFont(new Font("Helvetica", Font.PLAIN, 14));
+		txtDate.setForeground(Color.WHITE);
+		txtDate.setBackground(Color.GRAY);
+		txtDate.setBounds(20, 79, 164, 36);
+		txtDate.setText("(DATE) YYYY-MM-DD");
 		txtDate.setColumns(10);
 		add(txtDate);
+		//String text = txtDate.getText();
+		txtDate.addFocusListener(new FocusAdapter(){
+            @Override
+            public void focusGained(FocusEvent e){
+            	if (txtDate.getText().equals("(DATE) YYYY-MM-DD")){
+                txtDate.setText(""); }
+            }
+            @Override
+            public void focusLost(FocusEvent e){
+            	if (txtDate.getText().equals("")){
+            	txtDate.setText("(DATE) YYYY-MM-DD");}
+            }
+        });
+		
+		
 
 		btnUpdateStatistic = new JButton("Update Statistic");
 		btnUpdateStatistic.setBounds(171, 467, 143, 28);
@@ -156,21 +180,6 @@ public class UserBattingStats extends JPanel {
 		btnDeleteStatistic.setBounds(339, 467, 143, 28);
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
-		
-		JLabel lblDatemmddyyyy = new JLabel("Date (YYYY-MM-DD)");
-		lblDatemmddyyyy.setBounds(45, 79, 143, 16);
-		lblDatemmddyyyy.setForeground(new Color(244, 229, 192));
-		add(lblDatemmddyyyy);
-		
-		JLabel lblAb = new JLabel("AB");
-		lblAb.setBounds(100, 168, 22, 16);
-		lblAb.setForeground(new Color(244, 229, 192));
-		add(lblAb);
-		
-		JLabel lblGamesPlayed = new JLabel("Games Played");
-		lblGamesPlayed.setBounds(66, 124, 86, 16);
-		lblGamesPlayed.setForeground(new Color(244, 229, 192));
-		add(lblGamesPlayed);
 		
 		JLabel lblHits = new JLabel("Hits");
 		lblHits.setBounds(254, 79, 40, 16);
@@ -234,7 +243,6 @@ public class UserBattingStats extends JPanel {
 	public boolean checkTextFields(){
 		//Batting
 		if (txtDate.getText() != "MM/DD/YYYY" ||
-			txtGP.getText() != "Games Played" ||
 			txtAB.getText() != "AB" ||
 			txtH.getText() != "H" ||
 			txtRBI.getText() != "RBI" ||

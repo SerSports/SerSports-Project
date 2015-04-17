@@ -118,6 +118,8 @@ public class HomePageGUI extends JPanel {
 		add(scrollPane_2);
 
 		comparisonTable =  new JTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"}));
+		comparisonTable.setShowHorizontalLines(false);
+		comparisonTable.setShowVerticalLines(false);
 		comparisonTable.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 14));
 		comparisonTable.setForeground(new Color(244, 229, 192));
 		scrollPane_2.setViewportView(comparisonTable);
