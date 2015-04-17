@@ -62,11 +62,11 @@ public class UserBattingStats extends JPanel {
 		setBackground(new Color(47, 52, 64));
 
 		//Enter a New Game Stats Label
-		JLabel lblYouAre = new JLabel("Enter a New Game Stats");
-		lblYouAre.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
-		lblYouAre.setBounds(278, 37, 244, 31);
-		lblYouAre.setForeground(new Color(244, 229, 192));
-		add(lblYouAre);
+		JLabel lblEnter = new JLabel("Enter a New Game Stats");
+		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
+		lblEnter.setBounds(278, 37, 244, 31);
+		lblEnter.setForeground(new Color(244, 229, 192));
+		add(lblEnter);
 		
 		
 		//User Input Fields
@@ -82,55 +82,46 @@ public class UserBattingStats extends JPanel {
 		
 		txtH.setBounds(394, 97, 158, 31);
 		txtH.setText("Hits");
-		txtH.setColumns(10);
 		add(txtH);
 		txtH.addFocusListener(new ModifiedFocusAdapter(txtH, "Hits"));
 		
 		txtRBI.setBounds(560, 97, 158, 31);
 		txtRBI.setText("RBI");
-		txtRBI.setColumns(10);
 		add(txtRBI);
 		txtRBI.addFocusListener(new ModifiedFocusAdapter(txtRBI, "RBI"));
 		
 		txtb_1.setBounds(65, 140, 158, 31);
 		txtb_1.setText("1B");
-		txtb_1.setColumns(10);
 		add(txtb_1);
 		txtb_1.addFocusListener(new ModifiedFocusAdapter(txtb_1, "1B"));
 		
 		txtb_2.setBounds(230, 140, 158, 31);
 		txtb_2.setText("2B");
-		txtb_2.setColumns(10);
 		add(txtb_2);
 		txtb_2.addFocusListener(new ModifiedFocusAdapter(txtb_2, "2B"));
 		
 		txtb_3.setBounds(394, 140, 158, 31);
 		txtb_3.setText("3B");
-		txtb_3.setColumns(10);
 		add(txtb_3);
 		txtb_3.addFocusListener(new ModifiedFocusAdapter(txtb_3, "3B"));
 		
 		txtRuns.setBounds(560, 140, 158, 31);
 		txtRuns.setText("Runs");
-		txtRuns.setColumns(10);
 		add(txtRuns);
 		txtRuns.addFocusListener(new ModifiedFocusAdapter(txtRuns, "Runs"));
 		
 		txtSB.setBounds(65, 183, 158, 31);
 		txtSB.setText("Stolen Bases");
-		txtSB.setColumns(10);
 		add(txtSB);
 		txtSB.addFocusListener(new ModifiedFocusAdapter(txtSB, "Stolen Bases"));
 		
 		txtHR.setBounds(230, 183, 158, 31);
 		txtHR.setText("Home Runs");
-		txtHR.setColumns(10);
 		add(txtHR);
 		txtHR.addFocusListener(new ModifiedFocusAdapter(txtHR, "Home Runs"));
 		
 		txtSO.setBounds(394, 183, 158, 31);
 		txtSO.setText("Strikeouts");
-		txtSO.setColumns(10);
 		add(txtSO);
 		txtSO.addFocusListener(new ModifiedFocusAdapter(txtSO, "Strikeouts"));
 		
@@ -139,7 +130,7 @@ public class UserBattingStats extends JPanel {
 		add(submitBattingStats);
 		submitBattingStats.setActionCommand("SubmitBattingStats");	
 		
-		//ScrollingPane and Sontaining Stats table
+		//ScrollingPane and Containing Stats table
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(33, 281, 734, 145);
 		add(scrollPane);
