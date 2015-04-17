@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 
 import java.awt.Color;
 
+import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -47,9 +48,9 @@ public class UserBattingStats extends JPanel {
 	protected ModifiedJTextField txtHR = new ModifiedJTextField();
 	protected ModifiedJTextField txtSO = new ModifiedJTextField();
 	protected ModifiedJTextField txtDate = new ModifiedJTextField();
-	protected JButton btnUpdateStatistic;
-	protected JButton btnDeleteStatistic;	
-	protected JButton submitBattingStats;
+	protected ModifiedJButtonStyle1 btnUpdateStatistic = new ModifiedJButtonStyle1("Update Statistic");
+	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("Delete Statistic");	
+	protected ModifiedJButtonStyle1 submitBattingStats = new ModifiedJButtonStyle1("Submit");
 
 	/**
 	  Method: Constructor
@@ -121,10 +122,9 @@ public class UserBattingStats extends JPanel {
 		add(txtSO);
 		
 		//JButton 
-		submitBattingStats = new JButton("Submit");
-		submitBattingStats.setBounds(341, 225, 117, 29);
+		submitBattingStats.setBounds(340, 230, 117, 29);
 		add(submitBattingStats);
-		submitBattingStats.setActionCommand("SubmitBattingStats");
+		submitBattingStats.setActionCommand("SubmitBattingStats");	
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(33, 281, 734, 145);
@@ -138,13 +138,11 @@ public class UserBattingStats extends JPanel {
 		add(txtDate);		
 		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
 		
-		btnUpdateStatistic = new JButton("Update Statistic");
-		btnUpdateStatistic.setBounds(215, 441, 143, 28);
+		btnUpdateStatistic.setBounds(278, 438, 117, 29);
 		add(btnUpdateStatistic);
 		btnUpdateStatistic.setActionCommand("UpdateStatistic");
-		
-		btnDeleteStatistic = new JButton("Delete Statistic");
-		btnDeleteStatistic.setBounds(381, 438, 143, 28);
+	
+		btnDeleteStatistic.setBounds(405, 438, 117, 29);
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 		

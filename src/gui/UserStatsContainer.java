@@ -29,9 +29,7 @@ public class UserStatsContainer extends JLayeredPane {
 	protected JButton btnBattingStats = new JButton("Batting Stats");
 	UserBattingStatsClient batting = new UserBattingStatsClient();
 	UserFieldingStatsClient fielding = new UserFieldingStatsClient();
-	UserPitchingStatsClient pitching = new UserPitchingStatsClient();
-
-	
+	UserPitchingStatsClient pitching = new UserPitchingStatsClient();	
 	
 	/**
 	 * Create the panel.
@@ -56,21 +54,21 @@ public class UserStatsContainer extends JLayeredPane {
 		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnBattingStats.setContentAreaFilled(false);	
 		btnBattingStats.setForeground(new Color(244, 229, 192));
-		btnBattingStats.setFont(new Font("Stencil", Font.PLAIN, 18));
+		btnBattingStats.setFont(new Font("Bangla MN", Font.PLAIN, 18));
 		
 		btnPitchingStats.setBounds(27, 242, 188, 29);
 		menuPanel.add(btnPitchingStats);
 		btnPitchingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnPitchingStats.setContentAreaFilled(false);
 		btnPitchingStats.setForeground(new Color(244, 229, 192));
-		btnPitchingStats.setFont(new Font("Stencil", Font.PLAIN, 18));
+		btnPitchingStats.setFont(new Font("Bangla MN", Font.PLAIN, 18));
 		
 		btnFieldingStats.setBounds(27, 391, 188, 29);	
 		menuPanel.add(btnFieldingStats);
 		btnFieldingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnFieldingStats.setContentAreaFilled(false);
 		btnFieldingStats.setForeground(new Color(244, 229, 192));
-		btnFieldingStats.setFont(new Font("Stencil", Font.PLAIN, 18));
+		btnFieldingStats.setFont(new Font("Bangla MN", Font.PLAIN, 18));
 		
 		JLabel lblBorderlayout = new JLabel("");
 		lblBorderlayout.setBounds(16,16, 968, 483);
