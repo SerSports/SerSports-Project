@@ -1,6 +1,8 @@
 package database;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 // TO DO LIST:
 // 1. Account for Local Player per game stats vs MLB PLayer Season Stats
@@ -18,15 +20,27 @@ public class ComparePlayers {
 	private static float mlbBAverage;
 	private static float mlbSlug;
 	
-	public static ArrayList<MlbPlayer> compareToPlayerList(LocalPlayer lp, ArrayList<MlbPlayer> mlbList) {
+	public static ArrayList<ComparisonResult> compareToPlayerList(LocalPlayer lp, ArrayList<MlbPlayer> mlbList) {
+		ArrayList<ComparisonResult> results = new ArrayList<ComparisonResult>();
 		
+		Comparator<ComparisonResult> comparator = new ComparisonResult.ComparisonResultComparator();
+        PriorityQueue<ComparisonResult> queue = new PriorityQueue<ComparisonResult>(mlbList.size(), comparator);
 		
-		return mlbList;
+		for (MlbPlayer player : mlbList) {
+			float score = compareToPlayer(lp, player);
+			queue.add(new ComparisonResult(player, score));
+		}
+		
+		for (int i = 0; i < 10; i++) {
+			results.add(queue.remove());
+		}
+		
+		return results;
 	}
 	
-	public static float compareToPlayer(LocalPlayer lb, MlbPlayer mlbPlayer) {
+	public static float compareToPlayer(LocalPlayer lp, MlbPlayer mlbPlayer) {
 		
-		loadScores(lb, mlbPlayer);
+		loadScores(lp, mlbPlayer);
 		
 		float startScore = 1000.0f;
 		for(int i = 0; i < differenceNums.length; i++) {
@@ -55,7 +69,6 @@ public class ComparePlayers {
 		
 		ArrayList<LocalPlayerBattingStatistics> lpStatsBat = LocalPlayerBattingStatistics.getStatisticsFromDatabase(lb.getLocalPlayerId());
 		
-		
 		LocalPlayerBattingStatistics lpStats = lpStatsBat.get(0);
 		// local player batting average
 		float battingAverageLocal = 0.00f;
@@ -81,5 +94,4 @@ public class ComparePlayers {
 		mlbBAverage = mlbPlayer.getBattingAverage();
 		mlbSlug = mlbPlayer.getSlugging();
 	}
-
 }

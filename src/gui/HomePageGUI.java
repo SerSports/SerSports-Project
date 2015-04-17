@@ -85,19 +85,19 @@ public class HomePageGUI extends JPanel {
 		label = new JLabel("");
 		label.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
 		label.setForeground(new Color(244, 229, 192));
-		label.setBounds(556, 156, 26, 19);
+		label.setBounds(556, 156, 50, 19);
 		add(label);
 		
 		JLabel lblPercent = new JLabel("percent like");
 		lblPercent.setForeground(new Color(244, 229, 192));
 		lblPercent.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		lblPercent.setBounds(583, 155, 100, 16);
+		lblPercent.setBounds(610, 155, 100, 16);
 		add(lblPercent);
 		
 		lblInsertPlayersName = new JLabel("Insert Players name");
 		lblInsertPlayersName.setForeground(new Color(244, 229, 192));
 		lblInsertPlayersName.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		lblInsertPlayersName.setBounds(678, 155, 211, 16);
+		lblInsertPlayersName.setBounds(705, 155, 211, 16);
 		add(lblInsertPlayersName);		
 		
 		JLabel lblWelcome = new JLabel("Welcome,");

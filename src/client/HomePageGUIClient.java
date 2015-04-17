@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 import database.ComparePlayers;
+import database.ComparisonResult;
 import database.LocalPlayer;
 import database.MlbPlayer;
 import database.User;
@@ -22,23 +23,14 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener, It
 		btnFindBestComparison.addActionListener(this);
 		
 		// Populate the Most Similar Player
-		populateMostSimilarPlayer();
+		findBestComparisons();
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//debug("Test");
 		if (e.getActionCommand().equals("Find Best Comparison")) {
-			
-			// Get Local Player
-			ArrayList<LocalPlayer> list = LocalPlayer.getPlayersFromDatabase(User.getCurrentUser().getLocalPlayerId(), null, null, 0, null);
-			LocalPlayer userPlayer = list.get(0);
-			
-			// Get List of similar players
-			ArrayList<MlbPlayer> matches = ComparePlayers.compareToPlayerList(userPlayer, MlbPlayer.getListOfPlayersFromDatabase());
-			
-			// Add players to table
-			populateTable(matches);
+			findBestComparisons();
 		}
 	}
 
@@ -48,39 +40,44 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener, It
 		
 	}
 	
-	private void populateTable(ArrayList<MlbPlayer> players) {
+	private void findBestComparisons() {
+		
+		if (User.getCurrentUser() != null)
+		{
+			// Get Local Player
+			ArrayList<LocalPlayer> list = LocalPlayer.getPlayersFromDatabase(User.getCurrentUser().getLocalPlayerId(), null, null, 0, null);
+			LocalPlayer userPlayer = list.get(0);
+			
+			// Get List of similar players
+			ArrayList<ComparisonResult> matches = ComparePlayers.compareToPlayerList(userPlayer, MlbPlayer.getListOfPlayersFromDatabase());
+			
+			// Add players to table
+			populateTable(matches);
+			
+			// Show the result
+			ComparisonResult result = matches.get(0);
+			MlbPlayer player = result.getPlayer();
+			label.setText(Math.round(result.getScore() * 1000.0) / 10.0 + "%");
+			lblInsertPlayersName.setText(player.getFirst_name() + " " + player.getLast_name());
+		}
+	}
+	
+	private void populateTable(ArrayList<ComparisonResult> comparisonResults) {
 		
 		// Set up the table
 		DefaultTableModel newTable = new DefaultTableModel(new Object[] {"ID","First Name", "Last Name","Team","Similarity %"}, 0);
 		
 		// Add the first 10 player matches to the list
-		for (int i = 0; i < players.size() && i < 10; i++) {
-			MlbPlayer m = players.get(i);
+		for (int i = 0; i < comparisonResults.size() && i < 10; i++) {
+			ComparisonResult result = comparisonResults.get(i);
+			MlbPlayer m = result.getPlayer();
 			
-			Object[] row = {m.getId(), m.getFirst_name(), m.getLast_name(), m.getTeam_name(), 0.5};
+			Object[] row = {m.getId(), m.getFirst_name(), m.getLast_name(), m.getTeam_name(), 100*result.getScore()};
 			newTable.addRow(row);
 		}
 
 		comparisonTable.setModel(newTable);
 		comparisonTable.removeColumn(comparisonTable.getColumnModel().getColumn(0));
-	}
-	
-	private void populateMostSimilarPlayer() {
-
-		// Get Local Player
-		if (User.getCurrentUser() != null)
-		{
-			ArrayList<LocalPlayer> list = LocalPlayer.getPlayersFromDatabase(User.getCurrentUser().getLocalPlayerId(), null, null, 0, null);
-			LocalPlayer userPlayer = list.get(0);
-			
-			// Get List of similar players
-			ArrayList<MlbPlayer> matches = ComparePlayers.compareToPlayerList(userPlayer, MlbPlayer.getListOfPlayersFromDatabase());
-			
-			// Show the result
-			label.setText("30");
-			MlbPlayer player = matches.get(0);
-			lblInsertPlayersName.setText(player.getFirst_name() + " " + player.getLast_name());
-		}
 	}
 	
 	//method to reload name
@@ -90,7 +87,7 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener, It
 		currentUser = User.getCurrentUser();
 		if (currentUser != null) {
 			userFirstName.setText(currentUser.getUserName());
-			populateMostSimilarPlayer();
+			findBestComparisons();
 		}
 	}
 }
