@@ -114,12 +114,12 @@ public class UserPitchingStats extends JPanel {
 		txtHBP.addFocusListener(new ModifiedFocusAdapter(txtHBP, "HBP"));
 		
 		//JButton
-		SubmitPitchingStats.setBounds(341, 238, 117, 29);
+		SubmitPitchingStats.setBounds(341, 220, 117, 29);
 		add(SubmitPitchingStats);
 		SubmitPitchingStats.setActionCommand("SubmitPitchingStats");
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(54, 289, 691, 145);
+		scrollPane.setBounds(54, 260, 691, 145);
 		add(scrollPane);		
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));

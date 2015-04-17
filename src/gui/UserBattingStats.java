@@ -132,7 +132,7 @@ public class UserBattingStats extends JPanel {
 		submitBattingStats.setActionCommand("SubmitBattingStats");	
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(33, 281, 734, 145);
+		scrollPane.setBounds(33, 266, 734, 145);
 		add(scrollPane);
 		
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}));
