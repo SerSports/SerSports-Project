@@ -51,7 +51,7 @@ public class UserStatsContainer extends JLayeredPane {
 		
 		//line Batting
 		JLabel lineBatting = new JLabel("");
-		lineBatting.setBounds(16, 106, 184, 2);
+		lineBatting.setBounds(17, 106, 184, 2);
 		Image imgLine = new ImageIcon(this.getClass().getResource("/images/MenuLine.png")).getImage();
 		lineBatting.setIcon(new ImageIcon(imgLine));
 		
