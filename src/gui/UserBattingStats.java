@@ -154,23 +154,9 @@ public class UserBattingStats extends JPanel {
 		txtDate.setBounds(20, 79, 164, 36);
 		txtDate.setText("(DATE) YYYY-MM-DD");
 		txtDate.setColumns(10);
-		add(txtDate);
-		//String text = txtDate.getText();
-		txtDate.addFocusListener(new FocusAdapter(){
-            @Override
-            public void focusGained(FocusEvent e){
-            	if (txtDate.getText().equals("(DATE) YYYY-MM-DD")){
-                txtDate.setText(""); }
-            }
-            @Override
-            public void focusLost(FocusEvent e){
-            	if (txtDate.getText().equals("")){
-            	txtDate.setText("(DATE) YYYY-MM-DD");}
-            }
-        });
+		add(txtDate);		
+		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "(DATE) YYYY-MM-DD"));
 		
-		
-
 		btnUpdateStatistic = new JButton("Update Statistic");
 		btnUpdateStatistic.setBounds(171, 467, 143, 28);
 		add(btnUpdateStatistic);
