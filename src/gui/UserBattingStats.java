@@ -10,24 +10,15 @@ package gui;
 
 import java.awt.Dimension;
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
 import java.awt.Color;
-
-import javax.swing.BorderFactory;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-
 import java.awt.Font;
 
-import javax.swing.SwingConstants;
 
 /**
 Class: UserBattingStats
@@ -36,6 +27,10 @@ Description: GUI for User Batting stats
 */
 public class UserBattingStats extends JPanel {	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1844009740643893414L;
 	protected JTable table;
 	protected ModifiedJTextField txtAB = new ModifiedJTextField();
 	protected ModifiedJTextField txtH = new ModifiedJTextField();
