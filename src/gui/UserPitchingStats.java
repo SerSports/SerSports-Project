@@ -9,12 +9,15 @@ Description: GUI for User input of Pitching Stats
 package gui;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
 import java.awt.Color;
-import javax.swing.JTextField;
+
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -28,19 +31,19 @@ Description: Creates a panel for the User Batting Stats
 */
 public class UserPitchingStats extends JPanel {
 	protected JTable table;
-	protected JTextField txtDate;
-	protected JTextField txtGP;
-	protected JTextField txtW;
-	protected JTextField txtL;
-	protected JTextField txtERA;
-	protected JTextField txtSaves;
-	protected JTextField txtHits;
-	protected JTextField txtHolds;
-	protected JTextField txtRuns;
-	protected JTextField txtHBP;
-	protected JButton btnUpdateStatistic;
-	protected JButton btnDeleteStatistic;
-	protected JButton SubmitPitchingStats;
+	protected ModifiedJTextField txtDate = new ModifiedJTextField();
+	protected ModifiedJTextField txtGP = new ModifiedJTextField();
+	protected ModifiedJTextField txtW = new ModifiedJTextField();
+	protected ModifiedJTextField txtL = new ModifiedJTextField();
+	protected ModifiedJTextField txtERA = new ModifiedJTextField();
+	protected ModifiedJTextField txtSaves = new ModifiedJTextField();
+	protected ModifiedJTextField txtHits = new ModifiedJTextField();
+	protected ModifiedJTextField txtHolds = new ModifiedJTextField();
+	protected ModifiedJTextField txtRuns = new ModifiedJTextField();
+	protected ModifiedJTextField txtHBP = new ModifiedJTextField();
+	protected ModifiedJButtonStyle1 btnUpdateStatistic = new ModifiedJButtonStyle1("Update Statistic");
+	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("DeleteStatistic");
+	protected ModifiedJButtonStyle1 SubmitPitchingStats = new ModifiedJButtonStyle1("Submit");
 	
 	/**
 	  Method: Constructor
@@ -50,102 +53,83 @@ public class UserPitchingStats extends JPanel {
 	  Description: Create the panel.
 	*/
 	public UserPitchingStats() {
-		setPreferredSize(new Dimension(1300, 600));
+		setPreferredSize(new Dimension(800, 650));
 		setLayout(null);
 		setBackground(new Color(47, 52, 64));
-		
-		JLabel lblBorderlayout = new JLabel("");
-		lblBorderlayout.setBounds(-184, 16, 968, 483);
-		add(lblBorderlayout);
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
-		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 		
+		JLabel lblEnter = new JLabel("Enter a New Game Stats");
+		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
+		lblEnter.setBounds(278, 37, 244, 31);
+		lblEnter.setForeground(new Color(244, 229, 192));
+		add(lblEnter);
 		
-		JLabel lblYouAre = new JLabel("Enter a new game:");
-		lblYouAre.setForeground(new Color(244, 229, 192));
-		lblYouAre.setBounds(29, 25, 119, 16);
-		add(lblYouAre);
-		
-		txtGP = new JTextField();
+		txtDate.setText("YYYY-MM-DD");
+		txtDate.setBounds(65, 97, 158, 31);
+		add(txtDate);
+		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
+
 		txtGP.setText("Games Played");
-		txtGP.setBounds(56, 140, 105, 22);
+		txtGP.setBounds(45, 37, 158, 31);
 		add(txtGP);
-		txtGP.setColumns(10);
 		
-		txtW = new JTextField();
 		txtW.setText("Wins");
-		txtW.setColumns(10);
-		txtW.setBounds(56, 184, 105, 22);
+		txtW.setBounds(230, 97, 158, 31);
 		add(txtW);
+		txtW.addFocusListener(new ModifiedFocusAdapter(txtW, "Wins"));
 		
-		txtL = new JTextField();
 		txtL.setText("Loss");
-		txtL.setColumns(10);
-		txtL.setBounds(215, 96, 105, 22);
+		txtL.setBounds(395, 97, 158, 31);
 		add(txtL);
+		txtL.addFocusListener(new ModifiedFocusAdapter(txtL, "Loss"));
 		
-		txtERA = new JTextField();
 		txtERA.setText("ERA");
-		txtERA.setColumns(10);
-		txtERA.setBounds(215, 140, 105, 22);
+		txtERA.setBounds(560, 97, 158, 31);
 		add(txtERA);
+		txtERA.addFocusListener(new ModifiedFocusAdapter(txtERA, "ERA"));
 		
-		txtSaves = new JTextField();
 		txtSaves.setText("Saves");
-		txtSaves.setColumns(10);
-		txtSaves.setBounds(215, 184, 105, 22);
+		txtSaves.setBounds(65, 137, 158, 31);
 		add(txtSaves);
+		txtSaves.addFocusListener(new ModifiedFocusAdapter(txtSaves, "Saves"));
 		
-		txtHits = new JTextField();
 		txtHits.setText("Hits");
-		txtHits.setColumns(10);
-		txtHits.setBounds(378, 93, 77, 28);
+		txtHits.setBounds(230, 137, 158, 31);
 		add(txtHits);
+		txtHits.addFocusListener(new ModifiedFocusAdapter(txtHits, "Hits"));
 		
-		txtHolds = new JTextField();
 		txtHolds.setText("Holds");
-		txtHolds.setColumns(10);
-		txtHolds.setBounds(378, 137, 77, 28);
+		txtHolds.setBounds(395, 137, 158, 31);
 		add(txtHolds);
+		txtHolds.addFocusListener(new ModifiedFocusAdapter(txtHolds, "Holds"));
 		
-		txtRuns = new JTextField();
 		txtRuns.setText("Runs");
-		txtRuns.setColumns(10);
-		txtRuns.setBounds(378, 181, 77, 28);
+		txtRuns.setBounds(560, 137, 158, 31);
 		add(txtRuns);
+		txtRuns.addFocusListener(new ModifiedFocusAdapter(txtRuns, "Runs"));
 		
-		txtHBP = new JTextField();
 		txtHBP.setText("HBP");
-		txtHBP.setColumns(10);
-		txtHBP.setBounds(494, 93, 77, 28);
+		txtHBP.setBounds(65, 176, 158, 31);
 		add(txtHBP);
+		txtHBP.addFocusListener(new ModifiedFocusAdapter(txtHBP, "HBP"));
 		
 		//JButton
-		SubmitPitchingStats = new JButton("Submit");
-		SubmitPitchingStats.setBounds(504, 138, 117, 29);
+		SubmitPitchingStats.setBounds(341, 238, 117, 29);
 		add(SubmitPitchingStats);
 		SubmitPitchingStats.setActionCommand("SubmitPitchingStats");
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(29, 225, 691, 239);
+		scrollPane.setBounds(54, 289, 691, 145);
 		add(scrollPane);		
 
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
 		scrollPane.setViewportView(table);
 		
-		txtDate = new JTextField();
-		txtDate.setText("YYYY-MM-DD");
-		txtDate.setColumns(10);
-		txtDate.setBounds(56, 96, 105, 22);
-		add(txtDate);
-		
-		btnUpdateStatistic = new JButton("Update Statistic");
-		btnUpdateStatistic.setBounds(205, 504, 143, 28);
+		btnUpdateStatistic.setBounds(250, 421, 143, 28);
 		add(btnUpdateStatistic);
 		btnUpdateStatistic.setActionCommand("UpdateStatistic");
 		
-		btnDeleteStatistic = new JButton("Delete Statistic");
-		btnDeleteStatistic.setBounds(405, 504, 143, 28);
+		btnDeleteStatistic.setBounds(405, 421, 143, 28);
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 
@@ -154,6 +138,11 @@ public class UserPitchingStats extends JPanel {
 		diamond.setBounds(167, -48, 64, 64);
 		diamond.setIcon(new ImageIcon(img2));
 		add(diamond);
+		
+		JLabel lblBorderlayout = new JLabel("");
+		lblBorderlayout.setBounds(-184, 16, 968, 483);
+		add(lblBorderlayout);
+		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 		
 	}
 	

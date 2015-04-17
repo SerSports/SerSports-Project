@@ -73,6 +73,7 @@ public class UserFieldingStats extends JPanel {
 		txtDate.setText("YYYY-MM-DD");
 		txtDate.setBounds(65, 97, 158, 31);
 		add(txtDate);
+		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
 
 		txtGP.setText("GP");
 		txtGP.setBounds(45, 37, 158, 31);
@@ -81,26 +82,33 @@ public class UserFieldingStats extends JPanel {
 		txtWins.setText("Wins");
 		txtWins.setBounds(235, 97, 158, 31);
 		add(txtWins);
+		txtWins.addFocusListener(new ModifiedFocusAdapter(txtWins, "Wins"));
 
 		txtLoss.setText("Losses");
 		txtLoss.setBounds(405, 97, 158, 31);
 		add(txtLoss);
+		txtLoss.addFocusListener(new ModifiedFocusAdapter(txtLoss, "Losses"));
+
 		
 		txtPo.setText("PO");
 		txtPo.setBounds(575, 97, 158, 31);
 		add(txtPo);
+		txtPo.addFocusListener(new ModifiedFocusAdapter(txtPo, "PO"));
 		
 		txtE.setText("Err");
 		txtE.setBounds(65, 140, 158, 31);
 		add(txtE);
+		txtE.addFocusListener(new ModifiedFocusAdapter(txtE, "Err"));
 		
 		txtA.setText("Assist");
 		txtA.setBounds(235, 141, 158, 31);
 		add(txtA);
+		txtA.addFocusListener(new ModifiedFocusAdapter(txtA, "Assist"));
 		
 		txtFpct.setText("F%");
 		txtFpct.setBounds(405, 140, 158, 31);
 		add(txtFpct);
+		txtFpct.addFocusListener(new ModifiedFocusAdapter(txtFpct, "F%"));
 		
 		SubmitFieldingStats.setBounds(341, 197, 117, 29);
 		add(SubmitFieldingStats);

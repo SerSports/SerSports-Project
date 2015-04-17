@@ -139,11 +139,11 @@ public class UserBattingStats extends JPanel {
 		scrollPane.setViewportView(table);
 		
 		
-		btnUpdateStatistic.setBounds(278, 438, 117, 29);
+		btnUpdateStatistic.setBounds(250, 421, 143, 28);
 		add(btnUpdateStatistic);
 		btnUpdateStatistic.setActionCommand("UpdateStatistic");
 	
-		btnDeleteStatistic.setBounds(405, 438, 117, 29);
+		btnDeleteStatistic.setBounds(405, 421, 143, 28);
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 		
