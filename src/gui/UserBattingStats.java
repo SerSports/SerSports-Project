@@ -43,6 +43,7 @@ public class UserBattingStats extends JPanel {
 	protected ModifiedJTextField txtHR = new ModifiedJTextField();
 	protected ModifiedJTextField txtSO = new ModifiedJTextField();
 	protected ModifiedJTextField txtDate = new ModifiedJTextField();
+	protected ModifiedJTextField txtGP = new ModifiedJTextField();
 	protected ModifiedJButtonStyle1 btnUpdateStatistic = new ModifiedJButtonStyle1("Update Statistic");
 	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("Delete Statistic");	
 	protected ModifiedJButtonStyle1 submitBattingStats = new ModifiedJButtonStyle1("Submit");
@@ -74,6 +75,11 @@ public class UserBattingStats extends JPanel {
 		txtDate.setText("YYYY-MM-DD");
 		add(txtDate);		
 		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
+		
+		txtGP.setBounds(65, 97, 158, 31);
+		txtGP.setText("Games Played Holder");
+		add(txtGP);		
+		txtGP.addFocusListener(new ModifiedFocusAdapter(txtGP, "Games Played Holder"));
 		
 		txtAB.setBounds(230, 97, 158, 31);
 		txtAB.setText("At Bat");

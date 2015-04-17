@@ -41,6 +41,7 @@ public class UserFieldingStats extends JPanel {
 	protected ModifiedJTextField txtPo = new ModifiedJTextField();
 	protected ModifiedJTextField txtWins = new ModifiedJTextField();
 	protected ModifiedJTextField txtLoss = new ModifiedJTextField();
+	protected ModifiedJTextField txtGP = new ModifiedJTextField();
 	protected JTable table;
 	
 	protected JButton btnUpdateStatistic = new JButton("Update Statistic");
@@ -64,6 +65,12 @@ public class UserFieldingStats extends JPanel {
 		setLayout(null);
 		setBackground(new Color(47, 52, 64));
 		setPreferredSize(new Dimension(800, 650));
+		
+		txtGP.setBounds(65, 97, 158, 31);
+		txtGP.setText("Games Played Holder");
+		add(txtGP);		
+		txtGP.addFocusListener(new ModifiedFocusAdapter(txtGP, "Games Played Holder"));
+		
 		
 		JLabel lblEnter = new JLabel("Enter a New Game Stats");
 		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
