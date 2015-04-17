@@ -49,21 +49,37 @@ public class UserStatsContainer extends JLayeredPane {
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		
-		btnBattingStats.setBounds(37, 80, 164, 55);
+		//line Batting
+		JLabel lineBatting = new JLabel("");
+		lineBatting.setBounds(16, 106, 184, 2);
+		Image imgLine = new ImageIcon(this.getClass().getResource("/images/MenuLine.png")).getImage();
+		lineBatting.setIcon(new ImageIcon(imgLine));
+		
+		//line Pitching
+		JLabel linePitching = new JLabel("");
+		linePitching.setBounds(16, 267, 184, 2);
+		linePitching.setIcon(new ImageIcon(imgLine));
+		
+		//line Fielding
+		JLabel lineFielding = new JLabel("");
+		lineFielding.setBounds(16, 418, 184, 2);
+		lineFielding.setIcon(new ImageIcon(imgLine));
+		
+		btnBattingStats.setBounds(22, 80, 188, 29);
 		menuPanel.add(btnBattingStats);
 		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnBattingStats.setContentAreaFilled(false);	
 		btnBattingStats.setForeground(new Color(244, 229, 192));
 		btnBattingStats.setFont(new Font("Bangla MN", Font.PLAIN, 18));
 		
-		btnPitchingStats.setBounds(27, 242, 188, 29);
+		btnPitchingStats.setBounds(22, 242, 188, 29);
 		menuPanel.add(btnPitchingStats);
 		btnPitchingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnPitchingStats.setContentAreaFilled(false);
 		btnPitchingStats.setForeground(new Color(244, 229, 192));
 		btnPitchingStats.setFont(new Font("Bangla MN", Font.PLAIN, 18));
 		
-		btnFieldingStats.setBounds(27, 391, 188, 29);	
+		btnFieldingStats.setBounds(22, 391, 188, 29);	
 		menuPanel.add(btnFieldingStats);
 		btnFieldingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnFieldingStats.setContentAreaFilled(false);
@@ -88,12 +104,16 @@ public class UserStatsContainer extends JLayeredPane {
 		panelBodyContainer.add(fielding,"2");
 		panelBodyContainer.add(pitching, "3");
     	c1.show(panelBodyContainer, "1");
+    	menuPanel.add(lineBatting);
 
 
 	
 		btnBattingStats.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				c1.show(panelBodyContainer, "1");
+				menuPanel.add(lineBatting);
+				menuPanel.remove(lineFielding);
+				menuPanel.remove(linePitching);
 	
 			}
 		});
@@ -101,6 +121,10 @@ public class UserStatsContainer extends JLayeredPane {
 		btnFieldingStats.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				c1.show(panelBodyContainer, "2");
+		    	menuPanel.add(lineFielding);
+				menuPanel.remove(lineBatting);
+				menuPanel.remove(linePitching);
+				
 	
 			}
 		});
@@ -108,6 +132,9 @@ public class UserStatsContainer extends JLayeredPane {
 		btnPitchingStats.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				c1.show(panelBodyContainer, "3");
+				menuPanel.add(linePitching);
+				menuPanel.remove(lineBatting);
+				menuPanel.remove(lineFielding);
 	
 			}
 		});
