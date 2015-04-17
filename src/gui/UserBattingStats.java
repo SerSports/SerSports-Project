@@ -46,6 +46,7 @@ public class UserBattingStats extends JPanel {
 	protected ModifiedJButtonStyle1 btnUpdateStatistic = new ModifiedJButtonStyle1("Update Statistic");
 	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("Delete Statistic");	
 	protected ModifiedJButtonStyle1 submitBattingStats = new ModifiedJButtonStyle1("Submit");
+	private Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 
 	/**
 	  Method: Constructor
@@ -55,16 +56,24 @@ public class UserBattingStats extends JPanel {
 	  Description: Creates the panel
 	*/
 	public UserBattingStats() {	
+		
 		setLayout(null);
 		setPreferredSize(new Dimension(800, 650));
 		setBackground(new Color(47, 52, 64));
-		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
-		
+
+		//Enter a New Game Stats Label
 		JLabel lblYouAre = new JLabel("Enter a New Game Stats");
 		lblYouAre.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
 		lblYouAre.setBounds(278, 37, 244, 31);
 		lblYouAre.setForeground(new Color(244, 229, 192));
 		add(lblYouAre);
+		
+		
+		//User Input Fields
+		txtDate.setBounds(65, 97, 158, 31);
+		txtDate.setText("YYYY-MM-DD");
+		add(txtDate);		
+		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
 		
 		txtAB.setBounds(230, 97, 158, 31);
 		txtAB.setText("At Bat");
@@ -130,6 +139,7 @@ public class UserBattingStats extends JPanel {
 		add(submitBattingStats);
 		submitBattingStats.setActionCommand("SubmitBattingStats");	
 		
+		//ScrollingPane and Sontaining Stats table
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(33, 281, 734, 145);
 		add(scrollPane);
@@ -137,24 +147,23 @@ public class UserBattingStats extends JPanel {
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}));
 		scrollPane.setViewportView(table);
 		
-		txtDate.setBounds(65, 97, 158, 31);
-		txtDate.setText("YYYY-MM-DD");
-		add(txtDate);		
-		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
-		
+		//Update Stats Button
 		btnUpdateStatistic.setBounds(278, 438, 117, 29);
 		add(btnUpdateStatistic);
 		btnUpdateStatistic.setActionCommand("UpdateStatistic");
-	
+		
+		//Delete Stats Button
 		btnDeleteStatistic.setBounds(405, 438, 117, 29);
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 		
+		//Border Image
 		JLabel lblBorderlayout = new JLabel("");
 		lblBorderlayout.setBounds(-184, 16, 968, 483);
 		add(lblBorderlayout);
 		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 		
+		//Menu Indicator
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
 		JLabel diamond = new JLabel("");
 		diamond.setBounds(167, -48, 64, 64);
