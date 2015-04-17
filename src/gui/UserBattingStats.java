@@ -65,11 +65,11 @@ public class UserBattingStats extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		
-		JLabel lblYouAre = new JLabel("Enter a New Game Stats");
-		lblYouAre.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
-		lblYouAre.setBounds(278, 37, 244, 31);
-		lblYouAre.setForeground(new Color(244, 229, 192));
-		add(lblYouAre);
+		JLabel lblEnter = new JLabel("Enter a New Game Stats");
+		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
+		lblEnter.setBounds(278, 37, 244, 31);
+		lblEnter.setForeground(new Color(244, 229, 192));
+		add(lblEnter);
 		
 		txtDate.setBounds(65, 97, 158, 31);
 		txtDate.setText("YYYY-MM-DD");

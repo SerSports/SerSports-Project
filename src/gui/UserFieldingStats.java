@@ -9,6 +9,7 @@ Description: GUI for handling the User Fielding stats input
 package gui;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -57,67 +58,63 @@ public class UserFieldingStats extends JPanel {
 	 * Create the panel.
 	 */
 	public UserFieldingStats() {
-		
-		JLabel lblBorderlayout = new JLabel("");
-		lblBorderlayout.setBounds(-184, 16, 968, 483);
-		add(lblBorderlayout);
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
-		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 		
 		setLayout(null);
 		setBackground(new Color(47, 52, 64));
-		setPreferredSize(new Dimension(1300, 600));
+		setPreferredSize(new Dimension(800, 650));
 		
-		JLabel lblYouAre = new JLabel("Enter a new game:");
-		lblYouAre.setForeground(new Color(244, 229, 192));
-		lblYouAre.setBounds(31, 25, 119, 16);
-		add(lblYouAre);
+		JLabel lblEnter = new JLabel("Enter a New Game Stats");
+		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
+		lblEnter.setBounds(278, 37, 244, 31);
+		lblEnter.setForeground(new Color(244, 229, 192));
+		add(lblEnter);
 		
 		txtDate.setText("YYYY-MM-DD");
-		txtDate.setBounds(56, 96, 158, 31);
+		txtDate.setBounds(65, 97, 158, 31);
 		add(txtDate);
 
 		txtGP.setText("GP");
-		txtGP.setBounds(56, 140, 158, 31);
+		txtGP.setBounds(45, 37, 158, 31);
 		add(txtGP);
 
 		txtWins.setText("Wins");
-		txtWins.setBounds(56, 184, 158, 31);
+		txtWins.setBounds(235, 97, 158, 31);
 		add(txtWins);
 
 		txtLoss.setText("Losses");
-		txtLoss.setBounds(215, 96, 158, 31);
+		txtLoss.setBounds(405, 97, 158, 31);
 		add(txtLoss);
 		
 		txtPo.setText("PO");
-		txtPo.setBounds(215, 140, 158, 31);
+		txtPo.setBounds(575, 97, 158, 31);
 		add(txtPo);
 		
 		txtE.setText("Err");
-		txtE.setBounds(215, 184, 158, 31);
+		txtE.setBounds(65, 140, 158, 31);
 		add(txtE);
 		
 		txtA.setText("Assist");
-		txtA.setBounds(352, 96, 158, 31);
+		txtA.setBounds(235, 141, 158, 31);
 		add(txtA);
 		
 		txtFpct.setText("F%");
-		txtFpct.setBounds(352, 140, 158, 31);
+		txtFpct.setBounds(405, 140, 158, 31);
 		add(txtFpct);
 		
-		SubmitFieldingStats.setBounds(524, 117, 117, 29);
+		SubmitFieldingStats.setBounds(341, 197, 117, 29);
 		add(SubmitFieldingStats);
 		SubmitFieldingStats.setActionCommand("SubmitFieldingStats");
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(27, 243, 691, 235);
+		scrollPane.setBounds(54, 248, 691, 145);
 		add(scrollPane);
 		
-		btnUpdateStatistic.setBounds(227, 504, 143, 28);
+		btnUpdateStatistic.setBounds(250, 421, 143, 28);
 		add(btnUpdateStatistic);
 		btnUpdateStatistic.setActionCommand("UpdateStatistic");
 		
-		btnDeleteStatistic.setBounds(423, 504, 143, 28);
+		btnDeleteStatistic.setBounds(405, 421, 143, 28);
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 
@@ -129,6 +126,11 @@ public class UserFieldingStats extends JPanel {
 		diamond.setBounds(167, -48, 64, 64);
 		diamond.setIcon(new ImageIcon(img2));
 		add(diamond);
+		
+		JLabel lblBorderlayout = new JLabel("");
+		lblBorderlayout.setBounds(-184, 16, 968, 483);
+		add(lblBorderlayout);
+		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 
 		
 	}
