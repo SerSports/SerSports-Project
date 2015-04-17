@@ -24,8 +24,7 @@ public class MainGUI {
 
 	private static MainGUI singleton = null;
 	JFrame mainFrame = new JFrame("SERSports");
-	protected static ApplicationGUI panelApplication = null;
-	private static final boolean debugOn = true;
+	protected static ApplicationGUI panelApplication = new ApplicationGUI();
 	static JPanel panelContainer = new JPanel();
 	UserLoginGUI login = new UserLoginGUI();
 	CreateAccount createAccountGUI = new CreateAccount(this);
@@ -59,7 +58,7 @@ public class MainGUI {
 		panelContainer.setLayout(c1);
 		
 		c1.show(panelContainer, "1");
-		panelApplication = new ApplicationGUI();
+		//panelApplication = new ApplicationGUI();
 		panelContainer.add(login, "1");
 		panelContainer.add(panelApplication, "2");
 		panelContainer.add(createAccountGUI, "3");
@@ -89,12 +88,6 @@ public class MainGUI {
 				}
 			}
 		});
-	}
-
-	private void debug(String message) {
-		if (debugOn) {
-			System.out.println("debug: " + message);
-		}
 	}
 
 	public void loadUserInfoIntoControls() {
