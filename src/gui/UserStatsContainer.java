@@ -21,6 +21,11 @@ import client.UserPitchingStatsClient;
 import java.awt.Font;
 
 public class UserStatsContainer extends JLayeredPane {
+	/**
+	 * 
+	 */
+	
+	private static final long serialVersionUID = 6868512083605771271L;
 	CardLayout c1 = new CardLayout();
 	JPanel panelBodyContainer = new JPanel();
 	JPanel menuPanel = new JPanel();	
@@ -38,6 +43,7 @@ public class UserStatsContainer extends JLayeredPane {
 		setPreferredSize(new Dimension(1300, 650));
 		setBounds(0, 114, 1300, 597);
 		setLayout(null);
+		
 		menuPanel.setBackground(new Color(47, 52, 64));
 		menuPanel.setBounds(0, 0, 200, 600);
 		add(menuPanel);
