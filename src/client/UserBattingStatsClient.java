@@ -176,8 +176,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		//collect values if user entered the correct date format
 		if (valid == true){
 			// Check for empty or invalid String
+			isValidInput(gp);
             isValidInput(ab);
-            isValidInput(gp);
             isValidInput(h);
             isValidInput(rbi);
             isValidInput(b1);

@@ -41,7 +41,6 @@ public class UserFieldingStats extends JPanel {
 	protected ModifiedJTextField txtPo = new ModifiedJTextField();
 	protected ModifiedJTextField txtWins = new ModifiedJTextField();
 	protected ModifiedJTextField txtLoss = new ModifiedJTextField();
-	protected ModifiedJTextField txtGP = new ModifiedJTextField();
 	protected JTable table;
 	
 	protected JButton btnUpdateStatistic = new JButton("Update Statistic");
@@ -74,11 +73,7 @@ public class UserFieldingStats extends JPanel {
 		
 		txtDate.setText("YYYY-MM-DD");
 		txtDate.setBounds(65, 97, 158, 31);
-		add(txtDate);
-		
-		txtGP.setText("Games Played Holder");
-		txtGP.setBounds(65, 97, 158, 31);
-		add(txtGP);
+		add(txtDate);;
 		
 		txtWins.setText("Wins");
 		txtWins.setBounds(235, 97, 158, 31);
@@ -112,11 +107,11 @@ public class UserFieldingStats extends JPanel {
 		scrollPane.setBounds(54, 243, 691, 145);
 		add(scrollPane);
 		
-		btnUpdateStatistic.setBounds(227, 504, 143, 28);
+		btnUpdateStatistic.setBounds(250, 424, 143, 28);
 		add(btnUpdateStatistic);
 		btnUpdateStatistic.setActionCommand("UpdateStatistic");
 		
-		btnDeleteStatistic.setBounds(423, 504, 143, 28);
+		btnDeleteStatistic.setBounds(405, 424, 143, 28);
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 
@@ -139,7 +134,6 @@ public class UserFieldingStats extends JPanel {
 	public void checkTextFields(){
 		//Fielding
 		txtDate.getText();
-		txtGP.getText();
 		txtWins.getText();
 		txtLoss.getText();
 		txtPo.getText();
