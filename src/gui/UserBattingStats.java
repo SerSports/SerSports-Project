@@ -73,52 +73,42 @@ public class UserBattingStats extends JPanel {
 		
 		txtAB.setBounds(230, 97, 158, 31);
 		txtAB.setText("At Bats");
-		txtAB.setColumns(10);
 		add(txtAB);
 		
 		txtH.setBounds(394, 97, 158, 31);
 		txtH.setText("Hits");
-		txtH.setColumns(10);
 		add(txtH);
 		
 		txtRBI.setBounds(560, 97, 158, 31);
 		txtRBI.setText("RBI");
-		txtRBI.setColumns(10);
 		add(txtRBI);
 		
 		txtb_1.setBounds(65, 140, 158, 31);
 		txtb_1.setText("1B");
-		txtb_1.setColumns(10);
 		add(txtb_1);
 		
 		txtb_2.setBounds(230, 140, 158, 31);
 		txtb_2.setText("2B");
-		txtb_2.setColumns(10);
 		add(txtb_2);
 		
 		txtb_3.setBounds(394, 140, 158, 31);
 		txtb_3.setText("3B");
-		txtb_3.setColumns(10);
 		add(txtb_3);
 		
 		txtRuns.setBounds(560, 140, 158, 31);
 		txtRuns.setText("Runs");
-		txtRuns.setColumns(10);
 		add(txtRuns);
 		
 		txtSB.setBounds(65, 183, 158, 31);
 		txtSB.setText("Stolen Bases");
-		txtSB.setColumns(10);
 		add(txtSB);
 		
 		txtHR.setBounds(230, 183, 158, 31);
 		txtHR.setText("Home Runs");
-		txtHR.setColumns(10);
 		add(txtHR);
 		
 		txtSO.setBounds(394, 183, 158, 31);
 		txtSO.setText("Strikeouts");
-		txtSO.setColumns(10);
 		add(txtSO);
 		
 		//JButton 
