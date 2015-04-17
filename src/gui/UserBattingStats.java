@@ -71,45 +71,60 @@ public class UserBattingStats extends JPanel {
 		lblYouAre.setForeground(new Color(244, 229, 192));
 		add(lblYouAre);
 		
+		txtDate.setBounds(65, 97, 158, 31);
+		txtDate.setText("YYYY-MM-DD");
+		add(txtDate);		
+		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
+		
 		txtAB.setBounds(230, 97, 158, 31);
 		txtAB.setText("At Bats");
 		add(txtAB);
+		txtAB.addFocusListener(new ModifiedFocusAdapter(txtAB, "At Bats"));
 		
 		txtH.setBounds(394, 97, 158, 31);
 		txtH.setText("Hits");
 		add(txtH);
+		txtH.addFocusListener(new ModifiedFocusAdapter(txtH, "Hits"));
 		
 		txtRBI.setBounds(560, 97, 158, 31);
 		txtRBI.setText("RBI");
 		add(txtRBI);
+		txtRBI.addFocusListener(new ModifiedFocusAdapter(txtH, "RBI"));
 		
 		txtb_1.setBounds(65, 140, 158, 31);
 		txtb_1.setText("1B");
 		add(txtb_1);
+		txtb_1.addFocusListener(new ModifiedFocusAdapter(txtb_1, "1B"));
 		
 		txtb_2.setBounds(230, 140, 158, 31);
 		txtb_2.setText("2B");
 		add(txtb_2);
+		txtb_2.addFocusListener(new ModifiedFocusAdapter(txtb_2, "2B"));
 		
 		txtb_3.setBounds(394, 140, 158, 31);
 		txtb_3.setText("3B");
 		add(txtb_3);
+		txtb_3.addFocusListener(new ModifiedFocusAdapter(txtb_3, "3B"));
 		
 		txtRuns.setBounds(560, 140, 158, 31);
 		txtRuns.setText("Runs");
 		add(txtRuns);
+		txtRuns.addFocusListener(new ModifiedFocusAdapter(txtRuns, "Runs"));
 		
 		txtSB.setBounds(65, 183, 158, 31);
 		txtSB.setText("Stolen Bases");
 		add(txtSB);
+		txtSB.addFocusListener(new ModifiedFocusAdapter(txtSB, "Stolen Bases"));
 		
 		txtHR.setBounds(230, 183, 158, 31);
 		txtHR.setText("Home Runs");
 		add(txtHR);
+		txtHR.addFocusListener(new ModifiedFocusAdapter(txtHR, "Home Runs"));
 		
 		txtSO.setBounds(394, 183, 158, 31);
 		txtSO.setText("Strikeouts");
 		add(txtSO);
+		txtSO.addFocusListener(new ModifiedFocusAdapter(txtSO, "Strikeouts"));
 		
 		//JButton 
 		submitBattingStats.setBounds(340, 230, 117, 29);
@@ -123,10 +138,6 @@ public class UserBattingStats extends JPanel {
 		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}));
 		scrollPane.setViewportView(table);
 		
-		txtDate.setBounds(65, 97, 158, 31);
-		txtDate.setText("YYYY-MM-DD");
-		add(txtDate);		
-		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
 		
 		btnUpdateStatistic.setBounds(278, 438, 117, 29);
 		add(btnUpdateStatistic);
