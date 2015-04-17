@@ -10,6 +10,7 @@ package gui;
 
 import java.awt.Dimension;
 import java.awt.Image;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -25,6 +26,8 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.border.LineBorder;
+import javax.swing.SwingConstants;
+
 
 /**
 Class: HomePageGUI
@@ -32,10 +35,6 @@ Class: HomePageGUI
 Description: GUI for the home page
 */
 public class HomePageGUI extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -4185639307147201428L;
 	protected User currentUser = null;
 	protected JLabel userFirstName = null;
 	protected JButton btnSignOut;
@@ -135,7 +134,10 @@ public class HomePageGUI extends JPanel {
 		((DefaultTableCellRenderer)comparisonTable.getDefaultRenderer(Object.class)).setOpaque(false);
 		//((DefaultTableCellRenderer)comparisonTable.getDefaultRenderer(Object.class)).setHorizontalAlignment( JLabel.CENTER );
 		comparisonTable.setShowGrid(false);
-	
+
+		
+
+		
 		btnFindBestComparison = new JButton("Find Best Comparison");
 		btnFindBestComparison.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
