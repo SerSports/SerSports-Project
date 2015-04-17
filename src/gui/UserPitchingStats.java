@@ -32,7 +32,6 @@ Description: Creates a panel for the User Batting Stats
 public class UserPitchingStats extends JPanel {
 	protected JTable table;
 	protected ModifiedJTextField txtDate = new ModifiedJTextField();
-	protected ModifiedJTextField txtGP = new ModifiedJTextField();
 	protected ModifiedJTextField txtW = new ModifiedJTextField();
 	protected ModifiedJTextField txtL = new ModifiedJTextField();
 	protected ModifiedJTextField txtERA = new ModifiedJTextField();
@@ -68,10 +67,6 @@ public class UserPitchingStats extends JPanel {
 		txtDate.setBounds(65, 97, 158, 31);
 		add(txtDate);
 		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
-
-		txtGP.setText("Games Played");
-		txtGP.setBounds(45, 37, 158, 31);
-		add(txtGP);
 		
 		txtW.setText("Wins");
 		txtW.setBounds(230, 97, 158, 31);
@@ -149,7 +144,6 @@ public class UserPitchingStats extends JPanel {
 	public void checkTextFields(){
 		//Pitching
 		txtDate.getText();
-		txtGP.getText();
 		txtW.getText();
 		txtL.getText();
 		txtERA.getText();

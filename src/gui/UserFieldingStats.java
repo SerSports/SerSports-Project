@@ -33,7 +33,6 @@ Description: GUI for the User Fielding Stats
 public class UserFieldingStats extends JPanel {
 	protected JTable table;
 	protected ModifiedJTextField txtDate = new ModifiedJTextField();
-	protected ModifiedJTextField txtGP = new ModifiedJTextField();
 	protected ModifiedJTextField txtINN = new ModifiedJTextField();
 	protected ModifiedJTextField txtA = new ModifiedJTextField();
 	protected ModifiedJTextField txtE = new ModifiedJTextField();
@@ -74,10 +73,6 @@ public class UserFieldingStats extends JPanel {
 		txtDate.setBounds(65, 97, 158, 31);
 		add(txtDate);
 		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
-
-		txtGP.setText("GP");
-		txtGP.setBounds(45, 37, 158, 31);
-		add(txtGP);
 
 		txtWins.setText("Wins");
 		txtWins.setBounds(235, 97, 158, 31);
@@ -145,7 +140,6 @@ public class UserFieldingStats extends JPanel {
 	public void checkTextFields(){
 		//Fielding
 		txtDate.getText();
-		txtGP.getText();
 		txtWins.getText();
 		txtLoss.getText();
 		txtPo.getText();
