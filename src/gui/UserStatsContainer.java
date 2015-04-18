@@ -31,7 +31,7 @@ public class UserStatsContainer extends JLayeredPane {
 	JPanel menuPanel = new JPanel();	
 	protected JButton btnPitchingStats = new JButton("Pitching Stats");
 	protected JButton btnFieldingStats = new JButton("Fielding Stats");
-	protected JButton btnBattingStats = new JButton("Batting Stats");
+	protected JButton btnBattingStats = new JButton("<html><u>Batting Stats</u><html>");
 	UserBattingStatsClient batting = new UserBattingStatsClient();
 	UserFieldingStatsClient fielding = new UserFieldingStatsClient();
 	UserPitchingStatsClient pitching = new UserPitchingStatsClient();	
