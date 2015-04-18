@@ -145,6 +145,35 @@ public class UserFieldingStats extends JPanel {
 
 		
 	}
+	
+	public String getDateTxt(){
+		return dateTxt;
+	}
+	
+	public String getWinsTxt(){
+		return winsTxt;
+	}
+	
+	public String getLossesTxt(){
+		return lossesTxt;
+	}
+	
+	public String getPOTxt(){
+		return putOutTxt;
+	}
+	
+	public String getErrorTxt(){
+		return errorTxt;
+	}
+	
+	public String getAssistTxt(){
+		return assistTxt;
+	}
+	
+	public String getFieldPercentageTxt(){
+		return fieldPercentageTxt;
+	}
+	
 	public boolean checkTextFields(){
 		boolean result;
 		

@@ -10,11 +10,13 @@ package client;
 
 import gui.*;
 import database.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -261,16 +263,16 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	}
 	
 	public void resetTextFields(){
-		txtDate.setText("YYYY-MM-DD");
-		txtAB.setText("At Bats");
-		txtH.setText("Hits");
-		txtRBI.setText("RBI");
-		txtb_1.setText("Single");
-		txtb_2.setText("Double");
-		txtb_3.setText("Triple");
-		txtRuns.setText("Runs");
-		txtSB.setText("Stolen Bases");
-		txtHR.setText("Home Runs");
-		txtSO.setText("Strikeouts");
+		txtDate.setText(getDateTxt());
+		txtAB.setText(getABTxt());
+		txtH.setText(getHitsTxt());
+		txtRBI.setText(getRBITxt());
+		txtb_1.setText(getB1Txt());
+		txtb_2.setText(getB2Txt());
+		txtb_3.setText(getB3Txt());
+		txtRuns.setText(getRunsTxt());
+		txtSB.setText(getSBTxt());
+		txtHR.setText(getHRTxt());
+		txtSO.setText(getSOTxt());
 	}
 }

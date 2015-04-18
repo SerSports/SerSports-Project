@@ -36,17 +36,17 @@ Description: GUI for User Batting stats
 */
 public class UserBattingStats extends JPanel {	
 	
-	private String dateTxt = "YYYY-MM-DD";
-	private String abTxt = "At Bats";
-	private String hitsTxt = "Hits";
-	private String rbiTxt = "RBI";
-	private String b1Txt = "Single";
-	private String b2Txt = "Double";
-	private String b3Txt = "Triple";
-	private String runsTxt = "Runs";
-	private String sbTxt = "Stolen Bases";
-	private String hrTxt = "Home Runs";
-	private String soTxt = "Strikeouts";
+	private final String dateTxt = "YYYY-MM-DD";
+	private final String abTxt = "At Bats";
+	private final String hitsTxt = "Hits";
+	private final String rbiTxt = "RBI";
+	private final String b1Txt = "Single";
+	private final String b2Txt = "Double";
+	private final String b3Txt = "Triple";
+	private final String runsTxt = "Runs";
+	private final String sbTxt = "Stolen Bases";
+	private final String hrTxt = "Home Runs";
+	private final String soTxt = "Strikeouts";
 	
 	protected JTable table;
 	protected ModifiedJTextField txtAB = new ModifiedJTextField();
@@ -171,6 +171,50 @@ public class UserBattingStats extends JPanel {
 		add(diamond);
 
 		
+	}
+	
+	public String getDateTxt(){
+		return dateTxt;
+	}
+	
+	public String getABTxt(){
+		return abTxt;
+	}
+	
+	public String getHitsTxt(){
+		return hitsTxt;
+	}
+	
+	public String getRBITxt(){
+		return rbiTxt;
+	}
+	
+	public String getB1Txt(){
+		return b1Txt;
+	}
+	
+	public String getB2Txt(){
+		return b2Txt;
+	}
+	
+	public String getB3Txt(){
+		return b3Txt;
+	}
+	
+	public String getRunsTxt(){
+		return runsTxt;
+	}
+	
+	public String getSBTxt(){
+		return sbTxt;
+	}
+	
+	public String getHRTxt(){
+		return hrTxt;
+	}
+	
+	public String getSOTxt(){
+		return soTxt;
 	}
 	
 	public boolean checkTextFields(){

@@ -10,7 +10,7 @@ public class ModifiedFocusAdapter extends FocusAdapter {
 	    protected String caption;
 	    
 	    //Constructor
-	    ModifiedFocusAdapter (JTextField txt, String caption) {
+	    public ModifiedFocusAdapter (JTextField txt, String caption) {
 	    	this.txtField = txt;
 	    	this.caption = caption;	    	
 	    }

@@ -236,15 +236,13 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 	}
 
 	public void resetTextFields(){
-		txtDate.setText("YYYY-MM-DD");
-		txtW.setText("Wins");
-		txtL.setText("Loss");
-		txtERA.setText("ERA");
-		txtSaves.setText("Saves");
-		txtHits.setText("Hits");
-		txtHolds.setText("Holds");
-		txtRuns.setText("Runs");
-		txtHBP.setText("HBP");
-		
+		txtDate.setText(getDateTxt());
+		txtW.setText(getWinsTxt());
+		txtL.setText(getLossesTxt());
+		txtERA.setText(getERATxt());
+		txtSaves.setText(getSavesTxt());
+		txtHits.setText(getHitsTxt());
+		txtHolds.setText(getHoldsTxt());
+		txtRuns.setText(getRunsTxt());
 	}
 }

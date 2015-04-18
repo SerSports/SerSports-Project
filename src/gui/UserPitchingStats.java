@@ -151,6 +151,42 @@ public class UserPitchingStats extends JPanel {
 		
 	}
 	
+	public String getDateTxt(){
+		return dateTxt;
+	}
+	
+	public String getWinsTxt(){
+		return winsTxt;
+	}
+	
+	public String getLossesTxt(){
+		return lossesTxt;
+	}
+	
+	public String getERATxt(){
+		return earnedRunAverageTxt;
+	}
+	
+	public String getSavesTxt(){
+		return savesTxt;
+	}
+	
+	public String getHitsTxt(){
+		return hitsTxt;
+	}
+	
+	public String getHoldsTxt(){
+		return holdsTxt;
+	}
+	
+	public String getRunsTxt(){
+		return runsTxt;
+	}
+	
+	public String getHBPTxt(){
+		return hitByPitchTxt;
+	}
+	
 	public boolean checkTextFields(){
 		boolean result;
 		

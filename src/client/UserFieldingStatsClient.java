@@ -108,7 +108,7 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 
 		// Set up the table
 		DefaultTableModel newTable = new DefaultTableModel(new Object[] {
-				"StatID", "Date", "GP", "Wins", "Losses", "PO", "Err",
+				"StatID", "Date", "Wins", "Losses", "PO", "Err",
 				"Assist", "F%" }, 0);
 
 		if (User.getCurrentUser() != null) {
@@ -233,12 +233,12 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 	}
 
 	public void resetTextFields(){
-		txtDate.setText("YYYY-MM-DD");
-		txtWins.setText("Wins");
-		txtLoss.setText("Losses");
-		txtPo.setText("PO");
-		txtE.setText("Err");
-		txtA.setText("Assist");
-		txtFpct.setText("F%");
+		txtDate.setText(getDateTxt());
+		txtWins.setText(getWinsTxt());
+		txtLoss.setText(getLossesTxt());
+		txtPo.setText(getPOTxt());
+		txtE.setText(getErrorTxt());
+		txtA.setText(getAssistTxt());
+		txtFpct.setText(getFieldPercentageTxt());
 	}
 }
