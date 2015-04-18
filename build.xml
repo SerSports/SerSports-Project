@@ -8,6 +8,8 @@
 	<property name="build.test" value="classes/testing"/>
 	<property name="test.reports" value="report/" />
 	<property name="jars" value="jars"/>
+	<property name="finalJar" value="jar"/>
+	<property name="jar.file" value="${finalJar}/${ant.project.name}.jar"/>
 
 	<path id="compile.classpath">
 		<pathelement location="${build}"/>
@@ -35,6 +37,22 @@
 			<classpath refid="compile.classpath"/>
 		</javac>
 	</target>
+	
+	<target name="jar" depends="compile">
+		<mkdir dir="${finalJar}"/>
+		
+		<manifestclasspath property="manifest.classpath" jarfile="${jar.file}">
+			<classpath refid="${jars}"/>
+		</manifestclasspath>
+		
+		<jar destfile="${jar.file}" basedir="${build}">
+			<manifest>
+				<attribute name="Main-Class" value="gui.MainGUI" />
+				<attribute name="Class-path" value="${manifest.classpath}" />
+			</manifest>
+		</jar>
+	</target>
+		
 
 	<target name="execute" depends="compile"
            description="Start Software">
@@ -81,8 +99,9 @@
 	<path id="pmd.classpath">
 	    	<fileset dir="${pmd.home}/lib" includes="*.jar" />
 	</path>
+	
 	<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.classpath"/>
-	<target name="pmd">
+	<target name="pmd" depends="compile">
  		<pmd shortFilenames="true">
   			<sourceLanguage name="java" version="1.8"/>
   			<ruleset>rulesets/java/design.xml</ruleset>

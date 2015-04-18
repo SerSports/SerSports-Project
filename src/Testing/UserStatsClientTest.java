@@ -27,7 +27,7 @@ public class UserStatsClientTest {
 	public void battingTest() {
 		batter.debug("Testing in UserBattingStatsClient");
 		assertTrue(batter.isValidDate("2/2/2001"));
-		assertFalse(batter.isValidDate(""));
+		assertFalse(batter.isValidDate(" "));
 		assertFalse(batter.isValidDate("MM/DD/YYYY"));
 		batter.setBattingAverage(0.0, 0.0);
 		batter.setBattingAverage(10.0, 5.0);
