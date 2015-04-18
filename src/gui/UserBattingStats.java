@@ -67,6 +67,8 @@ public class UserBattingStats extends JPanel {
 	protected ModifiedJButtonStyle1 btnUpdateStatistic = new ModifiedJButtonStyle1("Update Statistic");
 	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("Delete Statistic");	
 	protected ModifiedJButtonStyle1 submitBattingStats = new ModifiedJButtonStyle1("Submit");
+	protected String[] comboBoxInput = {"Win","Loss"};
+	protected JComboBox comboBox = new JComboBox(comboBoxInput);
 
 	/**
 	  Method: Constructor
@@ -141,6 +143,9 @@ public class UserBattingStats extends JPanel {
 		txtSO.setText(soTxt);
 		add(txtSO);
 		txtSO.addFocusListener(new ModifiedFocusAdapter(txtSO, soTxt));
+		
+		comboBox.setBounds(395, 220, 158, 31);
+		add(comboBox);
 		
 		//JButton 
 		submitBattingStats.setBounds(558, 173, 159, 31);
