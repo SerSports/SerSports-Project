@@ -18,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -155,6 +156,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 
 			table.setModel(newTable);
 			table.removeColumn(table.getColumnModel().getColumn(0));
+			table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		}
 	}
 	

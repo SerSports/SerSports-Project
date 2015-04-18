@@ -31,7 +31,7 @@ public class ModifiedJTable extends JTable {
 		header.setBorder(new LineBorder(new Color(244, 229, 192), 2));
 		header.setOpaque(false);
 		//cellborder is what I need to change
-		setBorder(new LineBorder(new Color(244, 229, 192), 2));
+		setAutoResizeMode(this.AUTO_RESIZE_ALL_COLUMNS);
 		setOpaque(false);
 		setOpaque(false);
 		((DefaultTableCellRenderer)this.getDefaultRenderer(Object.class)).setOpaque(false);

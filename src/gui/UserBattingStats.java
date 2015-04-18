@@ -50,8 +50,9 @@ public class UserBattingStats extends JPanel {
 	private final String sbTxt = "Stolen Bases";
 	private final String hrTxt = "Home Runs";
 	private final String soTxt = "Strikeouts";
+	private ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
 	
-	protected JTable table;
+	protected ModifiedJTable table = new ModifiedJTable(new DefaultTableModel(null, new Object[]{"Date","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}));
 	protected ModifiedJTextField txtAB = new ModifiedJTextField();
 	protected ModifiedJTextField txtHits = new ModifiedJTextField();
 	protected ModifiedJTextField txtRBI = new ModifiedJTextField();
@@ -80,9 +81,9 @@ public class UserBattingStats extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		
-		JLabel lblEnter = new JLabel("Enter New Stats");
+		JLabel lblEnter = new JLabel("Enter New Stats:");
 		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
-		lblEnter.setBounds(328, 37, 143, 31);
+		lblEnter.setBounds(65, 54, 158, 31);
 		lblEnter.setForeground(new Color(244, 229, 192));
 		add(lblEnter);
 		
@@ -101,57 +102,55 @@ public class UserBattingStats extends JPanel {
 		add(txtHits);
 		txtHits.addFocusListener(new ModifiedFocusAdapter(txtHits, hitsTxt));
 		
-		txtRBI.setBounds(560, 97, 158, 31);
+		txtRBI.setBounds(558, 97, 158, 31);
 		txtRBI.setText(rbiTxt);
 		add(txtRBI);
 		txtRBI.addFocusListener(new ModifiedFocusAdapter(txtRBI, rbiTxt));
 		
-		txtb_1.setBounds(65, 140, 158, 31);
+		txtb_1.setBounds(65, 135, 158, 31);
 		txtb_1.setText(b1Txt);
 		add(txtb_1);
 		txtb_1.addFocusListener(new ModifiedFocusAdapter(txtb_1, b1Txt));
 		
-		txtb_2.setBounds(230, 140, 158, 31);
+		txtb_2.setBounds(230, 135, 158, 31);
 		txtb_2.setText(b2Txt);
 		add(txtb_2);
 		txtb_2.addFocusListener(new ModifiedFocusAdapter(txtb_2, b2Txt));
 		
-		txtb_3.setBounds(394, 140, 158, 31);
+		txtb_3.setBounds(394, 135, 158, 31);
 		txtb_3.setText(b3Txt);
 		add(txtb_3);
 		txtb_3.addFocusListener(new ModifiedFocusAdapter(txtb_3, b3Txt));
 		
-		txtRuns.setBounds(560, 140, 158, 31);
+		txtRuns.setBounds(558, 135, 158, 31);
 		txtRuns.setText(runsTxt);
 		add(txtRuns);
 		txtRuns.addFocusListener(new ModifiedFocusAdapter(txtRuns, runsTxt));
 		
-		txtSB.setBounds(65, 183, 158, 31);
+		txtSB.setBounds(65, 173, 158, 31);
 		txtSB.setText(sbTxt);
 		add(txtSB);
 		txtSB.addFocusListener(new ModifiedFocusAdapter(txtSB, sbTxt));
 		
-		txtHR.setBounds(230, 183, 158, 31);
+		txtHR.setBounds(230, 173, 158, 31);
 		txtHR.setText(hrTxt);
 		add(txtHR);
 		txtHR.addFocusListener(new ModifiedFocusAdapter(txtHR, hrTxt));
 		
-		txtSO.setBounds(394, 183, 158, 31);
+		txtSO.setBounds(394, 173, 158, 31);
 		txtSO.setText(soTxt);
 		add(txtSO);
 		txtSO.addFocusListener(new ModifiedFocusAdapter(txtSO, soTxt));
 		
 		//JButton 
-		submitBattingStats.setBounds(559, 183, 159, 31);
+		submitBattingStats.setBounds(558, 173, 159, 31);
 		add(submitBattingStats);
 		submitBattingStats.setActionCommand("SubmitBattingStats");	
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(33, 266, 734, 145);
+		scrollPane.setBounds(22, 266, 734, 145);
 		add(scrollPane);
-		
-		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}));
 		scrollPane.setViewportView(table);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		
 		
 		btnUpdateStatistic.setBounds(250, 421, 143, 28);
@@ -167,12 +166,6 @@ public class UserBattingStats extends JPanel {
 		diamond.setBounds(167, -48, 64, 64);
 		diamond.setIcon(new ImageIcon(img2));
 		add(diamond);
-		
-		JLabel lblDate = new JLabel("Date:");
-		lblDate.setForeground(new Color(244, 229, 192));
-		lblDate.setFont(new Font("Helvetica", Font.PLAIN, 14));
-		lblDate.setBounds(19, 104, 34, 16);
-		add(lblDate); 
 		
 		JLabel lblBorderlayout = new JLabel("");
 		lblBorderlayout.setForeground(Color.WHITE);
