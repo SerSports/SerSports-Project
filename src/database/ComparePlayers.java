@@ -73,7 +73,7 @@ public class ComparePlayers {
 		// local player batting average
 		float battingAverageLocal = 0.00f;
 		if (lpStats.getHitting_ab() != 0) {
-			battingAverageLocal = lpStats.getHitting_onbase_h() / lpStats.getHitting_ab();
+			battingAverageLocal = (float) lpStats.getHitting_onbase_h() / (float) lpStats.getHitting_ab();
 		}
 		else {
 			battingAverageLocal = 0.00f;

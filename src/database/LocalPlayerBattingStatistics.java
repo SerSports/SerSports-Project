@@ -64,7 +64,7 @@ public class LocalPlayerBattingStatistics {
 	
 	public float getSlugging() {
 		if (hitting_ab != 0) {
-			return getTotalBases() / hitting_ab;
+			return (float) getTotalBases() / (float) hitting_ab;
 		}
 		return 0.00f;
 	}

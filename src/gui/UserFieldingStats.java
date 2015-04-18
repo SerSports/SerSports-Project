@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 
 import java.awt.Color;
 
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -53,6 +54,8 @@ public class UserFieldingStats extends JPanel {
 	protected ModifiedJButtonStyle1 btnUpdateStatistic = new ModifiedJButtonStyle1("Update Statistic");
 	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("Delete Statistic");
 	protected ModifiedJButtonStyle1 SubmitFieldingStats = new ModifiedJButtonStyle1("Submit");
+	protected String[] comboBoxInput = {"Win","Loss"};
+	protected JComboBox comboBox = new JComboBox(comboBoxInput);
 	
 	/**
 	  Method: 
@@ -71,9 +74,9 @@ public class UserFieldingStats extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		setPreferredSize(new Dimension(800, 650));
 		
-		JLabel lblEnter = new JLabel("Enter a New Game Stats");
+		JLabel lblEnter = new JLabel("Enter New Stats:");
 		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
-		lblEnter.setBounds(278, 37, 244, 31);
+		lblEnter.setBounds(65, 54, 158, 31);
 		lblEnter.setForeground(new Color(244, 229, 192));
 		add(lblEnter);
 		
@@ -107,6 +110,9 @@ public class UserFieldingStats extends JPanel {
 		txtA.setBounds(235, 141, 158, 31);
 		add(txtA);
 		txtA.addFocusListener(new ModifiedFocusAdapter(txtA, assistTxt));
+		
+		comboBox.setBounds(395, 180, 158, 31);
+		add(comboBox);
 		
 		txtFpct.setText(fieldPercentageTxt);
 		txtFpct.setBounds(405, 140, 158, 31);
@@ -178,13 +184,13 @@ public class UserFieldingStats extends JPanel {
 		boolean result;
 		
 		//Fielding
-		if(txtDate.getText() != dateTxt ||
-		txtWins.getText() != winsTxt ||
-		txtLoss.getText() != lossesTxt ||
-		txtPo.getText() != putOutTxt ||
-		txtE.getText() != errorTxt ||
-		txtA.getText() != assistTxt ||
-		txtFpct.getText() != fieldPercentageTxt){
+		if(!(txtDate.getText()).equals(dateTxt) ||
+		!(txtWins.getText()).equals(winsTxt) ||
+		!(txtLoss.getText()).equals(lossesTxt) ||
+		!(txtPo.getText()).equals(putOutTxt) ||
+		!(txtE.getText()).equals(errorTxt) ||
+		!(txtA.getText()).equals(assistTxt) ||
+		!(txtFpct.getText()).equals(fieldPercentageTxt)){
 			result = false;
 		}
 		else{

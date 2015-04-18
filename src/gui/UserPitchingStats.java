@@ -22,6 +22,7 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JComboBox;
 
 
 /**
@@ -53,6 +54,8 @@ public class UserPitchingStats extends JPanel {
 	protected ModifiedJButtonStyle1 btnUpdateStatistic = new ModifiedJButtonStyle1("Update Statistic");
 	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("Delete Statistic");
 	protected ModifiedJButtonStyle1 SubmitPitchingStats = new ModifiedJButtonStyle1("Submit");
+	protected String[] comboBoxInput = {"Win","Loss"};
+	protected JComboBox comboBox = new JComboBox(comboBoxInput);
 	
 	/**
 	  Method: Constructor
@@ -67,9 +70,9 @@ public class UserPitchingStats extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		
-		JLabel lblEnter = new JLabel("Enter a New Game Stats:");
+		JLabel lblEnter = new JLabel("Enter New Stats:");
 		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
-		lblEnter.setBounds(65, 54, 244, 31);
+		lblEnter.setBounds(65, 54, 158, 31);
 		lblEnter.setForeground(new Color(244, 229, 192));
 		add(lblEnter);
 		
@@ -144,6 +147,9 @@ public class UserPitchingStats extends JPanel {
 		diamond.setIcon(new ImageIcon(img2));
 		add(diamond);
 		
+		comboBox.setBounds(395, 180, 158, 31);
+		add(comboBox);
+		
 		JLabel lblBorderlayout = new JLabel("");
 		lblBorderlayout.setBounds(-184, 16, 968, 483);
 		add(lblBorderlayout);
@@ -191,15 +197,15 @@ public class UserPitchingStats extends JPanel {
 		boolean result;
 		
 		//Pitching
-		if(txtDate.getText() != dateTxt ||
-		txtW.getText() != winsTxt ||
-		txtL.getText() != lossesTxt ||
-		txtERA.getText() != earnedRunAverageTxt ||
-		txtSaves.getText() != savesTxt ||
-		txtHits.getText() != hitsTxt ||
-		txtHolds.getText() != holdsTxt ||
-		txtRuns.getText() != runsTxt ||
-		txtHBP.getText() != hitByPitchTxt){
+		if(!(txtDate.getText()).equals(dateTxt) ||
+		!(txtW.getText()).equals(winsTxt) ||
+		!(txtL.getText()).equals(lossesTxt) ||
+		!(txtERA.getText()).equals(earnedRunAverageTxt) ||
+		!(txtSaves.getText()).equals(savesTxt) ||
+		!(txtHits.getText()).equals(hitsTxt) ||
+		!(txtHolds.getText()).equals(holdsTxt) ||
+		!(txtRuns.getText()).equals(runsTxt) ||
+		!(txtHBP.getText()).equals(hitByPitchTxt)){
 			
 			result = false;
 		}

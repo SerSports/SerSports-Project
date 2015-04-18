@@ -71,7 +71,7 @@ public class HomePageGUI extends JPanel {
 		logo.setIcon(new ImageIcon(img));
 		
 		JLabel line = new JLabel("");
-		line.setBounds(16, 98, 508, 29);
+		line.setBounds(16, 98, 350, 29);
 		add(line);
 		Image imgline = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
 		line.setIcon(new ImageIcon(imgline));
@@ -103,14 +103,14 @@ public class HomePageGUI extends JPanel {
 		JLabel lblWelcome = new JLabel("Welcome,");
 		lblWelcome.setForeground(new Color(244, 229, 192));
 		lblWelcome.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 24));
-		lblWelcome.setBounds(34, 69, 131, 29);
+		lblWelcome.setBounds(33, 77, 131, 29);
 		add(lblWelcome);
 		
 		//calling name
 		userFirstName = new JLabel();
 		userFirstName.setForeground(new Color(244, 229, 192));
 		userFirstName.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 24));
-		userFirstName.setBounds(140, 69, 321, 29);
+		userFirstName.setBounds(139, 77, 321, 29);
 		add(userFirstName);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();

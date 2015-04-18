@@ -18,9 +18,7 @@ import java.awt.Font;
 
 
 public class ApplicationGUI extends JLayeredPane{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -2185908976323552280L;
 	private JPanel panelBodyContainer = new JPanel();
 	private JPanel menuPanel = new JPanel();

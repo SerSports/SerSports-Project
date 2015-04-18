@@ -224,14 +224,14 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	
 	public float getSlugging() {
 		if (hitting_ab != 0) {
-			return getTotalBases() / hitting_ab;
+			return (float) getTotalBases() / (float) hitting_ab;
 		}
 		return 0.00f;
 	}
 	
 	public float getBattingAverage() {
 		if (hitting_ab != 0) {
-			return hitting_onbase_h / hitting_ab;
+			return (float) hitting_onbase_h / (float) hitting_ab;
 		}
 		else {
 			return 0.00f;
