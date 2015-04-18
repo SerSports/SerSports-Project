@@ -105,8 +105,7 @@ public class BrowseLocalPlayers extends JPanel {
 		scrollPane_2.setBounds(317, 402, 636, 79);
 		add(scrollPane_2);
 
-		fieldingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
-				"GP", "Wins", "Losses", "PO", "Err", "Assist", "F%" }));
+		fieldingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {"Wins", "Losses", "PO", "Err", "Assist", "F%" }));
 		scrollPane_2.setViewportView(fieldingTable);
 
 		JLabel lblFielding = new JLabel("Fielding");
@@ -129,7 +128,7 @@ public class BrowseLocalPlayers extends JPanel {
 		add(scrollPane_3);
 
 		pitchingTable = new ModifiedJTable(new DefaultTableModel(null,
-				new Object[] { "GP", "W", "L", "ERA", "SAVES", "HITS", "HOLDS",
+				new Object[] {"W", "L", "ERA", "SAVES", "HITS", "HOLDS",
 						"RUNS", "HBP" }));
 		scrollPane_3.setViewportView(pitchingTable);
 
@@ -137,8 +136,7 @@ public class BrowseLocalPlayers extends JPanel {
 		scrollPane_1.setBounds(317, 205, 636, 79);
 		add(scrollPane_1);
 
-		battingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
-				"GP", "AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR",
+		battingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {"AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR",
 				"SO", "BA" }));
 		scrollPane_1.setViewportView(battingTable);
 		

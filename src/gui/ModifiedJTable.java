@@ -17,6 +17,7 @@ public class ModifiedJTable extends JTable {
 	private static final long serialVersionUID = 8253718684484994753L;
 	//Members
 	JTableHeader header = this.getTableHeader();
+
 	
 	ModifiedJTable(TableModel dm){
 		super(dm);
@@ -29,6 +30,8 @@ public class ModifiedJTable extends JTable {
 		header.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
 		header.setBorder(new LineBorder(new Color(244, 229, 192), 2));
 		header.setOpaque(false);
+		//cellborder is what I need to change
+		setBorder(new LineBorder(new Color(244, 229, 192), 2));
 		setOpaque(false);
 		setOpaque(false);
 		((DefaultTableCellRenderer)this.getDefaultRenderer(Object.class)).setOpaque(false);

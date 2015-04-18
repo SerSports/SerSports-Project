@@ -77,9 +77,9 @@ public class UserBattingStats extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		
-		JLabel lblEnter = new JLabel("Enter a New Game Stats");
+		JLabel lblEnter = new JLabel("Enter New Stats");
 		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
-		lblEnter.setBounds(278, 37, 244, 31);
+		lblEnter.setBounds(328, 37, 143, 31);
 		lblEnter.setForeground(new Color(244, 229, 192));
 		add(lblEnter);
 		
@@ -139,7 +139,7 @@ public class UserBattingStats extends JPanel {
 		txtSO.addFocusListener(new ModifiedFocusAdapter(txtSO, soTxt));
 		
 		//JButton 
-		submitBattingStats.setBounds(340, 230, 117, 29);
+		submitBattingStats.setBounds(559, 183, 159, 31);
 		add(submitBattingStats);
 		submitBattingStats.setActionCommand("SubmitBattingStats");	
 		
@@ -159,16 +159,23 @@ public class UserBattingStats extends JPanel {
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 		
-		JLabel lblBorderlayout = new JLabel("");
-		lblBorderlayout.setBounds(-184, 16, 968, 483);
-		add(lblBorderlayout);
-		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
-		
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
 		JLabel diamond = new JLabel("");
 		diamond.setBounds(167, -48, 64, 64);
 		diamond.setIcon(new ImageIcon(img2));
 		add(diamond);
+		
+		JLabel lblDate = new JLabel("Date:");
+		lblDate.setForeground(new Color(244, 229, 192));
+		lblDate.setFont(new Font("Helvetica", Font.PLAIN, 14));
+		lblDate.setBounds(19, 104, 34, 16);
+		add(lblDate);
+		
+		JLabel lblBorderlayout = new JLabel("");
+		lblBorderlayout.setForeground(Color.WHITE);
+		lblBorderlayout.setBounds(-184, 16, 968, 483);
+		add(lblBorderlayout);
+		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 
 		
 	}
