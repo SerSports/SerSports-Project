@@ -52,7 +52,8 @@ public class UserBattingStats extends JPanel {
 	private final String soTxt = "Strikeouts";
 	private ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
 	
-	protected ModifiedJTable table = new ModifiedJTable(new DefaultTableModel(null, new Object[]{"Date","AB","H","RBI","1B","2B","3B","Runs","SB","HR","SO", "BA"}));
+	protected ModifiedJTable table = new ModifiedJTable(new DefaultTableModel(null, new Object[]{"Won", "AB", "H",
+			"RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO" }));
 	protected ModifiedJTextField txtAB = new ModifiedJTextField();
 	protected ModifiedJTextField txtHits = new ModifiedJTextField();
 	protected ModifiedJTextField txtRBI = new ModifiedJTextField();

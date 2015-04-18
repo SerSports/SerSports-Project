@@ -34,8 +34,8 @@ import database.User;
  * Description: GUI for main navigation of site
  */
 public class UserLoginGUI extends JPanel {
-	protected JTextField txtUserName = new JTextField();
-	protected JPasswordField pwdPassword = new JPasswordField();
+	protected ModifiedJTextField txtUserName = new ModifiedJTextField();
+	protected ModifiedJPasswordField pwdPassword = new ModifiedJPasswordField();
 	protected JButton btnSubmit = new JButton("SIGN IN");
 	protected JButton btnCreateAccount_1 = new JButton("CREATE ACCOUNT");
 	protected JButton btnCreateAccount;
@@ -49,25 +49,18 @@ public class UserLoginGUI extends JPanel {
 	public UserLoginGUI() {
 		setLayout(null);
 		setPreferredSize(new Dimension(1000, 650));
+		pwdPassword.setLocation(400, 250);
+		pwdPassword.setSize(200, 28);
+		
+		//password text field
+		pwdPassword.setText("admin");
+		add(pwdPassword);
 		
 		
 		//username text field
-		txtUserName.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
-		txtUserName.setBackground(new Color(47, 52, 64));	
-		txtUserName.setForeground(new Color(244, 229, 192));
 		txtUserName.setBounds(400, 199, 200, 28);
 		txtUserName.setText("ser_sports");
 		add(txtUserName);
-		txtUserName.setHorizontalAlignment(JTextField.CENTER);
-		
-		//password text field
-		pwdPassword.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 14));
-		pwdPassword.setBackground(new Color(47, 52, 64));
-		pwdPassword.setForeground(new Color(244, 229, 192));
-		pwdPassword.setBounds(400, 246, 200, 28);
-		pwdPassword.setText("admin");
-		add(pwdPassword);
-		pwdPassword.setHorizontalAlignment(JTextField.CENTER);
 
 		//sign in button
 		btnSubmit.setBounds(456, 301, 88, 29);

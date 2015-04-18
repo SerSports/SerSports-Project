@@ -135,7 +135,7 @@ public class UserFieldingStats extends JPanel {
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 
-		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "Wins","Losses","PO","Err","Assist", "F%"}));
+		table = new JTable(new DefaultTableModel(null, new Object[]{"Won","Losses", "PO", "Err", "Assist", "F%"}));
 		scrollPane.setViewportView(table);
 		
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
