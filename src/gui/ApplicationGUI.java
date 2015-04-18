@@ -32,7 +32,6 @@ public class ApplicationGUI extends JLayeredPane{
 	private Help FAQs = new Help();
 	protected JButton btnSignOut = new JButton("SIGN OUT");
 	protected Image img = new ImageIcon(this.getClass().getResource("/images/LogoTop.png")).getImage();
-
 	
 	public ApplicationGUI() {
 		setLayout(null);
@@ -159,11 +158,18 @@ public class ApplicationGUI extends JLayeredPane{
     	
 		btnSignOut.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
-    			int result = JOptionPane.showConfirmDialog(null, "You have pending statistics to add. Are you sure you want to sign out?", 
-        				null, JOptionPane.YES_NO_OPTION);
-        		if(result == JOptionPane.YES_OPTION){
-        			MainGUI.setApplicationToClose();
+    			if(TextFieldDocumentListener.isDirty()){
+    				int result = JOptionPane.showConfirmDialog(null, "You have pending statistics to add. Are you sure you want to sign out?", 
+    						null, JOptionPane.YES_NO_OPTION);
+        			if(result == JOptionPane.YES_OPTION){
+        				//need to reset text fields before closing application
+        				MainGUI.setApplicationToClose();
+        			}
         		}
+    			else
+    			{
+    				MainGUI.setApplicationToClose();
+    			}
     		}
     	});
 	   

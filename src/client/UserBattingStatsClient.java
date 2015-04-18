@@ -25,7 +25,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	
 	private static final boolean debugOn = true;
 	private double battingAverage = 0.0;
-	
+	//UserBattingStats batterStats = new UserBattingStats();
 	
 	/**
 	 * Adds action listeners to relevant buttons.
@@ -365,5 +365,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		txtSB.setText(getSBTxt());
 		txtHR.setText(getHRTxt());
 		txtSO.setText(getSOTxt());
+		TextFieldDocumentListener.setDirty();
 	}
 }

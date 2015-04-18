@@ -51,6 +51,7 @@ public class UserBattingStats extends JPanel {
 	private final String hrTxt = "Home Runs";
 	private final String soTxt = "Strikeouts";
 	private ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
+	private TextFieldDocumentListener textFieldDocList = new TextFieldDocumentListener();
 	
 	protected ModifiedJTable table = new ModifiedJTable(new DefaultTableModel(null, new Object[]{"Won", "AB", "H",
 			"RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO" }));
@@ -94,67 +95,67 @@ public class UserBattingStats extends JPanel {
 		txtDate.setText(dateTxt);
 		add(txtDate);
 		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, dateTxt));
-		txtDate.getDocument().addDocumentListener(new TextFieldDoumentListener(txtDate));
+		txtDate.getDocument().addDocumentListener(textFieldDocList);
 		
 		txtAB.setBounds(230, 97, 158, 31);
 		txtAB.setText(abTxt);
 		add(txtAB);
 		txtAB.addFocusListener(new ModifiedFocusAdapter(txtAB, abTxt));
-		txtAB.getDocument().addDocumentListener(new TextFieldDoumentListener(txtAB));
+		txtAB.getDocument().addDocumentListener(textFieldDocList);
 		
 		txtHits.setBounds(394, 97, 158, 31);
 		txtHits.setText(hitsTxt);
 		add(txtHits);
 		txtHits.addFocusListener(new ModifiedFocusAdapter(txtHits, hitsTxt));
-		txtHits.getDocument().addDocumentListener(new TextFieldDoumentListener(txtHits));
+		txtHits.getDocument().addDocumentListener(textFieldDocList);
 		
 		txtRBI.setBounds(558, 97, 158, 31);
 		txtRBI.setText(rbiTxt);
 		add(txtRBI);
 		txtRBI.addFocusListener(new ModifiedFocusAdapter(txtRBI, rbiTxt));
-		txtRBI.getDocument().addDocumentListener(new TextFieldDoumentListener(txtRBI));
+		txtRBI.getDocument().addDocumentListener(textFieldDocList);
 		
 		txtb_1.setBounds(65, 135, 158, 31);
 		txtb_1.setText(b1Txt);
 		add(txtb_1);
 		txtb_1.addFocusListener(new ModifiedFocusAdapter(txtb_1, b1Txt));
-		txtb_1.getDocument().addDocumentListener(new TextFieldDoumentListener(txtb_1));
+		txtb_1.getDocument().addDocumentListener(textFieldDocList);
 		
 		txtb_2.setBounds(230, 135, 158, 31);
 		txtb_2.setText(b2Txt);
 		add(txtb_2);
 		txtb_2.addFocusListener(new ModifiedFocusAdapter(txtb_2, b2Txt));
-		txtb_2.getDocument().addDocumentListener(new TextFieldDoumentListener(txtb_2));
+		txtb_2.getDocument().addDocumentListener(textFieldDocList);
 		
 		txtb_3.setBounds(394, 135, 158, 31);
 		txtb_3.setText(b3Txt);
 		add(txtb_3);
 		txtb_3.addFocusListener(new ModifiedFocusAdapter(txtb_3, b3Txt));
-		txtb_3.getDocument().addDocumentListener(new TextFieldDoumentListener(txtb_3));
+		txtb_3.getDocument().addDocumentListener(textFieldDocList);
 		
 		txtRuns.setBounds(558, 135, 158, 31);
 		txtRuns.setText(runsTxt);
 		add(txtRuns);
 		txtRuns.addFocusListener(new ModifiedFocusAdapter(txtRuns, runsTxt));
-		txtRuns.getDocument().addDocumentListener(new TextFieldDoumentListener(txtRuns));
+		txtRuns.getDocument().addDocumentListener(textFieldDocList);
 		
 		txtSB.setBounds(65, 173, 158, 31);
 		txtSB.setText(sbTxt);
 		add(txtSB);
 		txtSB.addFocusListener(new ModifiedFocusAdapter(txtSB, sbTxt));
-		txtRuns.getDocument().addDocumentListener(new TextFieldDoumentListener(txtRuns));
+		txtRuns.getDocument().addDocumentListener(textFieldDocList);
 		
 		txtHR.setBounds(230, 173, 158, 31);
 		txtHR.setText(hrTxt);
 		add(txtHR);
 		txtHR.addFocusListener(new ModifiedFocusAdapter(txtHR, hrTxt));
-		txtHR.getDocument().addDocumentListener(new TextFieldDoumentListener(txtHR));
+		txtHR.getDocument().addDocumentListener(textFieldDocList);
 		
 		txtSO.setBounds(394, 173, 158, 31);
 		txtSO.setText(soTxt);
 		add(txtSO);
 		txtSO.addFocusListener(new ModifiedFocusAdapter(txtSO, soTxt));
-		txtSO.getDocument().addDocumentListener(new TextFieldDoumentListener(txtSO));
+		txtSO.getDocument().addDocumentListener(textFieldDocList);
 		
 		comboBox.setBounds(558, 173, 158, 31);
 		add(comboBox);
@@ -190,9 +191,7 @@ public class UserBattingStats extends JPanel {
 		lblBorderlayout.setForeground(Color.WHITE);
 		lblBorderlayout.setBounds(-184, 16, 968, 483);
 		add(lblBorderlayout);
-		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
-
-		
+		lblBorderlayout.setIcon(new ImageIcon(imgBorder));	
 	}
 	
 	public String getDateTxt(){
@@ -237,5 +236,9 @@ public class UserBattingStats extends JPanel {
 	
 	public String getSOTxt(){
 		return soTxt;
+	}
+	
+	public boolean getDirtyStatus(){
+		return textFieldDocList.isDirty();
 	}
 }
