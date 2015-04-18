@@ -51,7 +51,7 @@ public class UserPitchingStats extends JPanel {
 	protected ModifiedJTextField txtRuns = new ModifiedJTextField();
 	protected ModifiedJTextField txtHBP = new ModifiedJTextField();
 	protected ModifiedJButtonStyle1 btnUpdateStatistic = new ModifiedJButtonStyle1("Update Statistic");
-	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("DeleteStatistic");
+	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("Delete Statistic");
 	protected ModifiedJButtonStyle1 SubmitPitchingStats = new ModifiedJButtonStyle1("Submit");
 	
 	/**
