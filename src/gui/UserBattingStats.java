@@ -36,6 +36,18 @@ Description: GUI for User Batting stats
 */
 public class UserBattingStats extends JPanel {	
 	
+	private String dateTxt = "YYYY-MM-DD";
+	private String abTxt = "At Bats";
+	private String hitsTxt = "Hits";
+	private String rbiTxt = "RBI";
+	private String b1Txt = "Single";
+	private String b2Txt = "Double";
+	private String b3Txt = "Triple";
+	private String runsTxt = "Runs";
+	private String sbTxt = "Stolen Bases";
+	private String hrTxt = "Home Runs";
+	private String soTxt = "Strikeouts";
+	
 	protected JTable table;
 	protected ModifiedJTextField txtAB = new ModifiedJTextField();
 	protected ModifiedJTextField txtH = new ModifiedJTextField();
@@ -72,59 +84,59 @@ public class UserBattingStats extends JPanel {
 		add(lblEnter);
 		
 		txtDate.setBounds(65, 97, 158, 31);
-		txtDate.setText("YYYY-MM-DD");
-		add(txtDate);		
-		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
+		txtDate.setText(dateTxt);
+		add(txtDate);
+		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, dateTxt));
 		
 		txtAB.setBounds(230, 97, 158, 31);
-		txtAB.setText("At Bats");
+		txtAB.setText(abTxt);
 		add(txtAB);
-		txtAB.addFocusListener(new ModifiedFocusAdapter(txtAB, "At Bats"));
+		txtAB.addFocusListener(new ModifiedFocusAdapter(txtAB, abTxt));
 		
 		txtH.setBounds(394, 97, 158, 31);
-		txtH.setText("Hits");
+		txtH.setText(hitsTxt);
 		add(txtH);
-		txtH.addFocusListener(new ModifiedFocusAdapter(txtH, "Hits"));
+		txtH.addFocusListener(new ModifiedFocusAdapter(txtH, hitsTxt));
 		
 		txtRBI.setBounds(560, 97, 158, 31);
-		txtRBI.setText("RBI");
+		txtRBI.setText(rbiTxt);
 		add(txtRBI);
-		txtRBI.addFocusListener(new ModifiedFocusAdapter(txtH, "RBI"));
+		txtRBI.addFocusListener(new ModifiedFocusAdapter(txtRBI, rbiTxt));
 		
 		txtb_1.setBounds(65, 140, 158, 31);
-		txtb_1.setText("1B");
+		txtb_1.setText(b1Txt);
 		add(txtb_1);
-		txtb_1.addFocusListener(new ModifiedFocusAdapter(txtb_1, "1B"));
+		txtb_1.addFocusListener(new ModifiedFocusAdapter(txtb_1, b1Txt));
 		
 		txtb_2.setBounds(230, 140, 158, 31);
-		txtb_2.setText("2B");
+		txtb_2.setText(b2Txt);
 		add(txtb_2);
-		txtb_2.addFocusListener(new ModifiedFocusAdapter(txtb_2, "2B"));
+		txtb_2.addFocusListener(new ModifiedFocusAdapter(txtb_2, b2Txt));
 		
 		txtb_3.setBounds(394, 140, 158, 31);
-		txtb_3.setText("3B");
+		txtb_3.setText(b3Txt);
 		add(txtb_3);
-		txtb_3.addFocusListener(new ModifiedFocusAdapter(txtb_3, "3B"));
+		txtb_3.addFocusListener(new ModifiedFocusAdapter(txtb_3, b3Txt));
 		
 		txtRuns.setBounds(560, 140, 158, 31);
-		txtRuns.setText("Runs");
+		txtRuns.setText(runsTxt);
 		add(txtRuns);
-		txtRuns.addFocusListener(new ModifiedFocusAdapter(txtRuns, "Runs"));
+		txtRuns.addFocusListener(new ModifiedFocusAdapter(txtRuns, runsTxt));
 		
 		txtSB.setBounds(65, 183, 158, 31);
-		txtSB.setText("Stolen Bases");
+		txtSB.setText(sbTxt);
 		add(txtSB);
-		txtSB.addFocusListener(new ModifiedFocusAdapter(txtSB, "Stolen Bases"));
+		txtSB.addFocusListener(new ModifiedFocusAdapter(txtSB, sbTxt));
 		
 		txtHR.setBounds(230, 183, 158, 31);
-		txtHR.setText("Home Runs");
+		txtHR.setText(hrTxt);
 		add(txtHR);
-		txtHR.addFocusListener(new ModifiedFocusAdapter(txtHR, "Home Runs"));
+		txtHR.addFocusListener(new ModifiedFocusAdapter(txtHR, hrTxt));
 		
 		txtSO.setBounds(394, 183, 158, 31);
-		txtSO.setText("Strikeouts");
+		txtSO.setText(soTxt);
 		add(txtSO);
-		txtSO.addFocusListener(new ModifiedFocusAdapter(txtSO, "Strikeouts"));
+		txtSO.addFocusListener(new ModifiedFocusAdapter(txtSO, soTxt));
 		
 		//JButton 
 		submitBattingStats.setBounds(340, 230, 117, 29);
@@ -162,24 +174,28 @@ public class UserBattingStats extends JPanel {
 	}
 	
 	public boolean checkTextFields(){
+		boolean result;
+		
 		//Batting
-		if (txtDate.getText() != "MM/DD/YYYY" ||
-			txtAB.getText() != "AB" ||
-			txtH.getText() != "H" ||
-			txtRBI.getText() != "RBI" ||
-			txtb_1.getText() != "1B" ||
-			txtb_2.getText() != "2B" ||
-			txtb_3.getText() != "3B" ||
-			txtRuns.getText() != "Runs" ||
-			txtSB.getText() != "SB" ||
-			txtHR.getText() != "HR" ||
-			txtSO.getText() != "SO"	){
-			
-			return false;
+		if (txtDate.getText() != dateTxt ||
+			txtAB.getText() != abTxt ||
+			txtH.getText() != hitsTxt ||
+			txtRBI.getText() != rbiTxt ||
+			txtb_1.getText() != b1Txt ||
+			txtb_2.getText() != b2Txt ||
+			txtb_3.getText() != b3Txt ||
+			txtRuns.getText() != runsTxt ||
+			txtSB.getText() != sbTxt ||
+			txtHR.getText() != hrTxt ||
+			txtSO.getText() != soTxt){
+			//System.out.println("batter - dateTxt: "+dateTxt);
+			//System.out.println("batter - txtDate: "+txtDate);
+			result = false;
 	
 		}
 		else{
-			return true;
+			result = true;
 		}
+		return result;
 	}
 }

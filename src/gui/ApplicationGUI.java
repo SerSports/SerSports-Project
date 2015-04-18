@@ -161,6 +161,7 @@ public class ApplicationGUI extends JLayeredPane{
     	
 		btnSignOut.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){			
+    			//userHasInputInTextFields();
     			int result = JOptionPane.showConfirmDialog(null, "You have pending statistics to add. Are you sure you want to sign out?", 
     					null, JOptionPane.YES_NO_OPTION);
     			if(result == JOptionPane.YES_OPTION){
@@ -195,7 +196,7 @@ public class ApplicationGUI extends JLayeredPane{
     	c1.show(panelBodyContainer, "6");
     }
     
-protected JLabel getLabel(String title, String icon) {
+    protected JLabel getLabel(String title, String icon) {
 	        JLabel label = new JLabel(title);
 	        try {
 	            label.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(icon))));
@@ -209,5 +210,22 @@ protected JLabel getLabel(String title, String icon) {
 	public void loadUserInfoIntoControls() {
 		home.loadUserInfoIntoControls();
 		enterStats.loadUserInfoIntoControls();
+	}
+	
+	public boolean userHasInputInTextFields(){
+		boolean batter, fielder, pitcher;
+		UserBattingStats batterStats = new UserBattingStats();
+		batter = batterStats.checkTextFields();
+		System.out.println("Batter: "+batter);
+		
+		UserFieldingStats fielderStats = new UserFieldingStats();
+		fielder = fielderStats.checkTextFields();
+		System.out.println("fielder: "+fielder);
+		
+		UserPitchingStats pitcherStats = new UserPitchingStats();
+		pitcher = pitcherStats.checkTextFields();
+		System.out.println("pitcher: "+pitcher);
+		
+		return false;
 	}
 }

@@ -30,6 +30,16 @@ Class: UserPitchingStats
 Description: Creates a panel for the User Batting Stats
 */
 public class UserPitchingStats extends JPanel {
+	private String dateTxt = "YYYY-MM-DD";
+	private String winsTxt = "Wins";
+	private String lossesTxt = "Loss";
+	private String earnedRunAverageTxt = "ERA";
+	private String savesTxt = "Saves";
+	private String hitsTxt = "Hits";
+	private String holdsTxt = "Holds";
+	private String runsTxt = "Runs";
+	private String hitByPitchTxt = "HBP";
+	
 	protected JTable table;
 	protected ModifiedJTextField txtDate = new ModifiedJTextField();
 	protected ModifiedJTextField txtW = new ModifiedJTextField();
@@ -63,50 +73,50 @@ public class UserPitchingStats extends JPanel {
 		lblEnter.setForeground(new Color(244, 229, 192));
 		add(lblEnter);
 		
-		txtDate.setText("YYYY-MM-DD");
+		txtDate.setText(dateTxt);
 		txtDate.setBounds(65, 97, 158, 31);
 		add(txtDate);
-		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
+		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, dateTxt));
 		
-		txtW.setText("Wins");
+		txtW.setText(winsTxt);
 		txtW.setBounds(230, 97, 158, 31);
 		add(txtW);
-		txtW.addFocusListener(new ModifiedFocusAdapter(txtW, "Wins"));
+		txtW.addFocusListener(new ModifiedFocusAdapter(txtW, winsTxt));
 		
-		txtL.setText("Loss");
+		txtL.setText(lossesTxt);
 		txtL.setBounds(395, 97, 158, 31);
 		add(txtL);
-		txtL.addFocusListener(new ModifiedFocusAdapter(txtL, "Loss"));
+		txtL.addFocusListener(new ModifiedFocusAdapter(txtL, lossesTxt));
 		
-		txtERA.setText("ERA");
+		txtERA.setText(earnedRunAverageTxt);
 		txtERA.setBounds(560, 97, 158, 31);
 		add(txtERA);
-		txtERA.addFocusListener(new ModifiedFocusAdapter(txtERA, "ERA"));
+		txtERA.addFocusListener(new ModifiedFocusAdapter(txtERA, earnedRunAverageTxt));
 		
-		txtSaves.setText("Saves");
+		txtSaves.setText(savesTxt);
 		txtSaves.setBounds(65, 137, 158, 31);
 		add(txtSaves);
-		txtSaves.addFocusListener(new ModifiedFocusAdapter(txtSaves, "Saves"));
+		txtSaves.addFocusListener(new ModifiedFocusAdapter(txtSaves, savesTxt));
 		
-		txtHits.setText("Hits");
+		txtHits.setText(hitsTxt);
 		txtHits.setBounds(230, 137, 158, 31);
 		add(txtHits);
-		txtHits.addFocusListener(new ModifiedFocusAdapter(txtHits, "Hits"));
+		txtHits.addFocusListener(new ModifiedFocusAdapter(txtHits, hitsTxt));
 		
-		txtHolds.setText("Holds");
+		txtHolds.setText(holdsTxt);
 		txtHolds.setBounds(395, 137, 158, 31);
 		add(txtHolds);
-		txtHolds.addFocusListener(new ModifiedFocusAdapter(txtHolds, "Holds"));
+		txtHolds.addFocusListener(new ModifiedFocusAdapter(txtHolds, holdsTxt));
 		
-		txtRuns.setText("Runs");
+		txtRuns.setText(runsTxt);
 		txtRuns.setBounds(560, 137, 158, 31);
 		add(txtRuns);
-		txtRuns.addFocusListener(new ModifiedFocusAdapter(txtRuns, "Runs"));
+		txtRuns.addFocusListener(new ModifiedFocusAdapter(txtRuns, runsTxt));
 		
-		txtHBP.setText("HBP");
+		txtHBP.setText(hitByPitchTxt);
 		txtHBP.setBounds(65, 176, 158, 31);
 		add(txtHBP);
-		txtHBP.addFocusListener(new ModifiedFocusAdapter(txtHBP, "HBP"));
+		txtHBP.addFocusListener(new ModifiedFocusAdapter(txtHBP, hitByPitchTxt));
 		
 		//JButton
 		SubmitPitchingStats.setBounds(341, 220, 117, 29);
@@ -141,16 +151,26 @@ public class UserPitchingStats extends JPanel {
 		
 	}
 	
-	public void checkTextFields(){
+	public boolean checkTextFields(){
+		boolean result;
+		
 		//Pitching
-		txtDate.getText();
-		txtW.getText();
-		txtL.getText();
-		txtERA.getText();
-		txtSaves.getText();
-		txtHits.getText();
-		txtHolds.getText();
-		txtRuns.getText();
-		txtHBP.getText();
+		if(txtDate.getText() != dateTxt ||
+		txtW.getText() != winsTxt ||
+		txtL.getText() != lossesTxt ||
+		txtERA.getText() != earnedRunAverageTxt ||
+		txtSaves.getText() != savesTxt ||
+		txtHits.getText() != hitsTxt ||
+		txtHolds.getText() != holdsTxt ||
+		txtRuns.getText() != runsTxt ||
+		txtHBP.getText() != hitByPitchTxt){
+			
+			result = false;
+		}
+		else{
+			result = true;
+		}
+		
+		return result;
 	}
 }

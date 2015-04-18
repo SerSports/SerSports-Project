@@ -31,6 +31,14 @@ Class: UserFieldingStats
 Description: GUI for the User Fielding Stats
 */
 public class UserFieldingStats extends JPanel {
+	private String dateTxt = "YYYY-MM-DD";
+	private String winsTxt = "Wins";
+	private String lossesTxt = "Loss";
+	private String putOutTxt = "PO";
+	private String errorTxt = "Error";
+	private String assistTxt = "Assist";
+	private String fieldPercentageTxt = "F%";
+	
 	protected JTable table;
 	protected ModifiedJTextField txtDate = new ModifiedJTextField();
 	protected ModifiedJTextField txtINN = new ModifiedJTextField();
@@ -69,41 +77,41 @@ public class UserFieldingStats extends JPanel {
 		lblEnter.setForeground(new Color(244, 229, 192));
 		add(lblEnter);
 		
-		txtDate.setText("YYYY-MM-DD");
+		txtDate.setText(dateTxt);
 		txtDate.setBounds(65, 97, 158, 31);
 		add(txtDate);
-		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, "YYYY-MM-DD"));
+		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, dateTxt));
 
-		txtWins.setText("Wins");
+		txtWins.setText(winsTxt);
 		txtWins.setBounds(235, 97, 158, 31);
 		add(txtWins);
-		txtWins.addFocusListener(new ModifiedFocusAdapter(txtWins, "Wins"));
+		txtWins.addFocusListener(new ModifiedFocusAdapter(txtWins, winsTxt));
 
-		txtLoss.setText("Losses");
+		txtLoss.setText(lossesTxt);
 		txtLoss.setBounds(405, 97, 158, 31);
 		add(txtLoss);
-		txtLoss.addFocusListener(new ModifiedFocusAdapter(txtLoss, "Losses"));
+		txtLoss.addFocusListener(new ModifiedFocusAdapter(txtLoss, lossesTxt));
 
 		
-		txtPo.setText("PO");
+		txtPo.setText(putOutTxt);
 		txtPo.setBounds(575, 97, 158, 31);
 		add(txtPo);
-		txtPo.addFocusListener(new ModifiedFocusAdapter(txtPo, "PO"));
+		txtPo.addFocusListener(new ModifiedFocusAdapter(txtPo, putOutTxt));
 		
-		txtE.setText("Err");
+		txtE.setText(errorTxt);
 		txtE.setBounds(65, 140, 158, 31);
 		add(txtE);
-		txtE.addFocusListener(new ModifiedFocusAdapter(txtE, "Err"));
+		txtE.addFocusListener(new ModifiedFocusAdapter(txtE, errorTxt));
 		
-		txtA.setText("Assist");
+		txtA.setText(assistTxt);
 		txtA.setBounds(235, 141, 158, 31);
 		add(txtA);
-		txtA.addFocusListener(new ModifiedFocusAdapter(txtA, "Assist"));
+		txtA.addFocusListener(new ModifiedFocusAdapter(txtA, assistTxt));
 		
-		txtFpct.setText("F%");
+		txtFpct.setText(fieldPercentageTxt);
 		txtFpct.setBounds(405, 140, 158, 31);
 		add(txtFpct);
-		txtFpct.addFocusListener(new ModifiedFocusAdapter(txtFpct, "F%"));
+		txtFpct.addFocusListener(new ModifiedFocusAdapter(txtFpct, fieldPercentageTxt));
 		
 		SubmitFieldingStats.setBounds(341, 197, 117, 29);
 		add(SubmitFieldingStats);
@@ -137,14 +145,23 @@ public class UserFieldingStats extends JPanel {
 
 		
 	}
-	public void checkTextFields(){
+	public boolean checkTextFields(){
+		boolean result;
+		
 		//Fielding
-		txtDate.getText();
-		txtWins.getText();
-		txtLoss.getText();
-		txtPo.getText();
-		txtE.getText();
-		txtA.getText();
-		txtFpct.getText();
+		if(txtDate.getText() != dateTxt ||
+		txtWins.getText() != winsTxt ||
+		txtLoss.getText() != lossesTxt ||
+		txtPo.getText() != putOutTxt ||
+		txtE.getText() != errorTxt ||
+		txtA.getText() != assistTxt ||
+		txtFpct.getText() != fieldPercentageTxt){
+			result = false;
+		}
+		else{
+			result = true;
+		}
+			
+		return result;
 	}
 }

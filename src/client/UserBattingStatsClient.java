@@ -262,15 +262,15 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	
 	public void resetTextFields(){
 		txtDate.setText("YYYY-MM-DD");
-		txtAB.setText("AB");
-		txtH.setText("H");
+		txtAB.setText("At Bats");
+		txtH.setText("Hits");
 		txtRBI.setText("RBI");
-		txtb_1.setText("1B");
-		txtb_2.setText("2B");
-		txtb_3.setText("3B");
+		txtb_1.setText("Single");
+		txtb_2.setText("Double");
+		txtb_3.setText("Triple");
 		txtRuns.setText("Runs");
-		txtSB.setText("SB");
-		txtHR.setText("HR");
-		txtSO.setText("SO");
+		txtSB.setText("Stolen Bases");
+		txtHR.setText("Home Runs");
+		txtSO.setText("Strikeouts");
 	}
 }
