@@ -163,7 +163,7 @@ public class ApplicationGUI extends JLayeredPane{
         				null, JOptionPane.YES_NO_OPTION);
         		if(result == JOptionPane.YES_OPTION){
         			MainGUI.setApplicationToClose();
-    			}
+        		}
     		}
     	});
 	   
