@@ -9,11 +9,13 @@ Description: API for pulling the MLB stats from Sports Data LLC
  */
 package database;
 
+import java.awt.Image;
+
 /*
  
  API for http://www.sportsdatallc.com/
  */
-import java.awt.image.BufferedImage;
+
 
 
 public class SportsPicsApi {
@@ -24,8 +26,8 @@ public class SportsPicsApi {
 	//http(s)://api.sportsdatallc.org/[sport]-images-[access_level][version]/
 	//[provider]/players/[image_type]/[asset_id]/[filename].[format]?api_key=[your_api_key]
 		
-	public static BufferedImage getImageForMlbPlayer(String assetId) {
-		BufferedImage pic = null;
+	public static Image getImageForMlbPlayer(String assetId) {
+		Image pic = null;
 		
 		
 		return pic;
