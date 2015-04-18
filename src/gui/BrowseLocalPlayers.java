@@ -15,15 +15,8 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
 import java.awt.Color;
-
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 import java.awt.Font;
 
 /**
@@ -43,10 +36,10 @@ public class BrowseLocalPlayers extends JPanel {
 	protected ModifiedJTextField txtTeam = new ModifiedJTextField();
 	protected ModifiedJButtonStyle1 SubmitLocalSearch = new ModifiedJButtonStyle1("Submit");
 	protected ModifiedJButtonStyle1 btnSeePlayerStats = new ModifiedJButtonStyle1("See Player Stats");
-	protected JTable table;
-	protected JTable fieldingTable;
-	protected JTable pitchingTable;
-	protected JTable battingTable;
+	protected ModifiedJTable table;
+	protected ModifiedJTable fieldingTable;
+	protected ModifiedJTable pitchingTable;
+	protected ModifiedJTable battingTable;
 
 	/**
 	 * Method: Constructor Inputs: None Returns:
@@ -73,11 +66,11 @@ public class BrowseLocalPlayers extends JPanel {
 				"/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 
-		JScrollPane scrollPane = new JScrollPane();
+		ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
 		scrollPane.setBounds(317, 36, 636, 98);
 		add(scrollPane);
 
-		table = new JTable(new DefaultTableModel(null, new Object[] {
+		table = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
 				"First Name", "Last Name", "Team", "Position" }));
 		scrollPane.setViewportView(table);
 
@@ -109,11 +102,11 @@ public class BrowseLocalPlayers extends JPanel {
 		lblIndividualStatistics.setFont(new Font("Lucida Grande", Font.PLAIN,
 				25));
 
-		JScrollPane scrollPane_2 = new JScrollPane();
+		ModifiedJScrollPane scrollPane_2 = new ModifiedJScrollPane();
 		scrollPane_2.setBounds(317, 402, 636, 79);
 		add(scrollPane_2);
 
-		fieldingTable = new JTable(new DefaultTableModel(null, new Object[] {
+		fieldingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
 				"GP", "Wins", "Losses", "PO", "Err", "Assist", "F%" }));
 		scrollPane_2.setViewportView(fieldingTable);
 
@@ -132,20 +125,20 @@ public class BrowseLocalPlayers extends JPanel {
 		lblBatting.setBounds(246, 233, 61, 16);
 		add(lblBatting);
 
-		JScrollPane scrollPane_3 = new JScrollPane();
+		ModifiedJScrollPane scrollPane_3 = new ModifiedJScrollPane();
 		scrollPane_3.setBounds(317, 306, 636, 71);
 		add(scrollPane_3);
 
-		pitchingTable = new JTable(new DefaultTableModel(null,
+		pitchingTable = new ModifiedJTable(new DefaultTableModel(null,
 				new Object[] { "GP", "W", "L", "ERA", "SAVES", "HITS", "HOLDS",
 						"RUNS", "HBP" }));
 		scrollPane_3.setViewportView(pitchingTable);
 
-		JScrollPane scrollPane_1 = new JScrollPane();
+		ModifiedJScrollPane scrollPane_1 = new ModifiedJScrollPane();
 		scrollPane_1.setBounds(317, 205, 636, 79);
 		add(scrollPane_1);
 
-		battingTable = new JTable(new DefaultTableModel(null, new Object[] {
+		battingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
 				"GP", "AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR",
 				"SO", "BA" }));
 		scrollPane_1.setViewportView(battingTable);
