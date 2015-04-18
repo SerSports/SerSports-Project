@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 
 import java.awt.Color;
 
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -53,6 +54,8 @@ public class UserFieldingStats extends JPanel {
 	protected ModifiedJButtonStyle1 btnUpdateStatistic = new ModifiedJButtonStyle1("Update Statistic");
 	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("Delete Statistic");
 	protected ModifiedJButtonStyle1 SubmitFieldingStats = new ModifiedJButtonStyle1("Submit");
+	protected String[] comboBoxInput = {"Win","Loss"};
+	protected JComboBox comboBox = new JComboBox(comboBoxInput);
 	
 	/**
 	  Method: 
@@ -107,6 +110,9 @@ public class UserFieldingStats extends JPanel {
 		txtA.setBounds(235, 141, 158, 31);
 		add(txtA);
 		txtA.addFocusListener(new ModifiedFocusAdapter(txtA, assistTxt));
+		
+		comboBox.setBounds(395, 180, 158, 31);
+		add(comboBox);
 		
 		txtFpct.setText(fieldPercentageTxt);
 		txtFpct.setBounds(405, 140, 158, 31);

@@ -22,6 +22,7 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JComboBox;
 
 
 /**
@@ -53,6 +54,8 @@ public class UserPitchingStats extends JPanel {
 	protected ModifiedJButtonStyle1 btnUpdateStatistic = new ModifiedJButtonStyle1("Update Statistic");
 	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("Delete Statistic");
 	protected ModifiedJButtonStyle1 SubmitPitchingStats = new ModifiedJButtonStyle1("Submit");
+	protected String[] comboBoxInput = {"Win","Loss"};
+	protected JComboBox comboBox = new JComboBox(comboBoxInput);
 	
 	/**
 	  Method: Constructor
@@ -143,6 +146,9 @@ public class UserPitchingStats extends JPanel {
 		diamond.setBounds(167, -48, 64, 64);
 		diamond.setIcon(new ImageIcon(img2));
 		add(diamond);
+		
+		comboBox.setBounds(395, 180, 158, 31);
+		add(comboBox);
 		
 		JLabel lblBorderlayout = new JLabel("");
 		lblBorderlayout.setBounds(-184, 16, 968, 483);
