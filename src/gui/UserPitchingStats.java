@@ -191,15 +191,15 @@ public class UserPitchingStats extends JPanel {
 		boolean result;
 		
 		//Pitching
-		if(txtDate.getText() != dateTxt ||
-		txtW.getText() != winsTxt ||
-		txtL.getText() != lossesTxt ||
-		txtERA.getText() != earnedRunAverageTxt ||
-		txtSaves.getText() != savesTxt ||
-		txtHits.getText() != hitsTxt ||
-		txtHolds.getText() != holdsTxt ||
-		txtRuns.getText() != runsTxt ||
-		txtHBP.getText() != hitByPitchTxt){
+		if(!(txtDate.getText()).equals(dateTxt) ||
+		!(txtW.getText()).equals(winsTxt) ||
+		!(txtL.getText()).equals(lossesTxt) ||
+		!(txtERA.getText()).equals(earnedRunAverageTxt) ||
+		!(txtSaves.getText()).equals(savesTxt) ||
+		!(txtHits.getText()).equals(hitsTxt) ||
+		!(txtHolds.getText()).equals(holdsTxt) ||
+		!(txtRuns.getText()).equals(runsTxt) ||
+		!(txtHBP.getText()).equals(hitByPitchTxt)){
 			
 			result = false;
 		}

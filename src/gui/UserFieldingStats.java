@@ -178,13 +178,13 @@ public class UserFieldingStats extends JPanel {
 		boolean result;
 		
 		//Fielding
-		if(txtDate.getText() != dateTxt ||
-		txtWins.getText() != winsTxt ||
-		txtLoss.getText() != lossesTxt ||
-		txtPo.getText() != putOutTxt ||
-		txtE.getText() != errorTxt ||
-		txtA.getText() != assistTxt ||
-		txtFpct.getText() != fieldPercentageTxt){
+		if(!(txtDate.getText()).equals(dateTxt) ||
+		!(txtWins.getText()).equals(winsTxt) ||
+		!(txtLoss.getText()).equals(lossesTxt) ||
+		!(txtPo.getText()).equals(putOutTxt) ||
+		!(txtE.getText()).equals(errorTxt) ||
+		!(txtA.getText()).equals(assistTxt) ||
+		!(txtFpct.getText()).equals(fieldPercentageTxt)){
 			result = false;
 		}
 		else{
