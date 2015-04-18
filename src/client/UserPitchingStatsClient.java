@@ -123,10 +123,10 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 			// Add the Local Players to the List
 			for (LocalPlayerPitchingStatistics m : currentPlayerPitchingStatistics) {
 				Object[] row = { m.getLocalPlayersPitchingStatisticsID(),
-						m.getGame_date(), m.getPitching_games_win(), m.getPitching_games_loss(),
+						m.getGame_date(), m.getPitching_game_won(),
 						m.getPitching_era(), m.getPitching_games_save(),
 						m.getPitching_games_hit(), m.getPitching_games_hold(),
-						m.getPitching_runs_total(), m.getPitching_hbp() };
+						m.getPitching_runs(), m.getPitching_hbp() };
 				newTable.addRow(row);
 			}
 
@@ -137,14 +137,13 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 	
 	public void submitPitchingStatistic(){
 		String date = txtDate.getText();
-		String w = txtW.getText();
-		String l = txtL.getText();
 		String era = txtERA.getText();
 		String saves = txtSaves.getText();
 		String hits = txtHits.getText();
 		String holds = txtHolds.getText();
 		String runs = txtRuns.getText();
 		String hbp = txtHBP.getText();
+		Boolean won = (comboBox.getSelectedItem().toString().equals("Win"));
 
 		boolean valid = isValidDate(date);
 
@@ -152,8 +151,6 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		if (valid == true) {
 			// Check for empty or invalid String
 			isValidInput(date);
-			isValidInput(w);
-			isValidInput(l);
 			isValidInput(saves);
 			isValidInput(hits);
 			isValidInput(holds);
@@ -161,7 +158,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 			isValidInput(hbp);
 
 			// Add input into user database, then display all game statistics
-			LocalPlayerPitchingStatistics.addLocalPlayerPitchingStatistics(date, w, l,
+			LocalPlayerPitchingStatistics.addLocalPlayerPitchingStatistics(date, won,
 							era, saves, hits, holds, runs, hbp);
 
 			// reload statistics into table

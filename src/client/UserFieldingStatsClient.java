@@ -122,8 +122,7 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 			// Add the Local Players to the List
 			for (LocalPlayerFieldingStatistics m : currentPlayerFieldingStatistics) {
 				Object[] row = { m.getLocalPlayersFieldingStatisticsID(),
-						m.getGame_date(),
-						m.getFielding_games_win(), m.getFielding_games_loss(),
+						m.getGame_date(), m.getFielding_game_won(),
 						m.getFielding_po(), m.getFielding_error(),
 						m.getFielding_assist(), m.getFielding_fpct() };
 				newTable.addRow(row);
@@ -136,12 +135,11 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 
 	public void submitFieldingStatistic(){
 		String date = txtDate.getText();
-		String wins = txtWins.getText();
-		String loss = txtLoss.getText();
 		String po = txtPo.getText();
 		String error = txtE.getText();
 		String assist = txtA.getText();
 		String fpct = txtFpct.getText();
+		Boolean won = (comboBox.getSelectedItem().toString().equals("Win"));
 
 		boolean valid = isValidDate(date);
 
@@ -149,16 +147,14 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		if (valid == true) {
 			// Check for empty or invalid String
 			isValidInput(date);
-			isValidInput(wins);
-			isValidInput(loss);
 			isValidInput(po);
 			isValidInput(error);
 			isValidInput(assist);
 			isValidInput(fpct);
 			
 			// Add input into user database, then display all game statistics
-			LocalPlayerFieldingStatistics.addLocalPlayerFieldingStatistics(date, wins,
-							loss, po, error, assist, fpct);
+			LocalPlayerFieldingStatistics.addLocalPlayerFieldingStatistics(date, won,
+							po, error, assist, fpct);
 
 			// reload statistics into table
 			loadUserInfoIntoControls();

@@ -181,14 +181,14 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			
 			for (LocalPlayerBattingStatistics m : currentPlayerBattingStatistics)
 			{
-				setBattingAverage((double) m.getHitting_onbase_h(),
-						(double) m.getHitting_ab());
+				setBattingAverage( (double) m.getBatting_onbase_h(), (double) m.getBatting_ab());
 				Object[] row = { m.getLocalPlayersHittingStatisticsID(),
-						m.getGame_date(), m.getHitting_ab(), m.getHitting_onbase_h(),
-						m.getHitting_rbi(), m.getHitting_onbase_s(),
-						m.getHitting_onbase_d(), m.getHitting_onbase_t(),
-						m.getHitting_runs_total(), m.getHitting_steal_stolen(),
-						m.getHitting_onbase_hr(), m.getHitting_outs_ktotal(),
+						m.getGame_date(), m.getBatting_ab(), m.getBatting_onbase_h(),
+						m.getBatting_ab(), m.getBatting_onbase_h(), 
+						m.getBatting_rbi(), m.getBatting_onbase_s(), 
+						m.getBatting_onbase_d(), m.getBatting_onbase_t(), 
+						m.getBatting_runs_total(), m.getBatting_steal_stolen(), 
+						m.getBatting_onbase_hr(), m.getBatting_outs_ktotal(),
 						getBattingAverage() };
 				newTable.addRow(row);
 			}
@@ -218,6 +218,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		String sb = txtSB.getText();
 		String hr = txtHR.getText();
 		String so = txtSO.getText();
+		Boolean won = (comboBox.getSelectedItem().toString().equals("Win"));
 		
 		boolean valid = isValidDate(date); // Date in the form of "YYYY-MM-DD"
 		
@@ -235,7 +236,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			isValidInput(so);
 			
 			LocalPlayerBattingStatistics.addLocalPlayerBattingStatistics(date, ab, h,
-					rbi, b1, b2, b3, runs, sb, hr, so);
+					rbi, b1, b2, b3, runs, sb, hr, so, won);
 			
 			loadUserInfoIntoControls();
 			

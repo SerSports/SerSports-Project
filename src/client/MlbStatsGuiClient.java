@@ -138,12 +138,12 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener
 		DefaultTableModel bTable = new DefaultTableModel(new Object[] { "GP", "AB", "H",
 				"RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO", "BA" }, 0);
 		
-		Object[] hRow = { player.getHitting_games_play(), player.getHitting_ab(),
-				player.getHitting_onbase_h(), player.getHitting_rbi(),
-				player.getHitting_onbase_s(), player.getHitting_onbase_d(),
-				player.getHitting_onbase_t(), player.getHitting_runs_total(),
-				player.getHitting_steal_stolen(), player.getHitting_onbase_hr(),
-				player.getHitting_outs_ktotal() };
+		Object[] hRow = { player.getBatting_games_play(), player.getBatting_ab(),
+				player.getBatting_onbase_h(), player.getBatting_rbi(),
+				player.getBatting_onbase_s(), player.getBatting_onbase_d(),
+				player.getBatting_onbase_t(), player.getBatting_runs_total(),
+				player.getBatting_steal_stolen(), player.getBatting_onbase_hr(),
+				player.getBatting_outs_ktotal() };
 		bTable.addRow(hRow);
 		mlbbattingTable.setModel(bTable);
 		mlbbattingTable.removeColumn(table.getColumnModel().getColumn(0));

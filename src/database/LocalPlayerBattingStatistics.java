@@ -9,23 +9,24 @@ import javax.swing.table.DefaultTableModel;
 public class LocalPlayerBattingStatistics {
 
 	// Constants
-	private static final String TABLE_NAME = "localPlayersHittingStatistics";
-	private static final String FIELD_ID = "localPlayersHittingStatisticsID";
+	private static final String TABLE_NAME = "localPlayersBattingStatistics";
+	private static final String FIELD_ID = "localPlayersBattingStatisticsID";
 	private static final String FIELD_LOCAL_PLAYER_ID = "localPlayerId";
 	private static final String FIELD_TEAM_NAME = "team_name";
 	private static final String FIELD_POSITION = "position";
 	private static final String FIELD_GAME_DATE = "game_date";
-	private static final String FIELD_HITTING_AB = "hitting_ab";
-	private static final String FIELD_HITTING_RBI = "hitting_rbi";
-	private static final String FIELD_HITTING_ONBASE_H = "hitting_onbase_h";
-	private static final String FIELD_HITTING_ONBASE_S = "hitting_onbase_s";
-	private static final String FIELD_HITTING_ONBASE_D = "hitting_onbase_d";
-	private static final String FIELD_HITTING_ONBASE_T = "hitting_onbase_t";
-	private static final String FIELD_HITTING_ONBASE_HR = "hitting_onbase_hr";
-	private static final String FIELD_HITTING_ONBASE_EARNED = "hitting_onbase_earned";
-	private static final String FIELD_HITTING_RUNS_TOTAL = "hitting_runs_total";
-	private static final String FIELD_HITTING_OUTS_KTOTAL = "hitting_outs_ktotal";
-	private static final String FIELD_HITTING_STEAL_STOLEN = "hitting_steal_stolen";
+	private static final String FIELD_BATTING_AB = "batting_ab";
+	private static final String FIELD_BATTING_RBI = "batting_rbi";
+	private static final String FIELD_BATTING_ONBASE_H = "batting_onbase_h";
+	private static final String FIELD_BATTING_ONBASE_S = "batting_onbase_s";
+	private static final String FIELD_BATTING_ONBASE_D = "batting_onbase_d";
+	private static final String FIELD_BATTING_ONBASE_T = "batting_onbase_t";
+	private static final String FIELD_BATTING_ONBASE_HR = "batting_onbase_hr";
+	private static final String FIELD_BATTING_ONBASE_EARNED = "batting_onbase_earned";
+	private static final String FIELD_BATTING_RUNS_TOTAL = "batting_runs";
+	private static final String FIELD_BATTING_OUTS_KTOTAL = "batting_outs_k";
+	private static final String FIELD_BATTING_STEAL_STOLEN = "batting_steal_stolen";
+	private static final String FIELD_BATTING_GAME_WON = "batting_game_won";
 
 	// Members
 	private int localPlayersHittingStatisticsID;
@@ -33,18 +34,18 @@ public class LocalPlayerBattingStatistics {
 	private String team_name;
 	private String position;
 	private String game_date;
-	private int hitting_ab;
-	private int hitting_rbi;
-	private int hitting_onbase_h;
-	private int hitting_onbase_s;
-	private int hitting_onbase_d;
-	private int hitting_onbase_t;
-	private int hitting_onbase_hr;
-	private int hitting_onbase_earned;
-	private int hitting_runs_total;
-	private int hitting_outs_ktotal;
-	private int hitting_steal_stolen;
-	//private int hitting_games_loss;
+	private int batting_ab;
+	private int batting_rbi;
+	private int batting_onbase_h;
+	private int batting_onbase_s;
+	private int batting_onbase_d;
+	private int batting_onbase_t;
+	private int batting_onbase_hr;
+	private int batting_onbase_earned;
+	private int batting_runs_total;
+	private int batting_outs_ktotal;
+	private int batting_steal_stolen;
+	private int batting_game_won;
 
 	public int getLocalPlayersHittingStatisticsID() {
 		return localPlayersHittingStatisticsID;
@@ -59,12 +60,12 @@ public class LocalPlayerBattingStatistics {
 	}
 	
 	public int getTotalBases() {
-		return hitting_onbase_h + (2 * hitting_onbase_d) + (3 * hitting_onbase_t) + (4 * hitting_onbase_hr);
+		return batting_onbase_h + (2 * batting_onbase_d) + (3 * batting_onbase_t) + (4 * batting_onbase_hr);
 	}
 	
 	public float getSlugging() {
-		if (hitting_ab != 0) {
-			return (float) getTotalBases() / (float) hitting_ab;
+		if (batting_ab != 0) {
+			return (float) getTotalBases() / (float) batting_ab;
 		}
 		return 0.00f;
 	}
@@ -77,48 +78,52 @@ public class LocalPlayerBattingStatistics {
 		return game_date;
 	}
 
-	public int getHitting_ab() {
-		return hitting_ab;
+	public int getBatting_ab() {
+		return batting_ab;
 	}
 
-	public int getHitting_rbi() {
-		return hitting_rbi;
+	public int getBatting_rbi() {
+		return batting_rbi;
 	}
 
-	public int getHitting_onbase_h() {
-		return hitting_onbase_h;
+	public int getBatting_onbase_h() {
+		return batting_onbase_h;
 	}
 
-	public int getHitting_onbase_s() {
-		return hitting_onbase_s;
+	public int getBatting_onbase_s() {
+		return batting_onbase_s;
 	}
 
-	public int getHitting_onbase_d() {
-		return hitting_onbase_d;
+	public int getBatting_onbase_d() {
+		return batting_onbase_d;
 	}
 
-	public int getHitting_onbase_t() {
-		return hitting_onbase_t;
+	public int getBatting_onbase_t() {
+		return batting_onbase_t;
 	}
 
-	public int getHitting_onbase_hr() {
-		return hitting_onbase_hr;
+	public int getBatting_onbase_hr() {
+		return batting_onbase_hr;
 	}
 
-	public int getHitting_onbase_earned() {
-		return hitting_onbase_earned;
+	public int getBatting_onbase_earned() {
+		return batting_onbase_earned;
 	}
 
-	public int getHitting_runs_total() {
-		return hitting_runs_total;
+	public int getBatting_runs_total() {
+		return batting_runs_total;
 	}
 
-	public int getHitting_outs_ktotal() {
-		return hitting_outs_ktotal;
+	public int getBatting_outs_ktotal() {
+		return batting_outs_ktotal;
 	}
 
-	public int getHitting_steal_stolen() {
-		return hitting_steal_stolen;
+	public int getBatting_steal_stolen() {
+		return batting_steal_stolen;
+	}
+	
+	public int getBatting_game_won() {
+		return batting_game_won;
 	}
 
 	/**
@@ -134,17 +139,18 @@ public class LocalPlayerBattingStatistics {
 			this.team_name = rs.getString(FIELD_TEAM_NAME);
 			this.position = rs.getString(FIELD_POSITION);
 			this.game_date = rs.getString(FIELD_GAME_DATE);
-			this.hitting_ab = rs.getInt(FIELD_HITTING_AB);
-			this.hitting_rbi = rs.getInt(FIELD_HITTING_RBI);
-			this.hitting_onbase_h = rs.getInt(FIELD_HITTING_ONBASE_H);
-			this.hitting_onbase_s = rs.getInt(FIELD_HITTING_ONBASE_S);
-			this.hitting_onbase_d = rs.getInt(FIELD_HITTING_ONBASE_D);
-			this.hitting_onbase_t = rs.getInt(FIELD_HITTING_ONBASE_T);
-			this.hitting_onbase_hr = rs.getInt(FIELD_HITTING_ONBASE_HR);
-			this.hitting_onbase_earned = rs.getInt(FIELD_HITTING_ONBASE_EARNED);
-			this.hitting_runs_total = rs.getInt(FIELD_HITTING_RUNS_TOTAL);
-			this.hitting_outs_ktotal = rs.getInt(FIELD_HITTING_OUTS_KTOTAL);
-			this.hitting_steal_stolen = rs.getInt(FIELD_HITTING_STEAL_STOLEN);
+			this.batting_ab = rs.getInt(FIELD_BATTING_AB);
+			this.batting_rbi = rs.getInt(FIELD_BATTING_RBI);
+			this.batting_onbase_h = rs.getInt(FIELD_BATTING_ONBASE_H);
+			this.batting_onbase_s = rs.getInt(FIELD_BATTING_ONBASE_S);
+			this.batting_onbase_d = rs.getInt(FIELD_BATTING_ONBASE_D);
+			this.batting_onbase_t = rs.getInt(FIELD_BATTING_ONBASE_T);
+			this.batting_onbase_hr = rs.getInt(FIELD_BATTING_ONBASE_HR);
+			this.batting_onbase_earned = rs.getInt(FIELD_BATTING_ONBASE_EARNED);
+			this.batting_runs_total = rs.getInt(FIELD_BATTING_RUNS_TOTAL);
+			this.batting_outs_ktotal = rs.getInt(FIELD_BATTING_OUTS_KTOTAL);
+			this.batting_steal_stolen = rs.getInt(FIELD_BATTING_STEAL_STOLEN);
+			this.batting_game_won = rs.getInt(FIELD_BATTING_GAME_WON);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -182,9 +188,9 @@ public class LocalPlayerBattingStatistics {
 	// table
 	public static void addLocalPlayerBattingStatistics(String date,
 			String ab, String h, String rbi, String b1, String b2, String b3,
-			String runs, String sb, String hr, String so) {
+			String runs, String sb, String hr, String so, Boolean won) {
 
-		int iab, ih, irbi, ib1, ib2, ib3, iruns, isb, ihr, iso;
+		int iab, ih, irbi, ib1, ib2, ib3, iruns, isb, ihr, iso, iwon;
 		try {
 			// parse strings into integers where appropriate
 			if (notNumeric(ab) != true)
@@ -227,6 +233,11 @@ public class LocalPlayerBattingStatistics {
 				iso = Integer.parseInt(so);
 			else
 				iso = 0;
+			if (won)
+				iwon = 1;
+			else
+				iwon = 0;
+			
 			/*
 			 * NOTE: local variables which may need columns added in LocalPlayer
 			 * table
@@ -241,18 +252,19 @@ public class LocalPlayerBattingStatistics {
 
 			Database.executeSQL("INSERT INTO " + TABLE_NAME + "("
 					+ FIELD_LOCAL_PLAYER_ID + ", " + FIELD_GAME_DATE + ", "
-					+ FIELD_HITTING_AB + ", " + FIELD_HITTING_RBI + ", "
-					+ FIELD_HITTING_ONBASE_H + ", " + FIELD_HITTING_ONBASE_S
-					+ ", " + FIELD_HITTING_ONBASE_D + ", "
-					+ FIELD_HITTING_ONBASE_T + ", " + FIELD_HITTING_ONBASE_HR
-					+ ", " + FIELD_HITTING_RUNS_TOTAL + ", "
-					+ FIELD_HITTING_OUTS_KTOTAL + ", "
-					+ FIELD_HITTING_STEAL_STOLEN + ") " + "VALUES (\""
+					+ FIELD_BATTING_AB + ", " + FIELD_BATTING_RBI + ", "
+					+ FIELD_BATTING_ONBASE_H + ", " + FIELD_BATTING_ONBASE_S
+					+ ", " + FIELD_BATTING_ONBASE_D + ", "
+					+ FIELD_BATTING_ONBASE_T + ", " + FIELD_BATTING_ONBASE_HR
+					+ ", " + FIELD_BATTING_RUNS_TOTAL + ", "
+					+ FIELD_BATTING_OUTS_KTOTAL + ", "
+					+ FIELD_BATTING_STEAL_STOLEN + ", "
+					+ FIELD_BATTING_GAME_WON + ") " + "VALUES (\""
 					+ currentUser.getLocalPlayerId() + "\", " + "\"" + date
 					+ "\", " + "\"" + iab + "\", " + "\"" + irbi + "\", "
 					+ "\"" + ih + "\", " + "\"" + ib1 + "\", " + "\"" + ib2
 					+ "\", " + "\"" + ib3 + "\", " + "\"" + ihr + "\", " + "\""
-					+ iruns + "\", " + "\"" + iso + "\", " + "\"" + isb + "\");");
+					+ iruns + "\", " + "\"" + iso + "\", " + "\"" + isb + "\", \"" + iwon + "\");");
 
 		} catch (Exception ex) {
 			ex.printStackTrace();

@@ -126,7 +126,7 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
 	private void loadBattingGameData(LocalPlayer player)
 	{
 		
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "AB", "H",
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "Won", "AB", "H",
 				"RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO" }, 0);
 		
 		ArrayList<LocalPlayerBattingStatistics> players = LocalPlayerBattingStatistics
@@ -134,11 +134,12 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
 		
 		for (LocalPlayerBattingStatistics m : players)
 		{
-			Object[] row = { m.getHitting_ab(), m.getHitting_onbase_h(),
-					m.getHitting_rbi(), m.getHitting_onbase_s(), m.getHitting_onbase_d(),
-					m.getHitting_onbase_t(), m.getHitting_runs_total(),
-					m.getHitting_steal_stolen(), m.getHitting_onbase_hr(),
-					m.getHitting_outs_ktotal() };
+			String won = new String(m.getBatting_game_won() == 1 ? "X" : "");
+			Object[] row = { won, m.getBatting_ab(), m.getBatting_onbase_h(),
+					m.getBatting_rbi(), m.getBatting_onbase_s(), m.getBatting_onbase_d(),
+					m.getBatting_onbase_t(), m.getBatting_runs_total(),
+					m.getBatting_steal_stolen(), m.getBatting_onbase_hr(),
+					m.getBatting_outs_ktotal() };
 			newTable.addRow(row);
 		}
 		
@@ -155,7 +156,7 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
 	private void loadFieldingGameData(LocalPlayer player)
 	{
 		
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "Wins",
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "Won",
 				"Losses", "PO", "Err", "Assist", "F%" }, 0);
 		
 		ArrayList<LocalPlayerFieldingStatistics> players = LocalPlayerFieldingStatistics
@@ -163,9 +164,8 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
 		
 		for (LocalPlayerFieldingStatistics m : players)
 		{
-			Object[] row = { m.getFielding_games_win(), m.getFielding_games_loss(),
-					m.getFielding_po(), m.getFielding_error(), m.getFielding_assist(),
-					m.getFielding_fpct() };
+			String won = new String(m.getFielding_game_won() == 1 ? "X" : "");
+			Object[] row = { won, m.getFielding_po(), m.getFielding_error(), m.getFielding_assist(), m.getFielding_fpct() };
 			newTable.addRow(row);
 		}
 		
@@ -182,7 +182,7 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
 	private void loadPitchingGameData(LocalPlayer player)
 	{
 		
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "W", "L",
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "Won",
 				"ERA", "SAVES", "HITS", "HOLDS", "RUNS", "HBP" }, 0);
 		
 		ArrayList<LocalPlayerPitchingStatistics> players = LocalPlayerPitchingStatistics
@@ -190,10 +190,11 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
 		
 		for (LocalPlayerPitchingStatistics m : players)
 		{
-			Object[] row = { m.getPitching_games_win(), m.getPitching_games_loss(),
+			String won = new String(m.getPitching_game_won() == 1 ? "X" : "");
+			Object[] row = { won,
 					m.getPitching_era(), m.getPitching_games_save(),
 					m.getPitching_games_hit(), m.getPitching_games_hold(),
-					m.getPitching_runs_total(), m.getPitching_hbp() };
+					m.getPitching_runs(), m.getPitching_hbp() };
 			newTable.addRow(row);
 		}
 		
