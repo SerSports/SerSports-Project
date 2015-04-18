@@ -55,21 +55,27 @@ public class UserStatsContainer extends JLayeredPane {
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		
-		btnBattingStats.setBounds(37, 80, 164, 55);
+		JLabel menu = new JLabel("");
+		menu.setBounds(197, 45, 4, 420);
+		menuPanel.add(menu);
+		Image imgLineVerticle = new ImageIcon(this.getClass().getResource("/images/MenuLine.png")).getImage();
+		menu.setIcon(new ImageIcon(imgLineVerticle));
+		
+		btnBattingStats.setBounds(26, 80, 164, 55);
 		menuPanel.add(btnBattingStats);
 		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnBattingStats.setContentAreaFilled(false);	
 		btnBattingStats.setForeground(new Color(244, 229, 192));
 		btnBattingStats.setFont(new Font("Bangla MN", Font.PLAIN, 18));
 		
-		btnPitchingStats.setBounds(27, 242, 188, 29);
+		btnPitchingStats.setBounds(26, 242, 164, 55);
 		menuPanel.add(btnPitchingStats);
 		btnPitchingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnPitchingStats.setContentAreaFilled(false);
 		btnPitchingStats.setForeground(new Color(244, 229, 192));
 		btnPitchingStats.setFont(new Font("Bangla MN", Font.PLAIN, 18));
 		
-		btnFieldingStats.setBounds(27, 391, 188, 29);	
+		btnFieldingStats.setBounds(26, 391, 164, 55);	
 		menuPanel.add(btnFieldingStats);
 		btnFieldingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnFieldingStats.setContentAreaFilled(false);
