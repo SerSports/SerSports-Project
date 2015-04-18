@@ -13,7 +13,7 @@ public class ModifiedJButtonStyle1 extends JButton {
 
 	public ModifiedJButtonStyle1(String text){
 		super(text);
-		setBorder(new LineBorder(new Color(244, 229, 192), 2));
+		setBorder(new LineBorder(new Color(244, 229, 192), 1));
 		setContentAreaFilled(false);
 		setForeground(new Color(244, 229, 192));
 		setFont(new Font("Helvetica", Font.PLAIN, 14));

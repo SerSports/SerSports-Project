@@ -14,6 +14,7 @@ import database.LocalPlayer;
 import database.MlbPlayer;
 import database.User;
 import gui.HomePageGUI;
+import gui.ModifiedJTable;
 
 /**
  * Generates a list of the ten most similar players compared to the current user's
@@ -108,6 +109,7 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener,
 		
 		comparisonTable.setModel(newTable);
 		comparisonTable.removeColumn(comparisonTable.getColumnModel().getColumn(0));
+		((ModifiedJTable) comparisonTable).updateRowHeights();
 	}
 	
 	/**

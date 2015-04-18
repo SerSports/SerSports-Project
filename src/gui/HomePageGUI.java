@@ -114,7 +114,7 @@ public class HomePageGUI extends JPanel {
 		add(userFirstName);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(259, 187, 480, 190);
+		scrollPane_2.setBounds(260, 187, 480, 195);
 		scrollPane_2.setOpaque(false);
 		scrollPane_2.getViewport().setOpaque(false);
 		scrollPane_2.setBorder(new LineBorder(new Color(244, 229, 192), 1));
@@ -122,6 +122,7 @@ public class HomePageGUI extends JPanel {
 
 		comparisonTable =  new ModifiedJTable(new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"}));
 		scrollPane_2.setViewportView(comparisonTable);
+		//((ModifiedJTable) comparisonTable).updateRowHeights();
 		
 		btnFindBestComparison = new JButton("Find Best Comparison");
 		btnFindBestComparison.addActionListener(new ActionListener() {
@@ -129,10 +130,11 @@ public class HomePageGUI extends JPanel {
 			}
 		});
 		
+		
 		btnFindBestComparison.setForeground(new Color(244, 229, 192));
 		btnFindBestComparison.setFont(new Font("Bangla MN", Font.PLAIN, 16));
-		btnFindBestComparison.setBounds(382, 406, 235, 46);
-		add(btnFindBestComparison);
+		btnFindBestComparison.setBounds(383, 437, 235, 46);
+		//add(btnFindBestComparison);
 		btnFindBestComparison.setActionCommand("Find Best Comparison");
 		btnFindBestComparison.setBorder(new LineBorder(new Color(244, 229, 192), 2));
 		btnFindBestComparison.setBackground(new Color(47, 52, 64));
