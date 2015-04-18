@@ -160,13 +160,19 @@ public class ApplicationGUI extends JLayeredPane{
     	});
     	
 		btnSignOut.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){			
-    			//userHasInputInTextFields();
-    			int result = JOptionPane.showConfirmDialog(null, "You have pending statistics to add. Are you sure you want to sign out?", 
-    					null, JOptionPane.YES_NO_OPTION);
-    			if(result == JOptionPane.YES_OPTION){
+    		public void actionPerformed(ActionEvent arg0){
+    			
+    			boolean userHasPendingInput = userHasInputInTextFields(); 
+    			if(userHasPendingInput){
+    				int result = JOptionPane.showConfirmDialog(null, "You have pending statistics to add. Are you sure you want to sign out?", 
+        					null, JOptionPane.YES_NO_OPTION);
+        			if(result == JOptionPane.YES_OPTION){
+        				MainGUI.setApplicationToClose();
+    				}
+    			}
+    			else{
     				MainGUI.setApplicationToClose();
-				}
+    			}
     		}
     	});
 	   
@@ -214,18 +220,19 @@ public class ApplicationGUI extends JLayeredPane{
 	
 	public boolean userHasInputInTextFields(){
 		boolean batter, fielder, pitcher;
-		UserBattingStats batterStats = new UserBattingStats();
-		batter = batterStats.checkTextFields();
-		System.out.println("Batter: "+batter);
 		
-		UserFieldingStats fielderStats = new UserFieldingStats();
-		fielder = fielderStats.checkTextFields();
-		System.out.println("fielder: "+fielder);
+		UserBattingStats batterStats = new UserBattingStats();		
+		batter = batterStats.checkForInputInTextFields();
+		System.out.println("batter: "+batter);
 		
-		UserPitchingStats pitcherStats = new UserPitchingStats();
-		pitcher = pitcherStats.checkTextFields();
-		System.out.println("pitcher: "+pitcher);
+		//UserFieldingStats fielderStats = new UserFieldingStats();
+		//fielder = fielderStats.checkForInputInTextFields();
+		//System.out.println("fielder: "+fielder);
 		
-		return false;
+		//UserPitchingStats pitcherStats = new UserPitchingStats();
+		//pitcher = pitcherStats.checkTextFields();
+		//System.out.println("pitcher: "+pitcher);
+		
+		return batter;
 	}
 }

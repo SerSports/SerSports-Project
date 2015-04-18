@@ -162,7 +162,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 
 		String date = txtDate.getText();
 		String ab = txtAB.getText();
-		String h = txtH.getText();
+		String h = txtHits.getText();
 		String rbi = txtRBI.getText();
 		String b1 = txtb_1.getText();
 		String b2 = txtb_2.getText();
@@ -265,7 +265,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	public void resetTextFields(){
 		txtDate.setText(getDateTxt());
 		txtAB.setText(getABTxt());
-		txtH.setText(getHitsTxt());
+		txtHits.setText(getHitsTxt());
 		txtRBI.setText(getRBITxt());
 		txtb_1.setText(getB1Txt());
 		txtb_2.setText(getB2Txt());

@@ -50,7 +50,7 @@ public class UserBattingStats extends JPanel {
 	
 	protected JTable table;
 	protected ModifiedJTextField txtAB = new ModifiedJTextField();
-	protected ModifiedJTextField txtH = new ModifiedJTextField();
+	protected ModifiedJTextField txtHits = new ModifiedJTextField();
 	protected ModifiedJTextField txtRBI = new ModifiedJTextField();
 	protected ModifiedJTextField txtb_1 = new ModifiedJTextField();
 	protected ModifiedJTextField txtb_2 = new ModifiedJTextField();
@@ -93,10 +93,10 @@ public class UserBattingStats extends JPanel {
 		add(txtAB);
 		txtAB.addFocusListener(new ModifiedFocusAdapter(txtAB, abTxt));
 		
-		txtH.setBounds(394, 97, 158, 31);
-		txtH.setText(hitsTxt);
-		add(txtH);
-		txtH.addFocusListener(new ModifiedFocusAdapter(txtH, hitsTxt));
+		txtHits.setBounds(394, 97, 158, 31);
+		txtHits.setText(hitsTxt);
+		add(txtHits);
+		txtHits.addFocusListener(new ModifiedFocusAdapter(txtHits, hitsTxt));
 		
 		txtRBI.setBounds(560, 97, 158, 31);
 		txtRBI.setText(rbiTxt);
@@ -224,29 +224,27 @@ public class UserBattingStats extends JPanel {
 		return soTxt;
 	}
 	
-	public boolean checkTextFields(){
-		boolean result;
+	public boolean checkForInputInTextFields(){
 		
-		//Batting
-		if (txtDate.getText() != dateTxt ||
-			txtAB.getText() != abTxt ||
-			txtH.getText() != hitsTxt ||
-			txtRBI.getText() != rbiTxt ||
-			txtb_1.getText() != b1Txt ||
-			txtb_2.getText() != b2Txt ||
-			txtb_3.getText() != b3Txt ||
-			txtRuns.getText() != runsTxt ||
-			txtSB.getText() != sbTxt ||
-			txtHR.getText() != hrTxt ||
-			txtSO.getText() != soTxt){
-			//System.out.println("batter - dateTxt: "+dateTxt);
-			//System.out.println("batter - txtDate: "+txtDate);
-			result = false;
-	
+		boolean dateResult = txtDate.getText().equals(dateTxt);
+		boolean abResult = txtAB.getText().equals(abTxt);
+		boolean hitsResult = txtHits.getText().equals(hitsTxt);
+		boolean rbiResult = txtRBI.getText().equals(rbiTxt); 
+		boolean b1Result = txtb_1.getText().equals(b1Txt);
+		boolean b2Result = txtb_2.getText().equals(b2Txt);
+		boolean b3Result = txtb_3.getText().equals(b3Txt);
+		boolean runsResult = txtRuns.getText().equals(runsTxt);
+		boolean sbResult = txtSB.getText().equals(sbTxt);
+		boolean hrResult = txtHR.getText().equals(hrTxt);
+		boolean soResult = txtSO.getText().equals(soTxt);
+		
+		//when all equals to caption text, then user does not have input
+		if(dateResult || abResult || hitsResult || rbiResult || b1Result ||
+				b2Result || b3Result || runsResult || sbResult || hrResult ||
+				soResult){
+			return false;
 		}
-		else{
-			result = true;
-		}
-		return result;
+		
+		return true;
 	}
 }
