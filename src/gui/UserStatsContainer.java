@@ -31,7 +31,7 @@ public class UserStatsContainer extends JLayeredPane {
 	JPanel menuPanel = new JPanel();	
 	protected JButton btnPitchingStats = new JButton("Pitching Stats");
 	protected JButton btnFieldingStats = new JButton("Fielding Stats");
-	protected JButton btnBattingStats = new JButton("<html><u>Batting Stats</u><html>");
+	protected JButton btnBattingStats = new JButton("Batting Stats");
 	UserBattingStatsClient batting = new UserBattingStatsClient();
 	UserFieldingStatsClient fielding = new UserFieldingStatsClient();
 	UserPitchingStatsClient pitching = new UserPitchingStatsClient();	
@@ -54,6 +54,12 @@ public class UserStatsContainer extends JLayeredPane {
 		menuPanel.add(logo);
 		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
+		
+		JLabel underLine = new JLabel("");
+		underLine.setBounds(37, 119, 164, 3);
+		menuPanel.add(underLine);
+		Image imgunderLine = new ImageIcon(this.getClass().getResource("/images/MenuLineIndicator.png")).getImage();
+		underLine.setIcon(new ImageIcon(imgunderLine));
 		
 		JLabel menu = new JLabel("");
 		menu.setBounds(197, 45, 4, 420);

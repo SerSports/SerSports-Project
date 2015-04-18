@@ -71,12 +71,6 @@ public class UserFieldingStats extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		setPreferredSize(new Dimension(800, 650));
 		
-		JLabel lblDate = new JLabel("Date:");
-		lblDate.setForeground(new Color(244, 229, 192));
-		lblDate.setFont(new Font("Helvetica", Font.PLAIN, 14));
-		lblDate.setBounds(19, 104, 34, 16);
-		add(lblDate);
-		
 		JLabel lblEnter = new JLabel("Enter a New Game Stats");
 		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
 		lblEnter.setBounds(278, 37, 244, 31);

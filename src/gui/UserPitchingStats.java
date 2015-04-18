@@ -67,15 +67,9 @@ public class UserPitchingStats extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		
-		JLabel lblDate = new JLabel("Date:");
-		lblDate.setForeground(new Color(244, 229, 192));
-		lblDate.setFont(new Font("Helvetica", Font.PLAIN, 14));
-		lblDate.setBounds(19, 104, 34, 16);
-		add(lblDate);
-		
-		JLabel lblEnter = new JLabel("Enter a New Game Stats");
+		JLabel lblEnter = new JLabel("Enter a New Game Stats:");
 		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
-		lblEnter.setBounds(278, 37, 244, 31);
+		lblEnter.setBounds(65, 54, 244, 31);
 		lblEnter.setForeground(new Color(244, 229, 192));
 		add(lblEnter);
 		

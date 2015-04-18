@@ -6,8 +6,12 @@ import javax.swing.border.LineBorder;
 
 public class ModifiedJScrollPane extends JScrollPane {
 	
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7661079313014633413L;
+
 public ModifiedJScrollPane(){
-	setBounds(259, 187, 480, 190);
 	setOpaque(false);
 	getViewport().setOpaque(false);
 	setBorder(new LineBorder(new Color(244, 229, 192), 1));
