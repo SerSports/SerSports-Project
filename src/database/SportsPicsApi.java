@@ -13,17 +13,8 @@ package database;
  
  API for http://www.sportsdatallc.com/
  */
-import javax.xml.parsers.*;
-
 import java.awt.image.BufferedImage;
-import java.net.*;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-
-import java.util.*;
 
 public class SportsPicsApi {
 	private static final String apiKey = "enwf769pmzvpjr57jurvexqz";
