@@ -156,11 +156,14 @@ public class UserBattingStats extends JPanel {
 		txtSO.addFocusListener(new ModifiedFocusAdapter(txtSO, soTxt));
 		txtSO.getDocument().addDocumentListener(new TextFieldDoumentListener(txtSO));
 		
-		comboBox.setBounds(395, 220, 158, 31);
+		comboBox.setBounds(558, 173, 158, 31);
 		add(comboBox);
+		comboBox.setBorder(new LineBorder(new Color(244, 229, 192), 1));
+		//comboBox.setBackground(new Color(47, 52, 64));
+		//comboBox.setForeground(new Color(244, 229, 192));
 		
 		//JButton 
-		submitBattingStats.setBounds(558, 173, 159, 31);
+		submitBattingStats.setBounds(320, 216, 159, 31);
 		add(submitBattingStats);
 		submitBattingStats.setActionCommand("SubmitBattingStats");	
 		
