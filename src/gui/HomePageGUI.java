@@ -10,6 +10,8 @@ package gui;
 
 import java.awt.Dimension;
 import java.awt.Image;
+
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,11 +22,18 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+
 import java.awt.Color;
+
 import database.*;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
 
@@ -44,6 +53,8 @@ public class HomePageGUI extends JPanel {
 	protected JLabel label = null;
 	protected Image imgbackground = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
 	protected JLabel lblbackgroundImage = new JLabel("");
+	protected Image img = null;
+	
 	
 	/**
 	  Method: Constructor
@@ -53,6 +64,24 @@ public class HomePageGUI extends JPanel {
 	  Description: Creates the panel
 	*/
 	public HomePageGUI() {
+		
+        try {
+            URL url = new URL("http://www.sportsdatallc.com/wp-content/gallery/mlb-usat/clayton-kershaw.jpg");
+            img = ImageIO.read(url);
+        } catch (IOException e) {
+        	e.printStackTrace();
+        }
+        
+        Image dimg = img.getScaledInstance(330, 330,Image.SCALE_SMOOTH);
+        
+        JLabel mlbImage = new JLabel(new ImageIcon(dimg));
+        mlbImage.setLocation(613, 76);
+        mlbImage.setSize(300, 300);
+        add(mlbImage);
+        mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));
+
+
+		
 		setBounds(0, 114, 1300, 597);
 		setPreferredSize(new Dimension(1000, 650));
 		setBackground(new Color(47, 52, 64));
@@ -79,25 +108,25 @@ public class HomePageGUI extends JPanel {
 		JLabel lblYouAre = new JLabel("You are");
 		lblYouAre.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
 		lblYouAre.setForeground(new Color(244, 229, 192));
-		lblYouAre.setBounds(490, 155, 60, 16);
+		lblYouAre.setBounds(537, 44, 60, 16);
 		add(lblYouAre);
 		
 		label = new JLabel("");
 		label.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
 		label.setForeground(new Color(244, 229, 192));
-		label.setBounds(556, 156, 50, 19);
+		label.setBounds(603, 45, 50, 19);
 		add(label);
 		
 		JLabel lblPercent = new JLabel("percent like");
 		lblPercent.setForeground(new Color(244, 229, 192));
 		lblPercent.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		lblPercent.setBounds(610, 155, 100, 16);
+		lblPercent.setBounds(657, 44, 100, 16);
 		add(lblPercent);
 		
-		lblInsertPlayersName = new JLabel("Insert Players name");
+		lblInsertPlayersName = new JLabel("Erik Van Norman Goeddel");
 		lblInsertPlayersName.setForeground(new Color(244, 229, 192));
 		lblInsertPlayersName.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		lblInsertPlayersName.setBounds(705, 155, 211, 16);
+		lblInsertPlayersName.setBounds(752, 44, 211, 16);
 		add(lblInsertPlayersName);		
 		
 		JLabel lblWelcome = new JLabel("Welcome,");
@@ -114,7 +143,7 @@ public class HomePageGUI extends JPanel {
 		add(userFirstName);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(260, 187, 480, 195);
+		scrollPane_2.setBounds(66, 168, 480, 195);
 		scrollPane_2.setOpaque(false);
 		scrollPane_2.getViewport().setOpaque(false);
 		scrollPane_2.setBorder(new LineBorder(new Color(244, 229, 192), 1));
@@ -143,7 +172,7 @@ public class HomePageGUI extends JPanel {
 		JLabel lblTop = new JLabel("Top 10 Table:");
 		lblTop.setForeground(new Color(244, 229, 192));
 		lblTop.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 24));
-		lblTop.setBounds(199, 148, 152, 34);
+		lblTop.setBounds(43, 129, 152, 34);
 		add(lblTop);
 		
 		JLabel lblBorderlayout = new JLabel("");
