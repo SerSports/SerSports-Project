@@ -128,6 +128,7 @@ public class HomePageGUI extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
+		
 		btnFindBestComparison.setForeground(new Color(244, 229, 192));
 		btnFindBestComparison.setFont(new Font("Bangla MN", Font.PLAIN, 16));
 		btnFindBestComparison.setBounds(382, 406, 235, 46);
@@ -135,15 +136,18 @@ public class HomePageGUI extends JPanel {
 		btnFindBestComparison.setActionCommand("Find Best Comparison");
 		btnFindBestComparison.setBorder(new LineBorder(new Color(244, 229, 192), 2));
 		btnFindBestComparison.setBackground(new Color(47, 52, 64));
+		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
+		
+		JLabel lblTop = new JLabel("Top 10 Table:");
+		lblTop.setForeground(new Color(244, 229, 192));
+		lblTop.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 24));
+		lblTop.setBounds(199, 148, 152, 34);
+		add(lblTop);
 		
 		JLabel lblBorderlayout = new JLabel("");
 		lblBorderlayout.setBounds(16, 16, 968, 483);
 		add(lblBorderlayout);
-		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 		
 	}
-	
-	
-	
 }
