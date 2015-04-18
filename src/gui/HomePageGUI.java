@@ -48,7 +48,7 @@ public class HomePageGUI extends JPanel {
 	protected JLabel userFirstName = null;
 	protected JButton btnSignOut;
 	protected JTable comparisonTable;
-	protected JButton btnFindBestComparison = null;
+	protected ModifiedJButtonStyle1 btnFindBestComparison = new ModifiedJButtonStyle1("Find Best Comparison");;
 	protected JLabel lblInsertPlayersName = null;
 	protected JLabel label = null;
 	protected Image imgbackground = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
@@ -75,7 +75,7 @@ public class HomePageGUI extends JPanel {
         Image dimg = img.getScaledInstance(330, 330,Image.SCALE_SMOOTH);
         
         JLabel mlbImage = new JLabel(new ImageIcon(dimg));
-        mlbImage.setLocation(613, 76);
+        mlbImage.setLocation(624, 98);
         mlbImage.setSize(300, 300);
         add(mlbImage);
         mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));
@@ -108,25 +108,25 @@ public class HomePageGUI extends JPanel {
 		JLabel lblYouAre = new JLabel("You are");
 		lblYouAre.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
 		lblYouAre.setForeground(new Color(244, 229, 192));
-		lblYouAre.setBounds(537, 44, 60, 16);
+		lblYouAre.setBounds(558, 425, 60, 16);
 		add(lblYouAre);
 		
 		label = new JLabel("");
 		label.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
 		label.setForeground(new Color(244, 229, 192));
-		label.setBounds(603, 45, 50, 19);
+		label.setBounds(624, 426, 50, 19);
 		add(label);
 		
 		JLabel lblPercent = new JLabel("percent like");
 		lblPercent.setForeground(new Color(244, 229, 192));
 		lblPercent.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		lblPercent.setBounds(657, 44, 100, 16);
+		lblPercent.setBounds(678, 425, 100, 16);
 		add(lblPercent);
 		
 		lblInsertPlayersName = new JLabel("Erik Van Norman Goeddel");
 		lblInsertPlayersName.setForeground(new Color(244, 229, 192));
 		lblInsertPlayersName.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		lblInsertPlayersName.setBounds(752, 44, 211, 16);
+		lblInsertPlayersName.setBounds(773, 425, 211, 16);
 		add(lblInsertPlayersName);		
 		
 		JLabel lblWelcome = new JLabel("Welcome,");
@@ -153,20 +153,17 @@ public class HomePageGUI extends JPanel {
 		scrollPane_2.setViewportView(comparisonTable);
 		//((ModifiedJTable) comparisonTable).updateRowHeights();
 		
-		btnFindBestComparison = new JButton("Find Best Comparison");
 		btnFindBestComparison.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		
 		
-		btnFindBestComparison.setForeground(new Color(244, 229, 192));
-		btnFindBestComparison.setFont(new Font("Bangla MN", Font.PLAIN, 16));
-		btnFindBestComparison.setBounds(383, 437, 235, 46);
-		//add(btnFindBestComparison);
+		btnFindBestComparison.setBounds(202, 375, 200, 28);
+		add(btnFindBestComparison);
 		btnFindBestComparison.setActionCommand("Find Best Comparison");
-		btnFindBestComparison.setBorder(new LineBorder(new Color(244, 229, 192), 2));
-		btnFindBestComparison.setBackground(new Color(47, 52, 64));
+
+		
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		
 		JLabel lblTop = new JLabel("Top 10 Table:");
