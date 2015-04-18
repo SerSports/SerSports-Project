@@ -21,14 +21,14 @@ used http://best-programming-tricks.blogspot.com/2011/07/how-to-add-action-mouse
 */
 
 public class CreateAccount extends JPanel {
-	private JTextField textUsername;
-	private JTextField textPassword;
-	private JTextField textFirstName;
-	private JTextField textLastname;
-	private JTextField textAge;
-	protected JButton btnCreateNewAccount;
+	private ModifiedJTextField textUsername = new ModifiedJTextField();
+	private ModifiedJTextField textPassword = new ModifiedJTextField();
+	private ModifiedJTextField textFirstName = new ModifiedJTextField();
+	private ModifiedJTextField textLastname = new ModifiedJTextField();
+	private ModifiedJTextField textAge = new ModifiedJTextField();
+	protected ModifiedJButtonStyle1 btnCreateNewAccount = new ModifiedJButtonStyle1("Create Account");
 	protected JButton backButton = new JButton();
-	protected Image backButtonImage = new ImageIcon(this.getClass().getResource("/images/BackArrow.png")).getImage();
+	protected Image backButtonImage = new ImageIcon(this.getClass().getResource("/images/Arrow.png")).getImage();
 	private static final boolean debugOn = true;
 	MainGUI main = null;
 	protected JLabel logo = new JLabel("");
@@ -48,78 +48,53 @@ public class CreateAccount extends JPanel {
 		setPreferredSize(new Dimension(1000, 650));
 		setLayout(null);
 		this.main = mainGuiObj;
-		textUsername = new JTextField();
-		textUsername.setBounds(294, 94, 134, 28);
-		add(textUsername);
+		Image backButtonImage = new ImageIcon(this.getClass().getResource("/images/Arrow.png")).getImage();
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(340, 165, 320, 320);
+		add(panel);
+		panel.setLayout(null);
+		panel.setBorder(null);
+		panel.setBackground(new Color(47, 52, 64));
+		textUsername.setBounds(114, 33, 200, 28);
+		panel.add(textUsername);
+		textUsername.setText("User Name");
 		textUsername.setColumns(10);
+		textPassword.setBounds(114, 73, 200, 28);
+		panel.add(textPassword);
 		
-		JLabel lblUsername = new JLabel("UserName:");
-		lblUsername.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
-		lblUsername.setForeground(new Color(244, 229, 192));
-		lblUsername.setBounds(198, 96, 84, 28);
-		add(lblUsername);
-		
-		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
-		lblPassword.setForeground(new Color(244, 229, 192));
-		lblPassword.setBounds(204, 136, 78, 26);
-		add(lblPassword);
-		
-		textPassword = new JTextField();
-		textPassword.setBounds(294, 134, 134, 28);
-		add(textPassword);
+		textPassword.setText("Password");
 		textPassword.setColumns(10);
+		textFirstName.setBounds(114, 113, 200, 28);
+		panel.add(textFirstName);
 		
-		JLabel lblFirstName = new JLabel("First Name:");
-		lblFirstName.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
-		lblFirstName.setForeground(new Color(244, 229, 192));
-		lblFirstName.setBounds(195, 176, 87, 28);
-		add(lblFirstName);
-		
-		JLabel lblLastName = new JLabel("Last Name:");
-		lblLastName.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
-		lblLastName.setForeground(new Color(244, 229, 192));
-		lblLastName.setBounds(196, 217, 86, 24);
-		add(lblLastName);
-		
-		JLabel lblAge = new JLabel("Age:");
-		lblAge.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
-		lblAge.setForeground(new Color(244, 229, 192));
-		lblAge.setBounds(248, 253, 34, 24);
-		add(lblAge);
-		
-		textFirstName = new JTextField();
-		textFirstName.setBounds(294, 172, 134, 28);
-		add(textFirstName);
+		textFirstName.setText("First Name");
 		textFirstName.setColumns(10);
+		textLastname.setBounds(114, 153, 200, 28);
+		panel.add(textLastname);
 		
-		textLastname = new JTextField();
-		textLastname.setBounds(294, 212, 134, 28);
-		add(textLastname);
+		textLastname.setText("Last Name");
 		textLastname.setColumns(10);
+		textAge.setBounds(114, 193, 200, 28);
+		panel.add(textAge);
 		
-		textAge = new JTextField();
-		textAge.setBounds(294, 249, 134, 28);
-		add(textAge);
+		textAge.setText("Age");
 		textAge.setColumns(10);
-		
-		JButton btnCreateNewAccount = new JButton("Create Account");
-		btnCreateNewAccount.setBounds(294, 289, 140, 28);
-		add(btnCreateNewAccount);
+		btnCreateNewAccount.setBounds(148, 237, 140, 28);
+		panel.add(btnCreateNewAccount);
 		btnCreateNewAccount.setActionCommand("btnCreateNewAccount");
-		
-		
-		/**
-		 *  Back button displayed on the Create Account screen
-		 *  that transitions back to the Login screen
-		 */	
-		backButton.setBounds(40, 40, 103, 58);
-		add(backButton);
-		Image backButtonImage = new ImageIcon(this.getClass().getResource("/images/BackArrow.png")).getImage();
+		backButton.setBounds(6, 96, 87, 87);
+		panel.add(backButton);
 		backButton.setIcon(new ImageIcon(backButtonImage));
 		backButton.setActionCommand("backButton");
 		backButton.setBorder(BorderFactory.createEmptyBorder());
 		backButton.setContentAreaFilled(false);	
+		
+			backButton.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent arg0){
+						main.showLoginGUI();
+				}
+			});
 
 		btnCreateNewAccount.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
@@ -144,15 +119,6 @@ public class CreateAccount extends JPanel {
 		/**
 		 *  Listener used to transition back to the Login screen
 		 */		
-
-	backButton.addActionListener(new ActionListener(){
-		public void actionPerformed(ActionEvent arg0){
-				main.showLoginGUI();
-		}
-	});
 	
 	}
-			
-
-
 	}
