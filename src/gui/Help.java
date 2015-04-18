@@ -11,12 +11,12 @@ package gui;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -27,18 +27,22 @@ import javax.swing.JPanel;
  */
 public class Help extends JPanel
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2930809141431853923L;
 	CardLayout c1 = new CardLayout();
 	JPanel faqContainer = new JPanel();
 	
-	protected JButton ageRequirementQ = new JButton(
+	protected ModifiedJButtonStyle1 ageRequirementQ = new ModifiedJButtonStyle1(
 			"Is there an age requirement to create an account?");
-	protected JButton abbreviationsQ = new JButton(
+	protected ModifiedJButtonStyle1 abbreviationsQ = new ModifiedJButtonStyle1(
 			"List of common baseball abbreviations");
-	protected JButton similarityQ = new JButton(
+	protected ModifiedJButtonStyle1 similarityQ = new ModifiedJButtonStyle1(
 			"How is the similarity between players determined?");
-	protected JButton statisticViewQ = new JButton(
+	protected ModifiedJButtonStyle1 statisticViewQ = new ModifiedJButtonStyle1(
 			"Will other people be able to see my statistics?");
-	protected JButton deletedStatisticsQ = new JButton(
+	protected ModifiedJButtonStyle1 deletedStatisticsQ = new ModifiedJButtonStyle1(
 			"Can I retrieve deleted statistics?");
 	
 	AgeRequirementQ ageRequirement = new AgeRequirementQ();
@@ -57,7 +61,7 @@ public class Help extends JPanel
 		add(faqContainer);
 		faqContainer.setPreferredSize(new Dimension(345, 424));
 		faqContainer.setBackground(Color.WHITE);
-		faqContainer.setBounds(614, 87, 345, 424);
+		faqContainer.setBounds(510, 87, 345, 424);
 		setPreferredSize(new Dimension(1000, 600));
 		setLayout(null);
 		setBackground(new Color(47, 52, 64));
@@ -68,9 +72,11 @@ public class Help extends JPanel
 		faqContainer.add(viewStats, "4");
 		faqContainer.add(deletedStats, "5");
 		
-		JLabel lblYouAre = new JLabel("FAQ & Help");
-		lblYouAre.setBounds(466, 20, 80, 16);
-		add(lblYouAre);
+		JLabel lblEnter = new JLabel("FAQ");
+		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
+		lblEnter.setBounds(477, 37, 46, 29);
+		lblEnter.setForeground(new Color(244, 229, 192));
+		add(lblEnter);
 		
 		JLabel logo = new JLabel("");
 		logo.setBounds(6, 0, 152, 55);
@@ -79,19 +85,19 @@ public class Help extends JPanel
 				.getImage();
 		logo.setIcon(new ImageIcon(img));
 		
-		ageRequirementQ.setBounds(115, 184, 412, 29);
+		ageRequirementQ.setBounds(79, 180, 412, 29);
 		add(ageRequirementQ);
 		
-		abbreviationsQ.setBounds(115, 225, 412, 29);
+		abbreviationsQ.setBounds(79, 221, 412, 29);
 		add(abbreviationsQ);
 		
-		similarityQ.setBounds(115, 266, 412, 29);
+		similarityQ.setBounds(79, 262, 412, 29);
 		add(similarityQ);
 		
-		statisticViewQ.setBounds(115, 307, 412, 29);
+		statisticViewQ.setBounds(79, 303, 412, 29);
 		add(statisticViewQ);
 		
-		deletedStatisticsQ.setBounds(115, 348, 412, 29);
+		deletedStatisticsQ.setBounds(79, 344, 412, 29);
 		add(deletedStatisticsQ);
 		
 		ageRequirementQ.addActionListener(new ActionListener() {

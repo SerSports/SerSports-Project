@@ -7,6 +7,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableModel;
 
 public class ModifiedJTable extends JTable {
 	/**
@@ -15,9 +17,9 @@ public class ModifiedJTable extends JTable {
 	private static final long serialVersionUID = 8253718684484994753L;
 	//Members
 	JTableHeader header = this.getTableHeader();
-	//DefaultTableModel model = new DefaultTableModel(null, new Object[]{"First Name", "Last Name","Team","Similarity %"})
 	
-	ModifiedJTable(){
+	ModifiedJTable(TableModel dm){
+		super(dm);
 		setShowHorizontalLines(false);
 		setShowVerticalLines(false);
 		setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 14));

@@ -15,10 +15,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
 
@@ -34,15 +30,15 @@ public class BrowseLocalPlayers extends JPanel {
 	 */
 	private static final long serialVersionUID = -9139519781491923436L;
 	// Protected Members
-	protected JTextField txtFirstName;
-	protected JTextField txtLastName;
-	protected JTextField txtTeam;
-	protected JButton SubmitLocalSearch;
-	protected JButton btnSeePlayerStats;
-	protected JTable table;
-	protected JTable fieldingTable;
-	protected JTable pitchingTable;
-	protected JTable battingTable;
+	protected ModifiedJTextField txtFirstName = new ModifiedJTextField();
+	protected ModifiedJTextField txtLastName = new ModifiedJTextField();
+	protected ModifiedJTextField txtTeam = new ModifiedJTextField();
+	protected ModifiedJButtonStyle1 SubmitLocalSearch = new ModifiedJButtonStyle1("Submit");
+	protected ModifiedJButtonStyle1 btnSeePlayerStats = new ModifiedJButtonStyle1("See Player Stats");
+	protected ModifiedJTable table;
+	protected ModifiedJTable fieldingTable;
+	protected ModifiedJTable pitchingTable;
+	protected ModifiedJTable battingTable;
 
 	/**
 	 * Method: Constructor Inputs: None Returns:
@@ -57,12 +53,10 @@ public class BrowseLocalPlayers extends JPanel {
 		// Menu Indicator
 		JLabel diamond = new JLabel("");
 		diamond.setBounds(603, -48, 64, 64);
-		Image img2 = new ImageIcon(this.getClass().getResource(
-				"/images/diamond.png")).getImage();
+		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
 		add(diamond);
 		diamond.setIcon(new ImageIcon(img2));
-		Image imgBorder = new ImageIcon(this.getClass().getResource(
-				"/images/Border.png")).getImage();
+		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 
 		JLabel logo = new JLabel("");
 		logo.setBounds(6, 0, 152, 55);
@@ -71,84 +65,79 @@ public class BrowseLocalPlayers extends JPanel {
 				"/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(260, 23, 636, 132);
+		ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
+		scrollPane.setBounds(317, 36, 636, 98);
 		add(scrollPane);
 
-		table = new JTable(new DefaultTableModel(null, new Object[] {
+		table = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
 				"First Name", "Last Name", "Team", "Position" }));
 		scrollPane.setViewportView(table);
 
-		txtFirstName = new JTextField();
-		txtFirstName.setBounds(48, 40, 176, 29);
+		txtFirstName.setBounds(73, 51, 158, 31);
 		add(txtFirstName);
 		txtFirstName.setText("First Name");
-		txtFirstName.setColumns(10);
+		txtFirstName.addFocusListener(new ModifiedFocusAdapter(txtFirstName, "First Name"));
 
-		txtLastName = new JTextField();
-		txtLastName.setBounds(48, 67, 176, 29);
+		txtLastName.setBounds(73, 94, 158, 31);
 		add(txtLastName);
 		txtLastName.setText("Last Name");
-		txtLastName.setColumns(10);
+		txtLastName.addFocusListener(new ModifiedFocusAdapter(txtLastName, "Last Name"));
 
-		txtTeam = new JTextField();
-		txtTeam.setBounds(48, 105, 176, 29);
+		txtTeam.setBounds(73, 137, 158, 31);
 		add(txtTeam);
 		txtTeam.setText("Team");
-		txtTeam.setColumns(10);
+		txtTeam.addFocusListener(new ModifiedFocusAdapter(txtTeam, "Team"));
 
-		SubmitLocalSearch = new JButton("Submit");
-		SubmitLocalSearch.setBounds(73, 165, 117, 29);
+		SubmitLocalSearch.setBounds(33, 180, 125, 28);
 		add(SubmitLocalSearch);
 
-		btnSeePlayerStats = new JButton("See Player Stats");
-		btnSeePlayerStats.setBounds(547, 165, 126, 29);
+		btnSeePlayerStats.setBounds(159, 180, 125, 28);
 		add(btnSeePlayerStats);
 
 		JLabel lblIndividualStatistics = new JLabel("Individual Statistics");
 		lblIndividualStatistics.setForeground(Color.WHITE);
-		lblIndividualStatistics.setBounds(22, 187, 234, 36);
+		lblIndividualStatistics.setBounds(736, 146, 234, 36);
 		add(lblIndividualStatistics);
 		lblIndividualStatistics.setFont(new Font("Lucida Grande", Font.PLAIN,
 				25));
 
-		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(160, 381, 636, 79);
+		ModifiedJScrollPane scrollPane_2 = new ModifiedJScrollPane();
+		scrollPane_2.setBounds(317, 402, 636, 79);
 		add(scrollPane_2);
 
-		fieldingTable = new JTable(new DefaultTableModel(null, new Object[] {
+		fieldingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
 				"GP", "Wins", "Losses", "PO", "Err", "Assist", "F%" }));
 		scrollPane_2.setViewportView(fieldingTable);
 
 		JLabel lblFielding = new JLabel("Fielding");
 		lblFielding.setForeground(Color.WHITE);
-		lblFielding.setBounds(73, 403, 61, 16);
+		lblFielding.setBounds(244, 427, 61, 16);
 		add(lblFielding);
 
 		JLabel lblPitching = new JLabel("Pitching");
 		lblPitching.setForeground(Color.WHITE);
-		lblPitching.setBounds(73, 332, 61, 16);
+		lblPitching.setBounds(246, 330, 61, 16);
 		add(lblPitching);
 
 		JLabel lblBatting = new JLabel("Batting");
 		lblBatting.setForeground(Color.WHITE);
-		lblBatting.setBounds(73, 270, 61, 16);
+		lblBatting.setBounds(246, 233, 61, 16);
 		add(lblBatting);
 
-		JScrollPane scrollPane_3 = new JScrollPane();
-		scrollPane_3.setBounds(160, 316, 636, 71);
+		ModifiedJScrollPane scrollPane_3 = new ModifiedJScrollPane();
+		scrollPane_3.setBounds(317, 306, 636, 71);
 		add(scrollPane_3);
 
-		pitchingTable = new JTable(new DefaultTableModel(null,
+		pitchingTable = new ModifiedJTable(new DefaultTableModel(null,
 				new Object[] { "GP", "W", "L", "ERA", "SAVES", "HITS", "HOLDS",
 						"RUNS", "HBP" }));
 		scrollPane_3.setViewportView(pitchingTable);
 
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(160, 246, 636, 79);
+		ModifiedJScrollPane scrollPane_1 = new ModifiedJScrollPane();
+		scrollPane_1.setBounds(317, 205, 636, 79);
 		add(scrollPane_1);
 
-		battingTable = new JTable(new DefaultTableModel(null, new Object[] {
+		battingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
 				"GP", "AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR",
 				"SO", "BA" }));
 		scrollPane_1.setViewportView(battingTable);
