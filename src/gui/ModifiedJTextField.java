@@ -18,7 +18,7 @@ public class ModifiedJTextField extends JTextField {
 		setHorizontalAlignment(SwingConstants.CENTER);
 		setFont(new Font("Helvetica", Font.PLAIN, 14));
 		setForeground(Color.GRAY);
-		setBackground(Color.white);
+		setBackground(new Color(244, 229, 192));
 		setBorder(new LineBorder(Color.GRAY, 1));
 		
 		//new Color(244, 229, 192)
