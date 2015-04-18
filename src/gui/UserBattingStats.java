@@ -28,6 +28,9 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
 
 import javax.swing.SwingConstants;
+import javax.swing.JCheckBox;
+import javax.swing.JToggleButton;
+import javax.swing.JComboBox;
 
 /**
 Class: UserBattingStats
@@ -169,7 +172,7 @@ public class UserBattingStats extends JPanel {
 		lblDate.setForeground(new Color(244, 229, 192));
 		lblDate.setFont(new Font("Helvetica", Font.PLAIN, 14));
 		lblDate.setBounds(19, 104, 34, 16);
-		add(lblDate);
+		add(lblDate); 
 		
 		JLabel lblBorderlayout = new JLabel("");
 		lblBorderlayout.setForeground(Color.WHITE);

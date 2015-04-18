@@ -17,11 +17,11 @@ public class ModifiedJTextField extends JTextField {
 	public ModifiedJTextField(){
 		setHorizontalAlignment(SwingConstants.CENTER);
 		setFont(new Font("Helvetica", Font.PLAIN, 14));
-		setForeground(Color.LIGHT_GRAY);
-		setBackground(new Color(244, 229, 192));
-		setBorder(new LineBorder(Color.LIGHT_GRAY, 1));
+		setForeground(Color.GRAY);
+		setBackground(Color.white);
+		setBorder(new LineBorder(Color.GRAY, 1));
 		
-		
+		//new Color(244, 229, 192)
 	}
 
 }
