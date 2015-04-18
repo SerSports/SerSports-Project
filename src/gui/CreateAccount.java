@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+
 import database.User;
 
 
@@ -56,39 +58,49 @@ public class CreateAccount extends JPanel {
 		panel.setLayout(null);
 		panel.setBorder(null);
 		panel.setBackground(new Color(47, 52, 64));
+		
 		textUsername.setBounds(114, 33, 200, 28);
 		panel.add(textUsername);
 		textUsername.setText("User Name");
+		textUsername.addFocusListener(new ModifiedFocusAdapter(textUsername, "User Name"));
 		textUsername.setColumns(10);
-		textPassword.setBounds(114, 73, 200, 28);
-		panel.add(textPassword);
 		
+		
+		textPassword.setBounds(114, 73, 200, 28);		
 		textPassword.setText("Password");
 		textPassword.setColumns(10);
-		textFirstName.setBounds(114, 113, 200, 28);
-		panel.add(textFirstName);
+		textPassword.addFocusListener(new ModifiedFocusAdapter(textPassword, "Password"));
+		panel.add(textPassword);
+
 		
 		textFirstName.setText("First Name");
+		textFirstName.setBounds(114, 113, 200, 28);
 		textFirstName.setColumns(10);
-		textLastname.setBounds(114, 153, 200, 28);
-		panel.add(textLastname);
+		textFirstName.addFocusListener(new ModifiedFocusAdapter(textFirstName, "First Name"));
+		panel.add(textFirstName);
 		
 		textLastname.setText("Last Name");
 		textLastname.setColumns(10);
-		textAge.setBounds(114, 193, 200, 28);
-		panel.add(textAge);
+		textLastname.setBounds(114, 153, 200, 28);
+		textLastname.addFocusListener(new ModifiedFocusAdapter(textLastname, "Last Name"));
+		panel.add(textLastname);
 		
+		textAge.setBounds(114, 193, 200, 28);
+		textAge.addFocusListener(new ModifiedFocusAdapter(textAge, "Age"));
+		panel.add(textAge);
 		textAge.setText("Age");
 		textAge.setColumns(10);
+		
+		btnCreateNewAccount.setActionCommand("btnCreateNewAccount");
 		btnCreateNewAccount.setBounds(148, 237, 140, 28);
 		panel.add(btnCreateNewAccount);
-		btnCreateNewAccount.setActionCommand("btnCreateNewAccount");
+		
 		backButton.setBounds(6, 96, 87, 87);
-		panel.add(backButton);
 		backButton.setIcon(new ImageIcon(backButtonImage));
 		backButton.setActionCommand("backButton");
 		backButton.setBorder(BorderFactory.createEmptyBorder());
 		backButton.setContentAreaFilled(false);	
+		panel.add(backButton);
 		
 			backButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent arg0){
