@@ -147,7 +147,7 @@ public class UserBattingStats extends JPanel {
 		add(submitBattingStats);
 		submitBattingStats.setActionCommand("SubmitBattingStats");	
 		
-		scrollPane.setBounds(24, 266, 734, 145);
+		scrollPane.setBounds(22, 266, 734, 145);
 		add(scrollPane);
 		scrollPane.setViewportView(table);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
