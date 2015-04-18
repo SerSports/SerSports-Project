@@ -26,6 +26,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	private static final boolean debugOn = true;
 	private double battingAverage = 0.0;
 	
+	
 	/**
 	 * Adds action listeners to relevant buttons.
 	 */
@@ -254,6 +255,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	 */
 	public void deleteBattingStatistic()
 	{
+		
 		int selectedRow = table.getSelectedRow();
 		
 		int selectedStatisticID = (int) table.getModel().getValueAt(selectedRow, 0);
@@ -268,9 +270,13 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	 */
 	public void updateBattingStatistic()
 	{
-		deleteBattingStatistic();
-		
-		submitBattingStatistic();
+		String date = txtDate.getText();
+		boolean valid = isValidDate(date); // Date in the form of "YYYY-MM-DD"
+		if (valid)
+		{
+			deleteBattingStatistic();
+			submitBattingStatistic();
+		}
 	}
 	
 	/**

@@ -93,56 +93,67 @@ public class UserBattingStats extends JPanel {
 		txtDate.setText(dateTxt);
 		add(txtDate);
 		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, dateTxt));
+		txtDate.getDocument().addDocumentListener(new TextFieldDoumentListener(txtDate));
 		
 		txtAB.setBounds(230, 97, 158, 31);
 		txtAB.setText(abTxt);
 		add(txtAB);
 		txtAB.addFocusListener(new ModifiedFocusAdapter(txtAB, abTxt));
+		txtAB.getDocument().addDocumentListener(new TextFieldDoumentListener(txtAB));
 		
 		txtHits.setBounds(394, 97, 158, 31);
 		txtHits.setText(hitsTxt);
 		add(txtHits);
 		txtHits.addFocusListener(new ModifiedFocusAdapter(txtHits, hitsTxt));
+		txtHits.getDocument().addDocumentListener(new TextFieldDoumentListener(txtHits));
 		
 		txtRBI.setBounds(558, 97, 158, 31);
 		txtRBI.setText(rbiTxt);
 		add(txtRBI);
 		txtRBI.addFocusListener(new ModifiedFocusAdapter(txtRBI, rbiTxt));
+		txtRBI.getDocument().addDocumentListener(new TextFieldDoumentListener(txtRBI));
 		
 		txtb_1.setBounds(65, 135, 158, 31);
 		txtb_1.setText(b1Txt);
 		add(txtb_1);
 		txtb_1.addFocusListener(new ModifiedFocusAdapter(txtb_1, b1Txt));
+		txtb_1.getDocument().addDocumentListener(new TextFieldDoumentListener(txtb_1));
 		
 		txtb_2.setBounds(230, 135, 158, 31);
 		txtb_2.setText(b2Txt);
 		add(txtb_2);
 		txtb_2.addFocusListener(new ModifiedFocusAdapter(txtb_2, b2Txt));
+		txtb_2.getDocument().addDocumentListener(new TextFieldDoumentListener(txtb_2));
 		
 		txtb_3.setBounds(394, 135, 158, 31);
 		txtb_3.setText(b3Txt);
 		add(txtb_3);
 		txtb_3.addFocusListener(new ModifiedFocusAdapter(txtb_3, b3Txt));
+		txtb_3.getDocument().addDocumentListener(new TextFieldDoumentListener(txtb_3));
 		
 		txtRuns.setBounds(558, 135, 158, 31);
 		txtRuns.setText(runsTxt);
 		add(txtRuns);
 		txtRuns.addFocusListener(new ModifiedFocusAdapter(txtRuns, runsTxt));
+		txtRuns.getDocument().addDocumentListener(new TextFieldDoumentListener(txtRuns));
 		
 		txtSB.setBounds(65, 173, 158, 31);
 		txtSB.setText(sbTxt);
 		add(txtSB);
 		txtSB.addFocusListener(new ModifiedFocusAdapter(txtSB, sbTxt));
+		txtRuns.getDocument().addDocumentListener(new TextFieldDoumentListener(txtRuns));
 		
 		txtHR.setBounds(230, 173, 158, 31);
 		txtHR.setText(hrTxt);
 		add(txtHR);
 		txtHR.addFocusListener(new ModifiedFocusAdapter(txtHR, hrTxt));
+		txtHR.getDocument().addDocumentListener(new TextFieldDoumentListener(txtHR));
 		
 		txtSO.setBounds(394, 173, 158, 31);
 		txtSO.setText(soTxt);
 		add(txtSO);
 		txtSO.addFocusListener(new ModifiedFocusAdapter(txtSO, soTxt));
+		txtSO.getDocument().addDocumentListener(new TextFieldDoumentListener(txtSO));
 		
 		comboBox.setBounds(395, 220, 158, 31);
 		add(comboBox);
@@ -156,7 +167,6 @@ public class UserBattingStats extends JPanel {
 		add(scrollPane);
 		scrollPane.setViewportView(table);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-		
 		
 		btnUpdateStatistic.setBounds(250, 421, 143, 28);
 		add(btnUpdateStatistic);
@@ -223,29 +233,5 @@ public class UserBattingStats extends JPanel {
 	
 	public String getSOTxt(){
 		return soTxt;
-	}
-	
-	public boolean checkForInputInTextFields(){
-		
-		boolean dateResult = txtDate.getText().equals(dateTxt);
-		boolean abResult = txtAB.getText().equals(abTxt);
-		boolean hitsResult = txtHits.getText().equals(hitsTxt);
-		boolean rbiResult = txtRBI.getText().equals(rbiTxt); 
-		boolean b1Result = txtb_1.getText().equals(b1Txt);
-		boolean b2Result = txtb_2.getText().equals(b2Txt);
-		boolean b3Result = txtb_3.getText().equals(b3Txt);
-		boolean runsResult = txtRuns.getText().equals(runsTxt);
-		boolean sbResult = txtSB.getText().equals(sbTxt);
-		boolean hrResult = txtHR.getText().equals(hrTxt);
-		boolean soResult = txtSO.getText().equals(soTxt);
-		
-		//when all equals to caption text, then user does not have input
-		if(dateResult || abResult || hitsResult || rbiResult || b1Result ||
-				b2Result || b3Result || runsResult || sbResult || hrResult ||
-				soResult){
-			return false;
-		}
-		
-		return true;
 	}
 }

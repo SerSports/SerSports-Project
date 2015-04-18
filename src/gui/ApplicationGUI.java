@@ -159,17 +159,10 @@ public class ApplicationGUI extends JLayeredPane{
     	
 		btnSignOut.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
-    			
-    			boolean userHasPendingInput = userHasInputInTextFields(); 
-    			if(userHasPendingInput){
-    				int result = JOptionPane.showConfirmDialog(null, "You have pending statistics to add. Are you sure you want to sign out?", 
-        					null, JOptionPane.YES_NO_OPTION);
-        			if(result == JOptionPane.YES_OPTION){
-        				MainGUI.setApplicationToClose();
-    				}
-    			}
-    			else{
-    				MainGUI.setApplicationToClose();
+    			int result = JOptionPane.showConfirmDialog(null, "You have pending statistics to add. Are you sure you want to sign out?", 
+        				null, JOptionPane.YES_NO_OPTION);
+        		if(result == JOptionPane.YES_OPTION){
+        			MainGUI.setApplicationToClose();
     			}
     		}
     	});
@@ -214,23 +207,5 @@ public class ApplicationGUI extends JLayeredPane{
 	public void loadUserInfoIntoControls() {
 		home.loadUserInfoIntoControls();
 		enterStats.loadUserInfoIntoControls();
-	}
-	
-	public boolean userHasInputInTextFields(){
-		boolean batter, fielder, pitcher;
-		
-		UserBattingStats batterStats = new UserBattingStats();		
-		batter = batterStats.checkForInputInTextFields();
-		System.out.println("batter: "+batter);
-		
-		//UserFieldingStats fielderStats = new UserFieldingStats();
-		//fielder = fielderStats.checkForInputInTextFields();
-		//System.out.println("fielder: "+fielder);
-		
-		//UserPitchingStats pitcherStats = new UserPitchingStats();
-		//pitcher = pitcherStats.checkTextFields();
-		//System.out.println("pitcher: "+pitcher);
-		
-		return batter;
 	}
 }
