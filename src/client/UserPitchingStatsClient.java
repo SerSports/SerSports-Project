@@ -31,6 +31,9 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		ActionListener {
 
 	private static final boolean debugOn = true;
+	private final String submit = "Submit";
+	private final String update = "Update";
+	private int currentSelectedRowForUpdate;
 
 	/**
 	 * Method: UserPitchingStatsClient Inputs: none Returns:
@@ -64,7 +67,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("SubmitPitchingStats")) {
 			try {
-				submitPitchingStatistic();
+				submitOrUpdatePitchingStatistic(submit);
 			} catch (RuntimeException ex) {
 				throw ex;
 			} catch (Exception ex) {
@@ -73,15 +76,29 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		}
 		if (e.getActionCommand().equals("UpdateStatistic")) {
 
-			int selectedRow = table.getSelectedRow();
-			if (selectedRow >= 0) {
+			currentSelectedRowForUpdate = table.getSelectedRow();
+			if (currentSelectedRowForUpdate >= 0)
+			{
 				
 				//ask user if the statistic they selected is the one they really want to update
-				int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the highlighted game statistic?", null,
-						JOptionPane.YES_NO_OPTION);
+				int result = JOptionPane.showConfirmDialog(
+						null, "Are you sure you want to update the highlighted game statistic?", 
+						null, JOptionPane.YES_NO_OPTION);
 				
-				if(result == JOptionPane.YES_OPTION){
-					updatePitchingStatistic();
+				if(result == JOptionPane.YES_OPTION)
+				{
+					try
+					{
+						submitOrUpdatePitchingStatistic(update);
+					}
+					catch (RuntimeException ex)
+					{
+						throw ex;
+					}
+					catch (Exception ex)
+					{
+						ex.printStackTrace();
+					}
 				}
 			}
 			else{
@@ -132,10 +149,9 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 			// Add the Local Players to the List
 			for (LocalPlayerPitchingStatistics m : currentPlayerPitchingStatistics) {
 				Object[] row = { m.getLocalPlayersPitchingStatisticsID(),
-						m.getGame_date(), m.getPitching_game_won(),
-						m.getPitching_era(), m.getPitching_games_save(),
+						m.getGame_date(), m.getPitching_era(), m.getPitching_games_save(),
 						m.getPitching_games_hit(), m.getPitching_games_hold(),
-						m.getPitching_runs(), m.getPitching_hbp() };
+						m.getPitching_runs(), m.getPitching_hbp(), m.getPitching_game_won() };
 				newTable.addRow(row);
 			}
 
@@ -145,20 +161,22 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 			table.getSelectionModel().addListSelectionListener(
 					new ListSelectionListener() {
 						public void valueChanged(ListSelectionEvent e){
-							int selectedRow = table.getSelectedRow();
-							txtDate.setText(table.getValueAt(selectedRow, 0).toString());
-							txtERA.setText(table.getValueAt(selectedRow, 1).toString());
-							txtSaves.setText(table.getValueAt(selectedRow, 2).toString());
-							txtHits.setText(table.getValueAt(selectedRow, 3).toString());
-							txtHolds.setText(table.getValueAt(selectedRow, 4).toString());
-							txtRuns.setText(table.getValueAt(selectedRow, 5).toString());
-							txtHBP.setText(table.getValueAt(selectedRow, 6).toString());
+							if(table.getSelectedRow() != -1){
+								int selectedRow = table.getSelectedRow();
+								txtDate.setText(table.getValueAt(selectedRow, 0).toString());
+								txtERA.setText(table.getValueAt(selectedRow, 1).toString());
+								txtSaves.setText(table.getValueAt(selectedRow, 2).toString());
+								txtHits.setText(table.getValueAt(selectedRow, 3).toString());
+								txtHolds.setText(table.getValueAt(selectedRow, 4).toString());
+								txtRuns.setText(table.getValueAt(selectedRow, 5).toString());
+								txtHBP.setText(table.getValueAt(selectedRow, 6).toString());
+							}
 						}
 					});
 		}
 	}
 	
-	public void submitPitchingStatistic(){
+	public void submitOrUpdatePitchingStatistic(String type){
 		String date = txtDate.getText();
 		String era = txtERA.getText();
 		String saves = txtSaves.getText();
@@ -167,7 +185,9 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		String runs = txtRuns.getText();
 		String hbp = txtHBP.getText();
 		Boolean won = (comboBox.getSelectedItem().toString().equals("Win"));
-
+	
+		clearSelected();
+		
 		boolean valid = isValidDate(date);
 
 		// collect values if user entered the correct date format
@@ -180,11 +200,18 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 			isValidInput(runs);
 			isValidInput(hbp);
 
-			// Add input into user database, then display all game statistics
-			LocalPlayerPitchingStatistics.addLocalPlayerPitchingStatistics(date, won,
-							era, saves, hits, holds, runs, hbp);
-
-			// reload statistics into table
+			if("Submit".equals(type))
+			{
+				LocalPlayerPitchingStatistics.addOrUpdateLocalPlayerPitchingStatistics(date, won,
+							era, saves, hits, holds, runs, hbp, -1);
+			}
+			else
+			{
+				int selectedStatisticID = (int) table.getModel().getValueAt(currentSelectedRowForUpdate, 0);
+				LocalPlayerPitchingStatistics.addOrUpdateLocalPlayerPitchingStatistics(date, won,
+						era, saves, hits, holds, runs, hbp, selectedStatisticID);
+			}
+			
 			loadUserInfoIntoControls();
 			
 			resetTextFields();
@@ -207,14 +234,6 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 
 		// reload statistics into table
 		loadUserInfoIntoControls();
-	}
-	
-	public void updatePitchingStatistic(){
-		//delete statistic
-		deletePitchingStatistic();
-		
-		//replace with new statistic
-		submitPitchingStatistic();
 	}
 	
 	public void loadUserInfoIntoControls() {
@@ -264,5 +283,14 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		txtHits.setText(getHitsTxt());
 		txtHolds.setText(getHoldsTxt());
 		txtRuns.setText(getRunsTxt());
+		TextFieldDocumentListener.setDirty();
+	}
+
+	/**
+	 * Resets the highlighted row in the JTable. Used when a user is updating a statistic
+	 */
+	public void clearSelected(){
+		table.clearSelection();
+		table.getSelectionModel().clearSelection();
 	}
 }

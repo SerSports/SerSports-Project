@@ -126,9 +126,9 @@ public class LocalPlayerFieldingStatistics {
 	}
 
 	// get all the local player's fielding statistics
-	public static void addLocalPlayerFieldingStatistics(String date,
+	public static void addOrUpdateLocalPlayerFieldingStatistics(String date,
 			Boolean won, String po, String error, String assist,
-			String fpct) {
+			String fpct, int statsID) {
 
 		int iwon, ipo, ierror, iassist, ifpct;
 		try {
@@ -154,24 +154,31 @@ public class LocalPlayerFieldingStatistics {
 			else
 				ifpct = 0;
 
-			/*
-			 * NOTE: local variables which may need columns added in LocalPlayer
-			 * table
-			 */
-			// String teamName = null;
-			// String position = "Fielding";
-
-			// get username/id
 			User currentUser = User.getCurrentUser();
 
-			Database.executeSQL("INSERT INTO " + TABLE_NAME + "(" + FIELD_LOCAL_PLAYER_ID
-					+ ", " + FIELD_GAME_DATE + ", " + FIELD_FIELDING_GAME_WON + ", "
-					+ FIELD_FIELDING_PO + ", " + FIELD_FIELDING_ERROR + ", "
-					+ FIELD_FIELDING_ASSIST + ", " + FIELD_FIELDING_FPCT + ") "
+			if(statsID == -1)
+			{
+				Database.executeSQL("INSERT INTO " + TABLE_NAME + "(" + FIELD_LOCAL_PLAYER_ID
+					+ ", " + FIELD_GAME_DATE + ", " + FIELD_FIELDING_PO + ", " + FIELD_FIELDING_ERROR 
+					+ ", " + FIELD_FIELDING_ASSIST + ", " + FIELD_FIELDING_FPCT + ", " + FIELD_FIELDING_GAME_WON + ") "
 					+ "VALUES (\"" + currentUser.getLocalPlayerId() + "\", "
-					+ "\"" + date + "\", " + "\"" + iwon + "\", " + "\"" + ipo + "\", " + "\""
-					+ ierror + "\", " + "\"" + iassist + "\", " + "\"" + ifpct
+					+ "\"" + date + "\", " + "\"" + ipo + "\", " + "\""
+					+ ierror + "\", " + "\"" + iassist + "\", " + "\"" + ifpct + "\", " + "\"" + iwon
 					+ "\");");
+			}
+			else
+			{
+				Database.executeSQL("UPDATE " + TABLE_NAME 
+						+ " SET " 
+						+ FIELD_GAME_DATE + " = \"" + date + "\", "
+						+ FIELD_FIELDING_PO + " = \"" + ipo + "\", "
+						+ FIELD_FIELDING_ERROR + " = \"" + ierror + "\", "
+						+ FIELD_FIELDING_ASSIST + " = \"" + iassist + "\", "
+						+ FIELD_FIELDING_FPCT + " = \"" + ifpct + "\", "
+						+ FIELD_FIELDING_GAME_WON + " = \"" + iwon + "\""
+						+ " WHERE "
+						+ FIELD_ID + " = \"" + statsID + "\";");
+			}
 
 		} catch (Exception ex) {
 			ex.printStackTrace();

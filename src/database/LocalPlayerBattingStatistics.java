@@ -186,9 +186,9 @@ public class LocalPlayerBattingStatistics {
 
 	// add local player's batting statistics to localPlayerBattingStatistics
 	// table
-	public static void addLocalPlayerBattingStatistics(String date,
+	public static void addOrUpdateLocalPlayerBattingStatistics(String date,
 			String ab, String h, String rbi, String b1, String b2, String b3,
-			String runs, String sb, String hr, String so, Boolean won) {
+			String runs, String sb, String hr, String so, Boolean won, int statsID) {
 
 		int iab, ih, irbi, ib1, ib2, ib3, iruns, isb, ihr, iso, iwon;
 		try {
@@ -238,34 +238,49 @@ public class LocalPlayerBattingStatistics {
 			else
 				iwon = 0;
 			
-			/*
-			 * NOTE: local variables which may need columns added in LocalPlayer
-			 * table
-			 */
-			// String teamName = null;
-			// String position = "Batting";
-
-			// get username/id
-			// LocalPlayer currentLocalPlayer =
-			// LocalPlayer.getCurrentLoggedInUser();
 			User currentUser = User.getCurrentUser();
 
-			Database.executeSQL("INSERT INTO " + TABLE_NAME + "("
-					+ FIELD_LOCAL_PLAYER_ID + ", " + FIELD_GAME_DATE + ", "
-					+ FIELD_BATTING_AB + ", " + FIELD_BATTING_RBI + ", "
-					+ FIELD_BATTING_ONBASE_H + ", " + FIELD_BATTING_ONBASE_S
-					+ ", " + FIELD_BATTING_ONBASE_D + ", "
-					+ FIELD_BATTING_ONBASE_T + ", " + FIELD_BATTING_ONBASE_HR
-					+ ", " + FIELD_BATTING_RUNS_TOTAL + ", "
-					+ FIELD_BATTING_OUTS_KTOTAL + ", "
+			if(statsID == -1)
+			{
+				Database.executeSQL("INSERT INTO " + TABLE_NAME + "("
+					+ FIELD_LOCAL_PLAYER_ID + ", " 
+					+ FIELD_GAME_DATE + ", "
+					+ FIELD_BATTING_AB + ", " 
+					+ FIELD_BATTING_ONBASE_H + ", "
+					+ FIELD_BATTING_RBI + ", "
+					+ FIELD_BATTING_ONBASE_S + ", " 
+					+ FIELD_BATTING_ONBASE_D + ", "
+					+ FIELD_BATTING_ONBASE_T + ", "
+					+ FIELD_BATTING_RUNS_TOTAL + ", "
 					+ FIELD_BATTING_STEAL_STOLEN + ", "
+					+ FIELD_BATTING_ONBASE_HR + ", " 
+					+ FIELD_BATTING_OUTS_KTOTAL + ", "
 					+ FIELD_BATTING_GAME_WON + ") " + "VALUES (\""
 					+ currentUser.getLocalPlayerId() + "\", " + "\"" + date
-					+ "\", " + "\"" + iab + "\", " + "\"" + irbi + "\", "
-					+ "\"" + ih + "\", " + "\"" + ib1 + "\", " + "\"" + ib2
-					+ "\", " + "\"" + ib3 + "\", " + "\"" + ihr + "\", " + "\""
-					+ iruns + "\", " + "\"" + iso + "\", " + "\"" + isb + "\", \"" + iwon + "\");");
-
+					+ "\", " + "\"" + iab + "\", " + "\"" + ih + "\", "
+					+ "\"" + irbi + "\", " + "\"" + ib1 + "\", " + "\"" + ib2
+					+ "\", " + "\"" + ib3 + "\", " + "\"" + iruns + "\", " + "\""
+					+ isb + "\", " + "\"" + ihr + "\", " + "\"" + iso + "\", \"" + iwon + "\");");
+			}
+			else
+			{
+				Database.executeSQL("UPDATE " + TABLE_NAME 
+						+ " SET " 
+						+ FIELD_GAME_DATE + " = \"" + date + "\", "
+						+ FIELD_BATTING_AB + " = \"" + iab + "\", "
+						+ FIELD_BATTING_ONBASE_H + " = \"" + ih + "\", "
+						+ FIELD_BATTING_RBI + " = \"" + irbi + "\", "
+						+ FIELD_BATTING_ONBASE_S + " = \"" + ib1 + "\", "
+						+ FIELD_BATTING_ONBASE_D + " = \"" + ib2 + "\", "
+						+ FIELD_BATTING_ONBASE_T + " = \"" + ib3 + "\", "
+						+ FIELD_BATTING_RUNS_TOTAL + " = \"" + iruns + "\", "
+						+ FIELD_BATTING_STEAL_STOLEN + " = \"" + isb + "\", "
+						+ FIELD_BATTING_ONBASE_HR + " = \"" + ihr + "\", "
+						+ FIELD_BATTING_OUTS_KTOTAL + " = \"" + iso + "\", "
+						+ FIELD_BATTING_GAME_WON + " = \"" + iwon + "\""
+						+ " WHERE "
+						+ FIELD_ID + " = \"" + statsID + "\";");
+			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

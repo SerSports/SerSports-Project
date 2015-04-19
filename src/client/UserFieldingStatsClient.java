@@ -8,6 +8,7 @@ Description: ActionListeners and ItemListeners for the User Fielding Stats GUI (
  */
 package client;
 
+import gui.TextFieldDocumentListener;
 import gui.UserFieldingStats;
 
 import java.awt.event.ActionEvent;
@@ -31,6 +32,9 @@ import database.*;
 public class UserFieldingStatsClient extends UserFieldingStats implements ActionListener {
 
 	private static final boolean debugOn = true;
+	private final String submit = "Submit";
+	private final String update = "Update";
+	private int currentSelectedRowForUpdate;
 
 	/**
 	 * Method: UserFieldingStatsClient Inputs: none Returns:
@@ -64,7 +68,7 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("SubmitFieldingStats")) {
 			try {
-				submitFieldingStatistic();
+				submitOrUpdateFieldingStatistic(submit);
 			} catch (RuntimeException ex) {
 				throw ex;
 			} catch (Exception ex) {
@@ -73,15 +77,26 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		}
 		if (e.getActionCommand().equals("UpdateStatistic")) {
 
-			int selectedRow = table.getSelectedRow();
-			if (selectedRow >= 0) {
+			currentSelectedRowForUpdate = table.getSelectedRow();
+			if (currentSelectedRowForUpdate >= 0) {
 				
 				//ask user if the statistic they selected is the one they really want to update
 				int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the highlighted game statistic?", null,
 						JOptionPane.YES_NO_OPTION);
 				
 				if(result == JOptionPane.YES_OPTION){
-					updateFieldingStatistic();
+					try
+					{
+						submitOrUpdateFieldingStatistic(update);
+					}
+					catch (RuntimeException ex)
+					{
+						throw ex;
+					}
+					catch (Exception ex)
+					{
+						ex.printStackTrace();
+					}
 				}
 			}
 			else{
@@ -131,9 +146,8 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 			// Add the Local Players to the List
 			for (LocalPlayerFieldingStatistics m : currentPlayerFieldingStatistics) {
 				Object[] row = { m.getLocalPlayersFieldingStatisticsID(),
-						m.getGame_date(), m.getFielding_game_won(),
-						m.getFielding_po(), m.getFielding_error(),
-						m.getFielding_assist(), m.getFielding_fpct() };
+						m.getGame_date(), m.getFielding_po(), m.getFielding_error(),
+						m.getFielding_assist(), m.getFielding_fpct(), m.getFielding_game_won() };
 				newTable.addRow(row);
 			}
 
@@ -143,19 +157,20 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 			table.getSelectionModel().addListSelectionListener(
 					new ListSelectionListener() {
 						public void valueChanged(ListSelectionEvent e){
-							int selectedRow = table.getSelectedRow();
-							txtDate.setText(table.getValueAt(selectedRow, 0).toString());
-							txtPo.setText(table.getValueAt(selectedRow, 1).toString());
-							txtE.setText(table.getValueAt(selectedRow, 2).toString());
-							txtA.setText(table.getValueAt(selectedRow, 3).toString());
-							txtFpct.setText(table.getValueAt(selectedRow, 4).toString());
-							
+							if(table.getSelectedRow() != -1){
+								int selectedRow = table.getSelectedRow();
+								txtDate.setText(table.getValueAt(selectedRow, 0).toString());
+								txtPo.setText(table.getValueAt(selectedRow, 1).toString());
+								txtE.setText(table.getValueAt(selectedRow, 2).toString());
+								txtA.setText(table.getValueAt(selectedRow, 3).toString());
+								txtFpct.setText(table.getValueAt(selectedRow, 4).toString());
+							}
 						}
 					});
 		}
 	}
 
-	public void submitFieldingStatistic(){
+	public void submitOrUpdateFieldingStatistic(String type){
 		String date = txtDate.getText();
 		String po = txtPo.getText();
 		String error = txtE.getText();
@@ -163,6 +178,8 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		String fpct = txtFpct.getText();
 		Boolean won = (comboBox.getSelectedItem().toString().equals("Win"));
 
+		clearSelected();
+		
 		boolean valid = isValidDate(date);
 
 		// collect values if user entered the correct date format
@@ -174,11 +191,18 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 			isValidInput(assist);
 			isValidInput(fpct);
 			
-			// Add input into user database, then display all game statistics
-			LocalPlayerFieldingStatistics.addLocalPlayerFieldingStatistics(date, won,
-							po, error, assist, fpct);
-
-			// reload statistics into table
+			if("Submit".equals(type))
+			{
+				LocalPlayerFieldingStatistics.addOrUpdateLocalPlayerFieldingStatistics(date, won,
+							po, error, assist, fpct, -1);
+			}
+			else
+			{
+				int selectedStatisticID = (int) table.getModel().getValueAt(currentSelectedRowForUpdate, 0);
+				LocalPlayerFieldingStatistics.addOrUpdateLocalPlayerFieldingStatistics(date, won,
+						po, error, assist, fpct, selectedStatisticID);
+			}
+			
 			loadUserInfoIntoControls();
 			
 			resetTextFields();
@@ -200,14 +224,6 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 
 		// reload statistics into table
 		loadUserInfoIntoControls();
-	}
-
-	public void updateFieldingStatistic(){
-		//delete statistic
-		deleteFieldingStatistic();
-		
-		//replace with new statistic
-		submitFieldingStatistic();
 	}
 	
 	public void loadUserInfoIntoControls() {
@@ -256,5 +272,14 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		txtE.setText(getErrorTxt());
 		txtA.setText(getAssistTxt());
 		txtFpct.setText(getFieldPercentageTxt());
+		TextFieldDocumentListener.setDirty();
+	}
+
+	/**
+	 * Resets the highlighted row in the JTable. Used when a user is updating a statistic
+	 */
+	public void clearSelected(){
+		table.clearSelection();
+		table.getSelectionModel().clearSelection();
 	}
 }

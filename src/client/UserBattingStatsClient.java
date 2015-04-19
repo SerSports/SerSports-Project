@@ -14,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  * Allows user to manipulate, view, and update statistics pertaining to batting. Includes
@@ -27,6 +28,9 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	
 	private static final boolean debugOn = true;
 	private double battingAverage = 0.0;
+	private final String submit = "Submit";
+	private final String update = "Update";
+	private int currentSelectedRowForUpdate;
 	
 	/**
 	 * Adds action listeners to relevant buttons.
@@ -90,7 +94,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		{
 			try
 			{
-				submitBattingStatistic();
+				submitOrUpdateBattingStatistic(submit);
 			}
 			catch (RuntimeException ex)
 			{
@@ -105,23 +109,32 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		if (e.getActionCommand().equals("UpdateStatistic"))
 		{
 			
-			int selectedRow = table.getSelectedRow();
-			if (selectedRow >= 0)
+			currentSelectedRowForUpdate = table.getSelectedRow();
+			if (currentSelectedRowForUpdate >= 0)
 			{
 				
 				/*
 				 * Displays warning window asking the user if they would like to follow
 				 * through with updating the selected statistic.
 				 */
-				int result = JOptionPane
-						.showConfirmDialog(
-								null,
-								"Are you sure you want to update the highlighted game statistic?",
+				int result = JOptionPane.showConfirmDialog(
+								null, "Are you sure you want to update the highlighted game statistic?",
 								null, JOptionPane.YES_NO_OPTION);
 				
 				if (result == JOptionPane.YES_OPTION)
 				{
-					updateBattingStatistic();
+					try
+					{
+						submitOrUpdateBattingStatistic(update);
+					}
+					catch (RuntimeException ex)
+					{
+						throw ex;
+					}
+					catch (Exception ex)
+					{
+						ex.printStackTrace();
+					}
 				}
 			}
 			else
@@ -185,9 +198,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 				setBattingAverage( (double) m.getBatting_onbase_h(), (double) m.getBatting_ab());
 				Object[] row = { m.getLocalPlayersHittingStatisticsID(),
 						m.getGame_date(), m.getBatting_ab(), m.getBatting_onbase_h(),
-						m.getBatting_ab(), m.getBatting_onbase_h(), 
 						m.getBatting_rbi(), m.getBatting_onbase_s(), 
-						m.getBatting_onbase_d(), m.getBatting_onbase_t(), 
+						m.getBatting_onbase_d(), m.getBatting_onbase_t(),
 						m.getBatting_runs_total(), m.getBatting_steal_stolen(), 
 						m.getBatting_onbase_hr(), m.getBatting_outs_ktotal(),
 						getBattingAverage() };
@@ -201,18 +213,20 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			table.getSelectionModel().addListSelectionListener(
 					new ListSelectionListener() {
 						public void valueChanged(ListSelectionEvent e){
-							int selectedRow = table.getSelectedRow();
-							txtDate.setText(table.getValueAt(selectedRow, 0).toString());
-							txtAB.setText(table.getValueAt(selectedRow, 1).toString());
-							txtHits.setText(table.getValueAt(selectedRow, 2).toString());
-							txtRBI.setText(table.getValueAt(selectedRow, 3).toString());
-							txtb_1.setText(table.getValueAt(selectedRow, 4).toString());
-							txtb_2.setText(table.getValueAt(selectedRow, 5).toString());
-							txtb_3.setText(table.getValueAt(selectedRow, 6).toString());
-							txtRuns.setText(table.getValueAt(selectedRow, 7).toString());
-							txtSB.setText(table.getValueAt(selectedRow, 8).toString());
-							txtHR.setText(table.getValueAt(selectedRow, 9).toString());
-							txtSO.setText(table.getValueAt(selectedRow, 10).toString());
+							if(table.getSelectedRow() != -1){
+								int selectedRow = table.getSelectedRow();
+								txtDate.setText(table.getValueAt(selectedRow, 0).toString());
+								txtAB.setText(table.getValueAt(selectedRow, 1).toString());
+								txtHits.setText(table.getValueAt(selectedRow, 2).toString());
+								txtRBI.setText(table.getValueAt(selectedRow, 3).toString());
+								txtb_1.setText(table.getValueAt(selectedRow, 4).toString());
+								txtb_2.setText(table.getValueAt(selectedRow, 5).toString());
+								txtb_3.setText(table.getValueAt(selectedRow, 6).toString());
+								txtRuns.setText(table.getValueAt(selectedRow, 7).toString());
+								txtSB.setText(table.getValueAt(selectedRow, 8).toString());
+								txtHR.setText(table.getValueAt(selectedRow, 9).toString());
+								txtSO.setText(table.getValueAt(selectedRow, 10).toString());
+							}
 						}
 					});
 		}
@@ -223,9 +237,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	 * date was entered in the specified format. If it was entered in an invalid format,
 	 * it will throw an error message and ask the user to resubmit.
 	 */
-	public void submitBattingStatistic()
+	public void submitOrUpdateBattingStatistic(String type)
 	{
-		
 		String date = txtDate.getText();
 		String ab = txtAB.getText();
 		String h = txtHits.getText();
@@ -238,6 +251,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		String hr = txtHR.getText();
 		String so = txtSO.getText();
 		Boolean won = (comboBox.getSelectedItem().toString().equals("Win"));
+		
+		clearSelected();
 		
 		boolean valid = isValidDate(date); // Date in the form of "YYYY-MM-DD"
 		
@@ -254,8 +269,17 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			isValidInput(hr);
 			isValidInput(so);
 			
-			LocalPlayerBattingStatistics.addLocalPlayerBattingStatistics(date, ab, h,
-					rbi, b1, b2, b3, runs, sb, hr, so, won);
+			if("Submit".equals(type))
+			{
+				LocalPlayerBattingStatistics.addOrUpdateLocalPlayerBattingStatistics(date, ab, h,
+						rbi, b1, b2, b3, runs, sb, hr, so, won, -1);
+			}
+			else
+			{
+				int selectedStatisticID = (int) table.getModel().getValueAt(currentSelectedRowForUpdate, 0);
+				LocalPlayerBattingStatistics.addOrUpdateLocalPlayerBattingStatistics(date, ab, h,
+						rbi, b1, b2, b3, runs, sb, hr, so, won, selectedStatisticID);
+			}
 			
 			loadUserInfoIntoControls();
 			
@@ -275,28 +299,13 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	 */
 	public void deleteBattingStatistic()
 	{
-		
-		int selectedRow = table.getSelectedRow();
-		
+		int selectedRow = table.getSelectedRow();	
 		int selectedStatisticID = (int) table.getModel().getValueAt(selectedRow, 0);
+		
 		LocalPlayerBattingStatistics
 				.deleteLocalPlayerBattingStatistic(selectedStatisticID);
 		
 		loadUserInfoIntoControls();
-	}
-	
-	/**
-	 * Deletes the selected statistic and then replaces it with the updated one.
-	 */
-	public void updateBattingStatistic()
-	{
-		String date = txtDate.getText();
-		boolean valid = isValidDate(date); // Date in the form of "YYYY-MM-DD"
-		if (valid)
-		{
-			deleteBattingStatistic();
-			submitBattingStatistic();
-		}
 	}
 	
 	/**
@@ -387,5 +396,13 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 		txtHR.setText(getHRTxt());
 		txtSO.setText(getSOTxt());
 		TextFieldDocumentListener.setDirty();
+	}
+	
+	/**
+	 * Resets the highlighted row in the JTable. Used when a user is updating a statistic
+	 */
+	public void clearSelected(){
+		table.clearSelection();
+		table.getSelectionModel().clearSelection();
 	}
 }

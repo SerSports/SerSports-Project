@@ -138,9 +138,9 @@ public class LocalPlayerPitchingStatistics {
 	}
 
 	//add local player's pitching statistics
-	public static void addLocalPlayerPitchingStatistics(String date,
+	public static void addOrUpdateLocalPlayerPitchingStatistics(String date,
 			Boolean won, String era, String saves, String hits,
-			String holds, String runs, String hbp) {
+			String holds, String runs, String hbp, int statsID) {
 
 		int iwon, iera, isaves, ihits, iholds, iruns, ihbp;
 		try {
@@ -174,29 +174,40 @@ public class LocalPlayerPitchingStatistics {
 			else
 				ihbp = 0;
 
-			/*
-			 * NOTE: local variables which may need columns added in LocalPlayer
-			 * table
-			 */
-			// String teamName = null;
-			// String position = "Pitching";
-
-			// get username/id
 			User currentUser = User.getCurrentUser();
 
-			String sql = "INSERT INTO " + TABLE_NAME + "(" + FIELD_LOCAL_PLAYER_ID
-					+ ", " + FIELD_GAME_DATE + ", " + FIELD_PITCHING_GAME_WON + ", "
+			if(statsID == -1)
+			{
+				Database.executeSQL("INSERT INTO " + TABLE_NAME + "(" + FIELD_LOCAL_PLAYER_ID
+					+ ", " + FIELD_GAME_DATE + ", "
 					+ FIELD_PITCHING_ERA + ", " 
 					+ FIELD_PITCHING_GAMES_SAVE + ", "
 					+ FIELD_PITCHING_GAMES_HIT + ", "
 					+ FIELD_PITCHING_GAMES_HOLD + ", "
-					+ FIELD_PITCHING_RUNS + ", " + FIELD_PITCHING_HBP
+					+ FIELD_PITCHING_RUNS + ", " 
+					+ FIELD_PITCHING_HBP + ", " 
+					+ FIELD_PITCHING_GAME_WON
 					+ ") " + "VALUES (\"" + currentUser.getLocalPlayerId()
-					+ "\", " + "\"" + date + "\", " + "\"" + iwon
-					+ "\", " + "\"" + iera + "\", " + "\"" + isaves + "\", " + "\"" + ihits + "\", "
-					+ "\"" + iholds + "\", " + "\"" + iruns + "\", " + "\""
-					+ ihbp + "\");";
-			Database.executeSQL(sql);
+					+ "\", " + "\"" + date + "\", " + "\"" + iera + "\", " 
+					+ "\"" + isaves + "\", " + "\"" + ihits + "\", "
+					+ "\"" + iholds + "\", " + "\"" + iruns  + "\", " 
+					+ "\"" + ihbp + "\", " + "\"" + iwon + "\");");
+			}
+			else
+			{
+				Database.executeSQL("UPDATE " + TABLE_NAME 
+						+ " SET " 
+						+ FIELD_GAME_DATE + " = \"" + date + "\", "
+						+ FIELD_PITCHING_ERA + " = \"" + iera + "\", "
+						+ FIELD_PITCHING_GAMES_SAVE + " = \"" + isaves + "\", "
+						+ FIELD_PITCHING_GAMES_HIT + " = \"" + ihits + "\", "
+						+ FIELD_PITCHING_GAMES_HOLD + " = \"" + iholds + "\", "
+						+ FIELD_PITCHING_RUNS + " = \"" + iruns + "\", "
+						+ FIELD_PITCHING_HBP + " = \"" + ihbp + "\", "
+						+ FIELD_PITCHING_GAME_WON + " = \"" + iwon + "\""
+						+ " WHERE "
+						+ FIELD_ID + " = \"" + statsID + "\";");
+			}
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
