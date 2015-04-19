@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,7 +27,6 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	
 	private static final boolean debugOn = true;
 	private double battingAverage = 0.0;
-	//UserBattingStats batterStats = new UserBattingStats();
 	
 	/**
 	 * Adds action listeners to relevant buttons.
@@ -196,6 +197,24 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			table.setModel(newTable);
 			table.removeColumn(table.getColumnModel().getColumn(0));
 			table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+			
+			table.getSelectionModel().addListSelectionListener(
+					new ListSelectionListener() {
+						public void valueChanged(ListSelectionEvent e){
+							int selectedRow = table.getSelectedRow();
+							txtDate.setText(table.getValueAt(selectedRow, 0).toString());
+							txtAB.setText(table.getValueAt(selectedRow, 1).toString());
+							txtHits.setText(table.getValueAt(selectedRow, 2).toString());
+							txtRBI.setText(table.getValueAt(selectedRow, 3).toString());
+							txtb_1.setText(table.getValueAt(selectedRow, 4).toString());
+							txtb_2.setText(table.getValueAt(selectedRow, 5).toString());
+							txtb_3.setText(table.getValueAt(selectedRow, 6).toString());
+							txtRuns.setText(table.getValueAt(selectedRow, 7).toString());
+							txtSB.setText(table.getValueAt(selectedRow, 8).toString());
+							txtHR.setText(table.getValueAt(selectedRow, 9).toString());
+							txtSO.setText(table.getValueAt(selectedRow, 10).toString());
+						}
+					});
 		}
 	}
 	
@@ -351,6 +370,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	 * Resets the text fields back to their default values containing just the name of
 	 * that particular statistic. This is applied when the user alters statistics and then
 	 * submits or if they delete the default values and then click on a different field.
+	 * Also resets the "dirty" flag to determine if the user is currently adding statistics
+	 * to the text fields.
 	 */
 	public void resetTextFields()
 	{
