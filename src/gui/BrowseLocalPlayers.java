@@ -134,7 +134,7 @@ public class BrowseLocalPlayers extends JPanel {
 		JLabel lblBatting = new JLabel("Batting:");
 		lblBatting.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblBatting.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
-		lblBatting.setBounds(889, 98, 79, 16);
+		lblBatting.setBounds(889, 105, 79, 16);
 		lblBatting.setForeground(new Color(244, 229, 192));
 		add(lblBatting);
 
