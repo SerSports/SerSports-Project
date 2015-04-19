@@ -39,8 +39,9 @@ public class UserFieldingStats extends JPanel {
 	private String errorTxt = "Error";
 	private String assistTxt = "Assist";
 	private String fieldPercentageTxt = "F%";
+	private ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
 	
-	protected JTable table;
+	//protected JTable table;
 	protected ModifiedJTextField txtDate = new ModifiedJTextField();
 	protected ModifiedJTextField txtINN = new ModifiedJTextField();
 	protected ModifiedJTextField txtA = new ModifiedJTextField();
@@ -56,6 +57,7 @@ public class UserFieldingStats extends JPanel {
 	protected ModifiedJButtonStyle1 SubmitFieldingStats = new ModifiedJButtonStyle1("Submit");
 	protected String[] comboBoxInput = {"Win","Loss"};
 	protected JComboBox comboBox = new JComboBox(comboBoxInput);
+	protected ModifiedJTable table = new ModifiedJTable(new DefaultTableModel(null, new Object[]{"Won","Losses", "PO", "Err", "Assist", "F%"}));
 	
 	/**
 	  Method: 
@@ -86,44 +88,44 @@ public class UserFieldingStats extends JPanel {
 		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, dateTxt));
 
 		txtWins.setText(winsTxt);
-		txtWins.setBounds(235, 97, 158, 31);
+		txtWins.setBounds(230, 97, 158, 31);
 		add(txtWins);
 		txtWins.addFocusListener(new ModifiedFocusAdapter(txtWins, winsTxt));
 
 		txtLoss.setText(lossesTxt);
-		txtLoss.setBounds(405, 97, 158, 31);
+		txtLoss.setBounds(394, 97, 158, 31);
 		add(txtLoss);
 		txtLoss.addFocusListener(new ModifiedFocusAdapter(txtLoss, lossesTxt));
 		
 		txtPo.setText(putOutTxt);
-		txtPo.setBounds(575, 97, 158, 31);
+		txtPo.setBounds(558, 97, 158, 31);
 		add(txtPo);
 		txtPo.addFocusListener(new ModifiedFocusAdapter(txtPo, putOutTxt));
 		
 		txtE.setText(errorTxt);
-		txtE.setBounds(65, 140, 158, 31);
+		txtE.setBounds(65, 135, 158, 31);
 		add(txtE);
 		txtE.addFocusListener(new ModifiedFocusAdapter(txtE, errorTxt));
 		
 		txtA.setText(assistTxt);
-		txtA.setBounds(235, 141, 158, 31);
+		txtA.setBounds(230, 135, 158, 31);
 		add(txtA);
 		txtA.addFocusListener(new ModifiedFocusAdapter(txtA, assistTxt));
 		
-		comboBox.setBounds(395, 180, 158, 31);
+		comboBox.setBounds(558, 135, 158, 31);
 		add(comboBox);
 		
 		txtFpct.setText(fieldPercentageTxt);
-		txtFpct.setBounds(405, 140, 158, 31);
+		txtFpct.setBounds(394, 135, 158, 31);
 		add(txtFpct);
 		txtFpct.addFocusListener(new ModifiedFocusAdapter(txtFpct, fieldPercentageTxt));
 		
-		SubmitFieldingStats.setBounds(575, 141, 158, 31);
+		SubmitFieldingStats.setBounds(320, 216, 158, 31);
 		add(SubmitFieldingStats);
 		SubmitFieldingStats.setActionCommand("SubmitFieldingStats");
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(54, 248, 691, 145);
+		//JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(22, 266, 734, 145);
 		add(scrollPane);
 		
 		btnUpdateStatistic.setBounds(250, 421, 143, 28);
@@ -134,7 +136,7 @@ public class UserFieldingStats extends JPanel {
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 
-		table = new JTable(new DefaultTableModel(null, new Object[]{"Won","Losses", "PO", "Err", "Assist", "F%"}));
+		//table = new JTable(new DefaultTableModel(null, new Object[]{"Won","Losses", "PO", "Err", "Assist", "F%"}));
 		scrollPane.setViewportView(table);
 		
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
