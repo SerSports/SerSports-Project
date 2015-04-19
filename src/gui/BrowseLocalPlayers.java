@@ -66,43 +66,43 @@ public class BrowseLocalPlayers extends JPanel {
 		logo.setIcon(new ImageIcon(img));
 
 		ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
-		scrollPane.setBounds(317, 36, 636, 98);
+		scrollPane.setBounds(35, 251, 433, 171);
 		add(scrollPane);
 
 		table = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
 				"First Name", "Last Name", "Team", "Position" }));
 		scrollPane.setViewportView(table);
 
-		txtFirstName.setBounds(73, 51, 158, 31);
+		txtFirstName.setBounds(149, 64, 186, 31);
 		add(txtFirstName);
 		txtFirstName.setText("First Name");
 		txtFirstName.addFocusListener(new ModifiedFocusAdapter(txtFirstName, "First Name"));
 
-		txtLastName.setBounds(73, 94, 158, 31);
+		txtLastName.setBounds(149, 103, 186, 31);
 		add(txtLastName);
 		txtLastName.setText("Last Name");
 		txtLastName.addFocusListener(new ModifiedFocusAdapter(txtLastName, "Last Name"));
 
-		txtTeam.setBounds(73, 137, 158, 31);
+		txtTeam.setBounds(149, 142, 186, 31);
 		add(txtTeam);
 		txtTeam.setText("Team");
 		txtTeam.addFocusListener(new ModifiedFocusAdapter(txtTeam, "Team"));
 
-		SubmitLocalSearch.setBounds(33, 180, 125, 28);
+		SubmitLocalSearch.setBounds(110, 190, 125, 28);
 		add(SubmitLocalSearch);
 
-		btnSeePlayerStats.setBounds(159, 180, 125, 28);
+		btnSeePlayerStats.setBounds(245, 190, 125, 28);
 		add(btnSeePlayerStats);
 
 		JLabel lblIndividualStatistics = new JLabel("Individual Statistics");
 		lblIndividualStatistics.setForeground(Color.WHITE);
-		lblIndividualStatistics.setBounds(736, 146, 234, 36);
+		lblIndividualStatistics.setBounds(729, 51, 234, 36);
 		add(lblIndividualStatistics);
 		lblIndividualStatistics.setFont(new Font("Lucida Grande", Font.PLAIN,
 				25));
 
 		ModifiedJScrollPane scrollPane_2 = new ModifiedJScrollPane();
-		scrollPane_2.setBounds(317, 402, 636, 79);
+		scrollPane_2.setBounds(480, 374, 493, 97);
 		add(scrollPane_2);
 
 		fieldingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {"Wins", "Losses", "PO", "Err", "Assist", "F%" }));
@@ -110,21 +110,21 @@ public class BrowseLocalPlayers extends JPanel {
 
 		JLabel lblFielding = new JLabel("Fielding");
 		lblFielding.setForeground(Color.WHITE);
-		lblFielding.setBounds(244, 427, 61, 16);
+		lblFielding.setBounds(902, 355, 61, 16);
 		add(lblFielding);
 
 		JLabel lblPitching = new JLabel("Pitching");
 		lblPitching.setForeground(Color.WHITE);
-		lblPitching.setBounds(246, 330, 61, 16);
+		lblPitching.setBounds(902, 225, 61, 16);
 		add(lblPitching);
 
 		JLabel lblBatting = new JLabel("Batting");
 		lblBatting.setForeground(Color.WHITE);
-		lblBatting.setBounds(246, 233, 61, 16);
+		lblBatting.setBounds(902, 100, 61, 16);
 		add(lblBatting);
 
 		ModifiedJScrollPane scrollPane_3 = new ModifiedJScrollPane();
-		scrollPane_3.setBounds(317, 306, 636, 71);
+		scrollPane_3.setBounds(480, 251, 493, 97);
 		add(scrollPane_3);
 
 		pitchingTable = new ModifiedJTable(new DefaultTableModel(null,
@@ -133,7 +133,7 @@ public class BrowseLocalPlayers extends JPanel {
 		scrollPane_3.setViewportView(pitchingTable);
 
 		ModifiedJScrollPane scrollPane_1 = new ModifiedJScrollPane();
-		scrollPane_1.setBounds(317, 205, 636, 79);
+		scrollPane_1.setBounds(480, 128, 493, 97);
 		add(scrollPane_1);
 
 		battingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {"Won","AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR",
