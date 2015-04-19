@@ -84,7 +84,7 @@ public class UserFieldingStats extends JPanel {
 		lblEnter.setForeground(new Color(244, 229, 192));
 		add(lblEnter);
 		
-		lineTitle.setBounds(-16, 77, 333, 4);
+		lineTitle.setBounds(-16, 77, 196, 3);
 		lineTitle.setIcon(new ImageIcon(imgunderLine));
 		add(lineTitle);
 		

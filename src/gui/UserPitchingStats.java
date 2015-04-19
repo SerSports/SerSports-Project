@@ -73,7 +73,7 @@ public class UserPitchingStats extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		
-		lineTitle.setBounds(-16, 77, 333, 4);
+		lineTitle.setBounds(-16, 77, 196, 3);
 		lineTitle.setIcon(new ImageIcon(imgunderLine));
 		add(lineTitle);
 		

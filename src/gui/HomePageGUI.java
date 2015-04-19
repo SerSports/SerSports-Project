@@ -100,7 +100,7 @@ public class HomePageGUI extends JPanel {
 		logo.setIcon(new ImageIcon(img));
 		
 		JLabel line = new JLabel("");
-		line.setBounds(16, 98, 350, 29);
+		line.setBounds(16, 98, 285, 29);
 		add(line);
 		Image imgline = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
 		line.setIcon(new ImageIcon(imgline));
