@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 
 /**
  * Class: BrowseLocalPlayers
@@ -94,12 +95,13 @@ public class BrowseLocalPlayers extends JPanel {
 		btnSeePlayerStats.setBounds(245, 190, 125, 28);
 		add(btnSeePlayerStats);
 
+		
 		JLabel lblIndividualStatistics = new JLabel("Individual Statistics");
-		lblIndividualStatistics.setForeground(Color.WHITE);
-		lblIndividualStatistics.setBounds(729, 51, 234, 36);
+		lblIndividualStatistics.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblIndividualStatistics.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 22));
+		lblIndividualStatistics.setBounds(730, 47, 216, 41);
+		lblIndividualStatistics.setForeground(new Color(244, 229, 192));
 		add(lblIndividualStatistics);
-		lblIndividualStatistics.setFont(new Font("Lucida Grande", Font.PLAIN,
-				25));
 
 		ModifiedJScrollPane scrollPane_2 = new ModifiedJScrollPane();
 		scrollPane_2.setBounds(480, 374, 493, 97);
@@ -107,21 +109,28 @@ public class BrowseLocalPlayers extends JPanel {
 
 		fieldingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {"Wins", "Losses", "PO", "Err", "Assist", "F%" }));
 		scrollPane_2.setViewportView(fieldingTable);
-
-		JLabel lblFielding = new JLabel("Fielding");
-		lblFielding.setForeground(Color.WHITE);
-		lblFielding.setBounds(902, 355, 61, 16);
+		
+		JLabel lblFielding = new JLabel("Fielding:");
+		lblFielding.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblFielding.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
+		lblFielding.setBounds(884, 355, 79, 16);
+		lblFielding.setForeground(new Color(244, 229, 192));
 		add(lblFielding);
 
-		JLabel lblPitching = new JLabel("Pitching");
-		lblPitching.setForeground(Color.WHITE);
-		lblPitching.setBounds(902, 225, 61, 16);
+		JLabel lblPitching = new JLabel("Pitching:");
+		lblPitching.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblPitching.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
+		lblPitching.setBounds(884, 232, 79, 16);
+		lblPitching.setForeground(new Color(244, 229, 192));
 		add(lblPitching);
 
-		JLabel lblBatting = new JLabel("Batting");
-		lblBatting.setForeground(Color.WHITE);
-		lblBatting.setBounds(902, 100, 61, 16);
+		JLabel lblBatting = new JLabel("Batting:");
+		lblBatting.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblBatting.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
+		lblBatting.setBounds(884, 100, 79, 16);
+		lblBatting.setForeground(new Color(244, 229, 192));
 		add(lblBatting);
+		
 
 		ModifiedJScrollPane scrollPane_3 = new ModifiedJScrollPane();
 		scrollPane_3.setBounds(480, 251, 493, 97);
