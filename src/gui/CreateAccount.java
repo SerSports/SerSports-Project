@@ -59,48 +59,52 @@ public class CreateAccount extends JPanel {
 		panel.setBorder(null);
 		panel.setBackground(new Color(47, 52, 64));
 		
-		textUsername.setBounds(114, 33, 200, 28);
+		textUsername.setBounds(60, 33, 200, 28);
 		panel.add(textUsername);
 		textUsername.setText("User Name");
 		textUsername.addFocusListener(new ModifiedFocusAdapter(textUsername, "User Name"));
 		textUsername.setColumns(10);
 		
 		
-		textPassword.setBounds(114, 73, 200, 28);		
+		textPassword.setBounds(60, 73, 200, 28);		
 		textPassword.setText("Password");
 		textPassword.setColumns(10);
 		textPassword.addFocusListener(new ModifiedFocusAdapter(textPassword, "Password"));
 		panel.add(textPassword);
-
 		
 		textFirstName.setText("First Name");
-		textFirstName.setBounds(114, 113, 200, 28);
+		textFirstName.setBounds(60, 113, 200, 28);
 		textFirstName.setColumns(10);
 		textFirstName.addFocusListener(new ModifiedFocusAdapter(textFirstName, "First Name"));
 		panel.add(textFirstName);
 		
 		textLastname.setText("Last Name");
 		textLastname.setColumns(10);
-		textLastname.setBounds(114, 153, 200, 28);
+		textLastname.setBounds(60, 153, 200, 28);
 		textLastname.addFocusListener(new ModifiedFocusAdapter(textLastname, "Last Name"));
 		panel.add(textLastname);
 		
-		textAge.setBounds(114, 193, 200, 28);
+		textAge.setBounds(60, 193, 200, 28);
 		textAge.addFocusListener(new ModifiedFocusAdapter(textAge, "Age"));
 		panel.add(textAge);
 		textAge.setText("Age");
 		textAge.setColumns(10);
 		
 		btnCreateNewAccount.setActionCommand("btnCreateNewAccount");
-		btnCreateNewAccount.setBounds(148, 237, 140, 28);
+		btnCreateNewAccount.setBounds(90, 237, 140, 28);
 		panel.add(btnCreateNewAccount);
 		
-		backButton.setBounds(6, 96, 87, 87);
+				JLabel lblEnter = new JLabel("Create Account:");
+				lblEnter.setBounds(91, 6, 138, 27);
+				panel.add(lblEnter);
+				lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
+				lblEnter.setForeground(new Color(244, 229, 192));
+		backButton.setBounds(6, 6, 87, 87);
+		add(backButton);
 		backButton.setIcon(new ImageIcon(backButtonImage));
 		backButton.setActionCommand("backButton");
 		backButton.setBorder(BorderFactory.createEmptyBorder());
-		backButton.setContentAreaFilled(false);	
-		panel.add(backButton);
+		backButton.setContentAreaFilled(false);
 		
 			backButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent arg0){
