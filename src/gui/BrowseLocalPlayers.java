@@ -57,7 +57,7 @@ public class BrowseLocalPlayers extends JPanel {
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
 		
 		JLabel line = new JLabel("");
-		line.setBounds(480, 76, 502, 4);
+		line.setBounds(762, 76, 220, 4);
 		add(line);
 		Image imgline = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
 		line.setIcon(new ImageIcon(imgline));
@@ -74,44 +74,44 @@ public class BrowseLocalPlayers extends JPanel {
 		logo.setIcon(new ImageIcon(img));
 
 		ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
-		scrollPane.setBounds(35, 251, 433, 171);
+		scrollPane.setBounds(30, 251, 433, 171);
 		add(scrollPane);
 
 		table = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
 				"First Name", "Last Name", "Team", "Position" }));
 		scrollPane.setViewportView(table);
 
-		txtFirstName.setBounds(154, 64, 186, 31);
+		txtFirstName.setBounds(153, 64, 186, 31);
 		add(txtFirstName);
 		txtFirstName.setText("First Name");
 		txtFirstName.addFocusListener(new ModifiedFocusAdapter(txtFirstName, "First Name"));
 
-		txtLastName.setBounds(154, 103, 186, 31);
+		txtLastName.setBounds(153, 103, 186, 31);
 		add(txtLastName);
 		txtLastName.setText("Last Name");
 		txtLastName.addFocusListener(new ModifiedFocusAdapter(txtLastName, "Last Name"));
 
-		txtTeam.setBounds(154, 142, 186, 31);
+		txtTeam.setBounds(153, 142, 186, 31);
 		add(txtTeam);
 		txtTeam.setText("Team");
 		txtTeam.addFocusListener(new ModifiedFocusAdapter(txtTeam, "Team"));
 
-		SubmitLocalSearch.setBounds(187, 196, 125, 28);
+		SubmitLocalSearch.setBounds(184, 196, 125, 28);
 		add(SubmitLocalSearch);
 
-		btnSeePlayerStats.setBounds(187, 443, 125, 28);
+		btnSeePlayerStats.setBounds(184, 443, 125, 28);
 		add(btnSeePlayerStats);
 
 		
 		JLabel lblIndividualStatistics = new JLabel("Individual Statistics:");
 		lblIndividualStatistics.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblIndividualStatistics.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 22));
-		lblIndividualStatistics.setBounds(747, 40, 216, 41);
+		lblIndividualStatistics.setBounds(752, 38, 216, 41);
 		lblIndividualStatistics.setForeground(new Color(244, 229, 192));
 		add(lblIndividualStatistics);
 
 		ModifiedJScrollPane scrollPane_2 = new ModifiedJScrollPane();
-		scrollPane_2.setBounds(480, 374, 493, 97);
+		scrollPane_2.setBounds(475, 372, 493, 97);
 		add(scrollPane_2);
 
 		fieldingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {"Wins", "Losses", "PO", "Err", "Assist", "F%" }));
@@ -120,26 +120,26 @@ public class BrowseLocalPlayers extends JPanel {
 		JLabel lblFielding = new JLabel("Fielding:");
 		lblFielding.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblFielding.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
-		lblFielding.setBounds(884, 355, 79, 16);
+		lblFielding.setBounds(889, 353, 79, 16);
 		lblFielding.setForeground(new Color(244, 229, 192));
 		add(lblFielding);
 
 		JLabel lblPitching = new JLabel("Pitching:");
 		lblPitching.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblPitching.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
-		lblPitching.setBounds(884, 232, 79, 16);
+		lblPitching.setBounds(889, 230, 79, 16);
 		lblPitching.setForeground(new Color(244, 229, 192));
 		add(lblPitching);
 
 		JLabel lblBatting = new JLabel("Batting:");
 		lblBatting.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblBatting.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
-		lblBatting.setBounds(884, 100, 79, 16);
+		lblBatting.setBounds(889, 98, 79, 16);
 		lblBatting.setForeground(new Color(244, 229, 192));
 		add(lblBatting);
 
 		ModifiedJScrollPane scrollPane_3 = new ModifiedJScrollPane();
-		scrollPane_3.setBounds(480, 251, 493, 97);
+		scrollPane_3.setBounds(475, 249, 493, 97);
 		add(scrollPane_3);
 
 		pitchingTable = new ModifiedJTable(new DefaultTableModel(null,
@@ -148,7 +148,7 @@ public class BrowseLocalPlayers extends JPanel {
 		scrollPane_3.setViewportView(pitchingTable);
 
 		ModifiedJScrollPane scrollPane_1 = new ModifiedJScrollPane();
-		scrollPane_1.setBounds(480, 128, 493, 97);
+		scrollPane_1.setBounds(475, 126, 493, 97);
 		add(scrollPane_1);
 
 		battingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {"Won","AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR",
@@ -161,6 +161,13 @@ public class BrowseLocalPlayers extends JPanel {
 				lblBorderlayout.setBounds(16, 16, 968, 483);
 				add(lblBorderlayout);
 				lblBorderlayout.setIcon(new ImageIcon(imgBorder));
+				
+				JLabel lblBrowseLocal = new JLabel("Browse Local");
+				lblBrowseLocal.setHorizontalAlignment(SwingConstants.CENTER);
+				lblBrowseLocal.setForeground(new Color(244, 229, 192));
+				lblBrowseLocal.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 22));
+				lblBrowseLocal.setBounds(138, 27, 216, 41);
+				add(lblBrowseLocal);
 
 	}
 }
