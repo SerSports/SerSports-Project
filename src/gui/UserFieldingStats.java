@@ -124,7 +124,6 @@ public class UserFieldingStats extends JPanel {
 		add(SubmitFieldingStats);
 		SubmitFieldingStats.setActionCommand("SubmitFieldingStats");
 		
-		//JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(22, 266, 734, 145);
 		add(scrollPane);
 		
@@ -136,7 +135,6 @@ public class UserFieldingStats extends JPanel {
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 
-		//table = new JTable(new DefaultTableModel(null, new Object[]{"Won","Losses", "PO", "Err", "Assist", "F%"}));
 		scrollPane.setViewportView(table);
 		
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();

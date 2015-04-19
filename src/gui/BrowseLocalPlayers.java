@@ -139,6 +139,7 @@ public class BrowseLocalPlayers extends JPanel {
 		battingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {"Won","AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR",
 				"SO"}));
 		scrollPane_1.setViewportView(battingTable);
+		battingTable.setFont(new Font("Helvetica", Font.PLAIN, 12));
 		
 				// border
 				JLabel lblBorderlayout = new JLabel("");

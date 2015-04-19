@@ -18,6 +18,7 @@ public class ModifiedJTable extends JTable {
 	private static final long serialVersionUID = 8253718684484994753L;
 	//Members
 	JTableHeader header = this.getTableHeader();
+	protected Font font = new Font("Helvetica", Font.PLAIN, 14);
 
 	
 	ModifiedJTable(TableModel dm){
@@ -26,7 +27,7 @@ public class ModifiedJTable extends JTable {
 		setShowVerticalLines(false);
 		setShowGrid(false);
 		setShowHorizontalLines(false);
-		setFont(new Font("Helvetica", Font.PLAIN, 14));
+		setFont(font);
 		setForeground(new Color(244, 229, 192));
 		header.setBackground(new Color(244, 229, 192));
 		header.setForeground(new Color(47, 52, 64));
@@ -39,6 +40,10 @@ public class ModifiedJTable extends JTable {
 		setOpaque(false);
 		((DefaultTableCellRenderer)this.getDefaultRenderer(Object.class)).setOpaque(false);
 	}
+	
+	/*public void setFont(){
+		
+	}*/
 	
 	public void updateRowHeights()
 	{

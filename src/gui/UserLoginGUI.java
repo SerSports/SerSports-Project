@@ -35,6 +35,7 @@ import database.User;
  */
 public class UserLoginGUI extends JPanel {
 	protected ModifiedJTextField txtUserName = new ModifiedJTextField();
+	private Image imgunderLine = new ImageIcon(this.getClass().getResource("/images/MenuLineIndicator.png")).getImage();
 	protected ModifiedJPasswordField pwdPassword = new ModifiedJPasswordField();
 	protected JButton btnSubmit = new JButton("SIGN IN");
 	protected JButton btnCreateAccount_1 = new JButton("CREATE ACCOUNT");
@@ -44,11 +45,25 @@ public class UserLoginGUI extends JPanel {
 	protected JLabel loginnBorderImage = new JLabel("");
 	protected JLabel lblbackgroundImage = new JLabel("");
 	protected Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+	
+	private JLabel signInIndicator = new JLabel("");
+	private JLabel createAccIndicator = new JLabel("");
 	MainGUI main = null;
 
 	public UserLoginGUI() {
 		setLayout(null);
 		setPreferredSize(new Dimension(1000, 650));
+		
+		createAccIndicator.setBounds(418, 367, 164, 3);
+		createAccIndicator.setIcon(new ImageIcon(imgunderLine));
+		add(createAccIndicator);
+		
+		//Button Indicator Line
+		signInIndicator.setBounds(418, 327, 164, 3);
+		signInIndicator.setIcon(new ImageIcon(imgunderLine));
+		
+		//need to alternate
+		add(signInIndicator);
 		pwdPassword.setLocation(400, 250);
 		pwdPassword.setSize(200, 28);
 		
