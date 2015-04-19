@@ -40,6 +40,8 @@ public class UserPitchingStats extends JPanel {
 	private String holdsTxt = "Holds";
 	private String runsTxt = "Runs";
 	private String hitByPitchTxt = "HBP";
+	private JLabel lineTitle = new JLabel("");
+	private Image imgunderLine = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
 	
 	protected ModifiedJTable table = new ModifiedJTable(new DefaultTableModel(null, new Object[]{"Date","GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
 	private ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
@@ -71,9 +73,13 @@ public class UserPitchingStats extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		
+		lineTitle.setBounds(-16, 77, 333, 4);
+		lineTitle.setIcon(new ImageIcon(imgunderLine));
+		add(lineTitle);
+		
 		JLabel lblEnter = new JLabel("Enter New Stats:");
 		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
-		lblEnter.setBounds(65, 54, 158, 31);
+		lblEnter.setBounds(6, 50, 158, 31);
 		lblEnter.setForeground(new Color(244, 229, 192));
 		add(lblEnter);
 		
