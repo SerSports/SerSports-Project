@@ -40,6 +40,8 @@ public class UserFieldingStats extends JPanel {
 	private String assistTxt = "Assist";
 	private String fieldPercentageTxt = "F%";
 	private ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
+	private JLabel lineTitle = new JLabel("");
+	private Image imgunderLine = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
 	
 	//protected JTable table;
 	protected ModifiedJTextField txtDate = new ModifiedJTextField();
@@ -78,9 +80,13 @@ public class UserFieldingStats extends JPanel {
 		
 		JLabel lblEnter = new JLabel("Enter New Stats:");
 		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
-		lblEnter.setBounds(65, 54, 158, 31);
+		lblEnter.setBounds(6, 50, 158, 31);
 		lblEnter.setForeground(new Color(244, 229, 192));
 		add(lblEnter);
+		
+		lineTitle.setBounds(-16, 77, 333, 4);
+		lineTitle.setIcon(new ImageIcon(imgunderLine));
+		add(lineTitle);
 		
 		txtDate.setText(dateTxt);
 		txtDate.setBounds(65, 97, 158, 31);

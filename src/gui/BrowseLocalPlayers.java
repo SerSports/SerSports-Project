@@ -55,6 +55,13 @@ public class BrowseLocalPlayers extends JPanel {
 		JLabel diamond = new JLabel("");
 		diamond.setBounds(603, -48, 64, 64);
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
+		
+		JLabel line = new JLabel("");
+		line.setBounds(480, 76, 502, 4);
+		add(line);
+		Image imgline = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
+		line.setIcon(new ImageIcon(imgline));
+		
 		add(diamond);
 		diamond.setIcon(new ImageIcon(img2));
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
@@ -74,32 +81,32 @@ public class BrowseLocalPlayers extends JPanel {
 				"First Name", "Last Name", "Team", "Position" }));
 		scrollPane.setViewportView(table);
 
-		txtFirstName.setBounds(149, 64, 186, 31);
+		txtFirstName.setBounds(154, 64, 186, 31);
 		add(txtFirstName);
 		txtFirstName.setText("First Name");
 		txtFirstName.addFocusListener(new ModifiedFocusAdapter(txtFirstName, "First Name"));
 
-		txtLastName.setBounds(149, 103, 186, 31);
+		txtLastName.setBounds(154, 103, 186, 31);
 		add(txtLastName);
 		txtLastName.setText("Last Name");
 		txtLastName.addFocusListener(new ModifiedFocusAdapter(txtLastName, "Last Name"));
 
-		txtTeam.setBounds(149, 142, 186, 31);
+		txtTeam.setBounds(154, 142, 186, 31);
 		add(txtTeam);
 		txtTeam.setText("Team");
 		txtTeam.addFocusListener(new ModifiedFocusAdapter(txtTeam, "Team"));
 
-		SubmitLocalSearch.setBounds(110, 190, 125, 28);
+		SubmitLocalSearch.setBounds(187, 196, 125, 28);
 		add(SubmitLocalSearch);
 
-		btnSeePlayerStats.setBounds(245, 190, 125, 28);
+		btnSeePlayerStats.setBounds(187, 443, 125, 28);
 		add(btnSeePlayerStats);
 
 		
-		JLabel lblIndividualStatistics = new JLabel("Individual Statistics");
+		JLabel lblIndividualStatistics = new JLabel("Individual Statistics:");
 		lblIndividualStatistics.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblIndividualStatistics.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 22));
-		lblIndividualStatistics.setBounds(730, 47, 216, 41);
+		lblIndividualStatistics.setBounds(747, 40, 216, 41);
 		lblIndividualStatistics.setForeground(new Color(244, 229, 192));
 		add(lblIndividualStatistics);
 
@@ -130,7 +137,6 @@ public class BrowseLocalPlayers extends JPanel {
 		lblBatting.setBounds(884, 100, 79, 16);
 		lblBatting.setForeground(new Color(244, 229, 192));
 		add(lblBatting);
-		
 
 		ModifiedJScrollPane scrollPane_3 = new ModifiedJScrollPane();
 		scrollPane_3.setBounds(480, 251, 493, 97);
