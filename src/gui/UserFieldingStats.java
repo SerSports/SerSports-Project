@@ -94,7 +94,6 @@ public class UserFieldingStats extends JPanel {
 		txtLoss.setBounds(405, 97, 158, 31);
 		add(txtLoss);
 		txtLoss.addFocusListener(new ModifiedFocusAdapter(txtLoss, lossesTxt));
-
 		
 		txtPo.setText(putOutTxt);
 		txtPo.setBounds(575, 97, 158, 31);
@@ -178,25 +177,5 @@ public class UserFieldingStats extends JPanel {
 	
 	public String getFieldPercentageTxt(){
 		return fieldPercentageTxt;
-	}
-	
-	public boolean checkTextFields(){
-		boolean result;
-		
-		//Fielding
-		if(!(txtDate.getText()).equals(dateTxt) ||
-		!(txtWins.getText()).equals(winsTxt) ||
-		!(txtLoss.getText()).equals(lossesTxt) ||
-		!(txtPo.getText()).equals(putOutTxt) ||
-		!(txtE.getText()).equals(errorTxt) ||
-		!(txtA.getText()).equals(assistTxt) ||
-		!(txtFpct.getText()).equals(fieldPercentageTxt)){
-			result = false;
-		}
-		else{
-			result = true;
-		}
-			
-		return result;
 	}
 }

@@ -13,8 +13,12 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+
 import gui.*;
 import database.*;
 
@@ -109,8 +113,13 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 
 		// Set up the table
 		DefaultTableModel newTable = new DefaultTableModel(new Object[] {
+				"StatID", "Date", "ERA", "SAVES", "HITS",
+				"HOLDS", "RUNS", "HBP" }, 0);
+		/*
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] {
 				"StatID", "Date", "W", "L", "ERA", "SAVES", "HITS",
 				"HOLDS", "RUNS", "HBP" }, 0);
+		*/
 
 		if (User.getCurrentUser() != null) {
 			User currentLoggedInUser = User.getCurrentUser();
@@ -132,6 +141,20 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 
 			table.setModel(newTable);
 			table.removeColumn(table.getColumnModel().getColumn(0));
+
+			table.getSelectionModel().addListSelectionListener(
+					new ListSelectionListener() {
+						public void valueChanged(ListSelectionEvent e){
+							int selectedRow = table.getSelectedRow();
+							txtDate.setText(table.getValueAt(selectedRow, 0).toString());
+							txtERA.setText(table.getValueAt(selectedRow, 1).toString());
+							txtSaves.setText(table.getValueAt(selectedRow, 2).toString());
+							txtHits.setText(table.getValueAt(selectedRow, 3).toString());
+							txtHolds.setText(table.getValueAt(selectedRow, 4).toString());
+							txtRuns.setText(table.getValueAt(selectedRow, 5).toString());
+							txtHBP.setText(table.getValueAt(selectedRow, 6).toString());
+						}
+					});
 		}
 	}
 	

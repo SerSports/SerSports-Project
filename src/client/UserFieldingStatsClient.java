@@ -9,13 +9,18 @@ Description: ActionListeners and ItemListeners for the User Fielding Stats GUI (
 package client;
 
 import gui.UserFieldingStats;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+
 import database.*;
 
 /**
@@ -108,8 +113,12 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 
 		// Set up the table
 		DefaultTableModel newTable = new DefaultTableModel(new Object[] {
+				"StatID", "Date", "PO", "Err", "Assist", "F%" }, 0);
+		/*
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] {
 				"StatID", "Date", "Wins", "Losses", "PO", "Err",
 				"Assist", "F%" }, 0);
+		*/
 
 		if (User.getCurrentUser() != null) {
 			User currentLoggedInUser = User.getCurrentUser();
@@ -130,6 +139,19 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 
 			table.setModel(newTable);
 			table.removeColumn(table.getColumnModel().getColumn(0));
+			
+			table.getSelectionModel().addListSelectionListener(
+					new ListSelectionListener() {
+						public void valueChanged(ListSelectionEvent e){
+							int selectedRow = table.getSelectedRow();
+							txtDate.setText(table.getValueAt(selectedRow, 0).toString());
+							txtPo.setText(table.getValueAt(selectedRow, 1).toString());
+							txtE.setText(table.getValueAt(selectedRow, 2).toString());
+							txtA.setText(table.getValueAt(selectedRow, 3).toString());
+							txtFpct.setText(table.getValueAt(selectedRow, 4).toString());
+							
+						}
+					});
 		}
 	}
 
@@ -166,8 +188,6 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 					null, "Please add correct date in YYYY-MM-DD format",
 					"InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
 		}
-
-
 	}
 	
 	public void deleteFieldingStatistic() {
