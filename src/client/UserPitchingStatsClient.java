@@ -193,12 +193,12 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		// collect values if user entered the correct date format
 		if (valid == true) {
 			// Check for empty or invalid String
-			isValidInput(date);
-			isValidInput(saves);
-			isValidInput(hits);
-			isValidInput(holds);
-			isValidInput(runs);
-			isValidInput(hbp);
+			era = isValidFloatInput(era);
+			saves = isValidInput(saves);
+			hits = isValidInput(hits);
+			holds = isValidInput(holds);
+			runs = isValidInput(runs);
+			hbp = isValidInput(hbp);
 
 			if("Submit".equals(type))
 			{
@@ -234,6 +234,8 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 
 		// reload statistics into table
 		loadUserInfoIntoControls();
+		
+		resetTextFields();
 	}
 	
 	public void loadUserInfoIntoControls() {
@@ -274,6 +276,25 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		return result;
 	}
 
+	public String isValidFloatInput(String userInput){
+		String result;
+		
+		if(userInput.equals("") || userInput.length() == 0){
+			result = null;
+		}
+		else{
+			result = userInput;
+		}
+		
+		try{
+			Float.parseFloat(userInput);
+		} catch (Exception e){
+			result = null;
+		}
+			
+		return result;
+	}
+	
 	public void resetTextFields(){
 		txtDate.setText(getDateTxt());
 		txtW.setText(getWinsTxt());
@@ -283,6 +304,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 		txtHits.setText(getHitsTxt());
 		txtHolds.setText(getHoldsTxt());
 		txtRuns.setText(getRunsTxt());
+		txtHBP.setText(getHBPTxt());
 		TextFieldDocumentListener.setDirty();
 	}
 

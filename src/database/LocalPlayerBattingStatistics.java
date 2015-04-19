@@ -193,50 +193,20 @@ public class LocalPlayerBattingStatistics {
 		int iab, ih, irbi, ib1, ib2, ib3, iruns, isb, ihr, iso, iwon;
 		try {
 			// parse strings into integers where appropriate
-			if (notNumeric(ab) != true)
-				iab = Integer.parseInt(ab);
-			else
-				iab = 0;
-			if (notNumeric(h) != true)
-				ih = Integer.parseInt(h);
-			else
-				ih = 0;
-			if (notNumeric(rbi) != true)
-				irbi = Integer.parseInt(rbi);
-			else
-				irbi = 0;
-			if (notNumeric(b1) != true)
-				ib1 = Integer.parseInt(b1);
-			else
-				ib1 = 0;
-			if (notNumeric(b2) != true)
-				ib2 = Integer.parseInt(b2);
-			else
-				ib2 = 0;
-			if (notNumeric(b3) != true)
-				ib3 = Integer.parseInt(b3);
-			else
-				ib3 = 0;
-			if (notNumeric(runs) != true)
-				iruns = Integer.parseInt(runs);
-			else
-				iruns = 0;
-			if (notNumeric(sb) != true)
-				isb = Integer.parseInt(sb);
-			else
-				isb = 0;
-			if (notNumeric(hr) != true)
-				ihr = Integer.parseInt(hr);
-			else
-				ihr = 0;
-			if (notNumeric(so) != true)
-				iso = Integer.parseInt(so);
-			else
-				iso = 0;
 			if (won)
 				iwon = 1;
 			else
 				iwon = 0;
+			iab = parseToInt(ab);
+			ih = parseToInt(h);
+			irbi = parseToInt(rbi);
+			ib1 = parseToInt(b1);
+			ib2 = parseToInt(b2);
+			ib3 = parseToInt(b3);
+			iruns = parseToInt(runs);
+			isb = parseToInt(sb);
+			ihr = parseToInt(hr);
+			iso = parseToInt(so);
 			
 			User currentUser = User.getCurrentUser();
 
@@ -301,5 +271,14 @@ public class LocalPlayerBattingStatistics {
 		}
 		
 		return false;
+	}
+	
+	public static int parseToInt(String value){
+		int result;
+		if (notNumeric(value) != true)
+			result = Integer.parseInt(value);
+		else
+			result = 0;
+		return result;
 	}
 }

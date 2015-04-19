@@ -142,38 +142,21 @@ public class LocalPlayerPitchingStatistics {
 			Boolean won, String era, String saves, String hits,
 			String holds, String runs, String hbp, int statsID) {
 
-		int iwon, iera, isaves, ihits, iholds, iruns, ihbp;
+		int iwon, isaves, ihits, iholds, iruns, ihbp;
+		float iera;
 		try {
 			// parse strings into integers where appropriate
 			if (won)
 				iwon = 1;
 			else
 				iwon = 0;
-			if (notNumeric(era) != true)
-				iera = Integer.parseInt(era);
-			else
-				iera = 0;
-			if (notNumeric(saves) != true)
-				isaves = Integer.parseInt(saves);
-			else
-				isaves = 0;
-			if (notNumeric(hits) != true)
-				ihits = Integer.parseInt(hits);
-			else
-				ihits = 0;
-			if (notNumeric(holds) != true)
-				iholds = Integer.parseInt(holds);
-			else
-				iholds = 0;
-			if (notNumeric(runs) != true)
-				iruns = Integer.parseInt(runs);
-			else
-				iruns = 0;
-			if (notNumeric(hbp) != true)
-				ihbp = Integer.parseInt(hbp);
-			else
-				ihbp = 0;
-
+			iera = parseToFloat(era);
+			isaves = parseToInt(saves);
+			ihits = parseToInt(hits);
+			iholds = parseToInt(holds);
+			iruns = parseToInt(runs);
+			ihbp = parseToInt(hbp);
+			
 			User currentUser = User.getCurrentUser();
 
 			if(statsID == -1)
@@ -229,5 +212,18 @@ public class LocalPlayerPitchingStatistics {
 		}
 		
 		return false;
+	}
+
+	public static int parseToInt(String value){
+		int result;
+		if (notNumeric(value) != true)
+			result = Integer.parseInt(value);
+		else
+			result = 0;
+		return result;
+	}
+
+	public static float parseToFloat(String value){ 
+		return Float.parseFloat(value);
 	}
 }

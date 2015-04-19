@@ -306,6 +306,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 				.deleteLocalPlayerBattingStatistic(selectedStatisticID);
 		
 		loadUserInfoIntoControls();
+		
+		resetTextFields();
 	}
 	
 	/**

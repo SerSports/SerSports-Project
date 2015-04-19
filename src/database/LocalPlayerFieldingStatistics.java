@@ -130,30 +130,19 @@ public class LocalPlayerFieldingStatistics {
 			Boolean won, String po, String error, String assist,
 			String fpct, int statsID) {
 
-		int iwon, ipo, ierror, iassist, ifpct;
+		int iwon, ipo, ierror, iassist;
+		float ifpct;
 		try {
 			// parse strings into integers where appropriate
 			if (won)
 				iwon = 1;
 			else
 				iwon = 0;
-			if (notNumeric(po) != true)
-				ipo = Integer.parseInt(po);
-			else
-				ipo = 0;
-			if (notNumeric(error) != true)
-				ierror = Integer.parseInt(error);
-			else
-				ierror = 0;
-			if (notNumeric(assist) != true)
-				iassist = Integer.parseInt(assist);
-			else
-				iassist = 0;
-			if (notNumeric(fpct) != true)
-				ifpct = Integer.parseInt(fpct);
-			else
-				ifpct = 0;
-
+			ipo = parseToInt(po);
+			ierror = parseToInt(error);
+			iassist = parseToInt(assist);
+			ifpct = parseToFloat(fpct);
+			
 			User currentUser = User.getCurrentUser();
 
 			if(statsID == -1)
@@ -201,5 +190,18 @@ public class LocalPlayerFieldingStatistics {
 		}
 		
 		return false;
+	}
+
+	public static int parseToInt(String value){
+		int result;
+		if (notNumeric(value) != true)
+			result = Integer.parseInt(value);
+		else
+			result = 0;
+		return result;
+	}
+	
+	public static float parseToFloat(String value){
+		return Float.parseFloat(value);
 	}
 }

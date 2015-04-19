@@ -185,11 +185,10 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		// collect values if user entered the correct date format
 		if (valid == true) {
 			// Check for empty or invalid String
-			isValidInput(date);
-			isValidInput(po);
-			isValidInput(error);
-			isValidInput(assist);
-			isValidInput(fpct);
+			po = isValidInput(po);
+			error = isValidInput(error);
+			assist = isValidInput(assist);
+			fpct = isValidFloatInput(fpct);
 			
 			if("Submit".equals(type))
 			{
@@ -224,6 +223,8 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 
 		// reload statistics into table
 		loadUserInfoIntoControls();
+		
+		resetTextFields();
 	}
 	
 	public void loadUserInfoIntoControls() {
@@ -257,6 +258,25 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		
 		try{
 			Integer.parseInt(userInput);
+		} catch (Exception e){
+			result = null;
+		}
+			
+		return result;
+	}
+
+	public String isValidFloatInput(String userInput){
+		String result;
+		
+		if(userInput.equals("") || userInput.length() == 0){
+			result = null;
+		}
+		else{
+			result = userInput;
+		}
+		
+		try{
+			Float.parseFloat(userInput);
 		} catch (Exception e){
 			result = null;
 		}
