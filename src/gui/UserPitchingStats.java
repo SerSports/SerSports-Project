@@ -41,7 +41,8 @@ public class UserPitchingStats extends JPanel {
 	private String runsTxt = "Runs";
 	private String hitByPitchTxt = "HBP";
 	
-	protected JTable table;
+	protected ModifiedJTable table = new ModifiedJTable(new DefaultTableModel(null, new Object[]{"Date","GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
+	private ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
 	protected ModifiedJTextField txtDate = new ModifiedJTextField();
 	protected ModifiedJTextField txtW = new ModifiedJTextField();
 	protected ModifiedJTextField txtL = new ModifiedJTextField();
@@ -82,55 +83,54 @@ public class UserPitchingStats extends JPanel {
 		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, dateTxt));
 		
 		txtW.setText(winsTxt);
-		txtW.setBounds(230, 97, 158, 31);
+		txtW.setBounds(515, 456, 158, 31);
 		add(txtW);
 		txtW.addFocusListener(new ModifiedFocusAdapter(txtW, winsTxt));
 		
 		txtL.setText(lossesTxt);
-		txtL.setBounds(395, 97, 158, 31);
+		txtL.setBounds(345, 456, 158, 31);
 		add(txtL);
 		txtL.addFocusListener(new ModifiedFocusAdapter(txtL, lossesTxt));
 		
 		txtERA.setText(earnedRunAverageTxt);
-		txtERA.setBounds(560, 97, 158, 31);
+		txtERA.setBounds(230, 97, 158, 31);
 		add(txtERA);
 		txtERA.addFocusListener(new ModifiedFocusAdapter(txtERA, earnedRunAverageTxt));
 		
 		txtSaves.setText(savesTxt);
-		txtSaves.setBounds(65, 137, 158, 31);
+		txtSaves.setBounds(394, 97, 158, 31);
 		add(txtSaves);
 		txtSaves.addFocusListener(new ModifiedFocusAdapter(txtSaves, savesTxt));
 		
 		txtHits.setText(hitsTxt);
-		txtHits.setBounds(230, 137, 158, 31);
+		txtHits.setBounds(558, 97, 158, 31);
 		add(txtHits);
 		txtHits.addFocusListener(new ModifiedFocusAdapter(txtHits, hitsTxt));
 		
 		txtHolds.setText(holdsTxt);
-		txtHolds.setBounds(395, 137, 158, 31);
+		txtHolds.setBounds(65, 135, 158, 31);
 		add(txtHolds);
 		txtHolds.addFocusListener(new ModifiedFocusAdapter(txtHolds, holdsTxt));
 		
 		txtRuns.setText(runsTxt);
-		txtRuns.setBounds(560, 137, 158, 31);
+		txtRuns.setBounds(230, 135, 158, 31);
 		add(txtRuns);
 		txtRuns.addFocusListener(new ModifiedFocusAdapter(txtRuns, runsTxt));
 		
 		txtHBP.setText(hitByPitchTxt);
-		txtHBP.setBounds(65, 176, 158, 31);
+		txtHBP.setBounds(394, 135, 158, 31);
 		add(txtHBP);
 		txtHBP.addFocusListener(new ModifiedFocusAdapter(txtHBP, hitByPitchTxt));
 		
 		//JButton
-		SubmitPitchingStats.setBounds(230, 177, 158, 31);
+		SubmitPitchingStats.setBounds(320, 216, 158, 31);
 		add(SubmitPitchingStats);
 		SubmitPitchingStats.setActionCommand("SubmitPitchingStats");
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(54, 260, 691, 145);
+		//JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(22, 266, 734, 145);
 		add(scrollPane);		
 
-		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
 		scrollPane.setViewportView(table);
 		
 		btnUpdateStatistic.setBounds(250, 421, 143, 28);
@@ -147,7 +147,7 @@ public class UserPitchingStats extends JPanel {
 		diamond.setIcon(new ImageIcon(img2));
 		add(diamond);
 		
-		comboBox.setBounds(395, 180, 158, 31);
+		comboBox.setBounds(558, 135, 158, 31);
 		add(comboBox);
 		
 		JLabel lblBorderlayout = new JLabel("");
