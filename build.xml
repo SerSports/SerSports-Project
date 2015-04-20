@@ -81,7 +81,7 @@
             </batchtest>
             <classpath>
                 <pathelement location="${build.test}" />
-                <pathelement path="lib/junit-4.4.jar" />
+                <pathelement path="jars/junit-4.10" />
             </classpath>
         </junit>
     </target>
