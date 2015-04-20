@@ -58,7 +58,6 @@ public class MainGUI {
 		panelContainer.setLayout(c1);
 		
 		c1.show(panelContainer, "1");
-		//panelApplication = new ApplicationGUI();
 		panelContainer.add(login, "1");
 		panelContainer.add(panelApplication, "2");
 		panelContainer.add(createAccountGUI, "3");

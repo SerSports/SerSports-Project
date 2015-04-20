@@ -18,7 +18,6 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
-import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -54,8 +53,7 @@ public class MlbStatsGui extends JPanel {
 		JLabel logo = new JLabel("");
 		logo.setBounds(6, 0, 152, 55);
 		add(logo);
-		Image img = new ImageIcon(this.getClass().getResource(
-				"/images/LogoBottom.png")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		setPreferredSize(new Dimension(1000, 600));
 		setBackground(new Color(47, 52, 64));
