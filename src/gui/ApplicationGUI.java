@@ -44,7 +44,7 @@ public class ApplicationGUI extends JLayeredPane{
 		
 		JButton btnHome = new JButton("HOME");
 		btnHome.setBounds(164, 62, 117, 29);
-		btnHome.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		btnHome.setFont(new Font("Chunkfive", Font.BOLD, 24));
 		btnHome.setBorder(BorderFactory.createEmptyBorder());
 		btnHome.setContentAreaFilled(false);
 		btnHome.setForeground(new Color(47, 52, 64));
@@ -52,7 +52,7 @@ public class ApplicationGUI extends JLayeredPane{
 		
 		JButton btnEnterNewStats = new JButton("ENTER NEW STATS");
 		btnEnterNewStats.setBounds(298, 62, 206, 29);
-		btnEnterNewStats.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		btnEnterNewStats.setFont(new Font("Chunkfive", Font.BOLD, 24));
 		btnEnterNewStats.setBorder(BorderFactory.createEmptyBorder());
 		btnEnterNewStats.setContentAreaFilled(false);
 		btnEnterNewStats.setForeground(new Color(47, 52, 64));
@@ -60,7 +60,7 @@ public class ApplicationGUI extends JLayeredPane{
 		
 		JButton btnBrowseLocal = new JButton("BROWSE LOCAL");
 		btnBrowseLocal.setBounds(555, 62, 163, 29);
-		btnBrowseLocal.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		btnBrowseLocal.setFont(new Font("Chunkfive", Font.BOLD, 24));
 		btnBrowseLocal.setBorder(BorderFactory.createEmptyBorder());
 		btnBrowseLocal.setContentAreaFilled(false);
 		btnBrowseLocal.setForeground(new Color(47, 52, 64));
@@ -68,7 +68,7 @@ public class ApplicationGUI extends JLayeredPane{
 		
 		JButton btnBrowseMLB = new JButton("BROWSE MLB");
 		btnBrowseMLB.setBounds(776, 62, 163, 29);
-		btnBrowseMLB.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		btnBrowseMLB.setFont(new Font("Chunkfive", Font.BOLD, 24));
 		btnBrowseMLB.setBorder(BorderFactory.createEmptyBorder());
 		btnBrowseMLB.setContentAreaFilled(false);
 		btnBrowseMLB.setForeground(new Color(47, 52, 64));
@@ -80,7 +80,7 @@ public class ApplicationGUI extends JLayeredPane{
 		logo.setIcon(new ImageIcon(img));
 		
 		btnSignOut.setBounds(682, 11, 117, 24);
-		btnSignOut.setFont(new Font("Bangla MN", Font.PLAIN, 14));
+		btnSignOut.setFont(new Font("Chunkfive", Font.BOLD, 14));
 		btnSignOut.setBorder(BorderFactory.createEmptyBorder());
 		btnSignOut.setContentAreaFilled(false);
 		btnSignOut.setForeground(new Color(47, 52, 64));
@@ -88,7 +88,7 @@ public class ApplicationGUI extends JLayeredPane{
 		
 		JButton btncontactUs = new JButton("Contact Us");
 		btncontactUs.setBounds(785, 11, 100, 24);
-		btncontactUs.setFont(new Font("Bangla MN", Font.PLAIN, 14));
+		btncontactUs.setFont(new Font("Chunkfive", Font.BOLD, 14));
 		btncontactUs.setBorder(BorderFactory.createEmptyBorder());
 		btncontactUs.setContentAreaFilled(false);
 		btncontactUs.setForeground(new Color(47, 52, 64));

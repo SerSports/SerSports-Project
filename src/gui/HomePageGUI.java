@@ -44,6 +44,10 @@ Class: HomePageGUI
 Description: GUI for the home page
 */
 public class HomePageGUI extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4533439348087965616L;
 	protected User currentUser = null;
 	protected JLabel userFirstName = null;
 	protected JButton btnSignOut;
@@ -64,7 +68,7 @@ public class HomePageGUI extends JPanel {
 	  Description: Creates the panel
 	*/
 	public HomePageGUI() {
-		
+		/*
         try {
             URL url = new URL("http://www.sportsdatallc.com/wp-content/gallery/mlb-usat/clayton-kershaw.jpg");
             img = ImageIO.read(url);
@@ -74,11 +78,11 @@ public class HomePageGUI extends JPanel {
         
         Image dimg = img.getScaledInstance(330, 330,Image.SCALE_SMOOTH);
         
-        JLabel mlbImage = new JLabel(new ImageIcon(dimg));
+        JLabel mlbImage = new JLabel(new ImageIcon(img));
         mlbImage.setLocation(624, 98);
         mlbImage.setSize(300, 300);
         add(mlbImage);
-        mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));
+        mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));*/
 
 
 		
