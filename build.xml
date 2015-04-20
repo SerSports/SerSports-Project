@@ -13,7 +13,7 @@
 
 	<path id="compile.classpath">
 		<pathelement location="${build}"/>
-
+		<pathelement location="${build.test}" />
 		<fileset dir="${jars}">
 			<include name="**/*.jar"/>
 		</fileset>  
@@ -74,15 +74,20 @@
         <junit printsummary="yes" haltonerror="no" haltonfailure="no">
             <formatter type="plain" usefile="false" />
             <formatter type="xml" />
+        	<!--
+            <classpath>
+                <pathelement location="${build.test}" />
+                <pathelement path="jars/junit-4.10" />
+            </classpath>
+            -->
+        	<classpath>
+        		<path refid="compile.classpath"/>
+        	</classpath>
             <batchtest todir="${test.reports}">
                 <fileset dir="${src.testing}">
                     <include name="**/*Test.java" />
                 </fileset>
             </batchtest>
-            <classpath>
-                <pathelement location="${build.test}" />
-                <pathelement path="lib/junit-4.4.jar" />
-            </classpath>
         </junit>
     </target>
 	
