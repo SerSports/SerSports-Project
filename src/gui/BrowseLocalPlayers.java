@@ -53,7 +53,7 @@ public class BrowseLocalPlayers extends JPanel {
 
 		// Menu Indicator
 		JLabel diamond = new JLabel("");
-		diamond.setBounds(603, -48, 64, 64);
+		diamond.setBounds(618, -48, 64, 64);
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
 		
 		JLabel line = new JLabel("");

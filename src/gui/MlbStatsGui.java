@@ -61,7 +61,7 @@ public class MlbStatsGui extends JPanel {
 
 		// Menu Indicator
 		JLabel diamond = new JLabel("");
-		diamond.setBounds(830, -48, 64, 64);
+		diamond.setBounds(834, -48, 64, 64);
 		Image img2 = new ImageIcon(this.getClass().getResource(
 				"/images/diamond.png")).getImage();
 		add(diamond);
