@@ -101,20 +101,20 @@ public class MlbStatsGui extends JPanel {
 		btnCompareToPlayer.setActionCommand("CompareToPlayer");
 		add(btnCompareToPlayer);
 
-		//txtFirstName.setText("First Name");
+		txtFirstName.setText("First Name");
 		txtFirstName.setBounds(134, 64, 225, 31);
+		txtFirstName.addFocusListener(new ModifiedFocusAdapter(txtFirstName, "First Name"));
 		add(txtFirstName);
-		//txtFirstName.addFocusListener(new ModifiedFocusAdapter(txtFirstName, "First Name"));
 
 		txtLastName.setBounds(134, 103, 225, 31);
+		txtLastName.setText("Last Name");
+		txtLastName.addFocusListener(new ModifiedFocusAdapter(txtLastName, "Last Name"));
 		add(txtLastName);
-		//txtLastName.setText("Last Name");
-		//txtLastName.addFocusListener(new ModifiedFocusAdapter(txtLastName, "Last Name"));
 
 		txtTeam.setBounds(134, 142, 225, 31);
+		txtTeam.setText("Team");
+		txtTeam.addFocusListener(new ModifiedFocusAdapter(txtTeam, "Team"));
 		add(txtTeam);
-		//txtTeam.setText("Team");
-		//txtTeam.addFocusListener(new ModifiedFocusAdapter(txtTeam, "Team"));
 
 
 		submitPlayerSearchButton.setBounds(184, 197, 125, 28);

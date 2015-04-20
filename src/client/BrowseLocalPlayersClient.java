@@ -42,7 +42,7 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if (e.getActionCommand().equals("Submit"))
+		if (e.getActionCommand().equals("Search"))
 		{
 			populateLocalPlayersTable();
 		}
