@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 public class LocalPlayerBattingStatistics {
 
 	// Constants
-	private static final String TABLE_NAME = "localPlayersBattingStatistics";
+	private static final String TABLE_NAME = "localplayersbattingstatistics";
 	private static final String FIELD_ID = "localPlayersBattingStatisticsID";
 	private static final String FIELD_LOCAL_PLAYER_ID = "localPlayerId";
 	private static final String FIELD_TEAM_NAME = "team_name";

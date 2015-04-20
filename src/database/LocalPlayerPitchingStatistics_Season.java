@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class LocalPlayerPitchingStatistics_Season {
 
 	// pitching constants
-	private static final String TABLE_NAME = "localPlayersPitchingStatistics_season";
+	private static final String TABLE_NAME = "localplayerspitchingstatistics_season";
 	private static final String FIELD_LOCAL_PLAYER_ID = "localPlayerId";
 	private static final String FIELD_PITCHING_GAME_PLAY = "pitching_games_play"; 	// play (w)
 	private static final String FIELD_PITCHING_GAME_WON = "pitching_games_won"; 	// win (w)

@@ -117,9 +117,9 @@ public class UserLoginGUI extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				User user = User.authenticateUser(txtUserName.getText(), new String(pwdPassword.getPassword()));
 				if (user != null) {
-			    main.showApplicationGUI();
+					main.showApplicationGUI();
 				} else {
-				JOptionPane.showMessageDialog(null, "Invalid Username / Password!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Invalid Username / Password!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		});

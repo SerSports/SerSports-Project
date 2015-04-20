@@ -16,8 +16,6 @@ import java.awt.Image;
  API for http://www.sportsdatallc.com/
  */
 
-
-
 public class SportsPicsApi {
 	private static final String apiKey = "enwf769pmzvpjr57jurvexqz";
 	private static final String apiUrlPrefix = "https://api.sportsdatallc.org/mlb-images-t4/usat/players/headshot/";
