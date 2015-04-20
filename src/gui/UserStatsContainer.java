@@ -30,9 +30,9 @@ public class UserStatsContainer extends JLayeredPane {
 	JPanel panelBodyContainer = new JPanel();
 	JPanel menuPanel = new JPanel();	
 	private Image imgunderLine = new ImageIcon(this.getClass().getResource("/images/MenuLineIndicator.png")).getImage();
-	protected JButton btnPitchingStats = new JButton("Pitching Stats");
-	protected JButton btnFieldingStats = new JButton("Fielding Stats");
-	protected JButton btnBattingStats = new JButton("Batting Stats");
+	protected JButton btnPitchingStats = new JButton("PITCHING");
+	protected JButton btnFieldingStats = new JButton("FIELDING");
+	protected JButton btnBattingStats = new JButton("BATTING");
 	protected JLabel lineBatting = new JLabel("");
 	protected JLabel linePitching = new JLabel("");
 	protected JLabel lineFielding = new JLabel("");
@@ -70,21 +70,21 @@ public class UserStatsContainer extends JLayeredPane {
 		btnBattingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnBattingStats.setContentAreaFilled(false);	
 		btnBattingStats.setForeground(new Color(244, 229, 192));
-		btnBattingStats.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		btnBattingStats.setFont(new Font("Chunkfive", Font.BOLD, 16));
 		
 		btnPitchingStats.setBounds(26, 215, 164, 55);
 		menuPanel.add(btnPitchingStats);
 		btnPitchingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnPitchingStats.setContentAreaFilled(false);
 		btnPitchingStats.setForeground(new Color(244, 229, 192));
-		btnPitchingStats.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		btnPitchingStats.setFont(new Font("Chunkfive", Font.BOLD, 16));
 		
 		btnFieldingStats.setBounds(26, 350, 164, 55);	
 		menuPanel.add(btnFieldingStats);
 		btnFieldingStats.setBorder(BorderFactory.createEmptyBorder());
 		btnFieldingStats.setContentAreaFilled(false);
 		btnFieldingStats.setForeground(new Color(244, 229, 192));
-		btnFieldingStats.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		btnFieldingStats.setFont(new Font("Chunkfive", Font.BOLD, 16));
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		
 		lineBatting.setBounds(37, 119, 164, 3);
