@@ -13,7 +13,7 @@
 
 	<path id="compile.classpath">
 		<pathelement location="${build}"/>
-
+		<pathelement location="${build.test}" />
 		<fileset dir="${jars}">
 			<include name="**/*.jar"/>
 		</fileset>  
