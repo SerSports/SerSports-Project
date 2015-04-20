@@ -44,7 +44,7 @@ public class ApplicationGUI extends JLayeredPane{
 		
 		JButton btnHome = new JButton("HOME");
 		btnHome.setBounds(164, 62, 117, 29);
-		btnHome.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		btnHome.setFont(new Font("Chunkfive", Font.BOLD, 24));
 		btnHome.setBorder(BorderFactory.createEmptyBorder());
 		btnHome.setContentAreaFilled(false);
 		btnHome.setForeground(new Color(47, 52, 64));
