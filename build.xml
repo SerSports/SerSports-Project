@@ -65,6 +65,8 @@
 		<!-- Delete the ${build} directory tree -->
 		<delete dir="${build}" />
 		<delete dir="${build.test" />
+		<delete dir="${test.reports}" />
+		<delete dir="reports/" />
 	</target>
 
     <target name="junit" depends="compile">
