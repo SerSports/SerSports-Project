@@ -286,8 +286,6 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 
 	public void resetTextFields(){
 		txtDate.setText(getDateTxt());
-		txtWins.setText(getWinsTxt());
-		txtLoss.setText(getLossesTxt());
 		txtPo.setText(getPOTxt());
 		txtE.setText(getErrorTxt());
 		txtA.setText(getAssistTxt());

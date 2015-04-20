@@ -52,8 +52,6 @@ public class UserFieldingStats extends JPanel {
 	protected ModifiedJTextField txtSB = new ModifiedJTextField();
 	protected ModifiedJTextField txtCS = new ModifiedJTextField();
 	protected ModifiedJTextField txtPo = new ModifiedJTextField();
-	protected ModifiedJTextField txtWins = new ModifiedJTextField();
-	protected ModifiedJTextField txtLoss = new ModifiedJTextField();
 	protected ModifiedJButtonStyle1 btnUpdateStatistic = new ModifiedJButtonStyle1("Update Statistic");
 	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("Delete Statistic");
 	protected ModifiedJButtonStyle1 SubmitFieldingStats = new ModifiedJButtonStyle1("Submit");
@@ -92,37 +90,27 @@ public class UserFieldingStats extends JPanel {
 		txtDate.setBounds(65, 97, 158, 31);
 		add(txtDate);
 		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, dateTxt));
-
-		txtWins.setText(winsTxt);
-		txtWins.setBounds(230, 97, 158, 31);
-		add(txtWins);
-		txtWins.addFocusListener(new ModifiedFocusAdapter(txtWins, winsTxt));
-
-		txtLoss.setText(lossesTxt);
-		txtLoss.setBounds(394, 97, 158, 31);
-		add(txtLoss);
-		txtLoss.addFocusListener(new ModifiedFocusAdapter(txtLoss, lossesTxt));
 		
 		txtPo.setText(putOutTxt);
-		txtPo.setBounds(558, 97, 158, 31);
+		txtPo.setBounds(230, 97, 158, 31);
 		add(txtPo);
 		txtPo.addFocusListener(new ModifiedFocusAdapter(txtPo, putOutTxt));
 		
 		txtE.setText(errorTxt);
-		txtE.setBounds(65, 135, 158, 31);
+		txtE.setBounds(394, 97, 158, 31);
 		add(txtE);
 		txtE.addFocusListener(new ModifiedFocusAdapter(txtE, errorTxt));
 		
 		txtA.setText(assistTxt);
-		txtA.setBounds(230, 135, 158, 31);
+		txtA.setBounds(558, 97, 158, 31);
 		add(txtA);
 		txtA.addFocusListener(new ModifiedFocusAdapter(txtA, assistTxt));
 		
-		comboBox.setBounds(558, 135, 158, 31);
+		comboBox.setBounds(230, 135, 158, 31);
 		add(comboBox);
 		
 		txtFpct.setText(fieldPercentageTxt);
-		txtFpct.setBounds(394, 135, 158, 31);
+		txtFpct.setBounds(65, 135, 158, 31);
 		add(txtFpct);
 		txtFpct.addFocusListener(new ModifiedFocusAdapter(txtFpct, fieldPercentageTxt));
 		
@@ -148,11 +136,11 @@ public class UserFieldingStats extends JPanel {
 		diamond.setBounds(167, -48, 64, 64);
 		diamond.setIcon(new ImageIcon(img2));
 		add(diamond);
-		
-		JLabel lblBorderlayout = new JLabel("");
-		lblBorderlayout.setBounds(-184, 16, 968, 483);
-		add(lblBorderlayout);
-		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
+				
+				JLabel lblBorderlayout = new JLabel("");
+				lblBorderlayout.setBounds(-184, 16, 968, 483);
+				add(lblBorderlayout);
+				lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 
 		
 	}

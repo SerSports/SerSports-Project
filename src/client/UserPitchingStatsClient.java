@@ -297,8 +297,6 @@ public class UserPitchingStatsClient extends UserPitchingStats implements
 	
 	public void resetTextFields(){
 		txtDate.setText(getDateTxt());
-		txtW.setText(getWinsTxt());
-		txtL.setText(getLossesTxt());
 		txtERA.setText(getERATxt());
 		txtSaves.setText(getSavesTxt());
 		txtHits.setText(getHitsTxt());

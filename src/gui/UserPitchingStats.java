@@ -46,8 +46,6 @@ public class UserPitchingStats extends JPanel {
 	protected ModifiedJTable table = new ModifiedJTable(new DefaultTableModel(null, new Object[]{"Date","GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
 	private ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
 	protected ModifiedJTextField txtDate = new ModifiedJTextField();
-	protected ModifiedJTextField txtW = new ModifiedJTextField();
-	protected ModifiedJTextField txtL = new ModifiedJTextField();
 	protected ModifiedJTextField txtERA = new ModifiedJTextField();
 	protected ModifiedJTextField txtSaves = new ModifiedJTextField();
 	protected ModifiedJTextField txtHits = new ModifiedJTextField();
@@ -87,16 +85,6 @@ public class UserPitchingStats extends JPanel {
 		txtDate.setBounds(65, 97, 158, 31);
 		add(txtDate);
 		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, dateTxt));
-		
-		txtW.setText(winsTxt);
-		txtW.setBounds(515, 456, 158, 31);
-		add(txtW);
-		txtW.addFocusListener(new ModifiedFocusAdapter(txtW, winsTxt));
-		
-		txtL.setText(lossesTxt);
-		txtL.setBounds(345, 456, 158, 31);
-		add(txtL);
-		txtL.addFocusListener(new ModifiedFocusAdapter(txtL, lossesTxt));
 		
 		txtERA.setText(earnedRunAverageTxt);
 		txtERA.setBounds(230, 97, 158, 31);
@@ -204,8 +192,6 @@ public class UserPitchingStats extends JPanel {
 		
 		//Pitching
 		if(!(txtDate.getText()).equals(dateTxt) ||
-		!(txtW.getText()).equals(winsTxt) ||
-		!(txtL.getText()).equals(lossesTxt) ||
 		!(txtERA.getText()).equals(earnedRunAverageTxt) ||
 		!(txtSaves.getText()).equals(savesTxt) ||
 		!(txtHits.getText()).equals(hitsTxt) ||
