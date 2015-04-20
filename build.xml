@@ -80,7 +80,7 @@
                 </fileset>
             </batchtest>
             <classpath>
-                <pathelement location="${build}/Testing" />
+                <pathelement location="${build.test}" />
                 <pathelement path="lib/junit-4.4.jar" />
             </classpath>
         </junit>
