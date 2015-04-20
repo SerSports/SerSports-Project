@@ -1,11 +1,3 @@
-/*
-File: UserFieldingStatsClient.java
-Author:	
-Date:	
-
-Description: ActionListeners and ItemListeners for the User Fielding Stats GUI (UserFieldingStats.java)
-
- */
 package client;
 
 import gui.TextFieldDocumentListener;
@@ -25,66 +17,84 @@ import javax.swing.table.DefaultTableModel;
 import database.*;
 
 /**
- * Class: UserFieldingStatsClient
+ * Allows user to manipulate, view, and update statistics pertaining to fielding. Includes
+ * a method to validate the date entered by the user to confirm formatting.
  * 
- * Description:
+ * @author SerSports
  */
-public class UserFieldingStatsClient extends UserFieldingStats implements ActionListener {
-
+public class UserFieldingStatsClient extends UserFieldingStats implements ActionListener
+{
+	
 	private static final boolean debugOn = true;
 	private final String submit = "Submit";
 	private final String update = "Update";
 	private int currentSelectedRowForUpdate;
-
+	
 	/**
-	 * Method: UserFieldingStatsClient Inputs: none Returns:
-	 * 
-	 * Description:
+	 * Adds action listeners to relevant buttons.
 	 */
-	public UserFieldingStatsClient() {
+	public UserFieldingStatsClient()
+	{
 		SubmitFieldingStats.addActionListener(this);
 		btnUpdateStatistic.addActionListener(this);
 		btnDeleteStatistic.addActionListener(this);
 	}
-
+	
 	/**
-	 * Method: debug 
-	 * Inputs: String message Returns:
+	 * Debugs when boolean results to true.
 	 * 
-	 * Description:
+	 * @param message
 	 */
-	public void debug(String message) {
-		if (debugOn) {
+	public void debug(String message)
+	{
+		if (debugOn)
+		{
 			System.out.println("debug: " + message);
 		}
 	}
-
-	/**
-	 * Method: actionPerformed Inputs: ActionEvent e Returns:
+	
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * Description:
+	 * Calls methods relevant to the button selected by the user.
 	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand().equals("SubmitFieldingStats")) {
-			try {
+	public void actionPerformed(ActionEvent e)
+	{
+		if (e.getActionCommand().equals("SubmitFieldingStats"))
+		{
+			try
+			{
 				submitOrUpdateFieldingStatistic(submit);
-			} catch (RuntimeException ex) {
+			}
+			catch (RuntimeException ex)
+			{
 				throw ex;
-			} catch (Exception ex) {
+			}
+			catch (Exception ex)
+			{
 				ex.printStackTrace();
 			}
 		}
-		if (e.getActionCommand().equals("UpdateStatistic")) {
-
+		if (e.getActionCommand().equals("UpdateStatistic"))
+		{
+			
 			currentSelectedRowForUpdate = table.getSelectedRow();
-			if (currentSelectedRowForUpdate >= 0) {
+			if (currentSelectedRowForUpdate >= 0)
+			{
 				
-				//ask user if the statistic they selected is the one they really want to update
-				int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the highlighted game statistic?", null,
-						JOptionPane.YES_NO_OPTION);
+				/*
+				 * Displays warning window asking the user if they would like to follow
+				 * through with updating the selected statistic.
+				 */
+				int result = JOptionPane
+						.showConfirmDialog(
+								null,
+								"Are you sure you want to update the highlighted game statistic?",
+								null, JOptionPane.YES_NO_OPTION);
 				
-				if(result == JOptionPane.YES_OPTION){
+				if (result == JOptionPane.YES_OPTION)
+				{
 					try
 					{
 						submitOrUpdateFieldingStatistic(update);
@@ -99,192 +109,270 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 					}
 				}
 			}
-			else{
-				JOptionPane.showMessageDialog(null, "Please select a row in which you would like to update", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+			else
+			{
+				JOptionPane.showMessageDialog(null,
+						"Please select a row in which you would like to update",
+						"InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
-
-		if (e.getActionCommand().equals("DeleteStatistic")) {
+		
+		if (e.getActionCommand().equals("DeleteStatistic"))
+		{
 			int selectedRow = table.getSelectedRow();
-			if (selectedRow >= 0) {
-
-				// ask user if the statistic they selected is the one they really want to update
-				int result = JOptionPane.showConfirmDialog(
-						null, "WARNING: Are you sure you want to delete the highlighted game statistic?",
-						null, JOptionPane.YES_NO_CANCEL_OPTION);
-
-				if (result == JOptionPane.YES_OPTION) {
+			if (selectedRow >= 0)
+			{
+				
+				/*
+				 * Displays warning window asking the user if they would like to follow
+				 * through with deleting the selected statistic.
+				 */
+				int result = JOptionPane
+						.showConfirmDialog(
+								null,
+								"WARNING: Are you sure you want to delete the highlighted game statistic?",
+								null, JOptionPane.YES_NO_CANCEL_OPTION);
+				
+				if (result == JOptionPane.YES_OPTION)
+				{
 					deleteFieldingStatistic();
 				}
-			} else {
-				JOptionPane.showMessageDialog(
-						null, "Please select a row in which you would like to delete",
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(null,
+						"Please select a row in which you would like to delete",
 						"InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 	}
-
-	public void populateLocalPlayersFieldingTable() {
-
-		// Set up the table
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] {
-				"StatID", "Date", "PO", "Err", "Assist", "F%" }, 0);
-		/*
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] {
-				"StatID", "Date", "Wins", "Losses", "PO", "Err",
-				"Assist", "F%" }, 0);
-		*/
-
-		if (User.getCurrentUser() != null) {
+	
+	/**
+	 * Populates the default model for the Local Player's Fielding Table, hosting only
+	 * those statistics relevant to fielding.
+	 */
+	public void populateLocalPlayersFieldingTable()
+	{
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "StatID",
+				"Date", "PO", "Err", "Assist", "F%" }, 0);
+		
+		if (User.getCurrentUser() != null)
+		{
 			User currentLoggedInUser = User.getCurrentUser();
 			Integer id_in = currentLoggedInUser.getLocalPlayerId();
-
-			// Get a list of Local Players
-			ArrayList<LocalPlayerFieldingStatistics> currentPlayerFieldingStatistics = 
-					LocalPlayerFieldingStatistics.getStatisticsFromDatabase(id_in);
-
-			// Add the Local Players to the List
-			for (LocalPlayerFieldingStatistics m : currentPlayerFieldingStatistics) {
+			
+			ArrayList<LocalPlayerFieldingStatistics> currentPlayerFieldingStatistics = LocalPlayerFieldingStatistics
+					.getStatisticsFromDatabase(id_in);
+			
+			for (LocalPlayerFieldingStatistics m : currentPlayerFieldingStatistics)
+			{
 				Object[] row = { m.getLocalPlayersFieldingStatisticsID(),
 						m.getGame_date(), m.getFielding_po(), m.getFielding_error(),
-						m.getFielding_assist(), m.getFielding_fpct(), m.getFielding_game_won() };
+						m.getFielding_assist(), m.getFielding_fpct(),
+						m.getFielding_game_won() };
 				newTable.addRow(row);
 			}
-
+			
 			table.setModel(newTable);
 			table.removeColumn(table.getColumnModel().getColumn(0));
 			
 			table.getSelectionModel().addListSelectionListener(
 					new ListSelectionListener() {
-						public void valueChanged(ListSelectionEvent e){
-							if(table.getSelectedRow() != -1){
+						public void valueChanged(ListSelectionEvent e)
+						{
+							if (table.getSelectedRow() != -1)
+							{
 								int selectedRow = table.getSelectedRow();
-								txtDate.setText(table.getValueAt(selectedRow, 0).toString());
+								txtDate.setText(table.getValueAt(selectedRow, 0)
+										.toString());
 								txtPo.setText(table.getValueAt(selectedRow, 1).toString());
 								txtE.setText(table.getValueAt(selectedRow, 2).toString());
 								txtA.setText(table.getValueAt(selectedRow, 3).toString());
-								txtFpct.setText(table.getValueAt(selectedRow, 4).toString());
+								txtFpct.setText(table.getValueAt(selectedRow, 4)
+										.toString());
 							}
 						}
 					});
 		}
 	}
-
-	public void submitOrUpdateFieldingStatistic(String type){
+	
+	/**
+	 * Allows user to submit input on all fielding statistics and checks to ensure that
+	 * the date was entered in the specified format. If it was entered in an invalid
+	 * format, it will throw an error message and ask the user to resubmit.
+	 */
+	public void submitOrUpdateFieldingStatistic(String type)
+	{
 		String date = txtDate.getText();
 		String po = txtPo.getText();
 		String error = txtE.getText();
 		String assist = txtA.getText();
 		String fpct = txtFpct.getText();
 		Boolean won = (comboBox.getSelectedItem().toString().equals("Win"));
-
+		
 		clearSelected();
 		
-		boolean valid = isValidDate(date);
-
-		// collect values if user entered the correct date format
-		if (valid == true) {
-			// Check for empty or invalid String
+		boolean valid = isValidDate(date); // Date in the form of "YYYY-MM-DD"
+		
+		if (valid == true)
+		{
 			po = isValidInput(po);
 			error = isValidInput(error);
 			assist = isValidInput(assist);
 			fpct = isValidFloatInput(fpct);
 			
-			if("Submit".equals(type))
+			if ("Submit".equals(type))
 			{
-				LocalPlayerFieldingStatistics.addOrUpdateLocalPlayerFieldingStatistics(date, won,
-							po, error, assist, fpct, -1);
+				LocalPlayerFieldingStatistics.addOrUpdateLocalPlayerFieldingStatistics(
+						date, won, po, error, assist, fpct, -1);
 			}
 			else
 			{
-				int selectedStatisticID = (int) table.getModel().getValueAt(currentSelectedRowForUpdate, 0);
-				LocalPlayerFieldingStatistics.addOrUpdateLocalPlayerFieldingStatistics(date, won,
-						po, error, assist, fpct, selectedStatisticID);
+				int selectedStatisticID = (int) table.getModel().getValueAt(
+						currentSelectedRowForUpdate, 0);
+				LocalPlayerFieldingStatistics.addOrUpdateLocalPlayerFieldingStatistics(
+						date, won, po, error, assist, fpct, selectedStatisticID);
 			}
 			
 			loadUserInfoIntoControls();
 			
 			resetTextFields();
 			
-		} else {
-			JOptionPane.showMessageDialog(
-					null, "Please add correct date in YYYY-MM-DD format",
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null,
+					"Please add correct date in YYYY-MM-DD format",
 					"InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 	
-	public void deleteFieldingStatistic() {
-		// get currently highlighted row
+	/**
+	 * Allows user to delete a statistic at their discretion by obtaining the value of the
+	 * selected row and removing it from the table hosting the fielding statistics.
+	 */
+	public void deleteFieldingStatistic()
+	{
 		int selectedRow = table.getSelectedRow();
-
-		// get localPlayersHittingStatisticsID from that row and delete that row
+		
 		int selectedStatisticID = (int) table.getModel().getValueAt(selectedRow, 0);
-		LocalPlayerFieldingStatistics.deleteLocalPlayerFieldingStatistic(selectedStatisticID);
-
-		// reload statistics into table
+		LocalPlayerFieldingStatistics
+				.deleteLocalPlayerFieldingStatistic(selectedStatisticID);
+		
 		loadUserInfoIntoControls();
 		
 		resetTextFields();
 	}
 	
-	public void loadUserInfoIntoControls() {
-		// Reload the Local Players Fielding Statistics Table
+	/**
+	 * Reloads the Local Player's Fielding Statistics Table with the relevant information.
+	 */
+	public void loadUserInfoIntoControls()
+	{
 		populateLocalPlayersFieldingTable();
 	}
-
-	public boolean isValidDate(String gameDate) {
+	
+	/**
+	 * Checks that the date entered by the user is in the format "YYYY-MM-DD".
+	 * 
+	 * @param gameDate
+	 *            Date entered by the user.
+	 * @return Boolean that returns true if date is formatted correctly and false if the
+	 *         contrary.
+	 */
+	public boolean isValidDate(String gameDate)
+	{
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		dateFormat.setLenient(false);
 		boolean result = true;
-
-		try {
+		
+		try
+		{
 			dateFormat.parse(gameDate);
-		} catch (ParseException e) {
+		}
+		catch (ParseException e)
+		{
 			result = false;
 		}
-
+		
 		return result;
 	}
-
-	public String isValidInput(String userInput){
+	
+	/**
+	 * Sets the user input to null if the user enters invalid information for integers.
+	 * 
+	 * @param userInput
+	 *            Input provided by the user
+	 * @return Null if user entered anything invalid or the original input if user's input
+	 *         is valid.
+	 */
+	public String isValidInput(String userInput)
+	{
 		String result;
 		
-		if(userInput.equals("") || userInput.length() == 0){
+		if (userInput.equals("") || userInput.length() == 0)
+		{
 			result = null;
 		}
-		else{
+		else
+		{
 			result = userInput;
 		}
 		
-		try{
+		try
+		{
 			Integer.parseInt(userInput);
-		} catch (Exception e){
+		}
+		catch (Exception e)
+		{
 			result = null;
 		}
-			
+		
 		return result;
 	}
-
-	public String isValidFloatInput(String userInput){
+	
+	/**
+	 * Sets the user input to null if the user enters invalid information for floats.
+	 * 
+	 * @param userInput
+	 *            Input provided by the user
+	 * @return Null if user entered anything invalid or the original input if user's input
+	 *         is valid.
+	 */
+	public String isValidFloatInput(String userInput)
+	{
 		String result;
 		
-		if(userInput.equals("") || userInput.length() == 0){
+		if (userInput.equals("") || userInput.length() == 0)
+		{
 			result = null;
 		}
-		else{
+		else
+		{
 			result = userInput;
 		}
 		
-		try{
+		try
+		{
 			Float.parseFloat(userInput);
-		} catch (Exception e){
+		}
+		catch (Exception e)
+		{
 			result = null;
 		}
-			
+		
 		return result;
 	}
-
-	public void resetTextFields(){
+	
+	/**
+	 * Resets the text fields back to their default values containing just the name of
+	 * that particular statistic. This is applied when the user alters statistics and then
+	 * submits or if they delete the default values and then click on a different field.
+	 * Also resets the "dirty" flag to determine if the user is currently adding
+	 * statistics to the text fields.
+	 */
+	public void resetTextFields()
+	{
 		txtDate.setText(getDateTxt());
 		txtPo.setText(getPOTxt());
 		txtE.setText(getErrorTxt());
@@ -292,11 +380,12 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 		txtFpct.setText(getFieldPercentageTxt());
 		TextFieldDocumentListener.setDirty();
 	}
-
+	
 	/**
-	 * Resets the highlighted row in the JTable. Used when a user is updating a statistic
+	 * Resets the highlighted row in the JTable. Used when a user is updating a statistic.
 	 */
-	public void clearSelected(){
+	public void clearSelected()
+	{
 		table.clearSelection();
 		table.getSelectionModel().clearSelection();
 	}
