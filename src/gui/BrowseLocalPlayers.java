@@ -95,15 +95,14 @@ public class BrowseLocalPlayers extends JPanel {
 		add(txtTeam);
 		txtTeam.setText("Team");
 		txtTeam.addFocusListener(new ModifiedFocusAdapter(txtTeam, "Team"));
+		
 		SubmitLocalSearch.setText("Search");
-
 		SubmitLocalSearch.setBounds(184, 197, 125, 28);
 		add(SubmitLocalSearch);
 
 		btnSeePlayerStats.setBounds(184, 443, 125, 28);
 		add(btnSeePlayerStats);
-
-		
+	
 		JLabel lblIndividualStatistics = new JLabel("Individual Statistics");
 		lblIndividualStatistics.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblIndividualStatistics.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 26));

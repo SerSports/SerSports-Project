@@ -15,13 +15,13 @@ import java.awt.Toolkit;
 import javax.swing.*;
 
 
+
 /**
  * Class: MainGUI
  * 
  * Description: GUI for main navigation of site
  */
 public class MainGUI {
-
 	private static MainGUI singleton = null;
 	JFrame mainFrame = new JFrame("SERSports");
 	protected static ApplicationGUI panelApplication = new ApplicationGUI();
@@ -52,6 +52,7 @@ public class MainGUI {
 	}
 
 	public MainGUI() {
+		
 		mainFrame.getContentPane().add(scrollPane);
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		scrollPane.setViewportView(panelContainer);
@@ -81,6 +82,7 @@ public class MainGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
 					singleton = new MainGUI();
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -9,15 +9,20 @@ Description: GUI for displaying/searching the MLB Stats database
 package gui;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
 import java.awt.Color;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -28,19 +33,16 @@ import javax.swing.table.DefaultTableModel;
 public class MlbStatsGui extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	protected JTextField txtFirstName;
-	protected JTable table;
-	protected JTextField txtLastName;
-	protected JTextField txtTeam;
-	protected JButton btnSeePlayerStats;
-	protected JButton btnCompareToPlayer;
-	protected JButton submitPlayerSearchButton;
-	protected JTable mlbbattingTable;
-	protected JLabel mlbBatting;
-	protected JLabel mlbPitching;
-	protected JLabel mlbFielding;
-	protected JTable mlbfieldingTable;
-	protected JTable mlbpitchingTable;
+	protected ModifiedJTextField txtFirstName = new ModifiedJTextField();
+	protected ModifiedJTextField txtLastName = new ModifiedJTextField();
+	protected ModifiedJTextField txtTeam = new ModifiedJTextField();
+	protected ModifiedJTable table;
+	protected ModifiedJButtonStyle1 btnSeePlayerStats;
+	protected ModifiedJButtonStyle1 btnCompareToPlayer;
+	protected ModifiedJButtonStyle1 submitPlayerSearchButton = new ModifiedJButtonStyle1("Submit");
+	protected ModifiedJTable mlbbattingTable;
+	protected ModifiedJTable mlbfieldingTable;
+	protected ModifiedJTable mlbpitchingTable;
 	protected JLabel lblMlbPlayerName;
 	protected JLabel lblMlbPlayerTeam;
 
@@ -66,118 +68,122 @@ public class MlbStatsGui extends JPanel {
 				"/images/diamond.png")).getImage();
 		add(diamond);
 		diamond.setIcon(new ImageIcon(img2));
-
-		// border
-		JLabel lblBorderlayout = new JLabel("");
-		lblBorderlayout.setBounds(16, 16, 968, 483);
-		add(lblBorderlayout);
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
-		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
+		
+		JLabel line = new JLabel("");
+		line.setBounds(721, 76, 261, 4);
+		add(line);
+		Image imgline = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
+		line.setIcon(new ImageIcon(imgline));
 
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(251, 47, 480, 174);
+		ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
+		scrollPane.setBounds(30, 251, 433, 171);
 		add(scrollPane);
+		
+		JLabel lblIndividualStatistics = new JLabel("MLB Player Statistics");
+		lblIndividualStatistics.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblIndividualStatistics.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 26));
+		lblIndividualStatistics.setBounds(711, 38, 257, 41);
+		lblIndividualStatistics.setForeground(new Color(244, 229, 192));
+		add(lblIndividualStatistics);
 
-		table = new JTable(new DefaultTableModel(null, new Object[] {
-				"First Name", "Last Name", "Team"/* "Position" */}));
+		table = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
+				"First Name", "Last Name", "Team"}));
 		scrollPane.setViewportView(table);
 
-		btnSeePlayerStats = new JButton("See Player Stats");
-		btnSeePlayerStats.setBounds(751, 151, 200, 50);
+		btnSeePlayerStats = new ModifiedJButtonStyle1("See Player Stats");
+		btnSeePlayerStats.setBounds(250, 443, 125, 28);
 		btnSeePlayerStats.setActionCommand("SeePlayerStats");
 		add(btnSeePlayerStats);
 
-		btnCompareToPlayer = new JButton("Compare to Player");
-		btnCompareToPlayer.setBounds(751, 75, 200, 50);
+		btnCompareToPlayer = new ModifiedJButtonStyle1("Compare to Player");
+		btnCompareToPlayer.setBounds(100, 443, 125, 28);
 		btnCompareToPlayer.setActionCommand("CompareToPlayer");
 		add(btnCompareToPlayer);
 
-		txtFirstName = new JTextField();
-		txtFirstName.setBounds(36, 40, 125, 29);
+		//txtFirstName.setText("First Name");
+		txtFirstName.setBounds(134, 64, 225, 31);
 		add(txtFirstName);
-		txtFirstName.setColumns(10);
+		//txtFirstName.addFocusListener(new ModifiedFocusAdapter(txtFirstName, "First Name"));
 
-		JLabel lblFirstName = new JLabel("First Name");
-		lblFirstName.setForeground(Color.WHITE);
-		lblFirstName.setBounds(62, 23, 80, 29);
-		add(lblFirstName);
-
-		txtLastName = new JTextField();
-		txtLastName.setBounds(36, 93, 125, 28);
+		txtLastName.setBounds(134, 103, 225, 31);
 		add(txtLastName);
-		txtLastName.setColumns(10);
+		//txtLastName.setText("Last Name");
+		//txtLastName.addFocusListener(new ModifiedFocusAdapter(txtLastName, "Last Name"));
 
-		JLabel lblLastName = new JLabel("Last Name");
-		lblLastName.setForeground(Color.WHITE);
-		lblLastName.setBounds(62, 70, 80, 29);
-		add(lblLastName);
-
-		txtTeam = new JTextField();
-		txtTeam.setBounds(36, 133, 125, 28);
+		txtTeam.setBounds(134, 142, 225, 31);
 		add(txtTeam);
-		txtTeam.setColumns(10);
+		//txtTeam.setText("Team");
+		//txtTeam.addFocusListener(new ModifiedFocusAdapter(txtTeam, "Team"));
 
-		JLabel lblTeamName = new JLabel("Team");
-		lblTeamName.setForeground(Color.WHITE);
-		lblTeamName.setBounds(82, 118, 80, 29);
-		add(lblTeamName);
 
-		submitPlayerSearchButton = new JButton("Submit");
-		submitPlayerSearchButton.setBounds(44, 173, 117, 29);
+		submitPlayerSearchButton.setBounds(184, 197, 125, 28);
 		add(submitPlayerSearchButton);
 		submitPlayerSearchButton.setActionCommand("submitPlayerSearchButton");
-		submitPlayerSearchButton.setBackground(new Color(255, 237, 203));
 
 		lblMlbPlayerName = new JLabel("");
 		lblMlbPlayerName.setForeground(Color.WHITE);
-		lblMlbPlayerName.setBounds(282, 219, 189, 16);
+		lblMlbPlayerName.setBounds(54, 223, 189, 16);
 		add(lblMlbPlayerName);
 
 		lblMlbPlayerTeam = new JLabel("");
 		lblMlbPlayerTeam.setForeground(Color.WHITE);
-		lblMlbPlayerTeam.setBounds(604, 219, 189, 16);
+		lblMlbPlayerTeam.setBounds(261, 223, 189, 16);
 		add(lblMlbPlayerTeam);
-
-		JScrollPane scrollPane_3 = new JScrollPane();
-		scrollPane_3.setBounds(191, 388, 653, 67);
+		
+		ModifiedJScrollPane scrollPane_3 = new ModifiedJScrollPane();
+		scrollPane_3.setBounds(475, 249, 493, 97);
 		add(scrollPane_3);
 
-		mlbpitchingTable = new JTable(
+		mlbpitchingTable = new ModifiedJTable(
 				new DefaultTableModel(null, new Object[] { "GP", "W", "L",
 						"ERA", "SAVES", "HITS", "HOLDS", "RUNS", "BB" }));
 		scrollPane_3.setViewportView(mlbpitchingTable);
 
-		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(191, 328, 653, 67);
+		ModifiedJScrollPane scrollPane_2 = new ModifiedJScrollPane();
+		scrollPane_2.setBounds(475, 372, 493, 97);
 		add(scrollPane_2);
 
-		mlbfieldingTable = new JTable(new DefaultTableModel(null, new Object[] {
+		mlbfieldingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
 				"GP", "Wins", "Losses", "PO", "Err", "Assist", "F%" }));
 		scrollPane_2.setViewportView(mlbfieldingTable);
 
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(191, 275, 653, 61);
+		
+		ModifiedJScrollPane scrollPane_1 = new ModifiedJScrollPane();
+		scrollPane_1.setBounds(475, 126, 493, 97);
 		add(scrollPane_1);
-
-		mlbbattingTable = new JTable(new DefaultTableModel(null, new Object[] {
+		
+		mlbbattingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
 				"GP", "AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR",
 				"SO", "BA" }));
 		scrollPane_1.setViewportView(mlbbattingTable);
+		
+		JLabel lblBatting = new JLabel("BATTING STATS");
+		lblBatting.setHorizontalAlignment(SwingConstants.LEFT);
+		lblBatting.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 16));
+		lblBatting.setBounds(475, 111, 165, 16);
+		lblBatting.setForeground(new Color(244, 229, 192));
+		add(lblBatting);
 
-		mlbBatting = new JLabel("Batting");
-		mlbBatting.setForeground(Color.WHITE);
-		mlbBatting.setBounds(117, 289, 61, 16);
-		add(mlbBatting);
-
-		mlbFielding = new JLabel("Fielding");
-		mlbFielding.setForeground(Color.WHITE);
-		mlbFielding.setBounds(117, 346, 61, 16);
-		add(mlbFielding);
-
-		mlbPitching = new JLabel("Pitching");
-		mlbPitching.setForeground(Color.WHITE);
-		mlbPitching.setBounds(117, 406, 61, 16);
-		add(mlbPitching);
+		JLabel lblFielding = new JLabel("FIELDING STATS");
+		lblFielding.setHorizontalAlignment(SwingConstants.LEFT);
+		lblFielding.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 16));
+		lblFielding.setBounds(475, 357, 165, 16);
+		lblFielding.setForeground(new Color(244, 229, 192));
+		add(lblFielding);
+		
+		JLabel lblPitching = new JLabel("PITCHING STATS");
+		lblPitching.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPitching.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 16));
+		lblPitching.setBounds(475, 234, 165, 16);
+		lblPitching.setForeground(new Color(244, 229, 192));
+		add(lblPitching);
+		
+				// border
+				JLabel lblBorderlayout = new JLabel("");
+				lblBorderlayout.setBounds(16, 16, 968, 483);
+				add(lblBorderlayout);
+				lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 
 	}
 }
