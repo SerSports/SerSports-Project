@@ -57,7 +57,7 @@ public class BrowseLocalPlayers extends JPanel {
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
 		
 		JLabel line = new JLabel("");
-		line.setBounds(762, 76, 220, 4);
+		line.setBounds(721, 76, 261, 4);
 		add(line);
 		Image imgline = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
 		line.setIcon(new ImageIcon(imgline));
@@ -81,32 +81,33 @@ public class BrowseLocalPlayers extends JPanel {
 				"First Name", "Last Name", "Team", "Position" }));
 		scrollPane.setViewportView(table);
 
-		txtFirstName.setBounds(153, 64, 186, 31);
+		txtFirstName.setBounds(134, 64, 225, 31);
 		add(txtFirstName);
 		txtFirstName.setText("First Name");
 		txtFirstName.addFocusListener(new ModifiedFocusAdapter(txtFirstName, "First Name"));
 
-		txtLastName.setBounds(153, 103, 186, 31);
+		txtLastName.setBounds(134, 103, 225, 31);
 		add(txtLastName);
 		txtLastName.setText("Last Name");
 		txtLastName.addFocusListener(new ModifiedFocusAdapter(txtLastName, "Last Name"));
 
-		txtTeam.setBounds(153, 142, 186, 31);
+		txtTeam.setBounds(134, 142, 225, 31);
 		add(txtTeam);
 		txtTeam.setText("Team");
 		txtTeam.addFocusListener(new ModifiedFocusAdapter(txtTeam, "Team"));
+		SubmitLocalSearch.setText("Search");
 
-		SubmitLocalSearch.setBounds(184, 196, 125, 28);
+		SubmitLocalSearch.setBounds(184, 197, 125, 28);
 		add(SubmitLocalSearch);
 
 		btnSeePlayerStats.setBounds(184, 443, 125, 28);
 		add(btnSeePlayerStats);
 
 		
-		JLabel lblIndividualStatistics = new JLabel("Individual Statistics:");
+		JLabel lblIndividualStatistics = new JLabel("Individual Statistics");
 		lblIndividualStatistics.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblIndividualStatistics.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 22));
-		lblIndividualStatistics.setBounds(752, 38, 216, 41);
+		lblIndividualStatistics.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 26));
+		lblIndividualStatistics.setBounds(711, 38, 257, 41);
 		lblIndividualStatistics.setForeground(new Color(244, 229, 192));
 		add(lblIndividualStatistics);
 
@@ -117,24 +118,24 @@ public class BrowseLocalPlayers extends JPanel {
 		fieldingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {"Wins", "Losses", "PO", "Err", "Assist", "F%" }));
 		scrollPane_2.setViewportView(fieldingTable);
 		
-		JLabel lblFielding = new JLabel("Fielding:");
-		lblFielding.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblFielding.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
-		lblFielding.setBounds(889, 353, 79, 16);
+		JLabel lblFielding = new JLabel("FIELDING STATS");
+		lblFielding.setHorizontalAlignment(SwingConstants.LEFT);
+		lblFielding.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 16));
+		lblFielding.setBounds(475, 357, 165, 16);
 		lblFielding.setForeground(new Color(244, 229, 192));
 		add(lblFielding);
 
-		JLabel lblPitching = new JLabel("Pitching:");
-		lblPitching.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblPitching.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
-		lblPitching.setBounds(889, 230, 79, 16);
+		JLabel lblPitching = new JLabel("PITCHING STATS");
+		lblPitching.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPitching.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 16));
+		lblPitching.setBounds(475, 234, 165, 16);
 		lblPitching.setForeground(new Color(244, 229, 192));
 		add(lblPitching);
 
-		JLabel lblBatting = new JLabel("Batting:");
-		lblBatting.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblBatting.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 16));
-		lblBatting.setBounds(889, 105, 79, 16);
+		JLabel lblBatting = new JLabel("BATTING STATS");
+		lblBatting.setHorizontalAlignment(SwingConstants.LEFT);
+		lblBatting.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 16));
+		lblBatting.setBounds(475, 111, 165, 16);
 		lblBatting.setForeground(new Color(244, 229, 192));
 		add(lblBatting);
 
@@ -155,19 +156,12 @@ public class BrowseLocalPlayers extends JPanel {
 				"SO"}));
 		scrollPane_1.setViewportView(battingTable);
 		battingTable.setFont(new Font("Helvetica", Font.PLAIN, 12));
-		
-				// border
-				JLabel lblBorderlayout = new JLabel("");
-				lblBorderlayout.setBounds(16, 16, 968, 483);
-				add(lblBorderlayout);
-				lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 				
-				JLabel lblBrowseLocal = new JLabel("Browse Local");
-				lblBrowseLocal.setHorizontalAlignment(SwingConstants.CENTER);
-				lblBrowseLocal.setForeground(new Color(244, 229, 192));
-				lblBrowseLocal.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 22));
-				lblBrowseLocal.setBounds(138, 27, 216, 41);
-				add(lblBrowseLocal);
+						// border
+						JLabel lblBorderlayout = new JLabel("");
+						lblBorderlayout.setBounds(16, 16, 968, 483);
+						add(lblBorderlayout);
+						lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 
 	}
 }
