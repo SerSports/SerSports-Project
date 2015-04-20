@@ -12,10 +12,6 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 
@@ -35,8 +31,6 @@ public class MainGUI {
 	static CardLayout c1 = new CardLayout();
 	JScrollPane scrollPane = new JScrollPane();
 	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-	ImageIcon icon = new ImageIcon ( Toolkit.getDefaultToolkit().getImage(getClass().getResource("../LogoImage/Logo1.png")));
-
 
 	public static void showLoginGUI() {
 		c1.show(panelContainer, "1");
@@ -58,12 +52,7 @@ public class MainGUI {
 	}
 
 	public MainGUI() {
-		mainFrame.setIconImage(icon.getImage());
-		try {
-			mainFrame.setIconImage(ImageIO.read(new File("res/icon.png")));
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
+		
 		mainFrame.getContentPane().add(scrollPane);
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		scrollPane.setViewportView(panelContainer);
