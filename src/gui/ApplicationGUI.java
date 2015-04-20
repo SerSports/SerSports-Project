@@ -82,7 +82,7 @@ public class ApplicationGUI extends JLayeredPane{
 		menuPanel.add(logo);
 		logo.setIcon(new ImageIcon(img));
 		
-		btnSignOut.setBounds(736, 6, 81, 24);
+		btnSignOut.setBounds(888, 6, 81, 24);
 		btnSignOut.setFont(new Font("Chunkfive", Font.BOLD, 14));
 		btnSignOut.setBorder(BorderFactory.createEmptyBorder());
 		btnSignOut.setContentAreaFilled(false);
@@ -90,7 +90,7 @@ public class ApplicationGUI extends JLayeredPane{
 		menuPanel.add(btnSignOut);
 		
 		JButton btncontactUs = new JButton("CONTACT");
-		btncontactUs.setBounds(829, 6, 81, 24);
+		btncontactUs.setBounds(753, 6, 81, 24);
 		btncontactUs.setFont(new Font("Chunkfive", Font.BOLD, 14));
 		btncontactUs.setBorder(BorderFactory.createEmptyBorder());
 		btncontactUs.setContentAreaFilled(false);
@@ -98,7 +98,7 @@ public class ApplicationGUI extends JLayeredPane{
 		menuPanel.add(btncontactUs);
 		
 		JButton btnFAQs = new JButton("FAQs");
-		btnFAQs.setBounds(922, 6, 48, 24);
+		btnFAQs.setBounds(838, 6, 48, 24);
 		btnFAQs.setFont(new Font("Chunkfive", Font.BOLD, 14));
 		btnFAQs.setBorder(BorderFactory.createEmptyBorder());
 		btnFAQs.setContentAreaFilled(false);
