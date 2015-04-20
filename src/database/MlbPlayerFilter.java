@@ -12,7 +12,7 @@ public class MlbPlayerFilter {
 	private String firstNameValue = null;
 	private String lastNameValue = null;
 	private String teamNameValue = null;
-	
+
 	// Setters
 	public void setIdValue(String idValue) {
 		if (idValue != null && idValue.length() > 0) {
