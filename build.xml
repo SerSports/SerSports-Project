@@ -76,7 +76,7 @@
             <formatter type="xml" />
             <batchtest todir="${test.reports}">
                 <fileset dir="${src.testing}">
-                    <include name="**/Testing/*Test.java" />
+                    <include name="**/*Test.java" />
                 </fileset>
             </batchtest>
             <classpath>
