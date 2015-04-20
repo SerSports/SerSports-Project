@@ -5,7 +5,7 @@
 	<property name="src" value="src" />
 	<property name="build" value="classes" />
 	<property name="src.testing" value="src/Testing" />
-	<property name="build.test" value="classes/testing"/>
+	<property name="build.test" value="classes/Testing"/>
 	<property name="test.reports" value="report/" />
 	<property name="jars" value="jars"/>
 	<property name="finalJar" value="jar"/>
@@ -76,12 +76,11 @@
             <formatter type="xml" />
             <batchtest todir="${test.reports}">
                 <fileset dir="${src.testing}">
-                    <include name="**/Testing/*Test.java" />
-                    <exclude name="**/Test*All.java" />
+                    <include name="**/*Test.java" />
                 </fileset>
             </batchtest>
             <classpath>
-                <pathelement location="${build}" />
+                <pathelement location="${build.test}" />
                 <pathelement path="lib/junit-4.4.jar" />
             </classpath>
         </junit>
