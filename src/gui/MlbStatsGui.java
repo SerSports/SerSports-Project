@@ -122,13 +122,15 @@ public class MlbStatsGui extends JPanel {
 		submitPlayerSearchButton.setActionCommand("submitPlayerSearchButton");
 
 		lblMlbPlayerName = new JLabel("");
-		lblMlbPlayerName.setForeground(Color.WHITE);
-		lblMlbPlayerName.setBounds(54, 223, 189, 16);
+		lblMlbPlayerName.setFont(new Font("Helvetica", Font.BOLD, 14));
+		lblMlbPlayerName.setForeground(new Color(244, 229, 192));
+		lblMlbPlayerName.setBounds(475, 38, 189, 16);
 		add(lblMlbPlayerName);
 
 		lblMlbPlayerTeam = new JLabel("");
-		lblMlbPlayerTeam.setForeground(Color.WHITE);
-		lblMlbPlayerTeam.setBounds(261, 223, 189, 16);
+		lblMlbPlayerTeam.setFont(new Font("Helvetica", Font.BOLD, 14));
+		lblMlbPlayerTeam.setForeground(new Color(244, 229, 192));
+		lblMlbPlayerTeam.setBounds(475, 64, 189, 16);
 		add(lblMlbPlayerTeam);
 		
 		ModifiedJScrollPane scrollPane_3 = new ModifiedJScrollPane();
@@ -160,21 +162,21 @@ public class MlbStatsGui extends JPanel {
 		
 		JLabel lblBatting = new JLabel("BATTING STATS");
 		lblBatting.setHorizontalAlignment(SwingConstants.LEFT);
-		lblBatting.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 16));
+		lblBatting.setFont(new Font("Helvetica", Font.BOLD, 16));
 		lblBatting.setBounds(475, 111, 165, 16);
 		lblBatting.setForeground(new Color(244, 229, 192));
 		add(lblBatting);
 
 		JLabel lblFielding = new JLabel("FIELDING STATS");
 		lblFielding.setHorizontalAlignment(SwingConstants.LEFT);
-		lblFielding.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 16));
+		lblFielding.setFont(new Font("Helvetica", Font.BOLD, 16));
 		lblFielding.setBounds(475, 357, 165, 16);
 		lblFielding.setForeground(new Color(244, 229, 192));
 		add(lblFielding);
 		
 		JLabel lblPitching = new JLabel("PITCHING STATS");
 		lblPitching.setHorizontalAlignment(SwingConstants.LEFT);
-		lblPitching.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 16));
+		lblPitching.setFont(new Font("Helvetica", Font.BOLD, 16));
 		lblPitching.setBounds(475, 234, 165, 16);
 		lblPitching.setForeground(new Color(244, 229, 192));
 		add(lblPitching);

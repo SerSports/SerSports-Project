@@ -119,21 +119,21 @@ public class BrowseLocalPlayers extends JPanel {
 		
 		JLabel lblFielding = new JLabel("FIELDING STATS");
 		lblFielding.setHorizontalAlignment(SwingConstants.LEFT);
-		lblFielding.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 16));
+		lblFielding.setFont(new Font("Helvetica", Font.BOLD, 16));
 		lblFielding.setBounds(475, 357, 165, 16);
 		lblFielding.setForeground(new Color(244, 229, 192));
 		add(lblFielding);
 
 		JLabel lblPitching = new JLabel("PITCHING STATS");
 		lblPitching.setHorizontalAlignment(SwingConstants.LEFT);
-		lblPitching.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 16));
+		lblPitching.setFont(new Font("Helvetica", Font.BOLD, 16));
 		lblPitching.setBounds(475, 234, 165, 16);
 		lblPitching.setForeground(new Color(244, 229, 192));
 		add(lblPitching);
 
 		JLabel lblBatting = new JLabel("BATTING STATS");
 		lblBatting.setHorizontalAlignment(SwingConstants.LEFT);
-		lblBatting.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 16));
+		lblBatting.setFont(new Font("Helvetica", Font.BOLD, 16));
 		lblBatting.setBounds(475, 111, 165, 16);
 		lblBatting.setForeground(new Color(244, 229, 192));
 		add(lblBatting);
