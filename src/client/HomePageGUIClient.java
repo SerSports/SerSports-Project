@@ -103,9 +103,11 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener,
 			ComparisonResult result = comparisonResults.get(i);
 			MlbPlayer m = result.getPlayer();
 			
-			Object[] row = { m.getId(), m.getFirst_name(), m.getLast_name(),
-					m.getTeam_name(), 100 * result.getScore() };
-			newTable.addRow(row);
+			if (result.getScore() > 0) {
+				Object[] row = { m.getId(), m.getFirst_name(), m.getLast_name(),
+						m.getTeam_name(), 100 * result.getScore() };
+				newTable.addRow(row);
+			}
 		}
 		
 		comparisonTable.setModel(newTable);

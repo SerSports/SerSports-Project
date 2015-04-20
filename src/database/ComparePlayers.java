@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+import org.junit.experimental.max.MaxCore;
+
 // TO DO LIST:
 // 1. Account for Local Player per game stats vs MLB PLayer Season Stats
 // 2. Add Pitching Comparison
@@ -13,7 +15,7 @@ import java.util.PriorityQueue;
 public class ComparePlayers {
 	
 	private static float[] mlbScore;
-	private static int[] differenceNums_Hitting = {20, 75, 10, 15, 5, 4, 2, 10, 150, 20};
+	private static float[] differenceNums_Hitting = {20, 75, 10, 15, 5, 4, 2, 10, 150, 20};
 	private static float[] differenceNums_Pitching = {1, 2, .002f, .02f, 10, 50};
 	private static float localBAverage;
 	private static float localSlug;
@@ -43,58 +45,62 @@ public class ComparePlayers {
 	}
 	
 	private static float compareToPlayer_Hitting(LocalPlayer lp, MlbPlayer mlbPlayer) {
-		float startScore = 1000.0f;
+		final float startScore = (11.f/12.f) * 1000.0f;
+		float score = startScore;
 		
 		if (mlbPlayer.getBatting_games_play() > 0)
 		{
 			float[] localScore = loadScores_Hitting(lp, mlbPlayer);
 			
 			if (localScore.length > 0) {
-				for(int i = 0; i < differenceNums_Hitting.length; i++) {
-					startScore -= returnDifference(localScore[i], mlbScore[i], i);
+				for(int i = 0; i < localScore.length; i++) {
+					score -= returnDifference(localScore[i], mlbScore[i], differenceNums_Hitting[i]);
 				}
-				startScore -= returnDifference(localBAverage, mlbBAverage, .001f);
-				startScore -= returnDifference(localSlug, mlbSlug, .002f);
+				score -= returnDifference(localBAverage, mlbBAverage, .001f);
+				score -= returnDifference(localSlug, mlbSlug, .002f);
 			} else {
-				startScore = 0;
+				score = 0;
 			}
 		} else {
-			startScore = 0;
+			score = 0;
 		}
 		
-		return (startScore / 1000.0f);	
+		if (score < 0) {
+			score = 0;
+		}
+		
+		return (score / startScore);	
 	}
 	
 	private static float compareToPlayer_Pitching(LocalPlayer lp, MlbPlayer mlbPlayer) {
-		float startScore = 1000.0f;
+		final float startScore = (6.f/13.f) * 1000.0f;
+		float score = startScore;
 		
 		if (mlbPlayer.getPitching_games_play() > 0)
 		{
 			float[] localScore = loadScores_Pitching(lp, mlbPlayer);
 			
 			if (localScore.length > 0) {
-				for(int i = 0; i < differenceNums_Pitching.length; i++) {
-					startScore -= returnDifference(localScore[i], mlbScore[i], i);
+				for(int i = 0; i < localScore.length; i++) {
+					score -= returnDifference(localScore[i], mlbScore[i], differenceNums_Pitching[i]);
 				}
 			} else {
-				startScore = 0;
+				score = 0;
 			}
 		} else {
-			startScore = 0;
+			score = 0;
 		}
 		
-		return (startScore / 1000.0f);	 
+		if (score < 0) {
+			score = 0;
+		}
+		
+		return (score / startScore);	 
 	}
 
-	private static float returnDifference(float firstNum, float secNum, int position) {
-		float difference = Math.abs(firstNum - secNum);
-		int remainder = (int)(difference % differenceNums_Hitting[position]);
-		return remainder;
-	}
-	
 	private static float returnDifference(float firstNum, float secNum, float differenceNum) {
 		float difference = Math.abs(firstNum - secNum);
-		int remainder = (int)(difference % differenceNum);
+		float remainder = (difference / differenceNum);
 		return remainder;
 	}
 	
@@ -114,7 +120,7 @@ public class ComparePlayers {
 			battingAverageLocal = 0.00f;
 		}
 		
-		float[] localScores = {0, lpStats.getBatting_totals_ab(), lpStats.getBatting_totals_runs(), lpStats.getBatting_onbase_totals_h(), 
+		float[] localScores = {lpStats.getBatting_game_play(), lpStats.getBatting_totals_ab(), lpStats.getBatting_totals_runs(), lpStats.getBatting_onbase_totals_h(), 
 				lpStats.getBatting_onbase_totals_d(), lpStats.getBatting_onbase_totals_t(), lpStats.getBatting_onbase_totals_hr(), lpStats.getBatting_totals_rbi(),
 				lpStats.getBatting_totals_outs_k(), lpStats.getBatting_steal_totals_stolen()};
 		localBAverage = battingAverageLocal;
