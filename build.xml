@@ -74,10 +74,15 @@
         <junit printsummary="yes" haltonerror="no" haltonfailure="no">
             <formatter type="plain" usefile="false" />
             <formatter type="xml" />
+        	<!--
             <classpath>
                 <pathelement location="${build.test}" />
                 <pathelement path="jars/junit-4.10" />
             </classpath>
+            -->
+        	<classpath>
+        		<path refid="compile.classpath"/>
+        	</classpath>
             <batchtest todir="${test.reports}">
                 <fileset dir="${src.testing}">
                     <include name="**/*Test.java" />
