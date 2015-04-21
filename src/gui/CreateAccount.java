@@ -94,10 +94,10 @@ public class CreateAccount extends JPanel {
 		textAge.setText("Age");
 		textAge.setColumns(10);
 		
-		mdfdjtxtfldTeam.setText("Team");
+		mdfdjtxtfldTeam.setText("Local Team");
 		mdfdjtxtfldTeam.setColumns(10);
 		mdfdjtxtfldTeam.setBounds(60, 233, 200, 28);
-		mdfdjtxtfldTeam.addFocusListener(new ModifiedFocusAdapter(mdfdjtxtfldTeam, "Team"));
+		mdfdjtxtfldTeam.addFocusListener(new ModifiedFocusAdapter(mdfdjtxtfldTeam, "Local Team"));
 		panel.add(mdfdjtxtfldTeam);
 		
 		btnCreateNewAccount.setActionCommand("btnCreateNewAccount");
