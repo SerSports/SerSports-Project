@@ -131,10 +131,8 @@ public class CreateAccount extends JPanel {
     			User user = isUniqueUser();
     			
 				if (user != null) {
-					//debug("your information is submitted");
 					main.loadUserInfoIntoControls();
 					main.showApplicationGUI();
-					debug("new application window should pop up");
 				} 
     			else {
 					JOptionPane.showMessageDialog(null, "User is already being used. Please try a new username.", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
@@ -162,7 +160,7 @@ public class CreateAccount extends JPanel {
 			if(count < 1){
 				User user = User.newUser(textUsername.getText(), textPassword.getText(), 
 						 textFirstName.getText(), textLastname.getText(), 
-						 Integer.valueOf(textAge.getText()));
+						 Integer.valueOf(textAge.getText()), mdfdjtxtfldTeam.getText());
 				return user;
 			}
 			else{

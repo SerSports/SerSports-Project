@@ -80,11 +80,8 @@ public class User {
 				if (rs.next()){
 					result = new User(rs);
 					currentUser = result;
-					//System.out.println("Username: " + result.getUserName());
-					//System.out.println("UserName: " + currentUser.getUserName());
 				}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch blocks
 				e.printStackTrace();
 			}
 		}
@@ -93,11 +90,11 @@ public class User {
 		return result;
 	}
 	
-	public static User newUser(String userName, String password, String firstName, String lastName, int age) {
+	public static User newUser(String userName, String password, String firstName, String lastName, int age, String teamName) {
 		User result = null;
 		
 		// Create the Local Player First
-		LocalPlayer player = LocalPlayer.newLocalPlayer(firstName, lastName, age, null);
+		LocalPlayer player = LocalPlayer.newLocalPlayer(firstName, lastName, age, teamName);
 		
 		// Create the New User
 		Database.executeSQL(buildInsertSql(player.getLocalPlayerId(), userName, password));
