@@ -44,17 +44,20 @@ Class: HomePageGUI
 Description: GUI for the home page
 */
 public class HomePageGUI extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4533439348087965616L;
 	protected User currentUser = null;
 	protected JLabel userFirstName = null;
 	protected JButton btnSignOut;
 	protected JTable comparisonTable;
-	protected ModifiedJButtonStyle1 btnFindBestComparison = new ModifiedJButtonStyle1("Find Best Comparison");
+	protected ModifiedJButtonStyle1 btnFindBestComparison = new ModifiedJButtonStyle1("Find Best Comparison");;
 	protected JLabel lblInsertPlayersName = null;
 	protected JLabel label = null;
 	protected Image imgbackground = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
 	protected JLabel lblbackgroundImage = new JLabel("");
 	protected Image img = null;
-	protected JLabel mlbImage = null;
 	
 	
 	/**
@@ -65,7 +68,6 @@ public class HomePageGUI extends JPanel {
 	  Description: Creates the panel
 	*/
 	public HomePageGUI() {
-		
         try {
             URL url = new URL("http://a.espncdn.com/combiner/i?img=/i/headshots/mlb/players/full/4937.png&w=350&h=254");
             img = ImageIO.read(url);
@@ -75,15 +77,9 @@ public class HomePageGUI extends JPanel {
         
         Image dimg = img.getScaledInstance(350, 240,Image.SCALE_SMOOTH);
         
-        mlbImage = new JLabel(new ImageIcon(dimg));
-        mlbImage.setLocation(580, 143);
-        mlbImage.setSize(350,240);
-        add(mlbImage);
-        mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));
-
         JLabel mlbImage = new JLabel(new ImageIcon(dimg));
-        mlbImage.setLocation(624, 98);
-        mlbImage.setSize(300, 300);
+        mlbImage.setLocation(641, 136);
+        mlbImage.setSize(250,250);
         add(mlbImage);
         mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));
 
@@ -93,7 +89,7 @@ public class HomePageGUI extends JPanel {
 		setLayout(null);
 		
 		JLabel diamond = new JLabel("");
-		diamond.setBounds(189, -48, 64, 64);
+		diamond.setBounds(182, -48, 64, 64);
 		add(diamond);
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
 		diamond.setIcon(new ImageIcon(img2));
@@ -113,25 +109,25 @@ public class HomePageGUI extends JPanel {
 		JLabel lblYouAre = new JLabel("You are");
 		lblYouAre.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
 		lblYouAre.setForeground(new Color(244, 229, 192));
-		lblYouAre.setBounds(558, 425, 60, 16);
+		lblYouAre.setBounds(549, 411, 60, 16);
 		add(lblYouAre);
 		
 		label = new JLabel("");
 		label.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
 		label.setForeground(new Color(244, 229, 192));
-		label.setBounds(624, 426, 50, 19);
+		label.setBounds(615, 412, 50, 19);
 		add(label);
 		
 		JLabel lblPercent = new JLabel("percent like");
 		lblPercent.setForeground(new Color(244, 229, 192));
 		lblPercent.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		lblPercent.setBounds(678, 425, 100, 16);
+		lblPercent.setBounds(669, 411, 100, 16);
 		add(lblPercent);
 		
 		lblInsertPlayersName = new JLabel("Erik Van Norman Goeddel");
 		lblInsertPlayersName.setForeground(new Color(244, 229, 192));
 		lblInsertPlayersName.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		lblInsertPlayersName.setBounds(773, 425, 211, 16);
+		lblInsertPlayersName.setBounds(764, 411, 211, 16);
 		add(lblInsertPlayersName);		
 		
 		JLabel lblWelcome = new JLabel("Welcome,");
