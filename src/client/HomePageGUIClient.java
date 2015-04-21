@@ -76,9 +76,8 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener,
 		
 		if (User.getCurrentUser() != null)
 		{
-			ArrayList<LocalPlayer> list = LocalPlayer.getPlayersFromDatabase(User
-					.getCurrentUser().getLocalPlayerId(), null, null, 0, null);
-			LocalPlayer userPlayer = list.get(0);
+			LocalPlayer userPlayer = LocalPlayer.getLocalPlayerForId(User
+					.getCurrentUser().getLocalPlayerId());
 			
 			ArrayList<ComparisonResult> matches = ComparePlayers.compareToPlayerList(
 					userPlayer, MlbPlayer.getListOfPlayersFromDatabase());
@@ -87,8 +86,6 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener,
 			
 			ComparisonResult result = matches.get(0);
 			MlbPlayer player = result.getPlayer();
-			//label.setText(Math.round(result.getScore() * 1000.0) / 10.0 + "%");
-			//lblInsertPlayersName.setText();
 			percentScore = result.getScore();
 			mostSimilarPlayerName = player.getFirst_name() + " " + player.getLast_name();
 			lblYouAre.setText("You are " + (Math.round(percentScore * 1000.0) / 10.0) + "% percent like " + mostSimilarPlayerName);

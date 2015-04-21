@@ -4,155 +4,218 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class LocalPlayer {
+/**
+ * Contains all components of a local player and calls from a separate database to obtain
+ * said components. Appends a list of local players when necessary.
+ * 
+ * @author SerSports
+ */
+public class LocalPlayer
+{
 	
-	// Constants
-	private static final String TABLE_NAME = "localplayers";  
-	private static final String FIELD_ID = "localPlayerId"; 
+	private static final String TABLE_NAME = "localplayers";
+	private static final String FIELD_ID = "localPlayerId";
 	private static final String FIELD_FIRST_NAME = "firstName";
 	private static final String FIELD_LAST_NAME = "lastName";
-	private static final String FIELD_AGE = "age"; 
-	private static final String FIELD_TEAM_NAME = "team_name"; 
+	private static final String FIELD_AGE = "age";
+	private static final String FIELD_TEAM_NAME = "team_name";
 	
-	// Members
 	private int localPlayerId;
-	private String firstName; 
+	private String firstName;
 	private String lastName;
 	private int age;
 	private String teamName;
 	
-	// Getters / Setters
-	public int getLocalPlayerId() {
+	public int getLocalPlayerId()
+	{
 		return localPlayerId;
 	}
-
-	public void setLocalPlayerId(int localPlayerId) {
+	
+	public void setLocalPlayerId(int localPlayerId)
+	{
 		this.localPlayerId = localPlayerId;
 	}
-
-	public String getFirstName() {
+	
+	public String getFirstName()
+	{
 		return firstName;
 	}
-
-	public void setFirstName(String firstName) {
+	
+	public void setFirstName(String firstName)
+	{
 		this.firstName = firstName;
 	}
-
-	public String getLastName() {
+	
+	public String getLastName()
+	{
 		return lastName;
 	}
-
-	public void setLastName(String lastName) {
+	
+	public void setLastName(String lastName)
+	{
 		this.lastName = lastName;
 	}
-
-	public int getAge() {
+	
+	public int getAge()
+	{
 		return age;
 	}
-
-	public void setAge(int age) {
+	
+	public void setAge(int age)
+	{
 		this.age = age;
 	}
 	
-	public String getTeamName() {
+	public String getTeamName()
+	{
 		return teamName;
 	}
-
-	public void setTeamName(String teamName) {
+	
+	public void setTeamName(String teamName)
+	{
 		this.teamName = teamName;
 	}
 	
-	private LocalPlayer(ResultSet rs) {
-		try {
-			// Load the rs's information
+	/**
+	 * Loads information from the Result Set that has queried data from the database
+	 * relevant to the characteristics of a local player.
+	 * 
+	 * @param rs
+	 *            Used to get information from the database.
+	 */
+	private LocalPlayer(ResultSet rs)
+	{
+		try
+		{
 			this.localPlayerId = rs.getInt(FIELD_ID);
 			this.firstName = rs.getString(FIELD_FIRST_NAME);
 			this.lastName = rs.getString(FIELD_LAST_NAME);
 			this.age = rs.getInt(FIELD_AGE);
 			this.teamName = rs.getString(FIELD_TEAM_NAME);
-		} catch (SQLException e) {
+		}
+		catch (SQLException e)
+		{
 			e.printStackTrace();
 		}
 	}
-
-	public static LocalPlayer newLocalPlayer(String firstName, String lastName, int age, String teamName) {
+	
+	/**
+	 * Creates a new local player, finds them, and then creates a new object of them.
+	 * 
+	 * @param firstName
+	 *            Local player's first name.
+	 * @param lastName
+	 *            Local player's last name.
+	 * @param age
+	 *            Local player's age.
+	 * @param teamName
+	 *            Local player's team name.
+	 * @return A local player object with a first name, last name, age, and team name.
+	 */
+	public static LocalPlayer newLocalPlayer(String firstName, String lastName, int age,
+			String teamName)
+	{
 		LocalPlayer result = null;
 		
-		// Create the new local player
 		Database.executeSQL(buildInsertSql(firstName, lastName, age, teamName));
 		
-		// Find the newly created Local Player
-		String sql = "SELECT * FROM " + TABLE_NAME + genereateWhereClause(0, firstName, lastName, age, teamName) + " ORDER BY " + FIELD_ID + " DESC";
+		String sql = "SELECT * FROM " + TABLE_NAME
+				+ genereateWhereClause(0, firstName, lastName, age, teamName)
+				+ " ORDER BY " + FIELD_ID + " DESC";
 		ResultSet resultSet = Database.getResultSetFromSQL(sql);
 		
-		// Create the Local Player Object
-		if (resultSet != null) {
-			try {
-				if (resultSet.next()){
+		if (resultSet != null)
+		{
+			try
+			{
+				if (resultSet.next())
+				{
 					result = new LocalPlayer(resultSet);
 				}
-			} catch (SQLException e) {
+			}
+			catch (SQLException e)
+			{
 				e.printStackTrace();
 			}
 		}
 		
-		// Clean Up
 		Database.close();
 		
 		return result;
 	}
 	
-	private static String buildInsertSql(String firstName, String lastName, int age, String teamName) {
-		return new String("INSERT INTO " + TABLE_NAME + 
-							"(" + FIELD_FIRST_NAME + ", " + 
-								  FIELD_LAST_NAME + ", " + 
-								  FIELD_AGE + ", " + 
-								  FIELD_TEAM_NAME + ") " + 
-						  "VALUES(" + Database.formatSqlStringValueForInsert(firstName) + ", " + 
-									  Database.formatSqlStringValueForInsert(lastName) + ", " + 
-									  age + ", " + 
-									  Database.formatSqlStringValueForInsert(teamName) + ")");
+	private static String buildInsertSql(String firstName, String lastName, int age,
+			String teamName)
+	{
+		return new String("INSERT INTO " + TABLE_NAME + "(" + FIELD_FIRST_NAME + ", "
+				+ FIELD_LAST_NAME + ", " + FIELD_AGE + ", " + FIELD_TEAM_NAME + ") "
+				+ "VALUES(" + Database.formatSqlStringValueForInsert(firstName) + ", "
+				+ Database.formatSqlStringValueForInsert(lastName) + ", " + age + ", "
+				+ Database.formatSqlStringValueForInsert(teamName) + ")");
 	}
 	
-	private static String genereateWhereClause(int id_in, String firstName_in, String lastName_in, int age_in, String teamName_in) {
+	/**
+	 * @param id_in
+	 *            Checks to see if anything was passed into the player ID field.
+	 * @param firstName_in
+	 *            Checks to see if anything was passed into the first name field.
+	 * @param lastName_in
+	 *            Checks to see if anything was passed into the last name field.
+	 * @param age_in
+	 *            Checks to see if anything was passed into the age field.
+	 * @param teamName_in
+	 *            Checks to see if anything was passed into the team name field.
+	 * @return A string containing this information.
+	 */
+	private static String genereateWhereClause(int id_in, String firstName_in,
+			String lastName_in, int age_in, String teamName_in)
+	{
 		StringBuilder whereClause = new StringBuilder();
 		
-		// See if anything was passed in
-		if (id_in > 0 || firstName_in != null || lastName_in != null || age_in > 0 || teamName_in != null) {
+		if (id_in > 0 || firstName_in != null || lastName_in != null || age_in > 0
+				|| teamName_in != null)
+		{
 			Boolean fieldsAdded = false;
 			
-			// Initialize
 			whereClause.append(" WHERE ");
 			
-			// Add the fields we need
-			if (id_in > 0) {
-				whereClause.append(FIELD_ID + " = " + id_in );
+			if (id_in > 0)
+			{
+				whereClause.append(FIELD_ID + " = " + id_in);
 				fieldsAdded = true;
-			} 
-			if (firstName_in != null) {
-				if (fieldsAdded) {
+			}
+			if (firstName_in != null)
+			{
+				if (fieldsAdded)
+				{
 					whereClause.append(" AND ");
 				}
 				
 				whereClause.append(FIELD_FIRST_NAME + " = \"" + firstName_in + "\"");
 				fieldsAdded = true;
-			} 
-			if (lastName_in != null) {
-				if (fieldsAdded) {
+			}
+			if (lastName_in != null)
+			{
+				if (fieldsAdded)
+				{
 					whereClause.append(" AND ");
 				}
 				whereClause.append(FIELD_LAST_NAME + " = \"" + lastName_in + "\"");
 				fieldsAdded = true;
-			} 
-			if (age_in > 0) {
-                if (fieldsAdded) {
-                    whereClause.append(" AND ");
-                }
-                whereClause.append(FIELD_AGE + " = " + age_in);
+			}
+			if (age_in > 0)
+			{
+				if (fieldsAdded)
+				{
+					whereClause.append(" AND ");
+				}
+				whereClause.append(FIELD_AGE + " = " + age_in);
 				fieldsAdded = true;
-			} 
-			if (teamName_in != null) {
-				if (fieldsAdded) {
+			}
+			if (teamName_in != null)
+			{
+				if (fieldsAdded)
+				{
 					whereClause.append(" AND ");
 				}
 				
@@ -162,67 +225,95 @@ public class LocalPlayer {
 		}
 		return whereClause.toString();
 	}
-
 	
-	public static ArrayList<LocalPlayer> getPlayersFromDatabase(int id_in, String fName_in, String lName_in, int age_in, String team_in) {
+	/**
+	 * Runs through the Result Set and adds each MLB player to the list that is to be
+	 * returned.
+	 * 
+	 * @return List containing MLB players.
+	 */
+	public static ArrayList<LocalPlayer> getPlayersFromDatabase(int id_in,
+			String fName_in, String lName_in, int age_in, String team_in)
+	{
 		ArrayList<LocalPlayer> resultList = new ArrayList<LocalPlayer>();
 		
-		// Get the Result Set containing every Player
-		String sql = "SELECT * FROM " + TABLE_NAME + genereateWhereClause(id_in, fName_in, lName_in, 0, team_in) + 
-								" ORDER BY " + FIELD_TEAM_NAME + ", " + FIELD_FIRST_NAME + ", " + FIELD_LAST_NAME;
+		String sql = "SELECT * FROM " + TABLE_NAME
+				+ genereateWhereClause(id_in, fName_in, lName_in, 0, team_in)
+				+ " ORDER BY " + FIELD_TEAM_NAME + ", " + FIELD_FIRST_NAME + ", "
+				+ FIELD_LAST_NAME;
 		ResultSet rs = Database.getResultSetFromSQL(sql);
 		
-		if (rs != null) {
-			// Loop through the Result Set and Add Each MlbPlayer to the ArrayList
-			try {
-				while(rs.next()){
+		if (rs != null)
+		{
+			try
+			{
+				while (rs.next())
+				{
 					LocalPlayer player = new LocalPlayer(rs);
 					resultList.add(player);
 				}
-			} catch (SQLException e) {
+			}
+			catch (SQLException e)
+			{
 				e.printStackTrace();
 			}
 		}
 		
-		// Clean up
 		Database.close();
-			
+		
 		return resultList;
 	}
-
-	public static ArrayList<LocalPlayer> getLocalPlayersStatisticsFromDatabase(int id_in) {
+	
+	/**
+	 * Runs through the Result Set and adds each local player to the list that is to be
+	 * returned.
+	 * 
+	 * @return List containing MLB players.
+	 */
+	public static ArrayList<LocalPlayer> getLocalPlayersStatisticsFromDatabase(int id_in)
+	{
 		ArrayList<LocalPlayer> resultList = new ArrayList<LocalPlayer>();
 		
-		// Get the Result Set containing every Player
-		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + FIELD_ID + " = \"" + id_in + "\"" +
-								" ORDER BY " + FIELD_ID;
+		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + FIELD_ID + " = \""
+				+ id_in + "\"" + " ORDER BY " + FIELD_ID;
 		ResultSet resultSet = Database.getResultSetFromSQL(sql);
 		
-		if (resultSet != null) {
-			// Loop through the Result Set and Add Each MlbPlayer to the ArrayList
-			try {
-				while(resultSet.next()){
+		if (resultSet != null)
+		{
+			try
+			{
+				while (resultSet.next())
+				{
 					LocalPlayer player = new LocalPlayer(resultSet);
 					resultList.add(player);
 				}
-			} catch (SQLException e) {
+			}
+			catch (SQLException e)
+			{
 				e.printStackTrace();
 			}
 		}
 		
-		// Clean up
 		Database.close();
-			
+		
 		return resultList;
 	}
-
 	
-	public static LocalPlayer getLocalPlayerForId(int id) {
+	/**
+	 * Used to return a list of local players, as long they're available.
+	 * 
+	 * @param id
+	 *            Player ID used to reference them.
+	 * @return List of players if the criteria is met.
+	 */
+	public static LocalPlayer getLocalPlayerForId(int id)
+	{
 		LocalPlayer result = null;
-
-		// Get the Selected Player
-		ArrayList<LocalPlayer> playerList = LocalPlayer.getPlayersFromDatabase(id, null, null, 0, null);
-		if (playerList.size() > 0) {
+		
+		ArrayList<LocalPlayer> playerList = LocalPlayer.getPlayersFromDatabase(id, null,
+				null, 0, null);
+		if (playerList.size() > 0)
+		{
 			result = playerList.get(0);
 		}
 		
