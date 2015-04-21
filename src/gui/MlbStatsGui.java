@@ -124,13 +124,13 @@ public class MlbStatsGui extends JPanel {
 		lblMlbPlayerName = new JLabel("");
 		lblMlbPlayerName.setFont(new Font("Helvetica", Font.BOLD, 14));
 		lblMlbPlayerName.setForeground(new Color(244, 229, 192));
-		lblMlbPlayerName.setBounds(475, 38, 189, 16);
+		lblMlbPlayerName.setBounds(475, 38, 235, 16);
 		add(lblMlbPlayerName);
 
 		lblMlbPlayerTeam = new JLabel("");
 		lblMlbPlayerTeam.setFont(new Font("Helvetica", Font.BOLD, 14));
 		lblMlbPlayerTeam.setForeground(new Color(244, 229, 192));
-		lblMlbPlayerTeam.setBounds(475, 64, 189, 16);
+		lblMlbPlayerTeam.setBounds(475, 64, 234, 16);
 		add(lblMlbPlayerTeam);
 		
 		ModifiedJScrollPane scrollPane_3 = new ModifiedJScrollPane();
