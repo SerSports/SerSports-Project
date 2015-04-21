@@ -72,13 +72,28 @@ public class ComparePlayers
 	 */
 	public static float compareToPlayer(LocalPlayer lp, MlbPlayer mlbPlayer)
 	{
-		ArrayList<LocalPlayerBattingStatistics_Season> lpStatsBat = LocalPlayerBattingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
-		LocalPlayerBattingStatistics_Season lpBatting = lpStatsBat.get(0);
-		ArrayList<LocalPlayerPitchingStatistics_Season> lpStatsList = LocalPlayerPitchingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
-		LocalPlayerPitchingStatistics_Season lpPitching = lpStatsList.get(0);
+		float result = 0f;
 		
-		return (compareToPlayer_Hitting(lpBatting, mlbPlayer) + 
-				compareToPlayer_Pitching(lpPitching, mlbPlayer)) / 2.0f;
+		if (lp != null && mlbPlayer != null) {
+
+			LocalPlayerBattingStatistics_Season lpBatting = null;
+			LocalPlayerPitchingStatistics_Season lpPitching = null;
+			
+			ArrayList<LocalPlayerBattingStatistics_Season> lpStatsBat = LocalPlayerBattingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
+			if(!lpStatsBat.isEmpty())
+			{
+				lpBatting = lpStatsBat.get(0);
+			}
+			ArrayList<LocalPlayerPitchingStatistics_Season> lpStatsList = LocalPlayerPitchingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
+			if(!lpStatsList.isEmpty())
+			{
+				lpPitching = lpStatsList.get(0);
+			}
+			
+			result = compareToPlayer(lpBatting, lpPitching, mlbPlayer);
+		}
+		
+		return result;
 	}
 
 	
