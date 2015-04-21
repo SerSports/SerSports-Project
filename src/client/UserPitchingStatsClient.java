@@ -151,7 +151,7 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
 	 */
 	public void populateLocalPlayersPitchingTable()
 	{
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "StatID",
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "StatID", "Won",
 				"Date", "ERA", "SAVES", "HITS", "HOLDS", "RUNS", "HBP" }, 0);
 		
 		if (User.getCurrentUser() != null)
@@ -164,11 +164,12 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
 			
 			for (LocalPlayerPitchingStatistics m : currentPlayerPitchingStatistics)
 			{
-				Object[] row = { m.getLocalPlayersPitchingStatisticsID(),
+				String won = new String(m.getPitching_game_won() == 1 ? "X" : "");
+				Object[] row = { m.getLocalPlayersPitchingStatisticsID(), won,
 						m.getGame_date(), m.getPitching_era(),
 						m.getPitching_games_save(), m.getPitching_games_hit(),
 						m.getPitching_games_hold(), m.getPitching_runs(),
-						m.getPitching_hbp(), m.getPitching_game_won() };
+						m.getPitching_hbp() };
 				newTable.addRow(row);
 			}
 			
@@ -182,20 +183,13 @@ public class UserPitchingStatsClient extends UserPitchingStats implements Action
 							if (table.getSelectedRow() != -1)
 							{
 								int selectedRow = table.getSelectedRow();
-								txtDate.setText(table.getValueAt(selectedRow, 0)
-										.toString());
-								txtERA.setText(table.getValueAt(selectedRow, 1)
-										.toString());
-								txtSaves.setText(table.getValueAt(selectedRow, 2)
-										.toString());
-								txtHits.setText(table.getValueAt(selectedRow, 3)
-										.toString());
-								txtHolds.setText(table.getValueAt(selectedRow, 4)
-										.toString());
-								txtRuns.setText(table.getValueAt(selectedRow, 5)
-										.toString());
-								txtHBP.setText(table.getValueAt(selectedRow, 6)
-										.toString());
+								txtDate.setText(table.getValueAt(selectedRow, 1).toString());
+								txtERA.setText(table.getValueAt(selectedRow, 2).toString());
+								txtSaves.setText(table.getValueAt(selectedRow, 3).toString());
+								txtHits.setText(table.getValueAt(selectedRow, 4).toString());
+								txtHolds.setText(table.getValueAt(selectedRow, 5).toString());
+								txtRuns.setText(table.getValueAt(selectedRow, 6).toString());
+								txtHBP.setText(table.getValueAt(selectedRow, 7).toString());
 							}
 						}
 					});

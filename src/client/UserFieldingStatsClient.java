@@ -153,7 +153,7 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 	 */
 	public void populateLocalPlayersFieldingTable()
 	{
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "StatID",
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "StatID", "Won",
 				"Date", "PO", "Err", "Assist", "F%" }, 0);
 		
 		if (User.getCurrentUser() != null)
@@ -166,10 +166,10 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 			
 			for (LocalPlayerFieldingStatistics m : currentPlayerFieldingStatistics)
 			{
-				Object[] row = { m.getLocalPlayersFieldingStatisticsID(),
+				String won = new String(m.getFielding_game_won() == 1 ? "X" : "");
+				Object[] row = { m.getLocalPlayersFieldingStatisticsID(), won,
 						m.getGame_date(), m.getFielding_po(), m.getFielding_error(),
-						m.getFielding_assist(), m.getFielding_fpct(),
-						m.getFielding_game_won() };
+						m.getFielding_assist(), m.getFielding_fpct() };
 				newTable.addRow(row);
 			}
 			
@@ -183,13 +183,11 @@ public class UserFieldingStatsClient extends UserFieldingStats implements Action
 							if (table.getSelectedRow() != -1)
 							{
 								int selectedRow = table.getSelectedRow();
-								txtDate.setText(table.getValueAt(selectedRow, 0)
-										.toString());
-								txtPo.setText(table.getValueAt(selectedRow, 1).toString());
-								txtE.setText(table.getValueAt(selectedRow, 2).toString());
-								txtA.setText(table.getValueAt(selectedRow, 3).toString());
-								txtFpct.setText(table.getValueAt(selectedRow, 4)
-										.toString());
+								txtDate.setText(table.getValueAt(selectedRow, 1).toString());
+								txtPo.setText(table.getValueAt(selectedRow, 3).toString());
+								txtE.setText(table.getValueAt(selectedRow, 4).toString());
+								txtA.setText(table.getValueAt(selectedRow, 5).toString());
+								txtFpct.setText(table.getValueAt(selectedRow, 6).toString());
 							}
 						}
 					});

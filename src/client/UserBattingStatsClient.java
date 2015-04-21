@@ -181,7 +181,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	 */
 	public void populateLocalPlayersBattingTable()
 	{
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "StatID",
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "StatID", "Won",
 				"Date", "AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO",
 				"BA" }, 0);
 		
@@ -196,7 +196,8 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			for (LocalPlayerBattingStatistics m : currentPlayerBattingStatistics)
 			{
 				setBattingAverage( (double) m.getBatting_onbase_h(), (double) m.getBatting_ab());
-				Object[] row = { m.getLocalPlayersHittingStatisticsID(),
+				String won = new String(m.getBatting_game_won() == 1 ? "X" : "");
+				Object[] row = { m.getLocalPlayersHittingStatisticsID(), won,
 						m.getGame_date(), m.getBatting_ab(), m.getBatting_onbase_h(),
 						m.getBatting_rbi(), m.getBatting_onbase_s(), 
 						m.getBatting_onbase_d(), m.getBatting_onbase_t(),
@@ -215,17 +216,17 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 						public void valueChanged(ListSelectionEvent e){
 							if(table.getSelectedRow() != -1){
 								int selectedRow = table.getSelectedRow();
-								txtDate.setText(table.getValueAt(selectedRow, 0).toString());
-								txtAB.setText(table.getValueAt(selectedRow, 1).toString());
-								txtHits.setText(table.getValueAt(selectedRow, 2).toString());
-								txtRBI.setText(table.getValueAt(selectedRow, 3).toString());
-								txtb_1.setText(table.getValueAt(selectedRow, 4).toString());
-								txtb_2.setText(table.getValueAt(selectedRow, 5).toString());
-								txtb_3.setText(table.getValueAt(selectedRow, 6).toString());
-								txtRuns.setText(table.getValueAt(selectedRow, 7).toString());
-								txtSB.setText(table.getValueAt(selectedRow, 8).toString());
-								txtHR.setText(table.getValueAt(selectedRow, 9).toString());
-								txtSO.setText(table.getValueAt(selectedRow, 10).toString());
+								txtDate.setText(table.getValueAt(selectedRow, 1).toString());
+								txtAB.setText(table.getValueAt(selectedRow, 2).toString());
+								txtHits.setText(table.getValueAt(selectedRow, 3).toString());
+								txtRBI.setText(table.getValueAt(selectedRow, 4).toString());
+								txtb_1.setText(table.getValueAt(selectedRow, 5).toString());
+								txtb_2.setText(table.getValueAt(selectedRow, 6).toString());
+								txtb_3.setText(table.getValueAt(selectedRow, 7).toString());
+								txtRuns.setText(table.getValueAt(selectedRow, 8).toString());
+								txtSB.setText(table.getValueAt(selectedRow, 9).toString());
+								txtHR.setText(table.getValueAt(selectedRow, 10).toString());
+								txtSO.setText(table.getValueAt(selectedRow, 11).toString());
 							}
 						}
 					});

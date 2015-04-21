@@ -114,7 +114,7 @@ public class BrowseLocalPlayers extends JPanel {
 		scrollPane_2.setBounds(475, 372, 493, 97);
 		add(scrollPane_2);
 
-		fieldingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {"Wins", "PO", "Err", "Assist", "F%" }));
+		fieldingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {"Won", "PO", "Err", "Assist", "F%" }));
 		scrollPane_2.setViewportView(fieldingTable);
 		
 		JLabel lblFielding = new JLabel("FIELDING STATS");
