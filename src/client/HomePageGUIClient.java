@@ -87,9 +87,11 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener,
 			
 			ComparisonResult result = matches.get(0);
 			MlbPlayer player = result.getPlayer();
-			label.setText(Math.round(result.getScore() * 1000.0) / 10.0 + "%");
-			lblInsertPlayersName.setText(player.getFirst_name() + " "
-					+ player.getLast_name());
+			//label.setText(Math.round(result.getScore() * 1000.0) / 10.0 + "%");
+			//lblInsertPlayersName.setText();
+			percentScore = result.getScore();
+			mostSimilarPlayerName = player.getFirst_name() + " " + player.getLast_name();
+			lblYouAre.setText("You are " + (Math.round(percentScore * 1000.0) / 10.0) + "% percent like " + mostSimilarPlayerName);
 		}
 	}
 	

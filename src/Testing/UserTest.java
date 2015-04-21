@@ -13,6 +13,6 @@ public class UserTest {
 	
 	@Test
 	public void testNewUser() {
-		assertNotNull(User.newUser("Test", "test", "Colton", "Test", 19));
+		assertNotNull(User.newUser("Test", "test", "Colton", "Test", 19, "Testers"));
 	}
 }

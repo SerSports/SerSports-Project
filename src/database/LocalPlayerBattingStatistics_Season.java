@@ -55,10 +55,29 @@ public class LocalPlayerBattingStatistics_Season {
 	}
 	
 	public float getSlugging() {
+		float slug = 0.0f;
+		
 		if (batting_totals_ab != 0) {
-			return (float) getTotalBases() / (float) batting_totals_ab;
+			slug = (float) getTotalBases() / (float) batting_totals_ab;
+			if (slug > 1.0f) {
+				slug = 1.0f;
+			}
 		}
-		return 0.00f;
+		
+		return slug;
+	}
+	
+	public float getBattingAverage() {
+		float avg = 0.0f;
+		
+		if (batting_totals_ab != 0) {
+			avg = (float) batting_onbase_totals_h / (float) batting_totals_ab;
+			if (avg > 1.0f) {
+				avg = 1.0f;
+			}
+		}
+		
+		return avg;
 	}
 
 	public int getBatting_totals_ab() {

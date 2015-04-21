@@ -9,6 +9,8 @@ Description:
  */
 package database;
 
+import gui.MainGUI;
+
 import java.sql.*;
 
 import javax.swing.JOptionPane;
@@ -61,6 +63,8 @@ public class Database {
 	public static ResultSet getResultSetFromSQL(String sql) {
 		ResultSet result = null;
 		
+		MainGUI.setHourGlass(true);
+		
 		// Validate the input
 		if (isValidSelectSql(sql)) {
 			try {
@@ -85,6 +89,8 @@ public class Database {
 				e.printStackTrace();
 			}// end try
 		}
+
+		MainGUI.setHourGlass(false);
 		
 		return result;
 	}

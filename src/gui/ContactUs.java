@@ -49,14 +49,14 @@ public class ContactUs extends JPanel {
 		
 		//Email Information
 		JLabel lblEmailUs = new JLabel("Email Us: ser.sports.asu@gmail.com");
-		lblEmailUs.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		lblEmailUs.setFont(new Font("Helvetica", Font.PLAIN, 18));
 		lblEmailUs.setForeground(new Color(244, 229, 192));
 		lblEmailUs.setBounds(81, 167, 369, 29);
 		add(lblEmailUs);
 		
 		//Phone Information
 		JLabel lblCallUs = new JLabel("Call Us: (555) 555-5555");
-		lblCallUs.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		lblCallUs.setFont(new Font("Helvetica", Font.PLAIN, 18));
 		lblCallUs.setForeground(new Color(244, 229, 192));
 		lblCallUs.setBounds(81, 203, 251, 29);
 		add(lblCallUs);

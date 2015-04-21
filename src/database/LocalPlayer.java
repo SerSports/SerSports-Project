@@ -22,7 +22,6 @@ public class LocalPlayer {
 	private String teamName;
 	
 	// Getters / Setters
-	
 	public int getLocalPlayerId() {
 		return localPlayerId;
 	}
@@ -91,7 +90,6 @@ public class LocalPlayer {
 			try {
 				if (resultSet.next()){
 					result = new LocalPlayer(resultSet);
-					//System.out.println("currentLocalPlayer: "+currentLocalPlayer.getLocalPlayerId());
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

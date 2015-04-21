@@ -51,11 +51,14 @@ public class HomePageGUI extends JPanel {
 	protected ModifiedJButtonStyle1 btnFindBestComparison = new ModifiedJButtonStyle1("Find Best Comparison");
 	protected JLabel lblInsertPlayersName = null;
 	protected JLabel label = null;
+	private JLabel labelPercent;
 	protected Image imgbackground = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
 	protected JLabel lblbackgroundImage = new JLabel("");
 	protected Image img = null;
 	protected JLabel mlbImage = null;
-	
+	protected float percentScore = 0f;
+	protected String mostSimilarPlayerName = "Bob Dole";
+	protected JLabel lblYouAre = null;
 	
 	/**
 	  Method: Constructor
@@ -76,7 +79,7 @@ public class HomePageGUI extends JPanel {
         Image dimg = img.getScaledInstance(250, 250,Image.SCALE_SMOOTH);
         
         mlbImage = new JLabel(new ImageIcon(dimg));
-        mlbImage.setLocation(580, 143);
+        mlbImage.setLocation(642, 140);
         mlbImage.setSize(250,250);
         add(mlbImage);
         mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));
@@ -104,29 +107,29 @@ public class HomePageGUI extends JPanel {
 		Image imgline = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
 		line.setIcon(new ImageIcon(imgline));
 		
-		JLabel lblYouAre = new JLabel("You are");
+		lblYouAre = new JLabel("You are " + (percentScore * 1000.f) / 10.f + "% percent like " + mostSimilarPlayerName);
 		lblYouAre.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
 		lblYouAre.setForeground(new Color(244, 229, 192));
-		lblYouAre.setBounds(558, 425, 60, 16);
+		lblYouAre.setBounds(558, 425, 411, 16);
 		add(lblYouAre);
 		
-		label = new JLabel("");
-		label.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
-		label.setForeground(new Color(244, 229, 192));
-		label.setBounds(624, 426, 50, 19);
-		add(label);
+		//labelPercent = new JLabel("");
+		//labelPercent.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
+		//labelPercent.setForeground(new Color(244, 229, 192));
+		//labelPercent.setBounds(624, 426, 50, 19);
+		//add(labelPercent);
 		
-		JLabel lblPercent = new JLabel("percent like");
-		lblPercent.setForeground(new Color(244, 229, 192));
-		lblPercent.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		lblPercent.setBounds(678, 425, 100, 16);
-		add(lblPercent);
+		//JLabel lblPercent = new JLabel("percent like");
+		//lblPercent.setForeground(new Color(244, 229, 192));
+		//lblPercent.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
+		//lblPercent.setBounds(678, 425, 100, 16);
+		//add(lblPercent);
 		
-		lblInsertPlayersName = new JLabel("Erik Van Norman Goeddel");
-		lblInsertPlayersName.setForeground(new Color(244, 229, 192));
-		lblInsertPlayersName.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		lblInsertPlayersName.setBounds(773, 425, 211, 16);
-		add(lblInsertPlayersName);		
+		//lblInsertPlayersName = new JLabel("Erik Van Norman Goeddel");
+		//lblInsertPlayersName.setForeground(new Color(244, 229, 192));
+		//lblInsertPlayersName.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
+		//lblInsertPlayersName.setBounds(773, 425, 211, 16);
+		//add(lblInsertPlayersName);		
 		
 		JLabel lblWelcome = new JLabel("Welcome,");
 		lblWelcome.setForeground(new Color(244, 229, 192));
