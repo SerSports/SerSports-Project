@@ -127,7 +127,7 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener,
 	
 	private void loadPlayerIntoImage(MlbPlayer player) {
 		Image pic = SportsPicsApi.getImageForMlbPlayer(player);
-		Image dimg = pic.getScaledInstance(350, 240,Image.SCALE_SMOOTH);
+		Image dimg = pic.getScaledInstance(250, 250,Image.SCALE_SMOOTH);
 		mlbImage.setIcon(new ImageIcon(dimg));
 	}
 

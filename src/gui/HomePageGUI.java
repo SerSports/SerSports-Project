@@ -73,17 +73,11 @@ public class HomePageGUI extends JPanel {
         	e.printStackTrace();
         }
         
-        Image dimg = img.getScaledInstance(350, 240,Image.SCALE_SMOOTH);
+        Image dimg = img.getScaledInstance(250, 250,Image.SCALE_SMOOTH);
         
         mlbImage = new JLabel(new ImageIcon(dimg));
         mlbImage.setLocation(580, 143);
-        mlbImage.setSize(350,240);
-        add(mlbImage);
-        mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));
-
-        JLabel mlbImage = new JLabel(new ImageIcon(dimg));
-        mlbImage.setLocation(624, 98);
-        mlbImage.setSize(300, 300);
+        mlbImage.setSize(250,250);
         add(mlbImage);
         mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));
 
