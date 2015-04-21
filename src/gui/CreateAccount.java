@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -15,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
+import database.Database;
 import database.User;
 
 
@@ -114,20 +117,19 @@ public class CreateAccount extends JPanel {
 
 		btnCreateNewAccount.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
-    			debug("you clicked Create New Account");
-    			// Authenticate User
-    			User user = User.newUser(textUsername.getText(), textPassword.getText(), 
-    									 textFirstName.getText(), textLastname.getText(), 
-    									 Integer.valueOf(textAge.getText()));
-    			if (user != null) {
-    				debug("your information is submitted");
-    				main.loadUserInfoIntoControls();
-    				main.showApplicationGUI();
-    				debug("new application window should pop up");
-    				
-    			} else {
-    		        JOptionPane.showMessageDialog(null, "Unable to create user!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
-    			}
+    			//debug("you clicked Create New Account");
+    			// get user's input
+    			User user = isUniqueUser();
+    			
+				if (user != null) {
+					//debug("your information is submitted");
+					main.loadUserInfoIntoControls();
+					main.showApplicationGUI();
+					debug("new application window should pop up");
+				} 
+    			else {
+					JOptionPane.showMessageDialog(null, "User is already being used. Please try a new username.", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+				}
     		}
     	});
 		
@@ -137,4 +139,30 @@ public class CreateAccount extends JPanel {
 		 */		
 	
 	}
+	
+	public User isUniqueUser(){
+		//Make sure username is unique
+		String sql = "SELECT COUNT(*) AS rowcount FROM " + User.getTableName() + 
+				    " WHERE " + User.getFieldUserName() + " = " + "\"" + textUsername.getText() + "\"";
+		ResultSet rs = Database.getResultSetFromSQL(sql);
+		
+		try {
+			rs.next();
+			int count = rs.getInt("rowcount");
+			
+			if(count < 1){
+				User user = User.newUser(textUsername.getText(), textPassword.getText(), 
+						 textFirstName.getText(), textLastname.getText(), 
+						 Integer.valueOf(textAge.getText()));
+				return user;
+			}
+			else{
+				return null;
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("Issue in CreateAccount, isUniqueUser");
+		}
+		return null;
 	}
+}

@@ -34,10 +34,23 @@ public class ComparePlayers
 		PriorityQueue<ComparisonResult> queue = new PriorityQueue<ComparisonResult>(
 				mlbList.size(), comparator);
 		
+		LocalPlayerBattingStatistics_Season lpBatting;
+		LocalPlayerPitchingStatistics_Season lpPitching;
+		
 		ArrayList<LocalPlayerBattingStatistics_Season> lpStatsBat = LocalPlayerBattingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
-		LocalPlayerBattingStatistics_Season lpBatting = lpStatsBat.get(0);
+		if(!lpStatsBat.isEmpty()){
+			lpBatting = lpStatsBat.get(0);
+		}
+		else{
+			lpBatting = null;
+		}
 		ArrayList<LocalPlayerPitchingStatistics_Season> lpStatsList = LocalPlayerPitchingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
-		LocalPlayerPitchingStatistics_Season lpPitching = lpStatsList.get(0);
+		if(!lpStatsList.isEmpty()){
+			lpPitching = lpStatsList.get(0);
+		}
+		else{
+			lpPitching = null;
+		}
 		
 		for (MlbPlayer player : mlbList)
 		{
@@ -113,7 +126,7 @@ public class ComparePlayers
 		{
 			float[] localScore = loadScores_Hitting(lpStats, mlbPlayer);
 			
-			if (localScore.length > 0)
+			if (localScore != null)
 			{
 				for (int i = 0; i < localScore.length; i++)
 				{
@@ -158,8 +171,8 @@ public class ComparePlayers
 		if (mlbPlayer.getPitching_games_play() > 0)
 		{
 			float[] localScore = loadScores_Pitching(lpStats, mlbPlayer);
-			
-			if (localScore.length > 0)
+			//null
+			if (localScore != null)
 			{
 				for (int i = 0; i < localScore.length; i++)
 				{
@@ -232,18 +245,19 @@ public class ComparePlayers
 		 * average.
 		 */
 		float battingAverageLocal = 0.00f;
-		if (lpStats.getBatting_totals_ab() != 0)
-		{
-			battingAverageLocal = (float) lpStats.getBatting_onbase_totals_h()
+		if(lpStats != null){
+			if (lpStats.getBatting_totals_ab() != 0)
+			{
+				battingAverageLocal = (float) lpStats.getBatting_onbase_totals_h()
 					/ (float) lpStats.getBatting_totals_ab();
-		}
-		else
-		{
-			battingAverageLocal = 0.00f;
-		}
+			}
+			else
+			{
+				battingAverageLocal = 0.00f;
+			}
 		
-		// Local Player Statistics
-		float[] localScores = { lpStats.getBatting_game_play(),
+			// Local Player Statistics
+			float[] localScores = { lpStats.getBatting_game_play(),
 				lpStats.getBatting_totals_ab(), lpStats.getBatting_totals_runs(),
 				lpStats.getBatting_onbase_totals_h(),
 				lpStats.getBatting_onbase_totals_d(),
@@ -251,9 +265,13 @@ public class ComparePlayers
 				lpStats.getBatting_onbase_totals_hr(), lpStats.getBatting_totals_rbi(),
 				lpStats.getBatting_totals_outs_k(),
 				lpStats.getBatting_steal_totals_stolen() };
-		localBAverage = battingAverageLocal;
-		localSlug = lpStats.getSlugging();
-		localScore = localScores;
+			localBAverage = battingAverageLocal;
+			localSlug = lpStats.getSlugging();
+			localScore = localScores;
+		}
+		else{
+			localScore = null;
+		}
 		
 		// MLB Player Statistics
 		float[] mlbScores = { mlbPlayer.getBatting_games_play(),
@@ -284,18 +302,23 @@ public class ComparePlayers
 	{
 		float[] localScore;
 		
-		
 		//ArrayList<LocalPlayerPitchingStatistics_Season> lpStatsList = LocalPlayerPitchingStatistics_Season
 		//		.getStatisticsFromDatabase(lp.getLocalPlayerId());
 		//LocalPlayerPitchingStatistics_Season lpStats = lpStatsList.get(0);
 		
-		// Local Player statistics
-		float[] localScores = { lpStats.getPitching_games_won(),
+		if(lpStats != null){
+
+			// Local Player statistics
+			float[] localScores = { lpStats.getPitching_games_won(),
 				lpStats.getPitching_games_loss(),
 				(lpStats.getPitching_games_won() / lpStats.getPitching_games_play()),
 				lpStats.getPitching_totals_era(), lpStats.getPitching_games_play(),
 				lpStats.getPitching_games_totals_hit() };
-		localScore = localScores;
+			localScore = localScores;
+		}
+		else{
+			localScore = null;
+		}
 		
 		// MLB Player statistics
 		float[] mlbScores = { mlbPlayer.getPitching_games_win(),

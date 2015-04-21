@@ -164,7 +164,7 @@ public class LocalPlayerBattingStatistics {
 				+ FIELD_LOCAL_PLAYER_ID + " = " + localPlayerId + " ORDER BY "
 				+ FIELD_GAME_DATE + " DESC";
 		ResultSet rs = Database.getResultSetFromSQL(sql);
-
+		//System.out.println("rs"+rs);
 		if (rs != null) {
 			// Loop through the Result Set and Add Each MlbPlayer to the
 			// ArrayList

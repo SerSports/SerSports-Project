@@ -44,15 +44,11 @@ Class: HomePageGUI
 Description: GUI for the home page
 */
 public class HomePageGUI extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -4533439348087965616L;
 	protected User currentUser = null;
 	protected JLabel userFirstName = null;
 	protected JButton btnSignOut;
 	protected JTable comparisonTable;
-	protected ModifiedJButtonStyle1 btnFindBestComparison = new ModifiedJButtonStyle1("Find Best Comparison");;
+	protected ModifiedJButtonStyle1 btnFindBestComparison = new ModifiedJButtonStyle1("Find Best Comparison");
 	protected JLabel lblInsertPlayersName = null;
 	protected JLabel label = null;
 	protected Image imgbackground = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
@@ -85,13 +81,19 @@ public class HomePageGUI extends JPanel {
         add(mlbImage);
         mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));
 
+        JLabel mlbImage = new JLabel(new ImageIcon(dimg));
+        mlbImage.setLocation(624, 98);
+        mlbImage.setSize(300, 300);
+        add(mlbImage);
+        mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));
+
 		setBounds(0, 114, 1300, 597);
 		setPreferredSize(new Dimension(1000, 650));
 		setBackground(new Color(47, 52, 64));
 		setLayout(null);
 		
 		JLabel diamond = new JLabel("");
-		diamond.setBounds(182, -48, 64, 64);
+		diamond.setBounds(189, -48, 64, 64);
 		add(diamond);
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
 		diamond.setIcon(new ImageIcon(img2));

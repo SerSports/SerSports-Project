@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -13,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 import database.ComparePlayers;
 import database.ComparisonResult;
+import database.Database;
 import database.LocalPlayer;
 import database.MlbPlayer;
 import database.SportsPicsApi;
@@ -140,5 +143,4 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener,
 			findBestComparisons();
 		}
 	}
-	
 }
