@@ -29,32 +29,34 @@ public class ComparePlayers
 	{
 		ArrayList<ComparisonResult> results = new ArrayList<ComparisonResult>();
 		
-		Comparator<ComparisonResult> comparator = new ComparisonResult.ComparisonResultComparator();
-		PriorityQueue<ComparisonResult> queue = new PriorityQueue<ComparisonResult>(
-				mlbList.size(), comparator);
-		
-		LocalPlayerBattingStatistics_Season lpBatting = null;
-		LocalPlayerPitchingStatistics_Season lpPitching = null;
-		
-		ArrayList<LocalPlayerBattingStatistics_Season> lpStatsBat = LocalPlayerBattingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
-		if(!lpStatsBat.isEmpty())
-		{
-			lpBatting = lpStatsBat.get(0);
-		}
-		ArrayList<LocalPlayerPitchingStatistics_Season> lpStatsList = LocalPlayerPitchingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
-		if(!lpStatsList.isEmpty())
-		{
-			lpPitching = lpStatsList.get(0);
-		}
-		
-		for (MlbPlayer player : mlbList)
-		{
-			float score = compareToPlayer(lpBatting, lpPitching, player);
-			queue.add(new ComparisonResult(player, score));
-		}
-		for (int i = 0; i < 10; i++)
-		{
-			results.add(queue.remove());
+		if (mlbList != null && mlbList.size() > 0) {
+			Comparator<ComparisonResult> comparator = new ComparisonResult.ComparisonResultComparator();
+			PriorityQueue<ComparisonResult> queue = new PriorityQueue<ComparisonResult>(
+					mlbList.size(), comparator);
+			
+			LocalPlayerBattingStatistics_Season lpBatting = null;
+			LocalPlayerPitchingStatistics_Season lpPitching = null;
+			
+			ArrayList<LocalPlayerBattingStatistics_Season> lpStatsBat = LocalPlayerBattingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
+			if(!lpStatsBat.isEmpty())
+			{
+				lpBatting = lpStatsBat.get(0);
+			}
+			ArrayList<LocalPlayerPitchingStatistics_Season> lpStatsList = LocalPlayerPitchingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
+			if(!lpStatsList.isEmpty())
+			{
+				lpPitching = lpStatsList.get(0);
+			}
+			
+			for (MlbPlayer player : mlbList)
+			{
+				float score = compareToPlayer(lpBatting, lpPitching, player);
+				queue.add(new ComparisonResult(player, score));
+			}
+			for (int i = 0; i < 10; i++)
+			{
+				results.add(queue.remove());
+			}
 		}
 		
 		return results;
