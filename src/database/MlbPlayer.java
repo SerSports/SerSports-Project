@@ -26,8 +26,9 @@ Description: Creates MLBPlayer Object
 */
 public class MlbPlayer extends Object implements java.io.Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	// Constants
-	private static final String TABLE_NAME = "MlbPlayers";  
+	private static final String TABLE_NAME = "mlbplayers";  
 	private static final String FIELD_ID = "mlbPlayerId";  
 	private static final String FIELD_FIRSTNAME = "firstName";  
 	private static final String FIELD_LASTNAME = "lastName";  
@@ -97,29 +98,29 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     private int pitching_outs_ktotal; 	//Batting outs SO
     private int pitching_steal_caught; 	// steals Stolen SB
     private int pitching_steal_stolen; 	// steals Stolen SB
-    private int pitching_games_play;	// GP games played //Fielding//Pitching//Batting hitting_games_play
+    private int pitching_games_play;	// GP games played //Fielding//Pitching//Batting batting_games_play
     private int pitching_games_win;		//Pitching: W
     private int pitching_games_loss;	//Pitching: L
     private int pitching_games_save;	//Pitching: Saves
     private int pitching_games_hold; 	//Pitching:Hold
     
     
-    private int hitting_ab; 			//Batting AB
-	private int hitting_rbi; 			//Batting RBI	
-	private int hitting_onbase_h;		//Hitting H
-    private int hitting_onbase_s;		//Hitting 1B single
-    private int hitting_onbase_d;		//Hitting 2B double
-    private int hitting_onbase_t;		//Hitting 3B triple
-    private int hitting_onbase_hr;		//Hitting HR home-runs
-    private int hitting_onbase_bb;		//Hitting BB
-    private int hitting_runs_earned; 	//Hitting ER 
-    private int hitting_runs_total; 	//Hitting R
-    private int hitting_outs_ktotal; 	//Hitting outs SO
-    private int hitting_steal_caught; 	//Hitting steals Stolen SB
-    private int hitting_steal_stolen; 	//Hitting steals Stolen SB
-    private int hitting_games_play;		//Hitting GP games played
-    private int hitting_games_win;		//Hitting: W
-    private int hitting_games_loss;		//Hitting: L
+    private int batting_ab; 			//Batting AB
+	private int batting_rbi; 			//Batting RBI	
+	private int batting_onbase_h;		//Hitting H
+    private int batting_onbase_s;		//Hitting 1B single
+    private int batting_onbase_d;		//Hitting 2B double
+    private int batting_onbase_t;		//Hitting 3B triple
+    private int batting_onbase_hr;		//Hitting HR home-runs
+    private int batting_onbase_bb;		//Hitting BB
+    private int batting_runs_earned; 	//Hitting ER 
+    private int batting_runs_total; 	//Hitting R
+    private int batting_outs_ktotal; 	//Hitting outs SO
+    private int batting_steal_caught; 	//Hitting steals Stolen SB
+    private int batting_steal_stolen; 	//Hitting steals Stolen SB
+    private int batting_games_play;		//Hitting GP games played
+    private int batting_games_win;		//Hitting: W
+    private int batting_games_loss;		//Hitting: L
 
     private int fielding_po;			//Fielding Putouts
     private int fielding_error;			//Fielding Error
@@ -164,23 +165,23 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 			this.pitching_games_hold = rs.getInt(FIELD_PITCHING_GAMES_HOLD);
 			this.pitching_games_play = rs.getInt(FIELD_PITCHING_GAMES_PLAY);
 		    
-			this.hitting_ab = rs.getInt(FIELD_HITTING_AB);	
-			this.hitting_ab = rs.getInt(FIELD_HITTING_AB);
-			this.hitting_rbi = rs.getInt(FIELD_HITTING_RBI);
-			this.hitting_onbase_h = rs.getInt(FIELD_HITTING_ONBASE_H);		
-			this.hitting_onbase_s = rs.getInt(FIELD_HITTING_ONBASE_S);
-			this.hitting_onbase_d = rs.getInt(FIELD_HITTING_ONBASE_D);
-			this.hitting_onbase_t = rs.getInt(FIELD_HITTING_ONBASE_T);
-			this.hitting_onbase_hr = rs.getInt(FIELD_HITTING_ONBASE_HR);
-			this.hitting_onbase_bb = rs.getInt(FIELD_HITTING_ONBASE_BB);			
-			this.hitting_runs_earned = rs.getInt(FIELD_HITTING_RUNS_EARNED);
-			this.hitting_runs_total = rs.getInt(FIELD_HITTING_RUNS_TOTAL);			
-			this.hitting_outs_ktotal = rs.getInt(FIELD_HITTING_OUTS_KTOTAL);
-			this.hitting_steal_caught = rs.getInt(FIELD_HITTING_STEAL_CAUGHT);
-			this.hitting_steal_stolen = rs.getInt(FIELD_HITTING_STEAL_STOLEN);		
-			this.hitting_games_play = rs.getInt(FIELD_HITTING_GAMES_PLAY);
-			this.hitting_games_win = rs.getInt(FIELD_HITTING_GAMES_WIN);
-			this.hitting_games_loss = rs.getInt(FIELD_HITTING_GAMES_LOSS);
+			this.batting_ab = rs.getInt(FIELD_HITTING_AB);	
+			this.batting_ab = rs.getInt(FIELD_HITTING_AB);
+			this.batting_rbi = rs.getInt(FIELD_HITTING_RBI);
+			this.batting_onbase_h = rs.getInt(FIELD_HITTING_ONBASE_H);		
+			this.batting_onbase_s = rs.getInt(FIELD_HITTING_ONBASE_S);
+			this.batting_onbase_d = rs.getInt(FIELD_HITTING_ONBASE_D);
+			this.batting_onbase_t = rs.getInt(FIELD_HITTING_ONBASE_T);
+			this.batting_onbase_hr = rs.getInt(FIELD_HITTING_ONBASE_HR);
+			this.batting_onbase_bb = rs.getInt(FIELD_HITTING_ONBASE_BB);			
+			this.batting_runs_earned = rs.getInt(FIELD_HITTING_RUNS_EARNED);
+			this.batting_runs_total = rs.getInt(FIELD_HITTING_RUNS_TOTAL);			
+			this.batting_outs_ktotal = rs.getInt(FIELD_HITTING_OUTS_KTOTAL);
+			this.batting_steal_caught = rs.getInt(FIELD_HITTING_STEAL_CAUGHT);
+			this.batting_steal_stolen = rs.getInt(FIELD_HITTING_STEAL_STOLEN);		
+			this.batting_games_play = rs.getInt(FIELD_HITTING_GAMES_PLAY);
+			this.batting_games_win = rs.getInt(FIELD_HITTING_GAMES_WIN);
+			this.batting_games_loss = rs.getInt(FIELD_HITTING_GAMES_LOSS);
 			
 			this.fielding_po = rs.getInt(FIELD_FIELDING_PO);
 			this.fielding_error = rs.getInt(FIELD_FIELDING_ERROR);
@@ -218,19 +219,19 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 	}
 	
 	public int getTotalBases() {
-		return hitting_onbase_h + (2 * hitting_onbase_d) + (3 * hitting_onbase_t) + (4 * hitting_onbase_hr);
+		return batting_onbase_h + (2 * batting_onbase_d) + (3 * batting_onbase_t) + (4 * batting_onbase_hr);
 	}
 	
 	public float getSlugging() {
-		if (hitting_ab != 0) {
-			return getTotalBases() / hitting_ab;
+		if (batting_ab != 0) {
+			return (float) getTotalBases() / (float) batting_ab;
 		}
 		return 0.00f;
 	}
 	
 	public float getBattingAverage() {
-		if (hitting_ab != 0) {
-			return hitting_onbase_h / hitting_ab;
+		if (batting_ab != 0) {
+			return (float) batting_onbase_h / (float) batting_ab;
 		}
 		else {
 			return 0.00f;
@@ -305,68 +306,68 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 		return pitching_games_hold;
 	}
 	
-	public int getHitting_ab() {
-		return hitting_ab;
+	public int getBatting_ab() {
+		return batting_ab;
 	}
 
-	public int getHitting_rbi() {
-		return hitting_rbi;
+	public int getBatting_rbi() {
+		return batting_rbi;
 	}
 
-	public int getHitting_onbase_h() {
-		return hitting_onbase_h;
+	public int getBatting_onbase_h() {
+		return batting_onbase_h;
 	}
 
-	public int getHitting_onbase_s() {
-		return hitting_onbase_s;
+	public int getBatting_onbase_s() {
+		return batting_onbase_s;
 	}
 
-	public int getHitting_onbase_d() {
-		return hitting_onbase_d;
+	public int getBatting_onbase_d() {
+		return batting_onbase_d;
 	}
 
-	public int getHitting_onbase_t() {
-		return hitting_onbase_t;
+	public int getBatting_onbase_t() {
+		return batting_onbase_t;
 	}
 
-	public int getHitting_onbase_hr() {
-		return hitting_onbase_hr;
+	public int getBatting_onbase_hr() {
+		return batting_onbase_hr;
 	}
 
-	public int getHitting_onbase_bb() {
-		return hitting_onbase_bb;
+	public int getBatting_onbase_bb() {
+		return batting_onbase_bb;
 	}
 
-	public int getHitting_runs_earned() {
-		return hitting_runs_earned;
+	public int getBatting_runs_earned() {
+		return batting_runs_earned;
 	}
 
-	public int getHitting_runs_total() {
-		return hitting_runs_total;
+	public int getBatting_runs_total() {
+		return batting_runs_total;
 	}
 
-	public int getHitting_outs_ktotal() {
-		return hitting_outs_ktotal;
+	public int getBatting_outs_ktotal() {
+		return batting_outs_ktotal;
 	}
 
-	public int getHitting_steal_caught() {
-		return hitting_steal_caught;
+	public int getBatting_steal_caught() {
+		return batting_steal_caught;
 	}
 
-	public int getHitting_steal_stolen() {
-		return hitting_steal_stolen;
+	public int getBatting_steal_stolen() {
+		return batting_steal_stolen;
 	}
 
-	public int getHitting_games_play() {
-		return hitting_games_play;
+	public int getBatting_games_play() {
+		return batting_games_play;
 	}
 
-	public int getHitting_games_win() {
-		return hitting_games_win;
+	public int getBatting_games_win() {
+		return batting_games_win;
 	}
 
-	public int getHitting_games_loss() {
-		return hitting_games_loss;
+	public int getBatting_games_loss() {
+		return batting_games_loss;
 	}
 
 	public int getFielding_po() {
@@ -418,8 +419,8 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 						FIELD_LASTNAME + " = \"" + this.last_name + "\", " +
 						FIELD_TEAM_NAME + " = \"" + this.team_name + "\", " +
 						FIELD_TEAM_ID +  " = \"" + this.team_id + "\", " +
-						FIELD_HITTING_AB +  " = \"" + this.hitting_ab + "\", " +
-						FIELD_HITTING_RBI +  " = \"" + this.hitting_rbi + "\", " +
+						FIELD_HITTING_AB +  " = \"" + this.batting_ab + "\", " +
+						FIELD_HITTING_RBI +  " = \"" + this.batting_rbi + "\", " +
 						FIELD_PITCHING_ERA +  " = \"" + this.pitching_era + "\", " +
 						FIELD_PITCHING_ONBASE_H +  " = \"" + this.pitching_onbase_h + "\", " +
 						FIELD_PITCHING_ONBASE_S +  " = \"" + this.pitching_onbase_s + "\", " +
@@ -437,20 +438,20 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 						FIELD_PITCHING_GAMES_LOSS +" = \"" + this.pitching_games_loss + "\", " +
 						FIELD_PITCHING_GAMES_SAVE + " = \"" + this.pitching_games_save + "\", " +
 						FIELD_PITCHING_GAMES_HOLD + " = \"" + this.pitching_games_hold + "\", " +
-						FIELD_HITTING_ONBASE_H + " = \"" + this.hitting_onbase_h + "\", " +
-						FIELD_HITTING_ONBASE_S +" = \"" + this.hitting_onbase_s + "\", " +
-						FIELD_HITTING_ONBASE_D + " = \"" + this.hitting_onbase_d + "\", " +
-						FIELD_HITTING_ONBASE_T + " = \"" + this.hitting_onbase_t + "\", " +
-						FIELD_HITTING_ONBASE_HR + " = \"" + this.hitting_onbase_hr + "\", " +
-						FIELD_HITTING_ONBASE_BB + " = \"" + this.hitting_onbase_bb + "\", " +
-						FIELD_HITTING_RUNS_EARNED + " = \"" + this.hitting_runs_earned + "\", " +
-						FIELD_HITTING_RUNS_TOTAL + " = \"" + this.hitting_runs_total + "\", " +
-						FIELD_HITTING_OUTS_KTOTAL + " = \"" + this.hitting_outs_ktotal + "\", " +
-						FIELD_HITTING_STEAL_CAUGHT + " = \"" + this.hitting_steal_caught + "\", " +
-						FIELD_HITTING_STEAL_STOLEN + " = \"" + this.hitting_steal_stolen + "\", " +
-						FIELD_HITTING_GAMES_PLAY +" = \"" + this.hitting_games_play + "\", " +
-						FIELD_HITTING_GAMES_WIN + " = \"" + this.hitting_games_win + "\", " +
-						FIELD_HITTING_GAMES_LOSS + " = \"" + this.hitting_games_loss + "\", " +
+						FIELD_HITTING_ONBASE_H + " = \"" + this.batting_onbase_h + "\", " +
+						FIELD_HITTING_ONBASE_S +" = \"" + this.batting_onbase_s + "\", " +
+						FIELD_HITTING_ONBASE_D + " = \"" + this.batting_onbase_d + "\", " +
+						FIELD_HITTING_ONBASE_T + " = \"" + this.batting_onbase_t + "\", " +
+						FIELD_HITTING_ONBASE_HR + " = \"" + this.batting_onbase_hr + "\", " +
+						FIELD_HITTING_ONBASE_BB + " = \"" + this.batting_onbase_bb + "\", " +
+						FIELD_HITTING_RUNS_EARNED + " = \"" + this.batting_runs_earned + "\", " +
+						FIELD_HITTING_RUNS_TOTAL + " = \"" + this.batting_runs_total + "\", " +
+						FIELD_HITTING_OUTS_KTOTAL + " = \"" + this.batting_outs_ktotal + "\", " +
+						FIELD_HITTING_STEAL_CAUGHT + " = \"" + this.batting_steal_caught + "\", " +
+						FIELD_HITTING_STEAL_STOLEN + " = \"" + this.batting_steal_stolen + "\", " +
+						FIELD_HITTING_GAMES_PLAY +" = \"" + this.batting_games_play + "\", " +
+						FIELD_HITTING_GAMES_WIN + " = \"" + this.batting_games_win + "\", " +
+						FIELD_HITTING_GAMES_LOSS + " = \"" + this.batting_games_loss + "\", " +
 						FIELD_FIELDING_PO + " = \"" + this.fielding_po + "\", " +
 						FIELD_FIELDING_ERROR + " = \"" + this.fielding_error + "\", " +
 						FIELD_FIELDING_A + " = \"" + this.fielding_a + "\", " +
@@ -489,7 +490,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 				"VALUES (\"" + this.id + "\", " + "\"" + this.first_name + "\", " +
 					"\"" + this.last_name + "\", " + "\"" + this.team_name + "\", " + 
 					"\"" + this.team_id + "\", " + 
-					this.hitting_ab + ", " + this.hitting_rbi + ", " +
+					this.batting_ab + ", " + this.batting_rbi + ", " +
 					this.pitching_era + ", " + this.pitching_onbase_h + ", " +
 					this.pitching_onbase_s + ", " + this.pitching_onbase_d + ", " +
 					this.pitching_onbase_t + ", " + this.pitching_onbase_hr + ", " +
@@ -498,14 +499,14 @@ public class MlbPlayer extends Object implements java.io.Serializable {
 					this.pitching_steal_caught + ", " + this.pitching_steal_stolen + ", " +
 					this.pitching_games_play + ", " + this.pitching_games_win + ", " +
 					this.pitching_games_loss + ", " + this.pitching_games_save + ", " +
-					this.pitching_games_hold + ", " + this.hitting_onbase_h + ", " +
-					this.hitting_onbase_s + ", " + this.hitting_onbase_d + ", " +
-					this.hitting_onbase_t + ", " + this.hitting_onbase_hr + ", " +
-					this.hitting_onbase_bb + ", " + this.hitting_runs_earned + ", " +
-					this.hitting_runs_total + ", " + this.hitting_outs_ktotal + ", " +
-					this.hitting_steal_caught + ", " + this.hitting_steal_stolen + ", " +
-					this.hitting_games_play + ", " + this.hitting_games_win + ", " +
-					this.hitting_games_loss + ", " + this.fielding_po + ", " +
+					this.pitching_games_hold + ", " + this.batting_onbase_h + ", " +
+					this.batting_onbase_s + ", " + this.batting_onbase_d + ", " +
+					this.batting_onbase_t + ", " + this.batting_onbase_hr + ", " +
+					this.batting_onbase_bb + ", " + this.batting_runs_earned + ", " +
+					this.batting_runs_total + ", " + this.batting_outs_ktotal + ", " +
+					this.batting_steal_caught + ", " + this.batting_steal_stolen + ", " +
+					this.batting_games_play + ", " + this.batting_games_win + ", " +
+					this.batting_games_loss + ", " + this.fielding_po + ", " +
 					this.fielding_error + ", " + this.fielding_a + ", " +
 					this.fielding_fpct + ", " + this.fielding_games_play + ", " +
 					this.fielding_games_win + ", " + this.fielding_games_loss  +
@@ -662,8 +663,8 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     
     private void loadHittingData(Node node) {
         // Get the "hitting" data
-        hitting_ab       = getNodesNamedInt(node, "ab");
-        hitting_rbi      = getNodesNamedInt(node, "rbi");
+        batting_ab       = getNodesNamedInt(node, "ab");
+        batting_rbi      = getNodesNamedInt(node, "rbi");
     }
     
     private void loadPitchingData(Node node) {
@@ -681,12 +682,12 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     private void loadOnbaseData(Node node, String parentNodeName) {
         // Load "onbase" data
     	if (parentNodeName.equals("hitting")) {
-	        hitting_onbase_h     = getNodesNamedInt(node, "h");
-	        hitting_onbase_s     = getNodesNamedInt(node, "s");
-	        hitting_onbase_d     = getNodesNamedInt(node, "d");
-	        hitting_onbase_t     = getNodesNamedInt(node, "t");
-	        hitting_onbase_hr    = getNodesNamedInt(node, "hr");
-	        hitting_onbase_bb    = getNodesNamedInt(node, "bb");
+	        batting_onbase_h     = getNodesNamedInt(node, "h");
+	        batting_onbase_s     = getNodesNamedInt(node, "s");
+	        batting_onbase_d     = getNodesNamedInt(node, "d");
+	        batting_onbase_t     = getNodesNamedInt(node, "t");
+	        batting_onbase_hr    = getNodesNamedInt(node, "hr");
+	        batting_onbase_bb    = getNodesNamedInt(node, "bb");
     	} else if (parentNodeName.equals("pitching")) {
 	        pitching_onbase_h     = getNodesNamedInt(node, "h");
 	        pitching_onbase_s     = getNodesNamedInt(node, "s");
@@ -700,8 +701,8 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     private void loadRunsData(Node node, String parentNodeName) {
         // Load "runs" data
     	if (parentNodeName.equals("hitting")) {
-	        hitting_runs_earned      = getNodesNamedInt(node, "earned");
-	        hitting_runs_total       = getNodesNamedInt(node, "total");
+	        batting_runs_earned      = getNodesNamedInt(node, "earned");
+	        batting_runs_total       = getNodesNamedInt(node, "total");
     	} else if (parentNodeName.equals("pitching")) {
 	        pitching_runs_earned      = getNodesNamedInt(node, "earned");
 	        pitching_runs_total       = getNodesNamedInt(node, "total");
@@ -711,7 +712,7 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     private void loadOutsData(Node node, String parentNodeName) {
         // Load "outs" data
     	if (parentNodeName.equals("hitting")) {
-    		hitting_outs_ktotal  = getNodesNamedInt(node, "ktotal");
+    		batting_outs_ktotal  = getNodesNamedInt(node, "ktotal");
     	} else if (parentNodeName.equals("pitching")) {
     		pitching_outs_ktotal  = getNodesNamedInt(node, "ktotal");
     	}
@@ -720,8 +721,8 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     private void loadStealData(Node node, String parentNodeName) {
         // Load "steal" data
     	if (parentNodeName.equals("hitting")) {
-    		hitting_steal_caught = getNodesNamedInt(node, "caught");
-    		hitting_steal_stolen = getNodesNamedInt(node, "stolen");
+    		batting_steal_caught = getNodesNamedInt(node, "caught");
+    		batting_steal_stolen = getNodesNamedInt(node, "stolen");
     	} else if (parentNodeName.equals("pitching")) {
     		pitching_steal_caught = getNodesNamedInt(node, "caught");
     		pitching_steal_stolen = getNodesNamedInt(node, "stolen");
@@ -731,9 +732,9 @@ public class MlbPlayer extends Object implements java.io.Serializable {
     private void loadGamesData(Node node, String parentNodeName) {
         // Load "games" data
     	if (parentNodeName.equals("hitting")) {
-    		hitting_games_play       = getNodesNamedInt(node, "play");
-    		hitting_games_win        = getNodesNamedInt(node, "win");
-    		hitting_games_loss       = getNodesNamedInt(node, "loss");
+    		batting_games_play       = getNodesNamedInt(node, "play");
+    		batting_games_win        = getNodesNamedInt(node, "win");
+    		batting_games_loss       = getNodesNamedInt(node, "loss");
     	} else if (parentNodeName.equals("pitching")) {
     		pitching_games_play       = getNodesNamedInt(node, "play");
     		pitching_games_win        = getNodesNamedInt(node, "win");

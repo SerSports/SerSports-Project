@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class LocalPlayerFieldingStatistics {
 
 	// Constants
-	private static final String TABLE_NAME = "localPlayersFieldingStatistics";
+	private static final String TABLE_NAME = "localplayersfieldingstatistics";
 	private static final String FIELD_ID = "localPlayersFieldingStatisticsID";
 	private static final String FIELD_LOCAL_PLAYER_ID = "localPlayerId";
 	private static final String FIELD_TEAM_NAME = "team_name";
@@ -17,9 +17,7 @@ public class LocalPlayerFieldingStatistics {
 	private static final String FIELD_FIELDING_ERROR = "fielding_error";
 	private static final String FIELD_FIELDING_ASSIST = "fielding_assist";
 	private static final String FIELD_FIELDING_FPCT = "fielding_fpct";
-	private static final String FIELD_FIELDING_GAMES_PLAY = "fielding_games_play";
-	private static final String FIELD_FIELDING_GAMES_WIN = "fielding_games_win";
-	private static final String FIELD_FIELDING_GAMES_LOSS = "fielding_games_loss";
+	private static final String FIELD_FIELDING_GAME_WON = "fielding_game_won";
 
 	// Members
 	private int localPlayersFieldingStatisticsID;
@@ -31,9 +29,7 @@ public class LocalPlayerFieldingStatistics {
 	private int fielding_error; // Fielding Error
 	private int fielding_assist; // Fielding Assists
 	private float fielding_fpct; // Fielding Fielding Percentage
-	private int fielding_games_play; // Fielding GP games played
-	private int fielding_games_win; // Fielding: W
-	private int fielding_games_loss; // Fielding: L
+	private int fielding_game_won; // Fielding: W
 
 	public int getLocalPlayersFieldingStatisticsID() {
 		return localPlayersFieldingStatisticsID;
@@ -70,17 +66,9 @@ public class LocalPlayerFieldingStatistics {
 	public float getFielding_fpct() {
 		return fielding_fpct;
 	}
-
-	public int getFielding_games_play() {
-		return fielding_games_play;
-	}
-
-	public int getFielding_games_win() {
-		return fielding_games_win;
-	}
-
-	public int getFielding_games_loss() {
-		return fielding_games_loss;
+	
+	public int getFielding_game_won(){
+		return fielding_game_won;
 	}
 
 	/**
@@ -100,9 +88,7 @@ public class LocalPlayerFieldingStatistics {
 			this.fielding_error = rs.getInt(FIELD_FIELDING_ERROR);
 			this.fielding_assist = rs.getInt(FIELD_FIELDING_ASSIST);
 			this.fielding_fpct = rs.getFloat(FIELD_FIELDING_FPCT);
-			this.fielding_games_play = rs.getInt(FIELD_FIELDING_GAMES_PLAY);
-			this.fielding_games_win = rs.getInt(FIELD_FIELDING_GAMES_WIN);
-			this.fielding_games_loss = rs.getInt(FIELD_FIELDING_GAMES_LOSS);
+			this.fielding_game_won = rs.getInt(FIELD_FIELDING_GAME_WON);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -140,63 +126,48 @@ public class LocalPlayerFieldingStatistics {
 	}
 
 	// get all the local player's fielding statistics
-	public static void addLocalPlayerFieldingStatistics(String date, String gp,
-			String w, String l, String po, String error, String assist,
-			String fpct) {
+	public static void addOrUpdateLocalPlayerFieldingStatistics(String date,
+			Boolean won, String po, String error, String assist,
+			String fpct, int statsID) {
 
-		int igp, iw, il, ipo, ierror, iassist, ifpct;
+		int iwon, ipo, ierror, iassist;
+		float ifpct;
 		try {
 			// parse strings into integers where appropriate
-			if (notNumeric(gp) != true)
-				igp = Integer.parseInt(gp);
+			if (won)
+				iwon = 1;
 			else
-				igp = 0;
-			if (notNumeric(w) != true)
-				iw = Integer.parseInt(w);
-			else
-				iw = 0;
-			if (notNumeric(l) != true)
-				il = Integer.parseInt(l);
-			else
-				il = 0;
-			if (notNumeric(po) != true)
-				ipo = Integer.parseInt(po);
-			else
-				ipo = 0;
-			if (notNumeric(error) != true)
-				ierror = Integer.parseInt(error);
-			else
-				ierror = 0;
-			if (notNumeric(assist) != true)
-				iassist = Integer.parseInt(assist);
-			else
-				iassist = 0;
-			if (notNumeric(fpct) != true)
-				ifpct = Integer.parseInt(fpct);
-			else
-				ifpct = 0;
-
-			/*
-			 * NOTE: local variables which may need columns added in LocalPlayer
-			 * table
-			 */
-			// String teamName = null;
-			// String position = "Fielding";
-
-			// get username/id
+				iwon = 0;
+			ipo = parseToInt(po);
+			ierror = parseToInt(error);
+			iassist = parseToInt(assist);
+			ifpct = parseToFloat(fpct);
+			
 			User currentUser = User.getCurrentUser();
 
-			Database.executeSQL("INSERT INTO " + TABLE_NAME + "(" + FIELD_LOCAL_PLAYER_ID
-					+ ", " + FIELD_GAME_DATE + ", " + FIELD_FIELDING_GAMES_PLAY
-					+ ", " + FIELD_FIELDING_GAMES_WIN + ", "
-					+ FIELD_FIELDING_GAMES_LOSS + ", " + FIELD_FIELDING_PO
-					+ ", " + FIELD_FIELDING_ERROR + ", "
-					+ FIELD_FIELDING_ASSIST + ", " + FIELD_FIELDING_FPCT + ") "
+			if(statsID == -1)
+			{
+				Database.executeSQL("INSERT INTO " + TABLE_NAME + "(" + FIELD_LOCAL_PLAYER_ID
+					+ ", " + FIELD_GAME_DATE + ", " + FIELD_FIELDING_PO + ", " + FIELD_FIELDING_ERROR 
+					+ ", " + FIELD_FIELDING_ASSIST + ", " + FIELD_FIELDING_FPCT + ", " + FIELD_FIELDING_GAME_WON + ") "
 					+ "VALUES (\"" + currentUser.getLocalPlayerId() + "\", "
-					+ "\"" + date + "\", " + "\"" + igp + "\", " + "\"" + iw
-					+ "\", " + "\"" + il + "\", " + "\"" + ipo + "\", " + "\""
-					+ ierror + "\", " + "\"" + iassist + "\", " + "\"" + ifpct
+					+ "\"" + date + "\", " + "\"" + ipo + "\", " + "\""
+					+ ierror + "\", " + "\"" + iassist + "\", " + "\"" + ifpct + "\", " + "\"" + iwon
 					+ "\");");
+			}
+			else
+			{
+				Database.executeSQL("UPDATE " + TABLE_NAME 
+						+ " SET " 
+						+ FIELD_GAME_DATE + " = \"" + date + "\", "
+						+ FIELD_FIELDING_PO + " = \"" + ipo + "\", "
+						+ FIELD_FIELDING_ERROR + " = \"" + ierror + "\", "
+						+ FIELD_FIELDING_ASSIST + " = \"" + iassist + "\", "
+						+ FIELD_FIELDING_FPCT + " = \"" + ifpct + "\", "
+						+ FIELD_FIELDING_GAME_WON + " = \"" + iwon + "\""
+						+ " WHERE "
+						+ FIELD_ID + " = \"" + statsID + "\";");
+			}
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -219,5 +190,18 @@ public class LocalPlayerFieldingStatistics {
 		}
 		
 		return false;
+	}
+
+	public static int parseToInt(String value){
+		int result;
+		if (notNumeric(value) != true)
+			result = Integer.parseInt(value);
+		else
+			result = 0;
+		return result;
+	}
+	
+	public static float parseToFloat(String value){
+		return Float.parseFloat(value);
 	}
 }

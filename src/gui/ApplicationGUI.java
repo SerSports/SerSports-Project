@@ -2,39 +2,43 @@ package gui;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.*;
+
 import client.*;
+
 import java.awt.Font;
 
 
 public class ApplicationGUI extends JLayeredPane{
-	JPanel panelBodyContainer = new JPanel();
-	JPanel menuPanel = new JPanel();
-	CardLayout c1 = new CardLayout();
-	HomePageGUIClient home = new HomePageGUIClient();
-	UserStatsContainer enterStats = new UserStatsContainer();
-	MlbStatsGuiClient browseMLB = new MlbStatsGuiClient();
-	BrowseLocalPlayersClient browseLocal = new BrowseLocalPlayersClient();
-	ContactUs contactUs = new ContactUs();
-	Help FAQs = new Help();
-	protected JButton btnSignOut = new JButton("SIGN OUT");
 
+	private static final long serialVersionUID = -2185908976323552280L;
+	private JPanel panelBodyContainer = new JPanel();
+	private JPanel menuPanel = new JPanel();
+	private JLabel logo;
+	private CardLayout c1 = new CardLayout();
+	private HomePageGUIClient home = new HomePageGUIClient();
+	private UserStatsContainer enterStats = new UserStatsContainer();
+	private MlbStatsGuiClient browseMLB = new MlbStatsGuiClient();
+	private BrowseLocalPlayersClient browseLocal = new BrowseLocalPlayersClient();
+	private ContactUs contactUs = new ContactUs();
+	private Help FAQs = new Help();
+	protected JButton btnSignOut = new JButton("SIGN OUT");
+	protected Image img = new ImageIcon(this.getClass().getResource("/images/LogoTop.png")).getImage();
+	protected Image imgline = new ImageIcon(this.getClass().getResource("/images/mainMenuline.png")).getImage();
+	private final JLabel verticalLine3 = new JLabel("");
 	
 	public ApplicationGUI() {
 		setLayout(null);
-		//setBounds(0,0,1300,597);
-
-
+		
+		setPreferredSize(new Dimension(100, 650));
+		
 		//Menu		
 		menuPanel.setBounds(0, 0, 1300, 118);
 		menuPanel.setBackground(new Color(244, 229, 192));
@@ -42,65 +46,78 @@ public class ApplicationGUI extends JLayeredPane{
 		add(menuPanel);
 		
 		JButton btnHome = new JButton("HOME");
-		btnHome.setBounds(164, 62, 117, 29);
-		btnHome.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		btnHome.setBounds(157, 64, 117, 29);
+		btnHome.setFont(new Font("Chunkfive", Font.BOLD, 22));
 		btnHome.setBorder(BorderFactory.createEmptyBorder());
 		btnHome.setContentAreaFilled(false);
 		btnHome.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnHome);
 		
 		JButton btnEnterNewStats = new JButton("ENTER NEW STATS");
-		btnEnterNewStats.setBounds(298, 62, 206, 29);
-		btnEnterNewStats.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		btnEnterNewStats.setBounds(291, 64, 230, 29);
+		btnEnterNewStats.setFont(new Font("Chunkfive", Font.BOLD, 22));
 		btnEnterNewStats.setBorder(BorderFactory.createEmptyBorder());
 		btnEnterNewStats.setContentAreaFilled(false);
 		btnEnterNewStats.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnEnterNewStats);
 		
 		JButton btnBrowseLocal = new JButton("BROWSE LOCAL");
-		btnBrowseLocal.setBounds(555, 62, 163, 29);
-		btnBrowseLocal.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		btnBrowseLocal.setBounds(548, 64, 207, 29);
+		btnBrowseLocal.setFont(new Font("Chunkfive", Font.BOLD, 22));
 		btnBrowseLocal.setBorder(BorderFactory.createEmptyBorder());
 		btnBrowseLocal.setContentAreaFilled(false);
 		btnBrowseLocal.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnBrowseLocal);
 		
 		JButton btnBrowseMLB = new JButton("BROWSE MLB");
-		btnBrowseMLB.setBounds(776, 62, 163, 29);
-		btnBrowseMLB.setFont(new Font("Bangla MN", Font.PLAIN, 18));
+		btnBrowseMLB.setBounds(787, 64, 163, 29);
+		btnBrowseMLB.setFont(new Font("Chunkfive", Font.BOLD, 22));
 		btnBrowseMLB.setBorder(BorderFactory.createEmptyBorder());
 		btnBrowseMLB.setContentAreaFilled(false);
 		btnBrowseMLB.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnBrowseMLB);
 		
-		JLabel logo = new JLabel("");
+		logo = new JLabel("");
 		logo.setBounds(6, 6, 152, 112);
 		menuPanel.add(logo);
-		Image img = new ImageIcon(this.getClass().getResource("/images/LogoTop.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 		
-		btnSignOut.setBounds(682, 11, 117, 24);
-		btnSignOut.setFont(new Font("Bangla MN", Font.PLAIN, 14));
+		btnSignOut.setBounds(888, 6, 81, 24);
+		btnSignOut.setFont(new Font("Chunkfive", Font.BOLD, 14));
 		btnSignOut.setBorder(BorderFactory.createEmptyBorder());
 		btnSignOut.setContentAreaFilled(false);
 		btnSignOut.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnSignOut);
 		
-		JButton btncontactUs = new JButton("Contact Us");
-		btncontactUs.setBounds(785, 11, 100, 24);
-		btncontactUs.setFont(new Font("Bangla MN", Font.PLAIN, 14));
+		JButton btncontactUs = new JButton("CONTACT");
+		btncontactUs.setBounds(753, 6, 81, 24);
+		btncontactUs.setFont(new Font("Chunkfive", Font.BOLD, 14));
 		btncontactUs.setBorder(BorderFactory.createEmptyBorder());
 		btncontactUs.setContentAreaFilled(false);
 		btncontactUs.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btncontactUs);
 		
 		JButton btnFAQs = new JButton("FAQs");
-		btnFAQs.setBounds(877, 11, 74, 24);
-		btnFAQs.setFont(new Font("Bangla MN", Font.PLAIN, 14));
+		btnFAQs.setBounds(838, 6, 48, 24);
+		btnFAQs.setFont(new Font("Chunkfive", Font.BOLD, 14));
 		btnFAQs.setBorder(BorderFactory.createEmptyBorder());
 		btnFAQs.setContentAreaFilled(false);
 		btnFAQs.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnFAQs);
+		
+		JLabel verticalLine = new JLabel("");
+		verticalLine.setBounds(273, 61, 4, 36);
+		menuPanel.add(verticalLine);
+		verticalLine.setIcon(new ImageIcon(imgline));
+		
+		JLabel verticalLine2 = new JLabel("");
+		verticalLine2.setBounds(533, 61, 4, 36);
+		menuPanel.add(verticalLine2);
+		verticalLine2.setIcon(new ImageIcon(imgline));
+		
+		verticalLine3.setIcon(new ImageIcon(imgline));
+		verticalLine3.setBounds(765, 61, 4, 36);	
+		menuPanel.add(verticalLine3);
 		
 		//Body Container
 		panelBodyContainer.setBounds(0, 118, 1300, 597);
@@ -158,18 +175,21 @@ public class ApplicationGUI extends JLayeredPane{
     	
 		btnSignOut.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent arg0){
-    			
-    			int result = JOptionPane.showConfirmDialog(null, "You have pending statistics to add. Are you sure you want to sign out?", 
-    					null, JOptionPane.YES_NO_OPTION);
-    			
-    			if(result == JOptionPane.YES_OPTION){
+    			if(TextFieldDocumentListener.isDirty()){
+    				int result = JOptionPane.showConfirmDialog(null, "You have pending statistics to add. Are you sure you want to sign out?", 
+    						null, JOptionPane.YES_NO_OPTION);
+        			if(result == JOptionPane.YES_OPTION){
+        				//need to reset text fields before closing application
+        				MainGUI.setApplicationToClose();
+        			}
+        		}
+    			else
+    			{
     				MainGUI.setApplicationToClose();
-				}
+    			}
     		}
     	});
-	    
-
-
+	   
 	}
 
     public void showHome(){
@@ -196,7 +216,7 @@ public class ApplicationGUI extends JLayeredPane{
     	c1.show(panelBodyContainer, "6");
     }
     
-protected JLabel getLabel(String title, String icon) {
+    protected JLabel getLabel(String title, String icon) {
 	        JLabel label = new JLabel(title);
 	        try {
 	            label.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(icon))));

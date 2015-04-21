@@ -15,12 +15,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 
 /**
  * Class: BrowseLocalPlayers
@@ -29,20 +26,20 @@ import java.awt.Font;
  */
 public class BrowseLocalPlayers extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9139519781491923436L;
 	// Protected Members
-	protected JTextField txtFirstName;
-	protected JTextField txtLastName;
-	protected JTextField txtTeam;
-	protected JButton SubmitLocalSearch;
-	protected JButton btnSeePlayerStats;
-	protected JTable table;
-	protected JTable fieldingTable;
-	protected JTable pitchingTable;
-	protected JTable battingTable;
-
-	// Private Members
-	private JLabel mlbBatting;
-	private JLabel mlbPitching;
+	protected ModifiedJTextField txtFirstName = new ModifiedJTextField();
+	protected ModifiedJTextField txtLastName = new ModifiedJTextField();
+	protected ModifiedJTextField txtTeam = new ModifiedJTextField();
+	protected ModifiedJButtonStyle1 SubmitLocalSearch = new ModifiedJButtonStyle1("Submit");
+	protected ModifiedJButtonStyle1 btnSeePlayerStats = new ModifiedJButtonStyle1("See Player Stats");
+	protected ModifiedJTable table;
+	protected ModifiedJTable fieldingTable;
+	protected ModifiedJTable pitchingTable;
+	protected ModifiedJTable battingTable;
 
 	/**
 	 * Method: Constructor Inputs: None Returns:
@@ -56,13 +53,18 @@ public class BrowseLocalPlayers extends JPanel {
 
 		// Menu Indicator
 		JLabel diamond = new JLabel("");
-		diamond.setBounds(603, -48, 64, 64);
-		Image img2 = new ImageIcon(this.getClass().getResource(
-				"/images/diamond.png")).getImage();
+		diamond.setBounds(617, -48, 64, 64);
+		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
+		
+		JLabel line = new JLabel("");
+		line.setBounds(721, 76, 261, 4);
+		add(line);
+		Image imgline = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
+		line.setIcon(new ImageIcon(imgline));
+		
 		add(diamond);
 		diamond.setIcon(new ImageIcon(img2));
-		Image imgBorder = new ImageIcon(this.getClass().getResource(
-				"/images/Border.png")).getImage();
+		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 
 		JLabel logo = new JLabel("");
 		logo.setBounds(6, 0, 152, 55);
@@ -71,93 +73,94 @@ public class BrowseLocalPlayers extends JPanel {
 				"/images/LogoBottom.png")).getImage();
 		logo.setIcon(new ImageIcon(img));
 
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(260, 23, 636, 132);
+		ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
+		scrollPane.setBounds(30, 251, 433, 171);
 		add(scrollPane);
 
-		table = new JTable(new DefaultTableModel(null, new Object[] {
+		table = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
 				"First Name", "Last Name", "Team", "Position" }));
 		scrollPane.setViewportView(table);
 
-		txtFirstName = new JTextField();
-		txtFirstName.setBounds(48, 40, 176, 29);
+		txtFirstName.setBounds(134, 64, 225, 31);
 		add(txtFirstName);
 		txtFirstName.setText("First Name");
-		txtFirstName.setColumns(10);
+		txtFirstName.addFocusListener(new ModifiedFocusAdapter(txtFirstName, "First Name"));
 
-		txtLastName = new JTextField();
-		txtLastName.setBounds(48, 67, 176, 29);
+		txtLastName.setBounds(134, 103, 225, 31);
 		add(txtLastName);
 		txtLastName.setText("Last Name");
-		txtLastName.setColumns(10);
+		txtLastName.addFocusListener(new ModifiedFocusAdapter(txtLastName, "Last Name"));
 
-		txtTeam = new JTextField();
-		txtTeam.setBounds(48, 105, 176, 29);
+		txtTeam.setBounds(134, 142, 225, 31);
 		add(txtTeam);
 		txtTeam.setText("Team");
-		txtTeam.setColumns(10);
-
-		SubmitLocalSearch = new JButton("Submit");
-		SubmitLocalSearch.setBounds(73, 165, 117, 29);
+		txtTeam.addFocusListener(new ModifiedFocusAdapter(txtTeam, "Team"));
+		
+		SubmitLocalSearch.setText("Search");
+		SubmitLocalSearch.setBounds(184, 197, 125, 28);
 		add(SubmitLocalSearch);
 
-		btnSeePlayerStats = new JButton("See Player Stats");
-		btnSeePlayerStats.setBounds(547, 165, 126, 29);
+		btnSeePlayerStats.setBounds(184, 443, 125, 28);
 		add(btnSeePlayerStats);
-
+	
 		JLabel lblIndividualStatistics = new JLabel("Individual Statistics");
-		lblIndividualStatistics.setForeground(Color.WHITE);
-		lblIndividualStatistics.setBounds(22, 187, 234, 36);
+		lblIndividualStatistics.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblIndividualStatistics.setFont(new Font("Malayalam Sangam MN", Font.BOLD, 26));
+		lblIndividualStatistics.setBounds(711, 38, 257, 41);
+		lblIndividualStatistics.setForeground(new Color(244, 229, 192));
 		add(lblIndividualStatistics);
-		lblIndividualStatistics.setFont(new Font("Lucida Grande", Font.PLAIN,
-				25));
 
-		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(160, 381, 636, 79);
+		ModifiedJScrollPane scrollPane_2 = new ModifiedJScrollPane();
+		scrollPane_2.setBounds(475, 372, 493, 97);
 		add(scrollPane_2);
 
-		fieldingTable = new JTable(new DefaultTableModel(null, new Object[] {
-				"GP", "Wins", "Losses", "PO", "Err", "Assist", "F%" }));
+		fieldingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {"Wins", "PO", "Err", "Assist", "F%" }));
 		scrollPane_2.setViewportView(fieldingTable);
-
-		JLabel lblFielding = new JLabel("Fielding");
-		lblFielding.setForeground(Color.WHITE);
-		lblFielding.setBounds(73, 403, 61, 16);
+		
+		JLabel lblFielding = new JLabel("FIELDING STATS");
+		lblFielding.setHorizontalAlignment(SwingConstants.LEFT);
+		lblFielding.setFont(new Font("Helvetica", Font.BOLD, 16));
+		lblFielding.setBounds(475, 357, 165, 16);
+		lblFielding.setForeground(new Color(244, 229, 192));
 		add(lblFielding);
 
-		JLabel lblPitching = new JLabel("Pitching");
-		lblPitching.setForeground(Color.WHITE);
-		lblPitching.setBounds(73, 332, 61, 16);
+		JLabel lblPitching = new JLabel("PITCHING STATS");
+		lblPitching.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPitching.setFont(new Font("Helvetica", Font.BOLD, 16));
+		lblPitching.setBounds(475, 234, 165, 16);
+		lblPitching.setForeground(new Color(244, 229, 192));
 		add(lblPitching);
 
-		JLabel lblBatting = new JLabel("Batting");
-		lblBatting.setForeground(Color.WHITE);
-		lblBatting.setBounds(73, 270, 61, 16);
+		JLabel lblBatting = new JLabel("BATTING STATS");
+		lblBatting.setHorizontalAlignment(SwingConstants.LEFT);
+		lblBatting.setFont(new Font("Helvetica", Font.BOLD, 16));
+		lblBatting.setBounds(475, 111, 165, 16);
+		lblBatting.setForeground(new Color(244, 229, 192));
 		add(lblBatting);
 
-		JScrollPane scrollPane_3 = new JScrollPane();
-		scrollPane_3.setBounds(160, 316, 636, 71);
+		ModifiedJScrollPane scrollPane_3 = new ModifiedJScrollPane();
+		scrollPane_3.setBounds(475, 249, 493, 97);
 		add(scrollPane_3);
 
-		pitchingTable = new JTable(new DefaultTableModel(null,
-				new Object[] { "GP", "W", "L", "ERA", "SAVES", "HITS", "HOLDS",
+		pitchingTable = new ModifiedJTable(new DefaultTableModel(null,
+				new Object[] {"Won","ERA", "SAVES", "HITS", "HOLDS",
 						"RUNS", "HBP" }));
 		scrollPane_3.setViewportView(pitchingTable);
 
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(160, 246, 636, 79);
+		ModifiedJScrollPane scrollPane_1 = new ModifiedJScrollPane();
+		scrollPane_1.setBounds(475, 126, 493, 97);
 		add(scrollPane_1);
 
-		battingTable = new JTable(new DefaultTableModel(null, new Object[] {
-				"GP", "AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR",
-				"SO", "BA" }));
+		battingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {"Won","AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR",
+				"SO"}));
 		scrollPane_1.setViewportView(battingTable);
-		
-				// border
-				JLabel lblBorderlayout = new JLabel("");
-				lblBorderlayout.setBounds(16, 16, 968, 483);
-				add(lblBorderlayout);
-				lblBorderlayout.setIcon(new ImageIcon(imgBorder));
+		battingTable.setFont(new Font("Helvetica", Font.PLAIN, 12));
+				
+						// border
+						JLabel lblBorderlayout = new JLabel("");
+						lblBorderlayout.setBounds(16, 16, 968, 483);
+						add(lblBorderlayout);
+						lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 
 	}
 }

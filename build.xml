@@ -5,13 +5,15 @@
 	<property name="src" value="src" />
 	<property name="build" value="classes" />
 	<property name="src.testing" value="src/Testing" />
-	<property name="build.test" value="classes/testing"/>
+	<property name="build.test" value="classes/Testing"/>
 	<property name="test.reports" value="report/" />
 	<property name="jars" value="jars"/>
+	<property name="finalJar" value="jar"/>
+	<property name="jar.file" value="${finalJar}/${ant.project.name}.jar"/>
 
 	<path id="compile.classpath">
 		<pathelement location="${build}"/>
-
+		<pathelement location="${build.test}" />
 		<fileset dir="${jars}">
 			<include name="**/*.jar"/>
 		</fileset>  
@@ -35,6 +37,22 @@
 			<classpath refid="compile.classpath"/>
 		</javac>
 	</target>
+	
+	<target name="jar" depends="compile">
+		<mkdir dir="${finalJar}"/>
+		
+		<manifestclasspath property="manifest.classpath" jarfile="${jar.file}">
+			<classpath refid="${jars}"/>
+		</manifestclasspath>
+		
+		<jar destfile="${jar.file}" basedir="${build}">
+			<manifest>
+				<attribute name="Main-Class" value="gui.MainGUI" />
+				<attribute name="Class-path" value="${manifest.classpath}" />
+			</manifest>
+		</jar>
+	</target>
+		
 
 	<target name="execute" depends="compile"
            description="Start Software">
@@ -46,7 +64,9 @@
 	<target name="clean">
 		<!-- Delete the ${build} directory tree -->
 		<delete dir="${build}" />
-		<delete dir="${build.test" />
+		<delete dir="${build.test}" />
+		<delete dir="${test.reports}" />
+		<delete dir="reports/" />
 	</target>
 
     <target name="junit" depends="compile">
@@ -54,16 +74,20 @@
         <junit printsummary="yes" haltonerror="no" haltonfailure="no">
             <formatter type="plain" usefile="false" />
             <formatter type="xml" />
+        	<!--
+            <classpath>
+                <pathelement location="${build.test}" />
+                <pathelement path="jars/junit-4.10" />
+            </classpath>
+            -->
+        	<classpath>
+        		<path refid="compile.classpath"/>
+        	</classpath>
             <batchtest todir="${test.reports}">
                 <fileset dir="${src.testing}">
                     <include name="**/*Test.java" />
-                    <exclude name="**/Test*All.java" />
                 </fileset>
             </batchtest>
-            <classpath>
-                <pathelement location="${build}" />
-                <pathelement path="lib/junit-4.4.jar" />
-            </classpath>
         </junit>
     </target>
 	
@@ -81,8 +105,9 @@
 	<path id="pmd.classpath">
 	    	<fileset dir="${pmd.home}/lib" includes="*.jar" />
 	</path>
+	
 	<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.classpath"/>
-	<target name="pmd">
+	<target name="pmd" depends="compile">
  		<pmd shortFilenames="true">
   			<sourceLanguage name="java" version="1.8"/>
   			<ruleset>rulesets/java/design.xml</ruleset>

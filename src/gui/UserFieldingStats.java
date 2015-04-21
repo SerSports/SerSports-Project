@@ -9,11 +9,16 @@ Description: GUI for handling the User Fielding stats input
 package gui;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
 import java.awt.Color;
+
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -27,23 +32,32 @@ Class: UserFieldingStats
 Description: GUI for the User Fielding Stats
 */
 public class UserFieldingStats extends JPanel {
-	protected JTextField txtDate;
-	protected JTextField txtGP;
-	protected JTextField txtINN;
-	protected JTextField txtA;
-	protected JTextField txtE;
-	protected JTextField txtFpct;
-	protected JTextField txtSB;
-	protected JTextField txtCS;
-
-	protected JTable table;
-	protected JTextField txtPo;
-	protected JTextField txtWins;
-	protected JTextField txtLoss;
-	protected JButton btnUpdateStatistic;
-	protected JButton btnDeleteStatistic;
-
-	protected JButton SubmitFieldingStats;
+	private String dateTxt = "YYYY-MM-DD";
+	private String winsTxt = "Wins";
+	private String lossesTxt = "Loss";
+	private String putOutTxt = "PO";
+	private String errorTxt = "Error";
+	private String assistTxt = "Assist";
+	private String fieldPercentageTxt = "F%";
+	private ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
+	private JLabel lineTitle = new JLabel("");
+	private Image imgunderLine = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
+	
+	//protected JTable table;
+	protected ModifiedJTextField txtDate = new ModifiedJTextField();
+	protected ModifiedJTextField txtINN = new ModifiedJTextField();
+	protected ModifiedJTextField txtA = new ModifiedJTextField();
+	protected ModifiedJTextField txtE = new ModifiedJTextField();
+	protected ModifiedJTextField txtFpct = new ModifiedJTextField();
+	protected ModifiedJTextField txtSB = new ModifiedJTextField();
+	protected ModifiedJTextField txtCS = new ModifiedJTextField();
+	protected ModifiedJTextField txtPo = new ModifiedJTextField();
+	protected ModifiedJButtonStyle1 btnUpdateStatistic = new ModifiedJButtonStyle1("Update Statistic");
+	protected ModifiedJButtonStyle1 btnDeleteStatistic = new ModifiedJButtonStyle1("Delete Statistic");
+	protected ModifiedJButtonStyle1 SubmitFieldingStats = new ModifiedJButtonStyle1("Submit");
+	protected String[] comboBoxInput = {"Win","Loss"};
+	protected JComboBox comboBox = new JComboBox(comboBoxInput);
+	protected ModifiedJTable table = new ModifiedJTable(new DefaultTableModel(null, new Object[]{"Won","Losses", "PO", "Err", "Assist", "F%"}));
 	
 	/**
 	  Method: 
@@ -56,92 +70,65 @@ public class UserFieldingStats extends JPanel {
 	 * Create the panel.
 	 */
 	public UserFieldingStats() {
-		
-		JLabel lblBorderlayout = new JLabel("");
-		lblBorderlayout.setBounds(-184, 16, 968, 483);
-		add(lblBorderlayout);
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
-		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 		
 		setLayout(null);
 		setBackground(new Color(47, 52, 64));
-		setPreferredSize(new Dimension(1300, 600));
+		setPreferredSize(new Dimension(800, 650));
 		
-		JLabel lblYouAre = new JLabel("Enter a new game:");
-		lblYouAre.setForeground(new Color(244, 229, 192));
-		lblYouAre.setBounds(31, 25, 119, 16);
-		add(lblYouAre);
+		JLabel lblEnter = new JLabel("Enter New Stats:");
+		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
+		lblEnter.setBounds(6, 50, 158, 31);
+		lblEnter.setForeground(new Color(244, 229, 192));
+		add(lblEnter);
 		
-		txtDate = new JTextField();
-		txtDate.setText("MM/DD/YYYY");
-		txtDate.setBounds(56, 96, 105, 22);
+		lineTitle.setBounds(-16, 77, 196, 3);
+		lineTitle.setIcon(new ImageIcon(imgunderLine));
+		add(lineTitle);
+		
+		txtDate.setText(dateTxt);
+		txtDate.setBounds(65, 97, 158, 31);
 		add(txtDate);
-		txtDate.setColumns(10);
+		txtDate.addFocusListener(new ModifiedFocusAdapter(txtDate, dateTxt));
 		
-		txtGP = new JTextField();
-		txtGP.setText("GP");
-		txtGP.setColumns(10);
-		txtGP.setBounds(56, 140, 105, 22);
-		add(txtGP);
-		
-		txtWins = new JTextField();
-		txtWins.setText("Wins");
-		txtWins.setColumns(10);
-		txtWins.setBounds(56, 184, 105, 22);
-		add(txtWins);
-
-		
-		txtLoss = new JTextField();
-		txtLoss.setText("Losses");
-		txtLoss.setColumns(10);
-		txtLoss.setBounds(215, 96, 105, 22);
-		add(txtLoss);
-		
-		txtPo = new JTextField();
-		txtPo.setText("PO");
-		txtPo.setColumns(10);
-		txtPo.setBounds(215, 140, 105, 22);
+		txtPo.setText(putOutTxt);
+		txtPo.setBounds(230, 97, 158, 31);
 		add(txtPo);
+		txtPo.addFocusListener(new ModifiedFocusAdapter(txtPo, putOutTxt));
 		
-		txtE = new JTextField();
-		txtE.setText("Err");
-		txtE.setColumns(10);
-		txtE.setBounds(215, 184, 105, 22);
+		txtE.setText(errorTxt);
+		txtE.setBounds(394, 97, 158, 31);
 		add(txtE);
+		txtE.addFocusListener(new ModifiedFocusAdapter(txtE, errorTxt));
 		
-		txtA = new JTextField();
-		txtA.setText("Assist");
-		txtA.setColumns(10);
-		txtA.setBounds(352, 96, 105, 22);
+		txtA.setText(assistTxt);
+		txtA.setBounds(558, 97, 158, 31);
 		add(txtA);
+		txtA.addFocusListener(new ModifiedFocusAdapter(txtA, assistTxt));
 		
-		txtFpct = new JTextField();
-		txtFpct.setText("F%");
-		txtFpct.setColumns(10);
-		txtFpct.setBounds(352, 140, 105, 22);
+		comboBox.setBounds(230, 135, 158, 31);
+		add(comboBox);
+		
+		txtFpct.setText(fieldPercentageTxt);
+		txtFpct.setBounds(65, 135, 158, 31);
 		add(txtFpct);
+		txtFpct.addFocusListener(new ModifiedFocusAdapter(txtFpct, fieldPercentageTxt));
 		
-		
-		SubmitFieldingStats = new JButton("Submit");
-		SubmitFieldingStats.setBounds(524, 117, 117, 29);
+		SubmitFieldingStats.setBounds(320, 216, 158, 31);
 		add(SubmitFieldingStats);
 		SubmitFieldingStats.setActionCommand("SubmitFieldingStats");
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(27, 243, 691, 235);
+		scrollPane.setBounds(22, 266, 734, 145);
 		add(scrollPane);
 		
-		btnUpdateStatistic = new JButton("Update Statistic");
-		btnUpdateStatistic.setBounds(227, 504, 143, 28);
+		btnUpdateStatistic.setBounds(250, 421, 143, 28);
 		add(btnUpdateStatistic);
 		btnUpdateStatistic.setActionCommand("UpdateStatistic");
 		
-		btnDeleteStatistic = new JButton("Delete Statistic");
-		btnDeleteStatistic.setBounds(423, 504, 143, 28);
+		btnDeleteStatistic.setBounds(405, 421, 143, 28);
 		add(btnDeleteStatistic);
 		btnDeleteStatistic.setActionCommand("DeleteStatistic");
 
-		table = new JTable(new DefaultTableModel(null, new Object[]{"Date","GP", "Wins","Losses","PO","Err","Assist", "F%"}));
 		scrollPane.setViewportView(table);
 		
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
@@ -149,18 +136,40 @@ public class UserFieldingStats extends JPanel {
 		diamond.setBounds(167, -48, 64, 64);
 		diamond.setIcon(new ImageIcon(img2));
 		add(diamond);
+				
+				JLabel lblBorderlayout = new JLabel("");
+				lblBorderlayout.setBounds(-184, 16, 968, 483);
+				add(lblBorderlayout);
+				lblBorderlayout.setIcon(new ImageIcon(imgBorder));
 
 		
 	}
-	public void checkTextFields(){
-		//Fielding
-		txtDate.getText();
-		txtGP.getText();
-		txtWins.getText();
-		txtLoss.getText();
-		txtPo.getText();
-		txtE.getText();
-		txtA.getText();
-		txtFpct.getText();
+	
+	public String getDateTxt(){
+		return dateTxt;
+	}
+	
+	public String getWinsTxt(){
+		return winsTxt;
+	}
+	
+	public String getLossesTxt(){
+		return lossesTxt;
+	}
+	
+	public String getPOTxt(){
+		return putOutTxt;
+	}
+	
+	public String getErrorTxt(){
+		return errorTxt;
+	}
+	
+	public String getAssistTxt(){
+		return assistTxt;
+	}
+	
+	public String getFieldPercentageTxt(){
+		return fieldPercentageTxt;
 	}
 }

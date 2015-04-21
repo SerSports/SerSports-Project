@@ -1,96 +1,146 @@
 package client;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import database.ComparePlayers;
+import database.ComparisonResult;
+import database.Database;
 import database.LocalPlayer;
 import database.MlbPlayer;
+import database.SportsPicsApi;
 import database.User;
 import gui.HomePageGUI;
+import gui.ModifiedJTable;
 
-public class HomePageGUIClient extends HomePageGUI implements ActionListener, ItemListener {
-	
-	public HomePageGUIClient() {
-
-		// Add Action Listeners
+/**
+ * Generates a list of the ten most similar players compared to the current user's
+ * personal statistics and displays a percentage value that represents the overall
+ * similarity between the two players.
+ * 
+ * @author SerSports
+ */
+public class HomePageGUIClient extends HomePageGUI implements ActionListener,
+		ItemListener
+{
+	/**
+	 * Adds action listener to the Find Best Comparison button and calls the Find Best
+	 * Comparison method to populate the most similar player
+	 */
+	public HomePageGUIClient()
+	{
 		btnFindBestComparison.addActionListener(this);
 		
-		// Populate the Most Similar Player
-		populateMostSimilarPlayer();
+		findBestComparisons();
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * Evaluates the most similar player taking into account the current user's personal
+	 * statistics
+	 */
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		if (e.getActionCommand().equals("Find Best Comparison"))
+		{
+			findBestComparisons();
+		}
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		//debug("Test");
-		if (e.getActionCommand().equals("Find Best Comparison")) {
-			
-			// Get Local Player
-			ArrayList<LocalPlayer> list = LocalPlayer.getPlayersFromDatabase(User.getCurrentUser().getLocalPlayerId(), null, null, 0, null);
-			LocalPlayer userPlayer = list.get(0);
-			
-			// Get List of similar players
-			ArrayList<MlbPlayer> matches = ComparePlayers.compareToPlayerList(userPlayer, MlbPlayer.getListOfPlayersFromDatabase());
-			
-			// Add players to table
-			populateTable(matches);
-		}
-	}
-
-	@Override
-	public void itemStateChanged(ItemEvent e) {
+	public void itemStateChanged(ItemEvent e)
+	{
 		// TODO Auto-generated method stub
-		
 	}
 	
-	private void populateTable(ArrayList<MlbPlayer> players) {
+	/**
+	 * Retrieves a Local Player from the generated list based on an assigned Player ID
+	 * field as well as a list of similar player matches based on the similarity of each
+	 * relevant statistic. Populates the table with the matched players and displays a
+	 * percentage of similarity and shows the results.
+	 */
+	private void findBestComparisons()
+	{
 		
-		// Set up the table
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] {"ID","First Name", "Last Name","Team","Similarity %"}, 0);
-		
-		// Add the first 10 player matches to the list
-		for (int i = 0; i < players.size() && i < 10; i++) {
-			MlbPlayer m = players.get(i);
-			
-			Object[] row = {m.getId(), m.getFirst_name(), m.getLast_name(), m.getTeam_name(), 0.5};
-			newTable.addRow(row);
-		}
-
-		comparisonTable.setModel(newTable);
-		comparisonTable.removeColumn(comparisonTable.getColumnModel().getColumn(0));
-	}
-	
-	private void populateMostSimilarPlayer() {
-
-		// Get Local Player
 		if (User.getCurrentUser() != null)
 		{
-			ArrayList<LocalPlayer> list = LocalPlayer.getPlayersFromDatabase(User.getCurrentUser().getLocalPlayerId(), null, null, 0, null);
+			ArrayList<LocalPlayer> list = LocalPlayer.getPlayersFromDatabase(User
+					.getCurrentUser().getLocalPlayerId(), null, null, 0, null);
 			LocalPlayer userPlayer = list.get(0);
 			
-			// Get List of similar players
-			ArrayList<MlbPlayer> matches = ComparePlayers.compareToPlayerList(userPlayer, MlbPlayer.getListOfPlayersFromDatabase());
+			ArrayList<ComparisonResult> matches = ComparePlayers.compareToPlayerList(
+					userPlayer, MlbPlayer.getListOfPlayersFromDatabase());
 			
-			// Show the result
-			label.setText("30");
-			MlbPlayer player = matches.get(0);
-			lblInsertPlayersName.setText(player.getFirst_name() + " " + player.getLast_name());
+			populateTable(matches);
+			
+			ComparisonResult result = matches.get(0);
+			MlbPlayer player = result.getPlayer();
+			label.setText(Math.round(result.getScore() * 1000.0) / 10.0 + "%");
+			lblInsertPlayersName.setText(player.getFirst_name() + " "
+					+ player.getLast_name());
 		}
 	}
 	
-	//method to reload name
+	/**
+	 * Sets up the table with the default values for comparison and appends the first ten
+	 * players with the most similar statistics to the selected player to the list.
+	 * 
+	 * @param comparisonResults
+	 */
+	private void populateTable(ArrayList<ComparisonResult> comparisonResults)
+	{
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "ID",
+				"First Name", "Last Name", "Team", "Similarity %" }, 0);
+		
+		if (comparisonResults.size() > 0) {
+			loadPlayerIntoImage(comparisonResults.get(0).getPlayer());
+		}
+		
+		for (int i = 0; i < comparisonResults.size() && i < 10; i++)
+		{
+			ComparisonResult result = comparisonResults.get(i);
+			MlbPlayer m = result.getPlayer();
+			
+			if (result.getScore() > 0) {
+				Object[] row = { m.getId(), m.getFirst_name(), m.getLast_name(),
+						m.getTeam_name(), 100 * result.getScore() };
+				newTable.addRow(row);
+			}
+		}
+		
+		comparisonTable.setModel(newTable);
+		comparisonTable.removeColumn(comparisonTable.getColumnModel().getColumn(0));
+		((ModifiedJTable) comparisonTable).updateRowHeights();
+	}
+	
+	private void loadPlayerIntoImage(MlbPlayer player) {
+		Image pic = SportsPicsApi.getImageForMlbPlayer(player);
+		Image dimg = pic.getScaledInstance(250, 250,Image.SCALE_SMOOTH);
+		mlbImage.setIcon(new ImageIcon(dimg));
+	}
+
+	/**
+	 * Reloads the current user.
+	 */
 	public void loadUserInfoIntoControls()
 	{
-		// Reload the Current User
 		currentUser = User.getCurrentUser();
-		if (currentUser != null) {
+		if (currentUser != null)
+		{
 			userFirstName.setText(currentUser.getUserName());
-			populateMostSimilarPlayer();
+			findBestComparisons();
 		}
 	}
 }

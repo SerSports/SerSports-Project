@@ -11,6 +11,8 @@ package database;
 
 import java.sql.*;
 
+import javax.swing.JOptionPane;
+
 
 /**
 Class:	Database
@@ -18,14 +20,6 @@ Class:	Database
 Description: 
 */
 public class Database {	
-	// Constants
-	// JDBC driver name and database URL
-	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	static final String DB_URL = "jdbc:mysql://localhost/ser_sports";
-
-	//  Database credentials
-	static final String USER = "root";
-	static final String PASS = "";
 	
 	// Members
 	//private static Database singleton = null;
@@ -44,8 +38,12 @@ public class Database {
 	public static void close() {
 		// Clean-up environment
 		try {
-			stmt.close();
-			conn.close();
+			if (stmt != null) {
+				stmt.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,12 +64,13 @@ public class Database {
 		// Validate the input
 		if (isValidSelectSql(sql)) {
 			try {
+				SerSports_DbConnectionProperties props = new SerSports_DbConnectionProperties();
 
 				// Register JDBC driver
-				Class.forName("com.mysql.jdbc.Driver");
+				Class.forName(props.get_JDBC_DRIVER());
 	
 				// Open a connection
-				conn = DriverManager.getConnection(DB_URL, USER, PASS);
+				conn = DriverManager.getConnection(props.get_DB_URL(), props.get_USER(), props.get_PASS());
 	
 				// Execute a query - Get the Result Set
 				stmt = conn.createStatement();
@@ -79,7 +78,8 @@ public class Database {
 				
 			} catch (SQLException se) {
 				// Handle errors for JDBC
-				se.printStackTrace();
+				//se.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Unable to connect to Database!!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
 			} catch (Exception e) {
 				// Handle errors for Class.forName
 				e.printStackTrace();
@@ -117,12 +117,13 @@ public class Database {
 		// Validate the input
 		if (sql != null) {
 			try {
+				SerSports_DbConnectionProperties props = new SerSports_DbConnectionProperties();
 	
 				// Register JDBC driver
-				Class.forName("com.mysql.jdbc.Driver");
+				Class.forName(props.get_JDBC_DRIVER());
 	
 				// Open a connection
-				conn = DriverManager.getConnection(DB_URL, USER, PASS);
+				conn = DriverManager.getConnection(props.get_DB_URL(), props.get_USER(), props.get_PASS());
 	
 				// Execute a query - Get the Result Set
 				stmt = conn.createStatement();

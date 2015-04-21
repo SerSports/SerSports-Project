@@ -38,6 +38,14 @@ public class User {
 		return currentUser;
 	}
 	
+	public static String getTableName(){
+		return TABLE_NAME;
+	}
+	
+	public static String getFieldUserName(){
+		return FIELD_USER_NAME;
+	}
+	
 	/**
 	  Method: Constructor
 	  Inputs: ResultSet rs

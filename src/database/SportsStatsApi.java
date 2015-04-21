@@ -56,7 +56,7 @@ public class SportsStatsApi {
 					// Create list of players
 					playerList = new ArrayList<MlbPlayer>();
 					for (int i = 0; i < nodeList.getLength(); i++) {
-						// We have encountered an <employee> tag.
+						
 						Node node = nodeList.item(i);
 						if (node instanceof Element) {
 							// Create the Player

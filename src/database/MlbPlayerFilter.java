@@ -12,7 +12,7 @@ public class MlbPlayerFilter {
 	private String firstNameValue = null;
 	private String lastNameValue = null;
 	private String teamNameValue = null;
-	
+
 	// Setters
 	public void setIdValue(String idValue) {
 		if (idValue != null && idValue.length() > 0) {
@@ -20,17 +20,17 @@ public class MlbPlayerFilter {
 		}
 	}
 	public void setFirstNameValue(String firstNameValue) {
-		if (firstNameValue != null && firstNameValue.length() > 0) {
+		if (firstNameValue != null && firstNameValue.length() > 0 && !firstNameValue.equals("First Name")) {
 			this.firstNameValue = firstNameValue;
 		}
 	}
 	public void setLastNameValue(String lastNameValue) {
-		if (lastNameValue != null && lastNameValue.length() > 0) {
+		if (lastNameValue != null && lastNameValue.length() > 0 && !lastNameValue.equals("Last Name")) {
 			this.lastNameValue = lastNameValue;
 		}
 	}
 	public void setTeamNameValue(String teamNameValue) {
-		if (teamNameValue != null && teamNameValue.length() > 0) {
+		if (teamNameValue != null && teamNameValue.length() > 0 && !teamNameValue.equals("Team")) {
 			this.teamNameValue = teamNameValue;
 		}
 	}
