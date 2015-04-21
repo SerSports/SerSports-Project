@@ -9,9 +9,11 @@ Description: Main GUI (the brain, the tabs)
 package gui;
 
 import java.awt.CardLayout;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
+
 import javax.swing.*;
 
 
@@ -22,6 +24,7 @@ import javax.swing.*;
  * Description: GUI for main navigation of site
  */
 public class MainGUI {
+	
 	private static MainGUI singleton = null;
 	JFrame mainFrame = new JFrame("SERSports");
 	protected static ApplicationGUI panelApplication = new ApplicationGUI();
@@ -47,8 +50,20 @@ public class MainGUI {
 	}
 
 	public static void setApplicationToClose() {
-		singleton.mainFrame.dispose();
-		singleton = new MainGUI();
+		if (singleton != null) {
+			singleton.mainFrame.dispose();
+			singleton = new MainGUI();
+		}
+	}
+	
+	public static void setHourGlass(Boolean hourGlassOn) {
+		if (singleton != null) {
+			if (hourGlassOn) {
+				singleton.mainFrame.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+			} else {
+				singleton.mainFrame.setCursor(Cursor.getDefaultCursor());
+			}
+		}
 	}
 
 	public MainGUI() {
