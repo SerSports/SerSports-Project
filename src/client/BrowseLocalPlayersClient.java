@@ -156,8 +156,7 @@ public class BrowseLocalPlayersClient extends BrowseLocalPlayers implements
 	private void loadFieldingGameData(LocalPlayer player)
 	{
 		
-		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "Won",
-				"Losses", "PO", "Err", "Assist", "F%" }, 0);
+		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "Won", "PO", "Err", "Assist", "F%" }, 0);
 		
 		ArrayList<LocalPlayerFieldingStatistics> players = LocalPlayerFieldingStatistics
 				.getStatisticsFromDatabase(player.getLocalPlayerId());
