@@ -58,6 +58,7 @@ public class HomePageGUI extends JPanel {
 	protected Image imgbackground = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
 	protected JLabel lblbackgroundImage = new JLabel("");
 	protected Image img = null;
+	protected JLabel mlbImage = null;
 	
 	
 	/**
@@ -68,6 +69,7 @@ public class HomePageGUI extends JPanel {
 	  Description: Creates the panel
 	*/
 	public HomePageGUI() {
+		
         try {
             URL url = new URL("http://a.espncdn.com/combiner/i?img=/i/headshots/mlb/players/full/4937.png&w=350&h=254");
             img = ImageIO.read(url);
@@ -77,7 +79,7 @@ public class HomePageGUI extends JPanel {
         
         Image dimg = img.getScaledInstance(350, 240,Image.SCALE_SMOOTH);
         
-        JLabel mlbImage = new JLabel(new ImageIcon(dimg));
+        mlbImage = new JLabel(new ImageIcon(dimg));
         mlbImage.setLocation(580, 143);
         mlbImage.setSize(350,240);
         add(mlbImage);

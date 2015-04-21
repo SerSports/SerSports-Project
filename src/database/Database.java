@@ -78,8 +78,8 @@ public class Database {
 				
 			} catch (SQLException se) {
 				// Handle errors for JDBC
-				se.printStackTrace();
-				//JOptionPane.showMessageDialog(null, "Unable to connect to Database!!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
+				//se.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Unable to connect to Database!!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
 			} catch (Exception e) {
 				// Handle errors for Class.forName
 				e.printStackTrace();

@@ -1,11 +1,13 @@
 package client;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -13,6 +15,7 @@ import database.ComparePlayers;
 import database.ComparisonResult;
 import database.LocalPlayer;
 import database.MlbPlayer;
+import database.SportsPicsApi;
 import database.User;
 import gui.HomePageGUI;
 import gui.ModifiedJTable;
@@ -98,6 +101,10 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener,
 		DefaultTableModel newTable = new DefaultTableModel(new Object[] { "ID",
 				"First Name", "Last Name", "Team", "Similarity %" }, 0);
 		
+		if (comparisonResults.size() > 0) {
+			loadPlayerIntoImage(comparisonResults.get(0).getPlayer());
+		}
+		
 		for (int i = 0; i < comparisonResults.size() && i < 10; i++)
 		{
 			ComparisonResult result = comparisonResults.get(i);
@@ -115,6 +122,12 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener,
 		((ModifiedJTable) comparisonTable).updateRowHeights();
 	}
 	
+	private void loadPlayerIntoImage(MlbPlayer player) {
+		Image pic = SportsPicsApi.getImageForMlbPlayer(player);
+		Image dimg = pic.getScaledInstance(350, 240,Image.SCALE_SMOOTH);
+		mlbImage.setIcon(new ImageIcon(dimg));
+	}
+
 	/**
 	 * Reloads the current user.
 	 */
@@ -127,4 +140,5 @@ public class HomePageGUIClient extends HomePageGUI implements ActionListener,
 			findBestComparisons();
 		}
 	}
+	
 }
