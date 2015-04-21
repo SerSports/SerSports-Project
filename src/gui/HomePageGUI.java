@@ -68,9 +68,8 @@ public class HomePageGUI extends JPanel {
 	  Description: Creates the panel
 	*/
 	public HomePageGUI() {
-		/*
         try {
-            URL url = new URL("http://www.sportsdatallc.com/wp-content/gallery/mlb-usat/clayton-kershaw.jpg");
+            URL url = new URL("http://a.espncdn.com/combiner/i?img=/i/headshots/mlb/players/full/4937.png&w=350&h=254");
             img = ImageIO.read(url);
         } catch (IOException e) {
         	e.printStackTrace();
@@ -78,11 +77,11 @@ public class HomePageGUI extends JPanel {
         
         Image dimg = img.getScaledInstance(330, 330,Image.SCALE_SMOOTH);
         
-        JLabel mlbImage = new JLabel(new ImageIcon(img));
+        JLabel mlbImage = new JLabel(new ImageIcon(dimg));
         mlbImage.setLocation(624, 98);
         mlbImage.setSize(300, 300);
         add(mlbImage);
-        mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));*/
+        mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));
 
 
 		
