@@ -48,6 +48,8 @@ public class UserLoginGUI extends JPanel {
 	MainGUI main = null;
 	private final JLabel lblUsername = new JLabel("Username:");
 	private final JLabel lblPassword = new JLabel("Password:");
+	private String pwd = "admin";
+	private String usr = "Username";
 
 	public UserLoginGUI() {
 		setLayout(null);
@@ -68,23 +70,22 @@ public class UserLoginGUI extends JPanel {
 		//password text field
 		pwdPassword.setLocation(400, 266);
 		pwdPassword.setSize(200, 28);
-		pwdPassword.setText("admin");
+		pwdPassword.setText(pwd);
 		add(pwdPassword);
-		pwdPassword.addFocusListener(new ModifiedFocusAdapter(pwdPassword, "admin"));
-		
+		pwdPassword.addFocusListener(new ModifiedFocusAdapter(pwdPassword, pwd));
 		
 		//username text field
 		txtUserName.setBounds(400, 213, 200, 28);
-		txtUserName.setText("Username");
+		txtUserName.setText(usr);
 		add(txtUserName);
-		txtUserName.addFocusListener(new ModifiedFocusAdapter(txtUserName, "Username"));
+		txtUserName.addFocusListener(new ModifiedFocusAdapter(txtUserName, usr));
 
 		//sign in button
-		btnSubmit.setBounds(451, 310, 109, 29);
+		btnSubmit.setBounds(445, 310, 109, 29);
 		add(btnSubmit);
 		
 		//create account button
-		btnCreateAccount_1.setBounds(416, 358, 183, 28);
+		btnCreateAccount_1.setBounds(408, 358, 183, 28);
 		add(btnCreateAccount_1);
 		lblbackgroundImage.setForeground(Color.WHITE);
 
@@ -117,12 +118,17 @@ public class UserLoginGUI extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				User user = User.authenticateUser(txtUserName.getText(), new String(pwdPassword.getPassword()));
 				if (user != null) {
+					resetTextFields();
 					main.showApplicationGUI();
 				} else {
 					JOptionPane.showMessageDialog(null, "Invalid Username / Password!", "InfoBox: SER SPORTS", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		});
-
+	}
+	
+	public void resetTextFields(){
+		pwdPassword.setText(pwd);
+		txtUserName.setText(usr);
 	}
 }

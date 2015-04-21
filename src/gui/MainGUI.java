@@ -52,7 +52,9 @@ public class MainGUI {
 	public static void setApplicationToClose() {
 		if (singleton != null) {
 			singleton.mainFrame.dispose();
+			singleton.mainFrame.repaint();
 			singleton = new MainGUI();
+			
 		}
 	}
 	
