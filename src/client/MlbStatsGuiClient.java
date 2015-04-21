@@ -94,8 +94,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener
 				String MlbPlayerId = (String) table.getModel().getValueAt(selectedRow, 0);
 				MlbPlayer selectedPlayer = MlbPlayer.getPlayerForId(MlbPlayerId);
 				
-				float result = ComparePlayers.compareToPlayer(
-						User.getCurrentLocalPlayer(), selectedPlayer);
+				float result = ComparePlayers.compareToPlayer(User.getCurrentLocalPlayer(), selectedPlayer);
 				
 				JOptionPane.showMessageDialog(null, "You are " + (result * 100.0)
 						+ "% like this player", "Compare to Player",

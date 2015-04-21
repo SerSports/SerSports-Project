@@ -34,9 +34,14 @@ public class ComparePlayers
 		PriorityQueue<ComparisonResult> queue = new PriorityQueue<ComparisonResult>(
 				mlbList.size(), comparator);
 		
+		ArrayList<LocalPlayerBattingStatistics_Season> lpStatsBat = LocalPlayerBattingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
+		LocalPlayerBattingStatistics_Season lpBatting = lpStatsBat.get(0);
+		ArrayList<LocalPlayerPitchingStatistics_Season> lpStatsList = LocalPlayerPitchingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
+		LocalPlayerPitchingStatistics_Season lpPitching = lpStatsList.get(0);
+		
 		for (MlbPlayer player : mlbList)
 		{
-			float score = compareToPlayer(lp, player);
+			float score = compareToPlayer(lpBatting, lpPitching, player);
 			queue.add(new ComparisonResult(player, score));
 		}
 		
@@ -60,28 +65,53 @@ public class ComparePlayers
 	 */
 	public static float compareToPlayer(LocalPlayer lp, MlbPlayer mlbPlayer)
 	{
-		return (compareToPlayer_Hitting(lp, mlbPlayer) + compareToPlayer_Pitching(lp,
-				mlbPlayer)) / 2.0f;
+		ArrayList<LocalPlayerBattingStatistics_Season> lpStatsBat = LocalPlayerBattingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
+		LocalPlayerBattingStatistics_Season lpBatting = lpStatsBat.get(0);
+		ArrayList<LocalPlayerPitchingStatistics_Season> lpStatsList = LocalPlayerPitchingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
+		LocalPlayerPitchingStatistics_Season lpPitching = lpStatsList.get(0);
+		
+		return (compareToPlayer_Hitting(lpBatting, mlbPlayer) + 
+				compareToPlayer_Pitching(lpPitching, mlbPlayer)) / 2.0f;
+	}
+
+	
+	/**
+	 * Compares the scores of Local and MLB players that they receive through the
+	 * compareToPlayer_Hitting and compareToPlayer_Pitching methods and averages them.
+	 * 
+	 * @param lpBatting
+	 *            Local Player Batting Statistics model
+	 * @param lpPitching
+	 *            Local Player Pitching Statistics model
+	 * @param mlbPlayer
+	 *            MLB Player model
+	 * @return Average of the player's scores.
+	 */
+	public static float compareToPlayer(LocalPlayerBattingStatistics_Season lpBatting, 
+						LocalPlayerPitchingStatistics_Season lpPitching, MlbPlayer mlbPlayer)
+	{
+		return (compareToPlayer_Hitting(lpBatting, mlbPlayer) + 
+				compareToPlayer_Pitching(lpPitching, mlbPlayer)) / 2.0f;
 	}
 	
 	/**
 	 * Determines an overall score for a player with regards to hitting. Takes into
 	 * account the player's batting average and slugging percentage.
 	 * 
-	 * @param lp
-	 *            Local Player model
+	 * @param lpStats
+	 *            Local Player Batting model
 	 * @param mlbPlayer
 	 *            MLB Player model
 	 * @return The player's Batting score.
 	 */
-	private static float compareToPlayer_Hitting(LocalPlayer lp, MlbPlayer mlbPlayer)
+	private static float compareToPlayer_Hitting(LocalPlayerBattingStatistics_Season lpStats, MlbPlayer mlbPlayer)
 	{
 		final float startScore = (11.f / 12.f) * 1000.0f;
 		float score = startScore;
 		
 		if (mlbPlayer.getBatting_games_play() > 0)
 		{
-			float[] localScore = loadScores_Hitting(lp, mlbPlayer);
+			float[] localScore = loadScores_Hitting(lpStats, mlbPlayer);
 			
 			if (localScore.length > 0)
 			{
@@ -114,20 +144,20 @@ public class ComparePlayers
 	/**
 	 * Determines an overall score for a player with regards to pitching.
 	 * 
-	 * @param lp
-	 *            Local Player model
+	 * @param lpStats
+	 *            Local Player Pitching model
 	 * @param mlbPlayer
 	 *            MLB Player model
 	 * @return The player's Pitching score.
 	 */
-	private static float compareToPlayer_Pitching(LocalPlayer lp, MlbPlayer mlbPlayer)
+	private static float compareToPlayer_Pitching(LocalPlayerPitchingStatistics_Season lpStats, MlbPlayer mlbPlayer)
 	{
 		final float startScore = (6.f / 13.f) * 1000.0f;
 		float score = startScore;
 		
 		if (mlbPlayer.getPitching_games_play() > 0)
 		{
-			float[] localScore = loadScores_Pitching(lp, mlbPlayer);
+			float[] localScore = loadScores_Pitching(lpStats, mlbPlayer);
 			
 			if (localScore.length > 0)
 			{
@@ -188,13 +218,13 @@ public class ComparePlayers
 	 * @return An array with the local player's loaded statistics as well as the generated
 	 *         statistics including hits, at bats, and batting average.
 	 */
-	private static float[] loadScores_Hitting(LocalPlayer lp, MlbPlayer mlbPlayer)
+	private static float[] loadScores_Hitting(LocalPlayerBattingStatistics_Season lpStats, MlbPlayer mlbPlayer)
 	{
 		float[] localScore;
 		
-		ArrayList<LocalPlayerBattingStatistics_Season> lpStatsBat = LocalPlayerBattingStatistics_Season
-				.getStatisticsFromDatabase(lp.getLocalPlayerId());
-		LocalPlayerBattingStatistics_Season lpStats = lpStatsBat.get(0);
+		//ArrayList<LocalPlayerBattingStatistics_Season> lpStatsBat = LocalPlayerBattingStatistics_Season
+				//.getStatisticsFromDatabase(lp.getLocalPlayerId());
+		//LocalPlayerBattingStatistics_Season lpStats = lpStatsBat.get(0);
 		
 		/*
 		 * Generates batting average only if the selected player has at least 1 at bat.
@@ -250,13 +280,14 @@ public class ComparePlayers
 	 *            MLB Player model
 	 * @return An array with the local player's loaded statistics pertaining to pitching.
 	 */
-	private static float[] loadScores_Pitching(LocalPlayer lp, MlbPlayer mlbPlayer)
+	private static float[] loadScores_Pitching(LocalPlayerPitchingStatistics_Season lpStats, MlbPlayer mlbPlayer)
 	{
 		float[] localScore;
 		
-		ArrayList<LocalPlayerPitchingStatistics_Season> lpStatsList = LocalPlayerPitchingStatistics_Season
-				.getStatisticsFromDatabase(lp.getLocalPlayerId());
-		LocalPlayerPitchingStatistics_Season lpStats = lpStatsList.get(0);
+		
+		//ArrayList<LocalPlayerPitchingStatistics_Season> lpStatsList = LocalPlayerPitchingStatistics_Season
+		//		.getStatisticsFromDatabase(lp.getLocalPlayerId());
+		//LocalPlayerPitchingStatistics_Season lpStats = lpStatsList.get(0);
 		
 		// Local Player statistics
 		float[] localScores = { lpStats.getPitching_games_won(),
