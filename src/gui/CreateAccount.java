@@ -31,6 +31,7 @@ public class CreateAccount extends JPanel {
 	private ModifiedJTextField textFirstName = new ModifiedJTextField();
 	private ModifiedJTextField textLastname = new ModifiedJTextField();
 	private ModifiedJTextField textAge = new ModifiedJTextField();
+	private ModifiedJTextField mdfdjtxtfldTeam = new ModifiedJTextField();
 	protected ModifiedJButtonStyle1 btnCreateNewAccount = new ModifiedJButtonStyle1("Create Account");
 	protected JButton backButton = new JButton();
 	protected Image backButtonImage = new ImageIcon(this.getClass().getResource("/images/Arrow.png")).getImage();
@@ -93,8 +94,14 @@ public class CreateAccount extends JPanel {
 		textAge.setText("Age");
 		textAge.setColumns(10);
 		
+		mdfdjtxtfldTeam.setText("Team");
+		mdfdjtxtfldTeam.setColumns(10);
+		mdfdjtxtfldTeam.setBounds(60, 233, 200, 28);
+		mdfdjtxtfldTeam.addFocusListener(new ModifiedFocusAdapter(mdfdjtxtfldTeam, "Team"));
+		panel.add(mdfdjtxtfldTeam);
+		
 		btnCreateNewAccount.setActionCommand("btnCreateNewAccount");
-		btnCreateNewAccount.setBounds(90, 237, 140, 28);
+		btnCreateNewAccount.setBounds(89, 269, 140, 28);
 		panel.add(btnCreateNewAccount);
 		
 				JLabel lblEnter = new JLabel("Create Account:");
@@ -102,6 +109,8 @@ public class CreateAccount extends JPanel {
 				panel.add(lblEnter);
 				lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
 				lblEnter.setForeground(new Color(244, 229, 192));
+				
+				
 		backButton.setBounds(6, 6, 87, 87);
 		add(backButton);
 		backButton.setIcon(new ImageIcon(backButtonImage));
