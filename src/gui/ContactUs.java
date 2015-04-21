@@ -55,7 +55,7 @@ public class ContactUs extends JPanel {
 		add(lblEmailUs);
 		
 		//Phone Information
-		JLabel lblCallUs = new JLabel("Call Us: (555) 555-5555");
+		JLabel lblCallUs = new JLabel("Call Us: (480) 727-1715");
 		lblCallUs.setFont(new Font("Helvetica", Font.PLAIN, 18));
 		lblCallUs.setForeground(new Color(244, 229, 192));
 		lblCallUs.setBounds(81, 203, 251, 29);
