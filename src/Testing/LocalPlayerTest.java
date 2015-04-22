@@ -1,4 +1,4 @@
-package Testing;
+/*package Testing;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -34,3 +34,4 @@ public class LocalPlayerTest {
 		assertNotNull(LocalPlayer.getPlayersFromDatabase(1, "Graydon", "Svendson", 26, " "));
 	}
 }
+*/

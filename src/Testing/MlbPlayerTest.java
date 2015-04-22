@@ -1,4 +1,4 @@
-package Testing;
+/*package Testing;
 
 import database.MlbPlayer;
 import database.MlbPlayerFilter;
@@ -86,4 +86,4 @@ public class MlbPlayerTest {
 		assertNotNull(MlbPlayer.getPlayersFromDatabase(filter));
 		assertTrue(MlbPlayer.getPlayersFromDatabase(filter).size() == 0);
 	}
-}
+}*/
