@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Compiles all statistics related to the batting category of a player and performs
- * calculations on statistics that require so including slugging percentage and batting
- * average.
+ * Compiles all statistics related to the batting category that a player accumulated over
+ * a season. Performs calculations on statistics that require so including slugging
+ * percentage and batting average.
  * 
  * @author SerSports
  */
@@ -185,7 +185,8 @@ public class LocalPlayerBattingStatistics_Season
 	
 	/**
 	 * Loads information from the Result Set that has queried data from the database
-	 * relevant to the characteristics of a local player's batting statistics.
+	 * relevant to the characteristics of a local player's batting statistics over the
+	 * span of a season.
 	 * 
 	 * @param rs
 	 *            Used to get information from the database.
