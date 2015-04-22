@@ -300,7 +300,7 @@ public class LocalPlayer
 	}
 	
 	/**
-	 * Used to return a list of local players, as long they're available.
+	 * Used to return a list of local players given that they're available.
 	 * 
 	 * @param id
 	 *            Player ID used to reference them.
