@@ -70,7 +70,7 @@ public class HomePageGUI extends JPanel {
 	public HomePageGUI() {
 		
         try {
-            URL url = new URL("http://a.espncdn.com/combiner/i?img=/i/headshots/mlb/players/full/4937.png&w=350&h=254");
+            URL url = new URL("http://www.clker.com/cliparts/5/9/4/c/12198090531909861341man%20silhouette.svg.hi.png");
             img = ImageIO.read(url);
         } catch (IOException e) {
         	e.printStackTrace();
