@@ -12,7 +12,9 @@ import java.util.ArrayList;
  */
 public class LocalPlayerFieldingStatistics
 {
-	
+	/*
+	 * All statistics related to fielding.
+	 */
 	private static final String TABLE_NAME = "localplayersfieldingstatistics";
 	private static final String FIELD_ID = "localPlayersFieldingStatisticsID";
 	private static final String FIELD_LOCAL_PLAYER_ID = "localPlayerId";
