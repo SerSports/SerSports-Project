@@ -34,17 +34,17 @@ public class MlbPlayer extends Object implements java.io.Serializable
 	 * Pitching Statistics
 	 */
 	private static final String FIELD_PITCHING_ERA = "pitching_era"; // Earned Run Average
-	private static final String FIELD_PITCHING_ONBASE_H = "pitching_onbase_h"; // Hits Given Up
-	private static final String FIELD_PITCHING_ONBASE_S = "pitching_onbase_s"; // Singles Given Up
-	private static final String FIELD_PITCHING_ONBASE_D = "pitching_onbase_d"; // Doubles Given Up
-	private static final String FIELD_PITCHING_ONBASE_T = "pitching_onbase_t"; // Triples Given Up
-	private static final String FIELD_PITCHING_ONBASE_HR = "pitching_onbase_hr"; // Home Runs Given Up
-	private static final String FIELD_PITCHING_ONBASE_BB = "pitching_onbase_bb"; // Base-on-balls (Walks) Given Up 
-	private static final String FIELD_PITCHING_RUNS_EARNED = "pitching_runs_earned"; // Runs Earned Against
-	private static final String FIELD_PITCHING_RUNS_TOTAL = "pitching_runs_total"; // Total Runs Given Up
+	private static final String FIELD_PITCHING_ONBASE_H = "pitching_onbase_h"; // Hits Allowed
+	private static final String FIELD_PITCHING_ONBASE_S = "pitching_onbase_s"; // Singles Allowed
+	private static final String FIELD_PITCHING_ONBASE_D = "pitching_onbase_d"; // Doubles Allowed
+	private static final String FIELD_PITCHING_ONBASE_T = "pitching_onbase_t"; // Triples Allowed
+	private static final String FIELD_PITCHING_ONBASE_HR = "pitching_onbase_hr"; // Home Runs Allowed
+	private static final String FIELD_PITCHING_ONBASE_BB = "pitching_onbase_bb"; // Base-on-balls (Walks) Allowed 
+	private static final String FIELD_PITCHING_RUNS_EARNED = "pitching_runs_earned"; // Total Earned Runs
+	private static final String FIELD_PITCHING_RUNS_TOTAL = "pitching_runs_total"; // Total Runs Allowed
 	private static final String FIELD_PITCHING_OUTS_KTOTAL = "pitching_outs_ktotal"; // Total Strike-outs
 	private static final String FIELD_PITCHING_STEAL_CAUGHT = "pitching_steal_caught"; // Steals Caught (Pick-offs)
-	private static final String FIELD_PITCHING_STEAL_STOLEN = "pitching_steal_stolen"; // Stolen Bases Given Up
+	private static final String FIELD_PITCHING_STEAL_STOLEN = "pitching_steal_stolen"; // Stolen Bases Allowed
 	private static final String FIELD_PITCHING_GAMES_PLAY = "pitching_games_play"; // Games Played
 	private static final String FIELD_PITCHING_GAMES_WIN = "pitching_games_win"; // Games Won
 	private static final String FIELD_PITCHING_GAMES_LOSS = "pitching_games_loss"; // Games Lost
