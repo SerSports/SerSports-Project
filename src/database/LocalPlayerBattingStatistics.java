@@ -357,8 +357,7 @@ public class LocalPlayerBattingStatistics
 	{
 		try
 		{
-			int number = Integer.parseInt(value);
-			
+			Integer.parseInt(value);
 		}
 		catch (NumberFormatException ex)
 		{

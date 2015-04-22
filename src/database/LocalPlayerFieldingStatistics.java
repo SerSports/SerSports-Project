@@ -247,8 +247,7 @@ public class LocalPlayerFieldingStatistics
 	{
 		try
 		{
-			int number = Integer.parseInt(value);
-			
+			Integer.parseInt(value);
 		}
 		catch (NumberFormatException ex)
 		{

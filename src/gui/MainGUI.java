@@ -27,7 +27,7 @@ public class MainGUI {
 	
 	private static MainGUI singleton = null;
 	JFrame mainFrame = new JFrame("SERSports");
-	protected static ApplicationGUI panelApplication = new ApplicationGUI();
+	protected final static ApplicationGUI panelApplication = new ApplicationGUI();
 	static JPanel panelContainer = new JPanel();
 	UserLoginGUI login = new UserLoginGUI();
 	CreateAccount createAccountGUI = new CreateAccount(this);

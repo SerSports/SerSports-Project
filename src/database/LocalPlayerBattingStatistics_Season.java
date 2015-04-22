@@ -268,7 +268,7 @@ public class LocalPlayerBattingStatistics_Season
 	{
 		try
 		{
-			int number = Integer.parseInt(value);
+			Integer.parseInt(value);
 		}
 		catch (NumberFormatException ex)
 		{

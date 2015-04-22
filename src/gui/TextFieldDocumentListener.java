@@ -5,7 +5,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 public class TextFieldDocumentListener implements DocumentListener {
-	private static boolean isDirty = false;
+	private boolean isDirty = false;
 	
 	public TextFieldDocumentListener(){
 		isDirty = false;
