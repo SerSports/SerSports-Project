@@ -71,7 +71,7 @@
 
     <target name="junit" depends="compile">
  
-        <junit printsummary="yes" haltonerror="no" haltonfailure="no">
+        <junit printsummary="yes" haltonerror="no" haltonfailure="no" fork="true">
             <formatter type="plain" usefile="false" />
             <formatter type="xml" />
         	<!--
