@@ -1,6 +1,7 @@
 package Testing;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -33,4 +34,8 @@ public class LocalPlayerTest {
 	public void test() throws Exception { 
 		assertNotNull(LocalPlayer.getPlayersFromDatabase(1, "Graydon", "Svendson", 26, " "));
 	}*/
+	@Test
+	public void test() {
+		assertTrue(true);
+	}
 }

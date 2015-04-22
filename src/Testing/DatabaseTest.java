@@ -1,6 +1,5 @@
 package Testing;
 import database.Database;
-
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -48,4 +47,8 @@ public class DatabaseTest {
 		assertNotNull(Database.getResultSetFromSQL("SELECT * FROM mlbPlayers WHERE firstName = \"Paul\""));
 		assertNotNull(Database.getResultSetFromSQL("SELECT lastName FROM mlbPlayers WHERE firstName = \"Paul\""));
 	}*/
+	@Test
+	public void test() {
+		assertTrue(true);
+	}
 }

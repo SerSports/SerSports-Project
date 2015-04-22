@@ -36,5 +36,9 @@ public class ComparePlayersTest {
 		//MlbPlayer.getPlayerForId("")
 		//ComparePlayers.compareToPlayer(lpBatting, lpPitching, mlbPlayer)
 	}*/
+	@Test
+	public void test() {
+		assertTrue(true);
+	}
 
 }

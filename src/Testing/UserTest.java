@@ -1,7 +1,10 @@
 package Testing;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
+
 import database.User;
 
 public class UserTest {
@@ -15,4 +18,8 @@ public class UserTest {
 	public void testNewUser() {
 		assertNotNull(User.newUser("Test", "test", "Colton", "Test", 19, "Testers"));
 	}*/
+	@Test
+	public void test() {
+		assertTrue(true);
+	}
 }

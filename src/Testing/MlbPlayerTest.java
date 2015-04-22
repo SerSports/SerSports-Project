@@ -86,4 +86,8 @@ public class MlbPlayerTest {
 		assertNotNull(MlbPlayer.getPlayersFromDatabase(filter));
 		assertTrue(MlbPlayer.getPlayersFromDatabase(filter).size() == 0);
 	}*/
+	@Test
+	public void test() {
+		assertTrue(true);
+	}
 }
