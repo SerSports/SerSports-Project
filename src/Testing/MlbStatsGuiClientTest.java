@@ -7,10 +7,10 @@ import org.junit.Test;
 import database.MlbPlayer;
 
 public class MlbStatsGuiClientTest {
-	MlbPlayer test;
-	String id;
+	String id =  "fadd12b6-4d2d-4e03-82d9-c5e8b6cb0b83";
+	MlbPlayer test =  MlbPlayer.getPlayerForId(id);
 
-	@Before
+/*	@Before
 	public void setUp() throws Exception {
 		//select david ortiz
 		id = "fadd12b6-4d2d-4e03-82d9-c5e8b6cb0b83";
@@ -20,7 +20,7 @@ public class MlbStatsGuiClientTest {
 	@After
 	public void tearDown() throws Exception {
 		//this.test.close();
-	}
+	}*/
 
 	@Test
 	public void test() {
