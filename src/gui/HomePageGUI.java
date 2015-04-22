@@ -70,19 +70,19 @@ public class HomePageGUI extends JPanel {
 	public HomePageGUI() {
 		
         try {
-            URL url = new URL("http://a.espncdn.com/combiner/i?img=/i/headshots/mlb/players/full/4937.png&w=350&h=254");
+            URL url = new URL("http://www.clker.com/cliparts/5/9/4/c/12198090531909861341man%20silhouette.svg.hi.png");
             img = ImageIO.read(url);
+            Image dimg = img.getScaledInstance(250, 250,Image.SCALE_SMOOTH);
+            
+            mlbImage = new JLabel(new ImageIcon(dimg));
+            mlbImage.setLocation(642, 140);
+            mlbImage.setSize(250,250);
+            add(mlbImage);
+            mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));
+ 
         } catch (IOException e) {
         	e.printStackTrace();
         }
-        
-        Image dimg = img.getScaledInstance(250, 250,Image.SCALE_SMOOTH);
-        
-        mlbImage = new JLabel(new ImageIcon(dimg));
-        mlbImage.setLocation(642, 140);
-        mlbImage.setSize(250,250);
-        add(mlbImage);
-        mlbImage.setBorder(new LineBorder(new Color(244, 229, 192), 3));
 
 		setBounds(0, 114, 1300, 597);
 		setPreferredSize(new Dimension(1000, 650));

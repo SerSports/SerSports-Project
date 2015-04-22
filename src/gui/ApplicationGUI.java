@@ -179,7 +179,7 @@ public class ApplicationGUI extends JLayeredPane{
     				int result = JOptionPane.showConfirmDialog(null, "You have pending statistics to add. Are you sure you want to sign out?", 
     						null, JOptionPane.YES_NO_OPTION);
         			if(result == JOptionPane.YES_OPTION){
-        				//need to reset text fields before closing application
+        				//reset text
         				MainGUI.setApplicationToClose();
         			}
         		}
@@ -189,7 +189,6 @@ public class ApplicationGUI extends JLayeredPane{
     			}
     		}
     	});
-	   
 	}
 
     public void showHome(){

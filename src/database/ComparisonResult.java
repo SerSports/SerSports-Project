@@ -45,11 +45,11 @@ public class ComparisonResult
 		@Override
 		public int compare(ComparisonResult x, ComparisonResult y)
 		{
-			if (x.getScore() < y.getScore())
+			if (Float.compare(x.getScore(), y.getScore()) < 0)
 			{
 				return 1;
 			}
-			if (x.getScore() > y.getScore())
+			if (Float.compare(x.getScore(), y.getScore()) > 0)
 			{
 				return -1;
 			}
