@@ -14,7 +14,7 @@ public class localPlayerFieldingStatistics_Season
 {
 	
 	/*
-	 * All statistics related to batting
+	 * All statistics related to fielding
 	 */
 	private static final String TABLE_NAME = "localplayersfieldingstatistics_season";
 	private static final String FIELD_LOCAL_PLAYER_ID = "localPlayerId";
