@@ -29,11 +29,11 @@ public class TextFieldDocumentListener implements DocumentListener {
 		
 	}
 
-	public static boolean isDirty() {
+	public boolean isDirty() {
 		return isDirty;
 	}
 	
-	public static void setDirty(){
+	public void setDirty(){
 		isDirty = false;
 	}
 }
