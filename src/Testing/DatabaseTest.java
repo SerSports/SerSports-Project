@@ -1,4 +1,4 @@
-/*package Testing;
+package Testing;
 import database.Database;
 
 import static org.junit.Assert.*;
@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class DatabaseTest {
 
-	@BeforeClass
+/*	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	
 	}
@@ -47,5 +47,5 @@ public class DatabaseTest {
 		assertNotNull(Database.getResultSetFromSQL("SELECT * FROM mlbPlayers"));
 		assertNotNull(Database.getResultSetFromSQL("SELECT * FROM mlbPlayers WHERE firstName = \"Paul\""));
 		assertNotNull(Database.getResultSetFromSQL("SELECT lastName FROM mlbPlayers WHERE firstName = \"Paul\""));
-	}
-}*/
+	}*/
+}

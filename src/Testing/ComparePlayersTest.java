@@ -1,4 +1,4 @@
-/*package Testing;
+package Testing;
 
 import static org.junit.Assert.*;
 
@@ -14,7 +14,7 @@ import database.MlbPlayer;
 
 public class ComparePlayersTest {
 
-	@BeforeClass
+/*	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
 
@@ -35,6 +35,6 @@ public class ComparePlayersTest {
 		LocalPlayerPitchingStatistics_Season lpPitching = null;
 		//MlbPlayer.getPlayerForId("")
 		//ComparePlayers.compareToPlayer(lpBatting, lpPitching, mlbPlayer)
-	}
+	}*/
 
-}*/
+}

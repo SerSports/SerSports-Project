@@ -1,4 +1,4 @@
-/*package Testing;
+package Testing;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -12,7 +12,7 @@ import database.LocalPlayer;
 
 public class LocalPlayerTest {
 	
-	static ArrayList<LocalPlayer> players;
+/*	static ArrayList<LocalPlayer> players;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -32,6 +32,5 @@ public class LocalPlayerTest {
 	@Test
 	public void test() throws Exception { 
 		assertNotNull(LocalPlayer.getPlayersFromDatabase(1, "Graydon", "Svendson", 26, " "));
-	}
+	}*/
 }
-*/

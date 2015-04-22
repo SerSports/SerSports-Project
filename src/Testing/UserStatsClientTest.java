@@ -1,4 +1,4 @@
-/*package Testing;
+package Testing;
 
 import static org.junit.Assert.*;
 import org.junit.After;
@@ -11,7 +11,7 @@ import client.UserPitchingStatsClient;
 
 public class UserStatsClientTest {
 
-	UserBattingStatsClient batter = new UserBattingStatsClient();
+/*	UserBattingStatsClient batter = new UserBattingStatsClient();
 	UserFieldingStatsClient fielder = new UserFieldingStatsClient();
 	UserPitchingStatsClient pitcher = new UserPitchingStatsClient();
 	
@@ -43,7 +43,6 @@ public class UserStatsClientTest {
 		assertFalse(pitcher.isValidDate(""));
 		assertFalse(pitcher.isValidDate("MM/DD/YYYY"));
 		
-	}
+	}*/
 
 }
-*/

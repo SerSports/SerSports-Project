@@ -1,4 +1,4 @@
-/*package Testing;
+package Testing;
 
 import database.MlbPlayer;
 import database.MlbPlayerFilter;
@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class MlbPlayerTest {
 	
-	static ArrayList<MlbPlayer> players;
+/*	static ArrayList<MlbPlayer> players;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -85,5 +85,5 @@ public class MlbPlayerTest {
 		filter.setTeamNameValue("x");
 		assertNotNull(MlbPlayer.getPlayersFromDatabase(filter));
 		assertTrue(MlbPlayer.getPlayersFromDatabase(filter).size() == 0);
-	}
-}*/
+	}*/
+}
