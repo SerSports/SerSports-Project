@@ -34,22 +34,22 @@ public class LocalPlayerBattingStatistics_Season
 	private static final String FIELD_BATTING_TOTALS_OUTS_K = "batting_totals_outs_k";
 	private static final String FIELD_BATTING_STEAL_TOTALS_STOLEN = "batting_steal_totals_stolen";
 	
-	private int localPlayersHittingStatisticsID;
-	private int localPlayerId;
-	private int batting_games_play;
-	private int batting_games_won;
-	private int batting_games_loss;
-	private int batting_totals_ab;
-	private int batting_totals_rbi;
-	private int batting_onbase_totals_h;
-	private int batting_onbase_totals_s;
-	private int batting_onbase_totals_d;
-	private int batting_onbase_totals_t;
-	private int batting_onbase_totals_hr;
-	private int batting_onbase_totals_earned;
-	private int batting_totals_runs;
-	private int batting_totals_outs_k;
-	private int batting_steal_totals_stolen;
+	private int localPlayersHittingStatisticsID; // Identifier used to track the currently selected statistic
+	private int localPlayerId; // Identifier used to track all local players
+	private int batting_games_play; // Games Played
+	private int batting_games_won; // Games Won
+	private int batting_games_loss; // Games Lost
+	private int batting_totals_ab; // At bats
+	private int batting_totals_rbi; // Runs Batted In
+	private int batting_onbase_totals_h; // Hits
+	private int batting_onbase_totals_s; // Singles
+	private int batting_onbase_totals_d; // Doubles
+	private int batting_onbase_totals_t; // Triples
+	private int batting_onbase_totals_hr; // Home Runs
+	private int batting_onbase_totals_earned; // Total Bases
+	private int batting_totals_runs; // Runs
+	private int batting_totals_outs_k; // Strike outs
+	private int batting_steal_totals_stolen; // Stolen Bases
 	
 	public int getLocalPlayersHittingStatisticsID()
 	{
