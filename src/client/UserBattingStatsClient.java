@@ -27,7 +27,7 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 {
 	
 	private static final boolean debugOn = true;
-	private double battingAverage = 0.0;
+	//private double battingAverage = 0.0;
 	private final String submit = "Submit";
 	private final String update = "Update";
 	private int currentSelectedRowForUpdate;
@@ -64,21 +64,21 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 	 * @param atBats
 	 *            Total number of plate appearances accrued from selected player.
 	 */
-	public void setBattingAverage(double hit, double atBats)
+/*	public void setBattingAverage(double hit, double atBats)
 	{
 		if (atBats != 0)
 			battingAverage = hit / atBats;
 		else
 			battingAverage = 0.0;
 	}
-	
+	*/
 	/**
 	 * @return Selected player's batting average.
 	 */
-	public double getBattingAverage()
+/*	public double getBattingAverage()
 	{
 		return battingAverage;
-	}
+	}*/
 	
 	/*
 	 * (non-Javadoc)
@@ -195,14 +195,14 @@ public class UserBattingStatsClient extends UserBattingStats implements ActionLi
 			
 			for (LocalPlayerBattingStatistics m : currentPlayerBattingStatistics)
 			{
-				setBattingAverage( (double) m.getBatting_onbase_h(), (double) m.getBatting_ab());
+				//setBattingAverage( (double) m.getBatting_onbase_h(), (double) m.getBatting_ab());
 				Object[] row = { m.getLocalPlayersHittingStatisticsID(),
 						m.getGame_date(), m.getBatting_ab(), m.getBatting_onbase_h(),
 						m.getBatting_rbi(), m.getBatting_onbase_s(), 
 						m.getBatting_onbase_d(), m.getBatting_onbase_t(),
 						m.getBatting_runs_total(), m.getBatting_steal_stolen(), 
 						m.getBatting_onbase_hr(), m.getBatting_outs_ktotal(),
-						getBattingAverage() };
+						m.getBattingAverage()};
 				newTable.addRow(row);
 			}
 			

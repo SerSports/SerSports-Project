@@ -69,6 +69,13 @@ public class LocalPlayerBattingStatistics {
 		}
 		return 0.00f;
 	}
+	
+	public double getBattingAverage() {
+		if (batting_ab != 0)
+			return (double)batting_onbase_h / (double)batting_ab;
+		else
+			return 0.0;
+	}
 
 	public String getPosition() {
 		return position;
