@@ -5,7 +5,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 public class TextFieldDocumentListener implements DocumentListener {
-	private boolean isDirty = false;
+	private static boolean isDirty = false;
 	
 	public TextFieldDocumentListener(){
 		isDirty = false;
@@ -29,11 +29,11 @@ public class TextFieldDocumentListener implements DocumentListener {
 		
 	}
 
-	public boolean isDirty() {
+	public static boolean isDirty() {
 		return isDirty;
 	}
 	
-	public void setDirty(){
+	public static void setDirty(){
 		isDirty = false;
 	}
 }

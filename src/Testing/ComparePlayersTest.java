@@ -18,7 +18,7 @@ import database.MlbPlayer;
 
 public class ComparePlayersTest {
 
-/*	@BeforeClass
+	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
 
@@ -34,21 +34,12 @@ public class ComparePlayersTest {
 		assertTrue(ComparePlayers.compareToPlayer(LocalPlayer.getLocalPlayerForId(4), MlbPlayer.getPlayerForId("617e6d98-d7dc-49ea-adbd-22e00e3ccc81")) == 0);
 		assertTrue(ComparePlayers.compareToPlayer(LocalPlayer.getLocalPlayerForId(1), MlbPlayer.getPlayerForId("c177b52d-7e9e-4780-a5d2-23ca59469ff5")) > 0);
 	}
-	
-	// public static float compareToPlayer(LocalPlayer lp, MlbPlayer mlbPlayer)
-	@Test 
+
+	@Test
 	public void compareToPlayerStats_test() {
-	
+
 		LocalPlayerBattingStatistics_Season lpBatting = null;
 		LocalPlayerPitchingStatistics_Season lpPitching = null;
-<<<<<<< HEAD
-		//MlbPlayer.getPlayerForId("")
-		//ComparePlayers.compareToPlayer(lpBatting, lpPitching, mlbPlayer)
-	}*/
-	@Test
-	public void test() {
-		assertTrue(true);
-=======
 
 		assertTrue(ComparePlayers.compareToPlayer(lpBatting, lpPitching, MlbPlayer.getPlayerForId("617e6d98-d7dc-49ea-adbd-22e00e3ccc81")) == 0);
 
@@ -58,7 +49,6 @@ public class ComparePlayersTest {
 		ArrayList<LocalPlayerPitchingStatistics_Season> listPitch = LocalPlayerPitchingStatistics_Season.getStatisticsFromDatabase(lp.getLocalPlayerId());
 		lpPitching = listPitch.get(0);
 		assertTrue(ComparePlayers.compareToPlayer(lpBatting, lpPitching, MlbPlayer.getPlayerForId("617e6d98-d7dc-49ea-adbd-22e00e3ccc81")) > 0);
->>>>>>> mlb_comparison
 	}
 
 	// public static ArrayList<ComparisonResult> compareToPlayerList(LocalPlayer lp, ArrayList<MlbPlayer> mlbList)
