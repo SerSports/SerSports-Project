@@ -47,7 +47,7 @@ public class SportsPicsApi {
 		}
 		catch (Exception e) {
 			try {
-				URL url = new URL("http://www.clker.com/cliparts/5/9/4/c/12198090531909861341man%20silhouette.svg.hi.png");
+				URL url = new URL("http://a.espncdn.com/combiner/i?img=/i/headshots/mlb/players/full/4937.png&w=350&h=254");
 				pic = ImageIO.read(url);
 			} catch (MalformedURLException me) {
 				me.printStackTrace();
