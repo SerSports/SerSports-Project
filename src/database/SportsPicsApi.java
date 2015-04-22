@@ -19,7 +19,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
- * API used for pulling the MLB statistics from the database Sports Data LLC
+ * API used for pulling the MLB player's images from the database Sports Data LLC
  * 
  * @author XML Code adapted from
  *         http://www.javacodegeeks.com/2013/05/parsing-xml-using-dom
