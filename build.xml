@@ -5,6 +5,7 @@
 	<property name="src" value="src" />
 	<property name="build" value="classes" />
 	<property name="src.testing" value="src/Testing" />
+	<property name="build.lib" value="lib" />
 	<property name="build.test" value="classes/Testing"/>
 	<property name="test.reports" value="report/" />
 	<property name="jars" value="jars"/>
@@ -14,6 +15,7 @@
 	<path id="compile.classpath">
 		<pathelement location="${build}"/>
 		<pathelement location="${build.test}" />
+		<pathelement location=${build.lib"} />
 		<fileset dir="${jars}">
 			<include name="**/*.jar"/>
 		</fileset>  
