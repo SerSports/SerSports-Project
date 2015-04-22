@@ -84,7 +84,7 @@
         		<path refid="compile.classpath"/>
         	</classpath>
             <batchtest todir="${test.reports}">
-                <fileset dir="${src.testing}">
+                <fileset dir="${src}">
                     <include name="**/*Test.java" />
                 </fileset>
             </batchtest>
