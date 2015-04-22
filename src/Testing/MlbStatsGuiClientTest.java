@@ -1,12 +1,9 @@
 package Testing;
 
 import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import client.MlbStatsGuiClient;
 import database.MlbPlayer;
 
 public class MlbStatsGuiClientTest {
