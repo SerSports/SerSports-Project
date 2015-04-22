@@ -15,7 +15,7 @@
 	<path id="compile.classpath">
 		<pathelement location="${build}"/>
 		<pathelement location="${build.test}" />
-		<pathelement location=${build.lib"} />
+		<pathelement location="${build.lib}" />
 		<fileset dir="${jars}">
 			<include name="**/*.jar"/>
 		</fileset>  
