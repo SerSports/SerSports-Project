@@ -7,7 +7,6 @@ Description: GUI for the help page
 
  */
 package gui;
-
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -15,7 +14,6 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;

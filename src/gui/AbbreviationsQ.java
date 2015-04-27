@@ -10,6 +10,11 @@ public class AbbreviationsQ extends JPanel
 {
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6529128873635518316L;
+
+	/**
 	 * Create the panel.
 	 */
 	public AbbreviationsQ()

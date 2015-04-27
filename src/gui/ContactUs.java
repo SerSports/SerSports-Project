@@ -9,7 +9,6 @@ Description: GUI for the Contact Us page
 package gui;
 import java.awt.Color;
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;

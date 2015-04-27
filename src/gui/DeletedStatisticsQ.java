@@ -11,6 +11,11 @@ public class DeletedStatisticsQ extends JPanel
 {
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1187250374218972156L;
+
+	/**
 	 * Create the panel.
 	 */
 	public DeletedStatisticsQ()

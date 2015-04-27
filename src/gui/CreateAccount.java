@@ -13,7 +13,6 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
@@ -26,6 +25,10 @@ used http://best-programming-tricks.blogspot.com/2011/07/how-to-add-action-mouse
 */
 
 public class CreateAccount extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8434810151786640652L;
 	private ModifiedJTextField textUsername = new ModifiedJTextField();
 	private ModifiedJTextField textPassword = new ModifiedJTextField();
 	private ModifiedJTextField textFirstName = new ModifiedJTextField();

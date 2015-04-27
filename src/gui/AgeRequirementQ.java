@@ -10,6 +10,11 @@ public class AgeRequirementQ extends JPanel
 {
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3282099479400601681L;
+
+	/**
 	 * Create the panel.
 	 */
 	public AgeRequirementQ()

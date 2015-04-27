@@ -12,30 +12,22 @@ import java.awt.Dimension;
 import java.awt.Image;
 
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-
 import java.awt.Color;
-
 import database.*;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
-
 import javax.swing.border.LineBorder;
-import javax.swing.SwingConstants;
+
 
 
 /**
@@ -44,6 +36,10 @@ Class: HomePageGUI
 Description: GUI for the home page
 */
 public class HomePageGUI extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8138419260517160502L;
 	protected User currentUser = null;
 	protected JLabel userFirstName = null;
 	protected JButton btnSignOut;
@@ -51,7 +47,6 @@ public class HomePageGUI extends JPanel {
 	protected ModifiedJButtonStyle1 btnFindBestComparison = new ModifiedJButtonStyle1("Find Best Comparison");
 	protected JLabel lblInsertPlayersName = null;
 	protected JLabel label = null;
-	private JLabel labelPercent;
 	protected Image imgbackground = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
 	protected JLabel lblbackgroundImage = new JLabel("");
 	protected Image img = null;
@@ -111,25 +106,7 @@ public class HomePageGUI extends JPanel {
 		lblYouAre.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
 		lblYouAre.setForeground(new Color(244, 229, 192));
 		lblYouAre.setBounds(558, 425, 411, 16);
-		add(lblYouAre);
-		
-		//labelPercent = new JLabel("");
-		//labelPercent.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 18));
-		//labelPercent.setForeground(new Color(244, 229, 192));
-		//labelPercent.setBounds(624, 426, 50, 19);
-		//add(labelPercent);
-		
-		//JLabel lblPercent = new JLabel("percent like");
-		//lblPercent.setForeground(new Color(244, 229, 192));
-		//lblPercent.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		//lblPercent.setBounds(678, 425, 100, 16);
-		//add(lblPercent);
-		
-		//lblInsertPlayersName = new JLabel("Erik Van Norman Goeddel");
-		//lblInsertPlayersName.setForeground(new Color(244, 229, 192));
-		//lblInsertPlayersName.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 18));
-		//lblInsertPlayersName.setBounds(773, 425, 211, 16);
-		//add(lblInsertPlayersName);		
+		add(lblYouAre);	
 		
 		JLabel lblWelcome = new JLabel("Welcome,");
 		lblWelcome.setForeground(new Color(244, 229, 192));
