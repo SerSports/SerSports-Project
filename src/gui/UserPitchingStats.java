@@ -11,16 +11,10 @@ package gui;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
 import java.awt.Color;
-
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JComboBox;
 
@@ -31,6 +25,10 @@ Class: UserPitchingStats
 Description: Creates a panel for the User Batting Stats
 */
 public class UserPitchingStats extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1923519864816674774L;
 	private String dateTxt = "YYYY-MM-DD";
 	private String winsTxt = "Wins";
 	private String lossesTxt = "Loss";

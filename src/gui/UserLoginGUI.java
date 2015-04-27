@@ -28,8 +28,11 @@ import database.User;
  * Description: GUI for main navigation of site
  */
 public class UserLoginGUI extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7689476129144334717L;
 	protected ModifiedJTextField txtUserName = new ModifiedJTextField();
-	private Image imgunderLine = new ImageIcon(this.getClass().getResource("/images/MenuLineIndicator.png")).getImage();
 	protected ModifiedJPasswordField pwdPassword = new ModifiedJPasswordField();
 	protected ModifiedJButtonStyle1 btnSubmit = new ModifiedJButtonStyle1("SIGN IN");
 	protected ModifiedJButtonStyle1 btnCreateAccount_1 = new ModifiedJButtonStyle1("CREATE ACCOUNT");

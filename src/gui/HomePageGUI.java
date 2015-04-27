@@ -7,10 +7,8 @@ Description: GUI for the Home Page
 
 */
 package gui;
-
 import java.awt.Dimension;
 import java.awt.Image;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;

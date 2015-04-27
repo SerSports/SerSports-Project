@@ -11,18 +11,11 @@ package gui;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
 import java.awt.Color;
-
 import javax.swing.JComboBox;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -32,6 +25,10 @@ Class: UserFieldingStats
 Description: GUI for the User Fielding Stats
 */
 public class UserFieldingStats extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6220572950014860737L;
 	private String dateTxt = "YYYY-MM-DD";
 	private String winsTxt = "Wins";
 	private String lossesTxt = "Loss";
