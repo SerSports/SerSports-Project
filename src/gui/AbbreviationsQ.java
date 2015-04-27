@@ -1,11 +1,9 @@
 package gui;
 
 import javax.swing.JPanel;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-
 import javax.swing.JLabel;
 
 public class AbbreviationsQ extends JPanel

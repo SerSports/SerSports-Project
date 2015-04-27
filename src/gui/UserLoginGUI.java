@@ -15,18 +15,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
-
 import database.User;
 
 /**
@@ -91,6 +84,7 @@ public class UserLoginGUI extends JPanel {
 
 		
 		//background image
+		//lblbackgroundImage.setBounds(-908, -627, 3456, 1446);
 		lblbackgroundImage.setBounds(-908, -627, 3456, 1446);
 		add(lblbackgroundImage);
 		lblbackgroundImage.setIcon(new ImageIcon(img));
