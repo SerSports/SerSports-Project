@@ -83,7 +83,7 @@ public class HomePageGUI extends JPanel {
 		setLayout(null);
 		
 		JLabel diamond = new JLabel("");
-		diamond.setBounds(189, -48, 64, 64);
+		diamond.setBounds(184, -48, 64, 64);
 		add(diamond);
 		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png")).getImage();
 		diamond.setIcon(new ImageIcon(img2));
