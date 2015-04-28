@@ -11,10 +11,14 @@ package gui;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
 import java.awt.Color;
+
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JComboBox;
 
@@ -38,7 +42,6 @@ public class UserPitchingStats extends JPanel {
 	private String holdsTxt = "Holds";
 	private String runsTxt = "Runs";
 	private String hitByPitchTxt = "HBP";
-	private JLabel lineTitle = new JLabel("");
 	private Image imgunderLine = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
 	
 	protected ModifiedJTable table = new ModifiedJTable(new DefaultTableModel(null, new Object[]{"Date","GP", "W", "L","ERA","SAVES","HITS","HOLDS","RUNS","HBP"}));
@@ -69,13 +72,10 @@ public class UserPitchingStats extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		
-		lineTitle.setBounds(-16, 77, 196, 3);
-		lineTitle.setIcon(new ImageIcon(imgunderLine));
-		add(lineTitle);
-		
-		JLabel lblEnter = new JLabel("Enter New Stats:");
+		JLabel lblEnter = new JLabel("ENTER NEW STATS");
+		lblEnter.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
-		lblEnter.setBounds(6, 50, 158, 31);
+		lblEnter.setBounds(293, 49, 214, 28);
 		lblEnter.setForeground(new Color(244, 229, 192));
 		add(lblEnter);
 		

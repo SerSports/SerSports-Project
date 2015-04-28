@@ -18,6 +18,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
 import javax.swing.JComboBox;
+import javax.swing.SwingConstants;
 
 /**
 Class: UserBattingStats
@@ -44,7 +45,6 @@ public class UserBattingStats extends JPanel {
 	private ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
 	private TextFieldDocumentListener textFieldDocList = new TextFieldDocumentListener();
 	private Image imgunderLine = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
-	private JLabel lineTitle = new JLabel("");
 	
 	protected ModifiedJTable table = new ModifiedJTable(new DefaultTableModel(null, new Object[]{"Won", "AB", "H",
 			"RBI", "1B", "2B", "3B", "Runs", "SB", "HR", "SO" }));
@@ -78,13 +78,10 @@ public class UserBattingStats extends JPanel {
 		setBackground(new Color(47, 52, 64));
 		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
 		
-		lineTitle.setBounds(-16, 77, 196, 3);
-		lineTitle.setIcon(new ImageIcon(imgunderLine));
-		add(lineTitle);
-		
-		JLabel lblEnter = new JLabel("Enter New Stats:");
+		JLabel lblEnter = new JLabel("ENTER NEW STATS");
+		lblEnter.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEnter.setFont(new Font("Malayalam Sangam MN", Font.PLAIN, 20));
-		lblEnter.setBounds(6, 50, 158, 31);
+		lblEnter.setBounds(293, 49, 214, 28);
 		lblEnter.setForeground(new Color(244, 229, 192));
 		add(lblEnter);
 		
