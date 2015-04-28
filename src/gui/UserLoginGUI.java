@@ -92,17 +92,6 @@ public class UserLoginGUI extends JPanel {
 		//lblbackgroundImage.setBounds(-908, -627, 3456, 1446);
 		add(lblbackgroundImage);
 		lblbackgroundImage.setIcon(new ImageIcon(img));
-		
-		/*JTextField mdfdjtxtfldHolder = new JTextField();
-		mdfdjtxtfldHolder.setText("");
-		mdfdjtxtfldHolder.setBounds(400, 131, 200, 28);
-		mdfdjtxtfldHolder.setBackground(Color.WHITE);
-		add(mdfdjtxtfldHolder);
-		mdfdjtxtfldHolder.setForeground(Color.WHITE);
-		//setBackground(new Color(244, 229, 192));
-		mdfdjtxtfldHolder.setBorder(new LineBorder(Color.WHITE, 1));*/
-		
-		
 
 		//create account button action Listener
 		btnCreateAccount_1.addActionListener(new ActionListener() {
