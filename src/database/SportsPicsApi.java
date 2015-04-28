@@ -124,6 +124,7 @@ public class SportsPicsApi
 			throws MalformedURLException, IOException
 	{
 		String urlString = getApiUrlString(assetId);
+		urlString = new String("12312"); // Arbitrary Value
 		URL url = new URL(urlString);
 		Image pic = ImageIO.read(url);
 		
