@@ -36,8 +36,8 @@ public class UserLoginGUI extends JPanel {
 	protected ModifiedJPasswordField pwdPassword = new ModifiedJPasswordField();
 	protected ModifiedJButtonStyle1 btnSubmit = new ModifiedJButtonStyle1("SIGN IN");
 	protected ModifiedJButtonStyle1 btnCreateAccount_1 = new ModifiedJButtonStyle1("CREATE ACCOUNT");
-	protected Image img = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
-	//protected Image img = new ImageIcon(this.getClass().getResource("/images/BostonWallpaper copy.png")).getImage();
+	//protected Image img = new ImageIcon(this.getClass().getResource("/images/Backgroundimage.png")).getImage();
+	protected Image img = new ImageIcon(this.getClass().getResource("/images/BostonWallpaperNavy.png")).getImage();
 	protected Image loginBorder = new ImageIcon(this.getClass().getResource("/images/LoginBorder.png")).getImage();
 	protected JLabel loginnBorderImage = new JLabel("");
 	protected JLabel lblbackgroundImage = new JLabel("");
@@ -88,8 +88,8 @@ public class UserLoginGUI extends JPanel {
 
 		
 		//background image
-		//lblbackgroundImage.setBounds(-370, -400, 3456, 1446);
-		lblbackgroundImage.setBounds(-908, -627, 3456, 1446);
+		lblbackgroundImage.setBounds(-403, -269, 1920, 1200);
+		//lblbackgroundImage.setBounds(-908, -627, 3456, 1446);
 		add(lblbackgroundImage);
 		lblbackgroundImage.setIcon(new ImageIcon(img));
 		
