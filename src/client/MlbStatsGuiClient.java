@@ -2,9 +2,11 @@ package client;
 
 import gui.*;
 import database.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -96,7 +98,7 @@ public class MlbStatsGuiClient extends MlbStatsGui implements ActionListener
 				
 				float result = ComparePlayers.compareToPlayer(User.getCurrentLocalPlayer(), selectedPlayer);
 				
-				JOptionPane.showMessageDialog(null, "You are " + (result * 100.0)
+				JOptionPane.showMessageDialog(null, "You are " + (Math.round(result * 1000.0) / 10.0)
 						+ "% like this player", "Compare to Player",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
