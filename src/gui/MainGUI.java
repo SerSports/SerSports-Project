@@ -80,7 +80,7 @@ public class MainGUI {
 		panelContainer.add(createAccountGUI, "3");
 
 
-		mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.pack();
 		mainFrame.setVisible(true);
 		mainFrame.setLocation(dim.width / 2 - mainFrame.getSize().width / 2,
