@@ -45,7 +45,7 @@ public class UserLoginGUI extends JPanel {
 	MainGUI main = null;
 	private final JLabel lblUsername = new JLabel("Username:");
 	private final JLabel lblPassword = new JLabel("Password:");
-	private String pwd = "admin";
+	private String pwd = "password";
 	private String usr = "Username";
 
 	public UserLoginGUI() {
