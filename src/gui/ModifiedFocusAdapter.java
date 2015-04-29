@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 /**
  * Handles all user entry fields by creating the actual text field where they enter
  * information and displaying a caption that tells the user what information goes in the
- * box. Reverts back to the default caption if the box is clicked away from or manipulated
+ * box. Reverts back to the default caption if the box is clicked away from or manipulated.
  * 
  * @author SerSports
  */
