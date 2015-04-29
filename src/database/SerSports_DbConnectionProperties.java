@@ -16,15 +16,15 @@ class SerSports_DbConnectionProperties
 	 * JDBC driver name and database URL
 	 */
 	private String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	private String DB_URL = "jdbc:mysql://local/ser_sports";
-	//private String DB_URL = "jdbc:mysql://107.170.229.233/ser_sports";
+	//private String DB_URL = "jdbc:mysql://local/ser_sports";
+	private String DB_URL = "jdbc:mysql://107.170.229.233/ser_sports";
 	
 	/*
 	 * Database credentials
 	 */
 	private String USER = "root";
-	//private String PASS = "root";
-	private String PASS = "";
+	private String PASS = "root";
+	//private String PASS = "";
 	
 	private static Boolean usingDefaultValues = false;
 	
