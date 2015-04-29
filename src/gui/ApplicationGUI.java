@@ -1,4 +1,4 @@
-package gui; 
+package gui;
 
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -12,9 +12,15 @@ import javax.swing.*;
 import client.*;
 import java.awt.Font;
 
-
-public class ApplicationGUI extends JLayeredPane{
-
+/**
+ * Sets up the menu panel for all pages that require it as well as other buttons that are
+ * necessary across all units of the project including "Sign Out", "FAQs", and "Contact"
+ * 
+ * @author SerSports
+ */
+public class ApplicationGUI extends JLayeredPane
+{
+	
 	private static final long serialVersionUID = -2185908976323552280L;
 	private JPanel panelBodyContainer = new JPanel();
 	private JPanel menuPanel = new JPanel();
@@ -27,21 +33,29 @@ public class ApplicationGUI extends JLayeredPane{
 	private ContactUs contactUs = new ContactUs();
 	private Help FAQs = new Help();
 	protected JButton btnSignOut = new JButton("SIGN OUT");
-	protected Image img = new ImageIcon(this.getClass().getResource("/images/LogoTop.png")).getImage();
-	protected Image imgline = new ImageIcon(this.getClass().getResource("/images/mainMenuline.png")).getImage();
+	protected Image img = new ImageIcon(this.getClass()
+			.getResource("/images/LogoTop.png")).getImage();
+	protected Image imgline = new ImageIcon(this.getClass().getResource(
+			"/images/mainMenuline.png")).getImage();
 	private final JLabel verticalLine3 = new JLabel("");
 	
-	public ApplicationGUI() {
+	public ApplicationGUI()
+	{
 		setLayout(null);
 		
 		setPreferredSize(new Dimension(100, 650));
 		
-		//Menu		
+		/*
+		 * Menu containing all button to navigate the application
+		 */
 		menuPanel.setBounds(0, 0, 1300, 118);
 		menuPanel.setBackground(new Color(244, 229, 192));
 		menuPanel.setLayout(null);
 		add(menuPanel);
 		
+		/*
+		 * Button that transitions to the Home page
+		 */
 		JButton btnHome = new JButton("HOME");
 		btnHome.setBounds(157, 64, 117, 29);
 		btnHome.setFont(new Font("Chunkfive", Font.BOLD, 22));
@@ -50,6 +64,9 @@ public class ApplicationGUI extends JLayeredPane{
 		btnHome.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnHome);
 		
+		/*
+		 * Button that transitions to the Enter New Stats page
+		 */
 		JButton btnEnterNewStats = new JButton("ENTER NEW STATS");
 		btnEnterNewStats.setBounds(291, 64, 230, 29);
 		btnEnterNewStats.setFont(new Font("Chunkfive", Font.BOLD, 22));
@@ -58,6 +75,9 @@ public class ApplicationGUI extends JLayeredPane{
 		btnEnterNewStats.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnEnterNewStats);
 		
+		/*
+		 * Button that transitions to the Browse Local page
+		 */
 		JButton btnBrowseLocal = new JButton("BROWSE LOCAL");
 		btnBrowseLocal.setBounds(548, 64, 207, 29);
 		btnBrowseLocal.setFont(new Font("Chunkfive", Font.BOLD, 22));
@@ -66,6 +86,9 @@ public class ApplicationGUI extends JLayeredPane{
 		btnBrowseLocal.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnBrowseLocal);
 		
+		/*
+		 * Button that transitions to the Browse MLB page
+		 */
 		JButton btnBrowseMLB = new JButton("BROWSE MLB");
 		btnBrowseMLB.setBounds(787, 64, 163, 29);
 		btnBrowseMLB.setFont(new Font("Chunkfive", Font.BOLD, 22));
@@ -74,11 +97,17 @@ public class ApplicationGUI extends JLayeredPane{
 		btnBrowseMLB.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnBrowseMLB);
 		
+		/*
+		 * Adds the SerSports logo to the menu
+		 */
 		logo = new JLabel("");
 		logo.setBounds(6, 6, 152, 112);
 		menuPanel.add(logo);
 		logo.setIcon(new ImageIcon(img));
 		
+		/*
+		 * Adds the Sign Out button above the menu
+		 */
 		btnSignOut.setBounds(888, 6, 81, 24);
 		btnSignOut.setFont(new Font("Chunkfive", Font.BOLD, 14));
 		btnSignOut.setBorder(BorderFactory.createEmptyBorder());
@@ -86,6 +115,9 @@ public class ApplicationGUI extends JLayeredPane{
 		btnSignOut.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btnSignOut);
 		
+		/*
+		 * Adds the Contact button above the menu
+		 */
 		JButton btncontactUs = new JButton("CONTACT");
 		btncontactUs.setBounds(753, 6, 81, 24);
 		btncontactUs.setFont(new Font("Chunkfive", Font.BOLD, 14));
@@ -94,6 +126,9 @@ public class ApplicationGUI extends JLayeredPane{
 		btncontactUs.setForeground(new Color(47, 52, 64));
 		menuPanel.add(btncontactUs);
 		
+		/*
+		 * Adds the FAQs button above the menu
+		 */
 		JButton btnFAQs = new JButton("FAQs");
 		btnFAQs.setBounds(838, 6, 48, 24);
 		btnFAQs.setFont(new Font("Chunkfive", Font.BOLD, 14));
@@ -113,117 +148,156 @@ public class ApplicationGUI extends JLayeredPane{
 		verticalLine2.setIcon(new ImageIcon(imgline));
 		
 		verticalLine3.setIcon(new ImageIcon(imgline));
-		verticalLine3.setBounds(765, 61, 4, 36);	
+		verticalLine3.setBounds(765, 61, 4, 36);
 		menuPanel.add(verticalLine3);
 		
-		//Body Container
+		/*
+		 * Body container that holds the menu and the card layout panel
+		 */
 		panelBodyContainer.setBounds(0, 118, 1300, 597);
-		add(panelBodyContainer);	
+		add(panelBodyContainer);
 		panelBodyContainer.setLayout(c1);
 		panelBodyContainer.add(home, "1");
-		panelBodyContainer.add(enterStats,"2");
+		panelBodyContainer.add(enterStats, "2");
 		panelBodyContainer.add(browseLocal, "3");
 		panelBodyContainer.add(browseMLB, "4");
 		panelBodyContainer.add(contactUs, "5");
 		panelBodyContainer.add(FAQs, "6");
-    	c1.show(panelBodyContainer, "1");
-    			
-    	btnHome.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			c1.show(panelBodyContainer, "1");
- 
-    		}
-    	});
-    	
-    	btnEnterNewStats.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			c1.show(panelBodyContainer, "2");
- 
-    		}
-    	});
-    	
-    	btnBrowseLocal.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			c1.show(panelBodyContainer, "3");
- 
-    		}
-    	});
-    	
-    	btnBrowseMLB.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			c1.show(panelBodyContainer, "4");
- 
-    		}
-    	});
-    	
-    	btncontactUs.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			c1.show(panelBodyContainer, "5");
- 
-    		}
-    	});
-    	
-    	btnFAQs.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			c1.show(panelBodyContainer, "6");
- 
-    		}
-    	});
-    	
-		btnSignOut.addActionListener(new ActionListener(){
-    		public void actionPerformed(ActionEvent arg0){
-    			if(TextFieldDocumentListener.isDirty()){
-    				int result = JOptionPane.showConfirmDialog(null, "You have pending statistics to add. Are you sure you want to sign out?", 
-    						null, JOptionPane.YES_NO_OPTION);
-        			if(result == JOptionPane.YES_OPTION){
-        				//reset text
-        				MainGUI.setApplicationToClose();
-        			}
-        		}
-    			else
-    			{
-    				MainGUI.setApplicationToClose();
-    			}
-    		}
-    	});
+		c1.show(panelBodyContainer, "1");
+		
+		/*
+		 * Action listeners used to apply to the menu buttons in order to transition
+		 * between screens
+		 */
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0)
+			{
+				c1.show(panelBodyContainer, "1");
+				
+			}
+		});
+		
+		btnEnterNewStats.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0)
+			{
+				c1.show(panelBodyContainer, "2");
+				
+			}
+		});
+		
+		btnBrowseLocal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0)
+			{
+				c1.show(panelBodyContainer, "3");
+				
+			}
+		});
+		
+		btnBrowseMLB.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0)
+			{
+				c1.show(panelBodyContainer, "4");
+				
+			}
+		});
+		
+		btncontactUs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0)
+			{
+				c1.show(panelBodyContainer, "5");
+				
+			}
+		});
+		
+		btnFAQs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0)
+			{
+				c1.show(panelBodyContainer, "6");
+				
+			}
+		});
+		
+		/*
+		 * Listener used to handle actions performed by the Sign Out button
+		 */
+		btnSignOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0)
+			{
+				if (TextFieldDocumentListener.isDirty())
+				{
+					int result = JOptionPane
+							.showConfirmDialog(
+									null,
+									"You have pending statistics to add. Are you sure you want to sign out?",
+									null, JOptionPane.YES_NO_OPTION);
+					if (result == JOptionPane.YES_OPTION)
+					{
+						MainGUI.setApplicationToClose();
+					}
+				}
+				else
+				{
+					MainGUI.setApplicationToClose();
+				}
+			}
+		});
 	}
-
-    public void showHome(){
-    	c1.show(panelBodyContainer, "1");
-    } 
-    
-    public void showEnterStats(){
-    	c1.show(panelBodyContainer, "2");
-    }
-    
-    public void showBrowseLocal(){
-    	c1.show(panelBodyContainer, "3");
-    } 
-    
-    public void showBrowseMLB(){
-    	c1.show(panelBodyContainer, "4");
-    }
-    
-    public void showContactUS(){
-    	c1.show(panelBodyContainer, "5");
-    }
-    
-    public void showFAQs(){
-    	c1.show(panelBodyContainer, "6");
-    }
-    
-    protected JLabel getLabel(String title, String icon) {
-	        JLabel label = new JLabel(title);
-	        try {
-	            label.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(icon))));
-	        } catch (IOException ex) {
-	            ex.printStackTrace();
-	        }
-	        return label;
-	    }
-
-
-	public void loadUserInfoIntoControls() {
+	
+	public void showHome()
+	{
+		c1.show(panelBodyContainer, "1");
+	}
+	
+	public void showEnterStats()
+	{
+		c1.show(panelBodyContainer, "2");
+	}
+	
+	public void showBrowseLocal()
+	{
+		c1.show(panelBodyContainer, "3");
+	}
+	
+	public void showBrowseMLB()
+	{
+		c1.show(panelBodyContainer, "4");
+	}
+	
+	public void showContactUS()
+	{
+		c1.show(panelBodyContainer, "5");
+	}
+	
+	public void showFAQs()
+	{
+		c1.show(panelBodyContainer, "6");
+	}
+	
+	/**
+	 * Label used to display the title and icon of the currently selected page
+	 * 
+	 * @param title
+	 *            Title of the current page
+	 * @param icon
+	 *            Icon related to the current page
+	 * @return Label combining the title and icon of the current page
+	 */
+	protected JLabel getLabel(String title, String icon)
+	{
+		JLabel label = new JLabel(title);
+		try
+		{
+			label.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(icon))));
+		}
+		catch (IOException ex)
+		{
+			ex.printStackTrace();
+		}
+		return label;
+	}
+	
+	public void loadUserInfoIntoControls()
+	{
 		home.loadUserInfoIntoControls();
 		enterStats.loadUserInfoIntoControls();
 	}
