@@ -1,12 +1,5 @@
-/*
-File: Help.java
-Author:	
-Date:	
-
-Description: GUI for the help page
-
- */
 package gui;
+
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -19,19 +12,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Class: Help
+ * GUI containing all components of the FAQ page including the panels for all questions
+ * and the panels that are displayed for each answer respective to the questions
  * 
- * Description: GUI for the help page
+ * @author SerSports
  */
 public class Help extends JPanel
 {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -2930809141431853923L;
 	CardLayout c1 = new CardLayout();
 	JPanel faqContainer = new JPanel();
 	
+	/*
+	 * List of frequently asked questions
+	 */
 	protected ModifiedJButtonStyle1 ageRequirementQ = new ModifiedJButtonStyle1(
 			"Is there an age requirement to create an account?");
 	protected ModifiedJButtonStyle1 abbreviationsQ = new ModifiedJButtonStyle1(
@@ -50,9 +44,7 @@ public class Help extends JPanel
 	StatisticViewQ viewStats = new StatisticViewQ();
 	
 	/**
-	 * Method: Constructor Inputs: None Returns:
-	 * 
-	 * Description: Creates the panel
+	 * Creates the panel for all of the frequently asked questions
 	 */
 	public Help()
 	{
@@ -98,6 +90,9 @@ public class Help extends JPanel
 		deletedStatisticsQ.setBounds(79, 344, 412, 29);
 		add(deletedStatisticsQ);
 		
+		/*
+		 * Displays all answers for the questions when they are selected
+		 */
 		ageRequirementQ.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
