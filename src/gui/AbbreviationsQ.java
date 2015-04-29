@@ -6,17 +6,20 @@ import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JLabel;
 
+/**
+ * Displays a panel on the FAQ page containing all abbreviations and their given
+ * definitions
+ * 
+ * @author SerSports
+ */
 public class AbbreviationsQ extends JPanel
 {
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -6529128873635518316L;
 
 	/**
-	 * Create the panel.
-	 */
+	* Creates the panel containing all of the abbreviations used throughout the program
+	* as well as their definitions
+	*/
 	public AbbreviationsQ()
 	{
 		setBackground(new Color(47, 52, 64));
@@ -31,7 +34,5 @@ public class AbbreviationsQ extends JPanel
 		AbbreviationsA.setFont(new Font("Myanmar Sangam MN", Font.PLAIN, 14));
 		AbbreviationsA.setForeground(new Color(244, 229, 192));
 		add(AbbreviationsA);
-		
 	}
-	
 }
