@@ -1,11 +1,3 @@
-/*
-File: MlbStatsGui.java
-Author:	
-Date:	
-
-Description: GUI for displaying/searching the MLB Stats database
-
- */
 package gui;
 
 import java.awt.Dimension;
@@ -19,12 +11,13 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * Class: MlbStatsGui
+ * GUI used to display/search the MLB statistics database
  * 
- * Description: GUI for Mlb Stats database
+ * @author SerSports
  */
-public class MlbStatsGui extends JPanel {
-
+public class MlbStatsGui extends JPanel
+{
+	
 	private static final long serialVersionUID = 1L;
 	protected ModifiedJTextField txtFirstName = new ModifiedJTextField();
 	protected ModifiedJTextField txtLastName = new ModifiedJTextField();
@@ -32,43 +25,48 @@ public class MlbStatsGui extends JPanel {
 	protected ModifiedJTable table;
 	protected ModifiedJButtonStyle1 btnSeePlayerStats;
 	protected ModifiedJButtonStyle1 btnCompareToPlayer;
-	protected ModifiedJButtonStyle1 submitPlayerSearchButton = new ModifiedJButtonStyle1("Submit");
+	protected ModifiedJButtonStyle1 submitPlayerSearchButton = new ModifiedJButtonStyle1(
+			"Submit");
 	protected ModifiedJTable mlbbattingTable;
 	protected ModifiedJTable mlbfieldingTable;
 	protected ModifiedJTable mlbpitchingTable;
 	protected JLabel lblMlbPlayerName;
 	protected JLabel lblMlbPlayerTeam;
-
+	
 	/**
-	 * Method: Constructor Inputs: None Returns:
-	 * 
-	 * Description: Creates the panel
+	 * Creates the panel for all components of the MLB statistics GUI
 	 */
-	public MlbStatsGui() {
+	public MlbStatsGui()
+	{
 		JLabel logo = new JLabel("");
 		logo.setBounds(6, 0, 152, 55);
 		add(logo);
-		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/images/LogoBottom.png"))
+				.getImage();
 		logo.setIcon(new ImageIcon(img));
 		setPreferredSize(new Dimension(1000, 600));
 		setBackground(new Color(47, 52, 64));
 		setLayout(null);
-
-		// Menu Indicator
+		
+		/*
+		 * Menu Indicator
+		 */
 		JLabel diamond = new JLabel("");
 		diamond.setBounds(834, -48, 64, 64);
-		Image img2 = new ImageIcon(this.getClass().getResource(
-				"/images/diamond.png")).getImage();
+		Image img2 = new ImageIcon(this.getClass().getResource("/images/diamond.png"))
+				.getImage();
 		add(diamond);
 		diamond.setIcon(new ImageIcon(img2));
-		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png")).getImage();
+		Image imgBorder = new ImageIcon(this.getClass().getResource("/images/Border.png"))
+				.getImage();
 		
 		JLabel line = new JLabel("");
 		line.setBounds(721, 76, 261, 4);
 		add(line);
-		Image imgline = new ImageIcon(this.getClass().getResource("/images/LineSignInPage.png")).getImage();
+		Image imgline = new ImageIcon(this.getClass().getResource(
+				"/images/LineSignInPage.png")).getImage();
 		line.setIcon(new ImageIcon(imgline));
-
+		
 		ModifiedJScrollPane scrollPane = new ModifiedJScrollPane();
 		scrollPane.setBounds(30, 251, 433, 171);
 		add(scrollPane);
@@ -79,47 +77,62 @@ public class MlbStatsGui extends JPanel {
 		lblIndividualStatistics.setBounds(711, 38, 257, 41);
 		lblIndividualStatistics.setForeground(new Color(244, 229, 192));
 		add(lblIndividualStatistics);
-
+		
 		table = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
-				"First Name", "Last Name", "Team"}));
+				"First Name", "Last Name", "Team" }));
 		scrollPane.setViewportView(table);
-
+		
+		/*
+		 * Button used to see an MLB player's statistics
+		 */
 		btnSeePlayerStats = new ModifiedJButtonStyle1("See Player Stats");
 		btnSeePlayerStats.setBounds(250, 443, 125, 28);
 		btnSeePlayerStats.setActionCommand("SeePlayerStats");
 		add(btnSeePlayerStats);
-
+		
+		/*
+		 * Button used to compare two selected players
+		 */
 		btnCompareToPlayer = new ModifiedJButtonStyle1("Compare to Player");
 		btnCompareToPlayer.setBounds(100, 443, 125, 28);
 		btnCompareToPlayer.setActionCommand("CompareToPlayer");
 		add(btnCompareToPlayer);
-
+		
+		/*
+		 * Search field for an MLB player's first name
+		 */
 		txtFirstName.setText("First Name");
 		txtFirstName.setBounds(134, 64, 225, 31);
-		txtFirstName.addFocusListener(new ModifiedFocusAdapter(txtFirstName, "First Name"));
+		txtFirstName
+				.addFocusListener(new ModifiedFocusAdapter(txtFirstName, "First Name"));
 		add(txtFirstName);
-
+		
+		/*
+		 * Search field for an MLB player's last name
+		 */
 		txtLastName.setBounds(134, 103, 225, 31);
 		txtLastName.setText("Last Name");
 		txtLastName.addFocusListener(new ModifiedFocusAdapter(txtLastName, "Last Name"));
 		add(txtLastName);
-
+		
+		/*
+		 * Search field for an MLB player's team
+		 */
 		txtTeam.setBounds(134, 142, 225, 31);
 		txtTeam.setText("Team");
 		txtTeam.addFocusListener(new ModifiedFocusAdapter(txtTeam, "Team"));
 		add(txtTeam);
-
-
+		
 		submitPlayerSearchButton.setBounds(184, 197, 125, 28);
 		add(submitPlayerSearchButton);
 		submitPlayerSearchButton.setActionCommand("submitPlayerSearchButton");
-
+		
 		lblMlbPlayerName = new JLabel("");
 		lblMlbPlayerName.setFont(new Font("Helvetica", Font.BOLD, 14));
 		lblMlbPlayerName.setForeground(new Color(244, 229, 192));
 		lblMlbPlayerName.setBounds(475, 38, 235, 16);
 		add(lblMlbPlayerName);
-
+		
 		lblMlbPlayerTeam = new JLabel("");
 		lblMlbPlayerTeam.setFont(new Font("Helvetica", Font.BOLD, 14));
 		lblMlbPlayerTeam.setForeground(new Color(244, 229, 192));
@@ -129,28 +142,35 @@ public class MlbStatsGui extends JPanel {
 		ModifiedJScrollPane scrollPane_3 = new ModifiedJScrollPane();
 		scrollPane_3.setBounds(475, 249, 493, 97);
 		add(scrollPane_3);
-
-		mlbpitchingTable = new ModifiedJTable(
-				new DefaultTableModel(null, new Object[] { "GP", "W", "L",
-						"ERA", "SAVES", "HITS", "HOLDS", "RUNS", "BB" }));
+		
+		/*
+		 * Table containing statistics for pitching of a selected MLB player
+		 */
+		mlbpitchingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
+				"GP", "W", "L", "ERA", "SAVES", "HITS", "HOLDS", "RUNS", "BB" }));
 		scrollPane_3.setViewportView(mlbpitchingTable);
-
+		
 		ModifiedJScrollPane scrollPane_2 = new ModifiedJScrollPane();
 		scrollPane_2.setBounds(475, 372, 493, 97);
 		add(scrollPane_2);
-
+		
+		/*
+		 * Table containing statistics for fielding of a selected MLB player
+		 */
 		mlbfieldingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
 				"GP", "Wins", "Losses", "PO", "Err", "Assist", "F%" }));
 		scrollPane_2.setViewportView(mlbfieldingTable);
-
 		
 		ModifiedJScrollPane scrollPane_1 = new ModifiedJScrollPane();
 		scrollPane_1.setBounds(475, 126, 493, 97);
 		add(scrollPane_1);
 		
-		mlbbattingTable = new ModifiedJTable(new DefaultTableModel(null, new Object[] {
-				"GP", "AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB", "HR",
-				"SO", "BA" }));
+		/*
+		 * Table containing statistics for batting of a selected MLB player
+		 */
+		mlbbattingTable = new ModifiedJTable(new DefaultTableModel(null,
+				new Object[] { "GP", "AB", "H", "RBI", "1B", "2B", "3B", "Runs", "SB",
+						"HR", "SO", "BA" }));
 		scrollPane_1.setViewportView(mlbbattingTable);
 		
 		JLabel lblBatting = new JLabel("BATTING STATS");
@@ -159,7 +179,7 @@ public class MlbStatsGui extends JPanel {
 		lblBatting.setBounds(475, 111, 165, 16);
 		lblBatting.setForeground(new Color(244, 229, 192));
 		add(lblBatting);
-
+		
 		JLabel lblFielding = new JLabel("FIELDING STATS");
 		lblFielding.setHorizontalAlignment(SwingConstants.LEFT);
 		lblFielding.setFont(new Font("Helvetica", Font.BOLD, 16));
@@ -174,11 +194,10 @@ public class MlbStatsGui extends JPanel {
 		lblPitching.setForeground(new Color(244, 229, 192));
 		add(lblPitching);
 		
-				// border
-				JLabel lblBorderlayout = new JLabel("");
-				lblBorderlayout.setBounds(16, 16, 968, 483);
-				add(lblBorderlayout);
-				lblBorderlayout.setIcon(new ImageIcon(imgBorder));
-
+		JLabel lblBorderlayout = new JLabel("");
+		lblBorderlayout.setBounds(16, 16, 968, 483);
+		add(lblBorderlayout);
+		lblBorderlayout.setIcon(new ImageIcon(imgBorder));
+		
 	}
 }
