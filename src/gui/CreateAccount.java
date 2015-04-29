@@ -123,7 +123,7 @@ public class CreateAccount extends JPanel {
 		
 			backButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent arg0){
-						main.showLoginGUI();
+						MainGUI.showLoginGUI();
 				}
 			});
 
