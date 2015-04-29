@@ -124,7 +124,6 @@ public class SportsPicsApi
 			throws MalformedURLException, IOException
 	{
 		String urlString = getApiUrlString(assetId);
-		urlString = new String("12312"); // Arbitrary Value
 		URL url = new URL(urlString);
 		Image pic = ImageIO.read(url);
 		
@@ -158,8 +157,7 @@ public class SportsPicsApi
 		}
 		catch (FileNotFoundException e)
 		{
-			System.out
-					.println("Error in getManifestNodeList():  Can't find manifest file!");
+			System.out.println("Error in getManifestNodeList():  Can't find manifest file!");
 			throw new UnableToLoadManifestException();
 		}
 		catch (SAXException e)
